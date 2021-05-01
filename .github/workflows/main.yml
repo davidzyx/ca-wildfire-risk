@@ -19,9 +19,13 @@ jobs:
           docker build --rm --force-rm -t "${IMAGE_NAME}" .
           echo -n "Built image size: "
           docker images "${IMAGE_NAME}" --format "{{.Size}}"
-      # - name: Login to Dockerhub
-      #   run: >
-      #     echo '${{secrets.DOCKERHUB_PASSWORD}}' | docker login
-      #     -u '${{secrets.DOCKERHUB_USERNAME}}' --password-stdin
-      # - name: Push to Dockerhub
-      #   run: docker push "${IMAGE_NAME}"
+      - name: Test and coverage
+        run:  >
+          docker run --rm -it "${IMAGE_NAME}"
+          python -m pytest --cov=src tests/
+      - name: Login to Dockerhub
+        run: >
+          echo '${{secrets.DOCKERHUB_PASSWORD}}' | docker login
+          -u '${{secrets.DOCKERHUB_USERNAME}}' --password-stdin
+      - name: Push to Dockerhub
+        run: docker push "${IMAGE_NAME}"
