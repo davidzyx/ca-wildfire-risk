@@ -1,2 +1,5 @@
 pandas
 matplotlib
+sphinx
+pytest
+coverage
