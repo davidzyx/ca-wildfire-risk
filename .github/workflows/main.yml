@@ -21,7 +21,7 @@ jobs:
           docker images "${IMAGE_NAME}" --format "{{.Size}}"
       - name: Test and coverage
         run:  >
-          docker run --rm -it "${IMAGE_NAME}"
+          docker run --rm "${IMAGE_NAME}"
           python -m pytest --cov=src tests/
       - name: Login to Dockerhub
         run: >
