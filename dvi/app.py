@@ -1,3 +1,5 @@
+## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
+
 import plotly.graph_objects as go # or plotly.express as px
 import pandas as pd
 import dash
@@ -8,22 +10,22 @@ import numpy as np
 import utils
 
 
-
-
 colors = {
     'background': '#111111',
     'text': '#7FDBFF'
 }
 
+# Preprocessing Data
 data = pd.read_csv("https://www.fire.ca.gov/imapdata/mapdataall.csv")
-data=data[data['incident_acres_burned'].notnull()]
-data=data[data['incident_dateonly_extinguished'].notnull()]
-int_time_column = data['incident_dateonly_extinguished'].apply(utils.date_to_int)
+data=data[data['incident_acres_burned'].notnull()] # Dropping Nulls
+data=data[data['incident_dateonly_extinguished'].notnull()] # Dropping Nulls
+int_time_column = data['incident_dateonly_extinguished'].apply(utils.date_to_int) #Converting date to int for comparing dates
 data['int_time'] = list(int_time_column)
-data = data[data.int_time > 20100000]
+data = data[data.int_time > 20100000] # Dropping wrong/invalid dates
 
 
 
+# Map Widget
 fig = px.scatter_mapbox(data, lat="incident_latitude",
  lon="incident_longitude", color="int_time", size='incident_acres_burned', zoom=4, height=500,
   width=850, size_max=22, hover_name='incident_name', hover_data=['incident_county'],
@@ -42,6 +44,7 @@ fig.update_layout(
 )
 
 
+# Building App Layout
 app = dash.Dash(__name__)
 app.layout =html.Div(style={},children=[
     html.Div(style={'backgroundColor':colors['background']} ,children=[
@@ -52,5 +55,7 @@ app.layout =html.Div(style={},children=[
     ])
 ])
 
+# Running App (Port 8050 by default)
 app.run_server(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
-# lsof -ti tcp:8050 | xargs kill -9
+
+## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
