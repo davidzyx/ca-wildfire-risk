@@ -26,14 +26,15 @@ data = data[data.int_time > 20100000] # Dropping wrong/invalid dates
 
 
 # Map Widget
+px.set_mapbox_access_token(open(".mapbox_token").read())
+
 fig = px.scatter_mapbox(data, lat="incident_latitude",
  lon="incident_longitude", color="int_time", size='incident_acres_burned', zoom=4, height=500,
-  width=850, size_max=22, hover_name='incident_name', hover_data=['incident_county'],
+  width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"],
    color_continuous_scale=["red",  "blue"]
    )
 
 
-fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig.update_layout(
     title='Wildfires on California Map',
