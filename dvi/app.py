@@ -9,11 +9,23 @@ import plotly.express as px
 import numpy as np
 import utils
 from datetime import datetime
+from urllib.request import urlopen
+import json
+from collections import defaultdict
+
+with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
+    counties = json.load(response)
+
+unique_ca_counties = set()
+for feature in counties['features']:
+    unique_ca_counties.add(feature['properties']['name'])
+
 
 colors = {
     'background': '#111111',
     'text': '#7FDBFF'
 }
+    
 
 # Preprocessing Data
 data = pd.read_csv("https://www.fire.ca.gov/imapdata/mapdataall.csv")
@@ -21,6 +33,26 @@ data=data[data['incident_acres_burned'].notnull()] # Dropping Nulls
 data=data[data['incident_dateonly_extinguished'].notnull()] # Dropping Nulls
 data['date'] = pd.to_datetime(data['incident_dateonly_extinguished'])
 data = data[data.date >  datetime.strptime('2010-01-01', '%Y-%m-%d')] # Dropping wrong/invalid dates
+
+
+def getCountyNumbersDF(start_date, end_date):
+    tmp_df = data[(data.date >= start_date) & (data.date <= end_date)]
+
+    county_numbers = defaultdict(int)
+
+    counties_in_range = tmp_df['incident_county']
+    for affected_counties in counties_in_range:
+        if isinstance(affected_counties, float): # check if nan
+            continue
+
+        split_counties = affected_counties.strip().split(',')
+
+        for split_county in split_counties:
+            if split_county in unique_ca_counties:
+                county_numbers[split_county] += 1
+
+    return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
+
 
 min_date = min(data.date)
 max_date = max(data.date)
@@ -38,22 +70,10 @@ date_picker_widget = dcc.DatePickerRange(
 # Map Widget
 px.set_mapbox_access_token(open(".mapbox_token").read())
 
-fig = px.scatter_mapbox(
-    data, lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', zoom=4, height=500,
-    width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
-    color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}
-)
 
+cali_map = dcc.Graph(id='cali_map')
+county_map = dcc.Graph(id='county_map')
 
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-fig.update_layout(
-    title='Wildfires on California Map',
-    autosize=True,
-    hovermode='closest',
-    showlegend=True,
-)
-
-cali_map = dcc.Graph(id='cali_map', figure=fig)
 
 # Building App Layout
 app = dash.Dash(__name__)
@@ -61,30 +81,44 @@ header = html.Div(style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard'),
     ])
 
-app.layout = html.Div(style={},children=[header, cali_map, date_picker_widget])
+app.layout = html.Div(style={},children=[header, cali_map, date_picker_widget, county_map])
 
 
 @app.callback(
     dash.dependencies.Output('cali_map', 'figure'),
     [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
-def update_output(start_date, end_date):
-    new_fig = px.scatter_mapbox(
+def update_cali_map(start_date, end_date):
+    fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
         zoom=4, height=500, width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}
     )
 
-    new_fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    new_fig.update_layout(
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(
         title='Wildfires on California Map',
         autosize=True,
         hovermode='closest',
         showlegend=True,
     ) 
 
-    return new_fig
+    return fig
 
 
+@app.callback(
+    dash.dependencies.Output('county_map', 'figure'),
+    [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
+def update_county_map(start_date, end_date):
+    county_map_fig = px.choropleth(
+        getCountyNumbersDF(start_date, end_date), geojson=counties, locations='county', 
+        color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
+        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}
+    )
+
+    county_map_fig.update_geos(fitbounds='geojson', visible=False)
+    county_map_fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+
+    return county_map_fig
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
