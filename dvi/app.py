@@ -9,6 +9,7 @@ import plotly.express as px
 import numpy as np
 import utils
 from datetime import datetime
+import json
 
 
 colors = {
@@ -53,12 +54,18 @@ header = html.Div(style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard'),
     ])
 
-cali_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=cali_map)
+cali_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px', 'columnCount': 2}, children=[cali_map,  html.Div(
+        html.Pre(id='lasso', style={'overflowY': 'scroll', 'height': '50vh'})
+    ),])
+
 county_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
-first_row = html.Div(style={'columnCount': 2}, children=[cali_map_div, county_map_div])
+county_pie_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_pie)
+
 date_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
-pie_row = html.Div(style={'textAlign': 'center'}, children=county_pie)
-app.layout = html.Div(style={'border':'2px black solid'},children=[header, first_row, date_picker_row, pie_row])
+
+second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
+
+app.layout = html.Div(style={'border':'2px black solid'},children=[header, date_picker_row, cali_map_div, second_row])
 
 
 @app.callback(
@@ -89,7 +96,7 @@ def update_county_map(start_date, end_date):
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='County Incident Frequency', 
-        width=850, height=500
+        width=800, height=800
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
@@ -106,9 +113,22 @@ def update_county_pie(start_date, end_date):
         width=800, height=800, title='County Incident Distribution'
     )
 
-    county_pie_fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    county_pie_fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
 
     return county_pie_fig
+
+@app.callback(
+    dash.dependencies.Output('lasso', 'children'),
+    [dash.dependencies.Input('cali_map', 'selectedData')])
+def display_data(selectedData):
+    if not selectedData:
+        return 'No selected fires!'
+
+    returnStr = ''
+    for pt in selectedData['points']:
+        returnStr += f"{pt['hovertext']} - Size: TODO, Location: ({pt['lon']:.2f}, {pt['lat']:.2f})\n"
+    
+    return returnStr
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
