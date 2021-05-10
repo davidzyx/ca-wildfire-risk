@@ -9,16 +9,6 @@ import plotly.express as px
 import numpy as np
 import utils
 from datetime import datetime
-from urllib.request import urlopen
-import json
-from collections import defaultdict
-
-with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
-    counties = json.load(response)
-
-unique_ca_counties = set()
-for feature in counties['features']:
-    unique_ca_counties.add(feature['properties']['name'])
 
 
 colors = {
@@ -33,25 +23,6 @@ data=data[data['incident_acres_burned'].notnull()] # Dropping Nulls
 data=data[data['incident_dateonly_extinguished'].notnull()] # Dropping Nulls
 data['date'] = pd.to_datetime(data['incident_dateonly_extinguished'])
 data = data[data.date >  datetime.strptime('2010-01-01', '%Y-%m-%d')] # Dropping wrong/invalid dates
-
-
-def getCountyNumbersDF(start_date, end_date):
-    tmp_df = data[(data.date >= start_date) & (data.date <= end_date)]
-
-    county_numbers = defaultdict(int)
-
-    counties_in_range = tmp_df['incident_county']
-    for affected_counties in counties_in_range:
-        if isinstance(affected_counties, float): # check if nan
-            continue
-
-        split_counties = affected_counties.strip().split(',')
-
-        for split_county in split_counties:
-            if split_county in unique_ca_counties:
-                county_numbers[split_county] += 1
-
-    return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
 
 min_date = min(data.date)
@@ -110,7 +81,7 @@ def update_cali_map(start_date, end_date):
     [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
 def update_county_map(start_date, end_date):
     county_map_fig = px.choropleth(
-        getCountyNumbersDF(start_date, end_date), geojson=counties, locations='county', 
+        utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}
     )

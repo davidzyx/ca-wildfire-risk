@@ -1,30 +1,45 @@
 import numpy as np
 import pandas as pd
+from collections import defaultdict
+from urllib.request import urlopen
+import json
+
+with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
+    counties = json.load(response)
+
+unique_ca_counties = set()
+for feature in counties['features']:
+    unique_ca_counties.add(feature['properties']['name'])
 
 
-def date_to_int(string_date):
-    """
-    Converts 'date' to an integer for comparing purposes
+def getCountyNumbersDF(data, start_date, end_date):
+    '''
+    Returns a new pandas dataframe with county incident numbers from a specific date range
 
-    inputs:
-    string_date -- date in the form of an string (ex: 2021-02-12)
+    :param data: the original dataframe from the Calfire csv
+    :type data: pandas DF
+    :param start_date: the start date which we are filtering by
+    :type start_date: datetime object
+    :param end_date: the end date which we are filtering by
+    :type end_date: datetime object
+    '''
 
-    output:
-    integer form of date (ex: 20210212)
-    """
-    splitted_string_date =  string_date.split('-')
-    result = ''
-    for element in splitted_string_date:
-        result += element
+    tmp_df = data[(data.date >= start_date) & (data.date <= end_date)]
 
-    return int(result)
+    county_numbers = defaultdict(int)
 
+    counties_in_range = tmp_df['incident_county']
+    for affected_counties in counties_in_range:
+        if isinstance(affected_counties, float): # check if nan
+            continue
 
+        split_counties = affected_counties.strip().split(',')
 
-# data = pd.read_csv("https://www.fire.ca.gov/imapdata/mapdataall.csv")
-# data=data[data['incident_dateonly_extinguished'].notnull()]
-# int_time_column = data['incident_dateonly_extinguished'].apply(date_to_int)
-# data['int_time'] = list(int_time_column)
-# data = data[data.int_time > 20100000]
+        for split_county in split_counties:
+            if split_county in unique_ca_counties:
+                county_numbers[split_county] += 1
+
+    return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
+
 
 
