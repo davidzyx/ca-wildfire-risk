@@ -44,6 +44,7 @@ px.set_mapbox_access_token(open(".mapbox_token").read())
 
 cali_map = dcc.Graph(id='cali_map')
 county_map = dcc.Graph(id='county_map')
+county_pie = dcc.Graph(id='county_pie')
 
 
 # Building App Layout
@@ -52,7 +53,12 @@ header = html.Div(style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard'),
     ])
 
-app.layout = html.Div(style={},children=[header, cali_map, date_picker_widget, county_map])
+cali_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=cali_map)
+county_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
+first_row = html.Div(style={'columnCount': 2}, children=[cali_map_div, county_map_div])
+date_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
+pie_row = html.Div(style={'textAlign': 'center'}, children=county_pie)
+app.layout = html.Div(style={'border':'2px black solid'},children=[header, first_row, date_picker_row, pie_row])
 
 
 @app.callback(
@@ -62,12 +68,11 @@ def update_cali_map(start_date, end_date):
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
         zoom=4, height=500, width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
-        color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}
+        color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
     fig.update_layout(
-        title='Wildfires on California Map',
         autosize=True,
         hovermode='closest',
         showlegend=True,
@@ -83,13 +88,27 @@ def update_county_map(start_date, end_date):
     county_map_fig = px.choropleth(
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
-        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}
+        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='County Incident Frequency', 
+        width=850, height=500
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
-    county_map_fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    county_map_fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
 
     return county_map_fig
+
+@app.callback(
+    dash.dependencies.Output('county_pie', 'figure'),
+    [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
+def update_county_pie(start_date, end_date):
+    county_pie_fig = px.pie(
+        utils.getCountyNumbersDF(data, start_date, end_date), values='Number of County Incidents', names='county', 
+        width=800, height=800, title='County Incident Distribution'
+    )
+
+    county_pie_fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+
+    return county_pie_fig
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
