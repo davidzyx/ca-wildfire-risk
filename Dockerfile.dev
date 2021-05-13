@@ -12,4 +12,3 @@ RUN chown $NB_USER:$NB_GID /app
 USER $NB_USER
 
 EXPOSE 8050
-CMD python src/app.py
