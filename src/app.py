@@ -10,6 +10,7 @@ import numpy as np
 import utils
 from datetime import datetime
 import json
+from os import path, environ
 
 
 colors = {
@@ -40,7 +41,10 @@ date_picker_widget = dcc.DatePickerRange(
 
 
 # Map Widget
-px.set_mapbox_access_token(open(".mapbox_token").read())
+if path.exists('.mapbox_token'):
+    px.set_mapbox_access_token(open(".mapbox_token").read())
+elif environ['mapbox_token']:
+    px.set_mapbox_access_token(environ['mapbox_token'])
 
 
 cali_map = dcc.Graph(id='cali_map')
@@ -132,6 +136,6 @@ def display_data(selectedData):
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
-    app.run_server(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
+    app.run_server(host='0.0.0.0', debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
 
 ## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
