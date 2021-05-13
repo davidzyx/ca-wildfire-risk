@@ -43,8 +43,8 @@ date_picker_widget = dcc.DatePickerRange(
 # Map Widget
 if path.exists('.mapbox_token'):
     px.set_mapbox_access_token(open(".mapbox_token").read())
-elif environ['mapbox_token']:
-    px.set_mapbox_access_token(environ['mapbox_token'])
+elif environ['MAPBOX_TOKEN']:
+    px.set_mapbox_access_token(environ['MAPBOX_TOKEN'])
 
 
 cali_map = dcc.Graph(id='cali_map')
