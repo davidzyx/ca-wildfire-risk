@@ -1,6 +1,9 @@
 pandas
+numpy
 matplotlib
 sphinx
 pytest
 pytest-cov
 coverage
+dash
+plotly
