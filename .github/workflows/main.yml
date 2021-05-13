@@ -29,3 +29,17 @@ jobs:
           -u '${{secrets.DOCKERHUB_USERNAME}}' --password-stdin
       - name: Push to Dockerhub
         run: docker push "${IMAGE_NAME}"
+      - name: Substitute image name for fly deploy template
+        uses: danielr1996/envsubst-action@1.0.0
+        env:
+            VERSION: 1.2.3
+            INSTANCE: staging
+        with:
+          input: fly.toml.template
+          output: fly.toml
+      - name: Deploy to Fly
+        uses: superfly/flyctl-actions@master
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        with:
+          args: "deploy"
