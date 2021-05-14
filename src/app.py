@@ -43,8 +43,10 @@ date_picker_widget = dcc.DatePickerRange(
 # Map Widget
 if path.exists('.mapbox_token'):
     px.set_mapbox_access_token(open(".mapbox_token").read())
-elif environ['MAPBOX_TOKEN']:
+elif 'MAPBOX_TOKEN' in environ.keys():
     px.set_mapbox_access_token(environ['MAPBOX_TOKEN'])
+else:
+    print("TOKEN not found in env or local dir")
 
 
 cali_map = dcc.Graph(id='cali_map')
@@ -136,6 +138,10 @@ def display_data(selectedData):
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
-    app.run_server(host='0.0.0.0', debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
+    if 'PORT' in environ.keys():
+        port = int(environ['PORT'])
+    else:
+        port = 8050
+    app.run_server(host='0.0.0.0', debug=True, use_reloader=False, port=port)  # Turn off reloader if inside Jupyter
 
 ## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
