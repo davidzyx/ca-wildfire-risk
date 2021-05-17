@@ -11,6 +11,7 @@ unique_ca_counties = set()
 for feature in counties['features']:
     unique_ca_counties.add(feature['properties']['name'])
 
+ca_counties_list = sorted(unique_ca_counties)
 
 def getCountyNumbersDF(data, start_date, end_date):
     '''
@@ -41,5 +42,20 @@ def getCountyNumbersDF(data, start_date, end_date):
 
     return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
+def getCountyPredictions(queried_counties, month):
+    '''
+    Returns a new pandas dataframe with predicted county incident numbers for a specific month
+
+    :param queried_counties: the counties that are being queried
+    :type queried_counties: str
+    :param month: the month that is being queried
+    :type month: str
+    '''
+
+    #TODO: insert logic to predict using saved model
+    # return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': [model.predict(county, month) for county in queried_counties]})
+
+    # below is a placeholder
+    return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': list(range(100))[:len(queried_counties)]})
 
 
