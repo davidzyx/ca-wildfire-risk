@@ -1,0 +1,1738 @@
+,Unnamed: 0,incident_control,incident_containment,incident_acres_burned,incident_name,calfire_incident,is_active,incident_id,incident_type,County,data_id
+0,0,,100.0,37.0, Bridge Fire,False,N,2ca11d45-8139-4c16-8af0-880d99b21e82,,Shasta,Shasta-2017-10
+1,1,,100.0,122.0,Pala Fire,True,N,8f61f461-552d-4538-b186-35ab030da416,Wildfire,San Diego,San Diego-2009-05
+2,2,,100.0,406.0,River Fire,True,N,094719ba-a47b-4abb-9ec5-a506b2b9fd23,,Inyo,Inyo-2013-02
+3,3,,100.0,30.0,Fawnskin Fire,False,N,58f89ff8-bd3e-4355-b1c0-8fa05c747d3f,,San Bernardino,San Bernardino-2013-04
+4,4,,100.0,274.0,Gold Fire,True,N,357ffc13-bef9-48eb-810f-c5de851972eb,,Madera,Madera-2013-04
+5,5,,100.0,6965.0,Panther Fire,True,N,53122f0f-fefc-4dbf-b2d8-566b42ced66d,,Lassen,Lassen-2013-05
+6,6,,100.0,75.0,Silverado Fire,True,N,d8d1c943-7b5d-4885-9043-f41075d6eded,,Napa,Napa-2013-04
+7,7,,100.0,125.0,Yellow Fire,True,N,64e4f81e-d872-44c4-ba8d-111fa77124ba,,Sonoma,Sonoma-2013-05
+8,8,,100.0,3166.0,Summit Fire,True,N,a1b14be5-a8cf-4e40-8588-96becf4c5879,,San Bernardino,San Bernardino-2013-05
+9,9,,100.0,354.0,Tres Pinos Fire,True,N,ca68f3c4-4906-4952-b794-4531d7da8369,,Merced,Merced-2013-05
+10,10,,100.0,217.0,306 Fire,True,N,5649e78d-7c26-4698-89a0-b0fa9a35cf78,,Glenn,Glenn-2013-05
+11,11,,100.0,75.0,Lytle Fire,True,N,e2c4b308-9a2d-483b-8434-999bef9adc7c,,San Bernardino,San Bernardino-2013-05
+12,12,,100.0,510.0,Gorgonio Fire,True,N,958ce6d2-97f9-4848-8620-d14ab87f329d,,Riverside,Riverside-2013-05
+13,13,,100.0,4346.0,Grand Fire,True,N,e0d038e9-0926-4c05-8317-ec7075a04b12,,Ventura,Ventura-2013-05
+14,14,,100.0,40.0,54 Fire,True,N,e215290f-d0b4-48fd-be32-f599959347b1,,Riverside,Riverside-2013-05
+15,15,,100.0,712.0,Lake Fire,True,N,39af7eac-c188-411f-8c8a-d165c5fca4a9,,Los Angeles,Los Angeles-2013-05
+16,16,,100.0,91.0,Lilly 2 Fire,True,N,2b765a08-c770-4b19-baa8-00dffe3fa838,,Madera,Madera-2013-05
+17,17,,100.0,35.0,Cottontail Fire,True,N,f17c523c-bf01-4245-899b-7c2331096dae,,San Luis Obispo,San Luis Obispo-2013-05
+18,18,,100.0,25.0,Cherry Fire,True,N,a60e315c-23d5-4ba4-869c-5c1e22a25e7a,,Riverside,Riverside-2013-05
+19,19,,100.0,90.0,Water Fire,True,N,13850faa-5bab-4fd7-bac3-433ce9250c4d,,Riverside,Riverside-2013-05
+20,20,,100.0,303.0,Shelton Fire,True,N,0b51d59b-457d-4a62-b066-55c2b8d400e2,,Stanislaus,Stanislaus-2013-05
+21,21,,100.0,100.0,Border Fire,True,N,e077e091-f890-477c-b948-eb23774b432e,,San Diego,San Diego-2013-05
+22,22,,100.0,2781.0,San Felipe Fire,True,N,859479e3-918c-42c6-bb74-5fdc17930a16,,San Diego,San Diego-2013-05
+23,23,,100.0,50.0,Homestead Fire,True,N,5b5ce06d-7ea9-4d28-b564-715fd0d04f3f,,San Luis Obispo,San Luis Obispo-2013-05
+24,24,,100.0,124.0,Smiley Fire,True,N,9795afee-7e60-4ab3-b5c3-7df67f91c5f9,,Riverside,Riverside-2013-05
+25,25,,100.0,1271.0,General Fire,True,N,07a5397c-a665-4f84-9a82-5f689cb2c8f3,,San Diego,San Diego-2013-05
+26,26,,100.0,1984.0,White Fire,False,N,abc61995-8bea-4be1-aa49-ee378ab3baaa,,Santa Barbara,Santa Barbara-2013-05
+27,27,,100.0,149.0,Magic Fire,True,N,794412f2-1ba2-4217-ac38-49272a96fb6f,,Los Angeles,Los Angeles-2013-05
+28,28,,100.0,170.0,Olive Fire,True,N,cb5f34a0-177e-445d-9349-dd94063a01d0,,Santa Barbara,Santa Barbara-2013-05
+29,29,,100.0,500.0,Branch Fire,False,N,213dc89e-9f29-4480-91a6-aec5fb694999,,San Luis Obispo,San Luis Obispo-2013-06
+30,30,,100.0,100.0,Murphy Fire,True,N,98bfbb7c-8446-4e2e-a268-7e961353723c,,Tuolumne,Tuolumne-2013-06
+31,31,All road closures have been lifted.,100.0,298.0,Lone Fire,True,N,1a5192f1-bc99-4130-8683-381e0534b76a,,Butte,Butte-2013-06
+32,32,,100.0,0.0,Hathaway Fire,False,N,befb9d5c-c0ea-48b8-8589-2586be0275af,,Riverside,Riverside-2013-06
+33,33,,100.0,28.0,Sonoma-Lake-Napa Unit Lightning Fires,True,N,5ce45b6c-81b5-422c-9078-8c68dd872c8a,,Solano,Solano-2013-06
+34,34,,100.0,124.0,152 Fire,True,N,f9e85371-fc46-4f54-822c-7dcdaadde551,,Merced,Merced-2013-06
+35,35,,100.0,30.0,Lake Fire,True,N,dcb21e64-9d38-47c2-848b-e8e0dea5c2de,,Lake,Lake-2013-06
+36,36,,100.0,30274.0,Powerhouse Fire,True,N,bf37805e-1cc2-4208-9972-753e47874c87,,Los Angeles,Los Angeles-2013-05
+37,37,,100.0,240.0,Vasco Fire,True,N,2ad509e4-99f1-4e1a-81eb-839f772f9c45,,Contra Costa,Contra Costa-2013-06
+38,38,,100.0,42.0,Viper Fire,True,N,e9505435-e861-4f33-9069-b0040fb2a135,,Riverside,Riverside-2013-06
+39,39,,100.0,60.0,Northern California Lightning Activity,True,N,369e41d4-75a6-4be0-a38a-5f7450553631,,Butte,Butte-2013-06
+40,40,,100.0,96.0,Roadrunner Fire,True,N,bf59bc5b-1398-4ae5-adef-6f61b9ee1b90,,Amador,Amador-2013-06
+41,41,,100.0,75.0,Revis Fire,True,N,7055a440-5d4c-4f58-bac9-2954ff6698a5,,Lake,Lake-2013-06
+42,42,,100.0,108.0,Clinton Fire,True,N,a2cfda2a-21c1-4e45-90b5-37d931b4a926,,Fresno,Fresno-2013-06
+43,43,,100.0,1708.0,Carstens Fire,True,N,bb2eb175-43a3-4a5c-bff6-e3669e52c1d1,,Mariposa,Mariposa-2013-06
+44,44,,100.0,237.0,PFE Fire,True,N,fe47b1c2-b9c0-44be-8d10-f270056db35c,,Placer,Placer-2013-06
+45,45,,100.0,35.0,Michelle Fire,True,N,953f17a1-2034-467b-b48c-28da1a9af60e,,Fresno,Fresno-2013-06
+46,46,,100.0,40.0,Palmyrita Fire,True,N,2d1f0c40-92e7-4540-991b-d353ed68ec6c,,Riverside,Riverside-2013-06
+47,47,,100.0,482.0,Rolling Fire,True,N,05d0fed7-8502-4a6f-9c5c-b9cee0e75408,,Madera,Madera-2013-06
+48,48,,100.0,124.0,California Fire,True,N,2b403f03-fe84-450a-90b7-befb8acc7e70,,Solano,Solano-2013-06
+49,49,,100.0,46.0,Sierra Fire,True,N,15e7e15d-f707-473e-b0f3-6534cfd845b7,,Fresno,Fresno-2013-06
+50,50,,100.0,150.0,George Fire,True,N,23ec2f69-da30-4983-80c2-1f04bfea6f9a,,Fresno,Fresno-2013-06
+51,51,,100.0,25.0,Mount Fire,True,N,d489b45e-dcba-4eaa-8bb5-6a23255562da,,Lake,Lake-2013-06
+52,52,,100.0,534.0,Mills Fire,True,N,6011819c-19ac-46c2-aa48-0ee8be0e48c0,,San Bernardino,San Bernardino-2013-06
+53,53,,100.0,274.0,Concord Fire,True,N,95399a9c-8b3e-4413-9f56-5ed57d3d81b3,,Butte,Butte-2013-07
+54,54,,100.0,105.0,Freeman Fire,True,N,58317b8d-7f4d-466f-b2c7-035c25fb00f0,,Monterey,Monterey-2013-06
+55,55,,100.0,492.0,Kirker Fire,True,N,522114fe-ada8-49a9-9bb2-5891103ff0ca,,Contra Costa,Contra Costa-2013-07
+56,56,,100.0,754.0,Northern Region July Lightning,True,N,42690ee2-a5ed-4320-9a55-d5ff3d1a80f5,,Butte,Butte-2013-07
+57,57,,100.0,502.0,Fox Fire (formally 3-7 Fire),True,N,8b51033d-abc6-4ea4-8983-990ad4e1c45e,,Modoc,Modoc-2013-07
+58,58,,100.0,200.0,Vina Fire,True,N,c94959d7-eb88-4724-8feb-ba0662afca10,,Tehama,Tehama-2013-07
+59,59,,100.0,50.0,Grant Fire,True,N,07fb8b11-f39b-4cd0-8a27-2d4fef7fe680,,Alameda,Alameda-2013-07
+60,60,,100.0,38.0,Fallon Fire,True,N,4c04a4e5-f580-4e62-bb53-2575c72d29dc,,Alameda,Alameda-2013-07
+61,61,,100.0,7055.0,Chariot Fire,True,N,ee19b2ec-a96a-4738-994e-fb3ea016e053,,San Diego,San Diego-2013-07
+62,62,,100.0,85.0,Adelaida Fire,True,N,a97d2b3a-3a53-424f-852c-5f1b8d199cc3,,San Luis Obispo,San Luis Obispo-2013-07
+63,63,,100.0,73.0,McGanney Fire,True,N,397ed8e6-6088-4e03-9316-8f50c65a83be,,Yuba,Yuba-2013-07
+64,64,,100.0,43.0,Fiddler Fire,True,N,3f64fc8a-8870-4e64-b60a-3e13c8532acd,,Shasta,Shasta-2013-07
+65,65,,100.0,572.0,Kyburz Fire,False,N,d778a3f0-2d23-43c1-b9bc-1ea33898fab2,,El Dorado,El Dorado-2013-07
+66,66,,100.0,50.0,Uvas Fire,True,N,e779a754-29fd-472f-8d29-46cfee32d3c2,,Santa Clara,Santa Clara-2013-07
+67,67,,100.0,150.0,Diablo Fire,True,N,873074c8-4b6d-417b-a78c-1d1430027805,,Stanislaus,Stanislaus-2013-07
+68,68,,100.0,27531.0,Mountain Fire,True,N,a3149fec-4d48-427c-8b2c-59e8b79d59db,,Riverside,Riverside-2013-07
+69,69,,100.0,0.0,Orleans Complex,False,N,7d4f107b-66a9-43d2-819d-ec855c2947bf,,Siskiyou,Siskiyou-2013-08
+70,70,,100.0,75.0,Silverwood Fire,True,N,ed51bbd2-6f8e-4f46-9073-3673a583fada,,San Bernardino,San Bernardino-2013-07
+71,71,,100.0,25.0,Flume Fire,True,N,c6cfeed9-55bb-4fdb-8a52-e4d947dba721,,Lake,Lake-2013-07
+72,72,,100.0,22992.0,Aspen Fire,False,N,bee8c339-4f26-4b78-a5b4-a8a0ebdb8786,,Fresno,Fresno-2013-07
+73,73,,100.0,14754.0,Salmon River Complex,False,N,ba76c009-09c9-497c-b923-1ac8cf05c20d,,Siskiyou,Siskiyou-2013-07
+74,74,,100.0,92.0,Branch Fire,True,N,0b51d3d5-bb3a-426d-9c12-c1878a01d7cf,,Butte,Butte-2013-08
+75,75,,100.0,150.0,Redlands Fire,True,N,d48a839f-d8da-44d7-9b35-b9f61aa28c61,,Riverside,Riverside-2013-07
+76,76,,100.0,60.0,Relay Fire,True,N,0658b1f8-5323-4152-b6d1-b208736587db,,Riverside,Riverside-2013-08
+77,77,,100.0,612.0,Water Fire,True,N,86faecab-ed3a-4fce-95cf-89433a825c72,,Kern,Kern-2013-07
+78,78,,100.0,45.0,Pratt Fire,True,N,f1d7f375-8aa3-4cb5-a864-bae9bb90cbd1,,Lake,Lake-2013-07
+79,79,Oak Knolls Road,100.0,712.0,Rancho Fire,True,N,591a56a5-e9c0-45a0-96bd-34098588c39b,,Kern,Kern-2013-07
+80,80,,100.0,195.0,Paskenta Fire,True,N,4423899b-6197-4ef5-9f73-bca1763f17e6,,Tehama,Tehama-2013-07
+81,81,,100.0,158.0,Lakeville Fire,True,N,c9b5d1ff-c042-4b39-8bac-b10fb6fc6c13,,Sonoma,Sonoma-2013-07
+82,82,,100.0,163.0,50 Fire,True,N,4630e9ce-88ec-4159-9bc9-25ff5f8216cc,,El Dorado,El Dorado-2013-07
+83,83,,100.0,40.0,Heacock Fire,True,N,8fb3a438-3146-4b8d-8f20-bfa8d6610f84,,Riverside,Riverside-2013-07
+84,84,,100.0,15.0,Gilman Fire,True,N,2b300dd5-4474-4b8a-9b4c-3a3014afe27d,,Riverside,Riverside-2013-07
+85,85,,100.0,31.0,Chuckwagon Fire,True,N,68dadbb3-6a63-483a-add9-491a69d9e0ad,,Calaveras,Calaveras-2013-07
+86,86,,100.0,1070.0,Power Fire,False,N,1e8441c2-f426-40b4-9f4f-3de9f7e232b9,,Tuolumne,Tuolumne-2013-08
+87,87,,100.0,1383.0,Falls Fire,True,N,4867ac70-663e-48f4-b9ae-ca0a486234ca,,Riverside,Riverside-2013-08
+88,88,,100.0,60.0,Tram Fire,False,N,ac568737-dae6-4050-b1f4-62ab1f9ec930,,Nevada,Nevada-2013-08
+89,89,,100.0,38.0,Indian Fire,True,N,b5b63934-923d-4504-a9b1-75c885477a8d,,Lake,Lake-2013-08
+90,90,Hwy 243 remains closed between Twin Pines Road and Westley Street in Banning due to road damage.,100.0,20292.0,Silver Fire,True,N,c400203b-a7fd-4bd8-803a-f3c74bc32a2b,,Riverside,Riverside-2013-08
+91,91,,100.0,12503.0,Corral Complex,False,N,f3dcbca8-f8ed-46d0-8f6e-9c7fc2fb03e6,,Humboldt,Humboldt-2013-08
+92,92,,100.0,50.0,Cottonwood Fire,True,N,e16c204e-58d6-4f78-bc97-729b16ef9f83,,Siskiyou,Siskiyou-2013-08
+93,93,,100.0,116.0,Union Fire,True,N,db009f8f-8b9d-44bb-a3f6-83f319c84d72,,El Dorado,El Dorado-2013-08
+94,94,,100.0,243.0,Sharp Fire,False,N,62eabea3-40be-497d-94e4-150f011b925f,,San Bernardino,San Bernardino-2013-08
+95,95,,100.0,27.0,Cloverdale Fire,True,N,0537a175-8fe9-4f5f-b56f-77848fa195f4,,Shasta,Shasta-2013-08
+96,96,,100.0,2462.0,Swedes Fire,True,N,0758e1c0-95ea-47e7-b5c1-5f3ea96bc664,,Butte,Butte-2013-08
+97,97,,100.0,27440.0,American Fire,False,N,8213f5c7-34fa-403b-a4bc-da2ace6e6625,,Placer,Placer-2013-08
+98,98,,100.0,97.0,Coyote Fire,True,N,2b84c8a2-e2e8-45a2-9221-e8075608c218,,Lassen,Lassen-2013-08
+99,99,,100.0,40.0,Pierce Fire,True,N,f23f8148-6ec4-4885-9729-0dad7c744485,,Riverside,Riverside-2013-08
+100,100,,100.0,70.0,Double Fire,True,N,ae025ba5-8b5d-48de-ad5e-3037de3d18e9,,Lake,Lake-2013-08
+101,101,,100.0,46.0,Bridges Fire,True,N,10445e2c-979d-49a2-82c2-c3789bd2449a,,Calaveras,Calaveras-2013-08
+102,102,,100.0,110.0,Cleghorn Fire,False,N,c7f05927-66a4-403c-9048-aeb42eca0211,,San Bernardino,San Bernardino-2013-08
+103,103,,100.0,8073.0,Clover Fire,True,N,92af9783-eda9-4186-afe9-447f61a92636,,Shasta,Shasta-2013-09
+104,104,,100.0,513.0,Plumas Lightning Complex (Hough),False,N,5015b3c2-2bae-4cce-9bf8-f1b25b0ce1e6,,Plumas,Plumas-2013-08
+105,105,,100.0,794.0,Shirley Fire,False,N,5421868e-52ba-4737-8169-325e0aa040e4,,Kern,Kern-2013-08
+106,106,,100.0,196.0,Burney Lightning Series (Warner Fire),True,N,f21a41c6-0905-4531-9bdf-2456d0051eed,,Shasta,Shasta-2013-08
+107,107,,100.0,200.0,Sierra Fire,False,N,f7358513-329f-4dba-8980-4cd3a19b469a,,San Bernardino,San Bernardino-2013-09
+108,108,,100.0,11429.0,Deer Fire,True,N,956dbcf6-db40-4b61-b235-4ede14738f1e,,Tehama,Tehama-2013-08
+109,109,,100.0,413.0,Gobblers Fire,False,N,b202bd85-c5ef-4bdf-8270-d556f95c3742,,San Bernardino,San Bernardino-2013-08
+110,110,,100.0,2060.0,Fish Fire,False,N,a4de6058-c68c-4924-bfb5-dc8ecc3b54c0,,Tulare,Tulare-2013-08
+111,111,,100.0,38.0,Empire Fire,True,N,fea7802f-ba70-450a-9ad1-96e2751293a9,,El Dorado,El Dorado-2013-08
+112,112,,100.0,97.0,Little Fire,False,N,b5109726-5e91-4c10-96f8-2a5bb72e5a59,,Riverside,Riverside-2013-08
+113,113,,100.0,41.0,Chestnut Fire,True,N,b30ee931-f349-4d21-a38a-d346c516b104,,San Francisco,San Francisco-2013-09
+114,114,,100.0,3111.0,Morgan Fire,True,N,e33b2d80-7fec-4470-9e79-440d349b0d95,,Contra Costa,Contra Costa-2013-09
+115,115,,100.0,134.0,Angora Fire,False,N,d332a628-6290-4e91-b8d0-4dc663b80c38,,Tulare,Tulare-2013-09
+116,116,,100.0,73.0,Liveoak Fire,True,N,31f21c59-8a94-4b17-91aa-88ca14817162,,San Bernardino,San Bernardino-2013-09
+117,117,,100.0,268.0,Madre Fire,False,N,eb5a3f2a-0c25-417a-af78-bb0d643247c7,,Los Angeles,Los Angeles-2013-09
+118,118,,100.0,97.0,Davis Creek Complex,False,N,308ce8d5-67c8-4edb-9e2f-bf6295f98d7e,,Modoc,Modoc-2013-09
+119,119,,100.0,52.0,Tyler Fire,True,N,1476673c-df55-4c39-b117-d9d067f8a020,,Nevada,Nevada-2013-08
+120,120,,100.0,80.0,Centerville Fire,True,N,dd374f36-e7cb-4a48-91ee-e8be101e0f88,,Butte,Butte-2013-08
+121,121,,100.0,68.0,Rail Fire,False,N,0875cf4e-9948-45ed-a76d-d74564319b49,,Modoc,Modoc-2013-09
+122,122,,100.0,257314.0,Rim Fire,True,N,5fb18d4d-213f-4d83-a179-daaf11939e78,,Tuolumne,Tuolumne-2013-08
+123,123,,100.0,263.0,Lyon Fire,True,N,f6f6fefa-ac4e-466f-815e-492416e37b98,,San Diego,San Diego-2013-09
+124,124,,100.0,30.0,Lakeshore Fire,True,N,51e00abb-53d0-4014-9224-2a853b1d6bcf,,Lake,Lake-2013-09
+125,125,,100.0,94.0,Creek Fire,True,N,ac469123-da14-4821-b824-c6cf66138514,,San Luis Obispo,San Luis Obispo-2013-09
+126,126,,100.0,98.0,Highland Fire,True,N,b20a2031-12c9-4e9c-9f44-ac82c26e6c66,,Lake,Lake-2013-09
+127,127,,100.0,376.0,Putah Fire,True,N,1f94fce5-49a5-4220-bc99-f003ab4d3e60,,Napa,Napa-2013-10
+128,128,,100.0,159.0,Crane Fire,True,N,1460f2d9-853b-4901-bed3-ac196e00bb3a,,Sonoma,Sonoma-2013-10
+129,129,,100.0,2236.0,DeLuz Fire,False,N,9fb847ce-44c7-4a11-a733-a6cc82838671,,Marin,Marin-2013-10
+130,130,,100.0,305.0,Summit Fire,True,N,d922e7c8-814a-412b-a40b-53072d0983ea,,Butte,Butte-2013-10
+131,131,,100.0,40.0,Baker Fire,True,N,9a110003-2f4c-4ac7-a3e5-b4e713f8d1fe,,Orange,Orange-2013-10
+132,132,,100.0,163.0,Capay Fire,True,N,0aa08938-eaab-4a60-8891-946197328f94,,Yolo,Yolo-2013-11
+133,133,,100.0,33.0,Dersch Fire,True,N,29a2efda-c28f-4a41-9c6d-8cb8f763d464,,Shasta,Shasta-2013-11
+134,134,Toro Creek Road remains closed to non-emergency traffic at Summit Road North of Highway 41. ,100.0,51.0,Toro Fire,True,N,587c03e3-4831-47c1-8c03-c08176e91b11,,San Luis Obispo,San Luis Obispo-2013-11
+135,135,,100.0,120.0,Cantwell Fire,True,N,20ba8b6b-78d4-46a7-995b-d8fa38cbf3b8,,Lake,Lake-2013-11
+136,136,,100.0,190.0,Silverado Fire,True,N,79d476e5-0b4d-48e2-a105-2bba5c1140e9,,Napa,Napa-2013-11
+137,137,,100.0,64.0,Wheeler Fire,True,N,0adb968c-eb85-41c5-8e08-04c0ec386c79,,Ventura,Ventura-2013-11
+138,138,,100.0,82.0,Retek Fire,True,N,e9e43213-b2fc-47bc-92cd-117ccd6e4780,,Mendocino,Mendocino-2013-11
+139,139,,100.0,3505.0,McCabe Fire,True,N,b4bc1480-cbb8-4ef2-8d5f-88a496d21d10,,Sonoma,Sonoma-2013-11
+140,140,,100.0,50.0,Bruner Fire,True,N,3f3e234c-04e1-4941-a79f-23ddc419bf59,,Lake,Lake-2013-11
+141,141,,100.0,23.0,Dam Fire,True,N,720f1d0a-81b7-4a00-85db-be3d9587ea3e,,Lake,Lake-2013-11
+142,142,,100.0,40.0,Grant Fire,True,N,7a168690-06e5-4056-97c8-73b834204744,,Santa Clara,Santa Clara-2013-12
+143,143,,100.0,865.0,Campbell Fire,False,N,353e7df7-440c-4c41-a27c-b35bb1e2831c,,Lassen,Lassen-2014-01
+144,144,,100.0,1952.0,Colby Fire,False,N,1fe0ea01-23e8-47a1-8fbd-ced6cf655e4d,,Los Angeles,Los Angeles-2014-01
+145,145,,100.0,333.0,Red Fire,True,N,6d75c6a4-12cb-4f18-8951-f2737e980916,,Humboldt,Humboldt-2014-01
+146,146,,100.0,106.0,Lake Fire,True,N,d529636e-33d0-484b-9c6f-093ba33736b7,,Fresno,Fresno-2014-01
+147,147,,100.0,125.0,Gun Fire,False,N,a67fe9bc-b8ec-4ed1-a2e8-06623aab7039,,San Diego,San Diego-2014-03
+148,148,,100.0,400.0,Encinal Fire,True,N,cb580f06-5d43-46aa-8b2c-f2b5a21eff02,,Monterey,Monterey-2014-03
+149,149,,100.0,57.0,Van Buren Fire,True,N,edff6f87-80b8-4c0d-8f6a-45c6e798b7fa,,Riverside,Riverside-2014-03
+150,150,,100.0,113.0,Bridges Fire,True,N,1faad916-32b9-4cd0-94b8-dacfe71fa9f8,,Inyo,Inyo-2014-04
+151,151,,100.0,2143.0,Etiwanda Fire,True,N,13bfff2c-cb2f-4ed9-a7f8-6985646a2d5d,,San Bernardino,San Bernardino-2014-04
+152,152,,100.0,29.0,Jacumba Fire,True,N,d5cb2477-6627-4ef6-bab1-d0eecc4ad12a,,San Diego,San Diego-2014-05
+153,153,,100.0,1548.0,Bernardo Fire,True,N,9e5ee790-ee7e-4b40-b300-7a3046901162,,San Diego,San Diego-2014-05
+154,154,,100.0,75.0,San Lucas Fire,True,N,91c3081d-33b4-46f2-8774-032c57f0f6a2,,Monterey,Monterey-2014-04
+155,155,,100.0,632.0,Miguelito Fire,True,N,d08b0c4e-35d3-43fb-8af8-1756b1789172,,Santa Barbara,Santa Barbara-2014-05
+156,156,,100.0,5367.0,Tomahawk Fire,False,N,2b35bd0d-169f-4a81-835b-13bf527031a6,,Marin,Marin-2014-05
+157,157,,100.0,1457.0,San Mateo Fire,False,N,b0b5efed-3edc-4a4b-97c8-95a79d12d0c6,,Marin,Marin-2014-05
+158,158,Interstate 15 is closed 3 1/2 miles south of Hwy 76 to .7 miles north of Hwy 76,100.0,380.0,Highway Fire,True,N,ebea3cc2-c0ad-4de2-829a-0b544183461b,,San Diego,San Diego-2014-05
+159,159,,100.0,50.0,Fiddler Fire,True,N,2c241790-d062-4b15-9a25-8e511c0febab,,Shasta,Shasta-2014-05
+160,160,,100.0,1995.0,Cocos Fire,True,N,1b1cba8f-7893-4eea-82d9-dc78663fd911,,San Diego,San Diego-2014-05
+161,161,,100.0,600.0,Poinsettia Fire,False,N,cc18296d-573a-4737-8e4e-1221d75d1e7b,,San Diego,San Diego-2014-05
+162,162,,100.0,175.0,Indian Fire,True,N,b454456c-1fa9-4766-b179-6df36b4d844b,,Lake,Lake-2014-05
+163,163,,100.0,487.0,59 Fire,True,N,1a0bbf7e-7f9b-4359-9c91-85dec2e2869a,,Tuolumne,Tuolumne-2014-06
+164,164,,100.0,269.0,Hetch Hetchy Fire,True,N,b5d32131-cf00-4e34-9e08-b74d68a3174f,,Tuolumne,Tuolumne-2014-06
+165,165,,100.0,25.0,Hall Fire,True,N,ccc2ec2b-4941-4bbd-ae60-be6706d97f13,,Fresno,Fresno-2014-06
+166,166,Highway 168 has been reopened.,100.0,40.0,Morgan Fire,True,N,857e832f-17bd-4ad2-8789-99b003187049,,Fresno,Fresno-2014-06
+167,167,,100.0,70.0,Norman Fire,True,N,45cf54ae-c166-4f81-816f-2e0ef959a56e,,Solano,Solano-2014-06
+168,168,,100.0,130.0,Haigh Fire,True,N,50567f4a-c56d-4d73-9855-f5d81fa74025,,Mariposa,Mariposa-2014-06
+169,169,,100.0,3895.0,Shirley Fire,False,N,8ede9823-938e-4786-97b8-a0f42b852cb2,,Kern,Kern-2014-06
+170,170,,100.0,225.0,Tehama Fire,True,N,724209e0-12b0-4d49-b798-8ccacf95e668,,Tehama,Tehama-2014-06
+171,171,,100.0,120.0,Reed Fire,True,N,2b382ade-87e2-4cff-92f7-67328139d7eb,,Calaveras,Calaveras-2014-06
+172,172,,100.0,85.0,Oak Fire,True,N,06ae83a9-125e-4cf5-826e-8b541b2308fd,,Calaveras,Calaveras-2014-06
+173,173,All road closures have been lifted.,100.0,4300.0,Butts Fire,True,N,2437bb57-1d09-4892-8c26-a60661dae1d9,,Napa,Napa-2014-07
+174,174,,100.0,30.0,Bible Fire,True,N,da607cd1-32fc-44c0-bd7a-ba14ad0a14cc,,El Dorado,El Dorado-2014-07
+175,175,,100.0,12661.0,Bully Fire,True,N,3a1fab73-882a-478c-b289-504497db4d64,,Shasta,Shasta-2014-07
+176,176,Hwy 128 has been reopened. ,100.0,6488.0,Monticello Fire,True,N,756d8f5b-bc05-4741-a5a3-3b20ca21906d,,Napa,Napa-2014-07
+177,177,,100.0,1469.0,Gulch Fire,True,N,00089805-cdee-4607-8b67-1653bee463bc,,Modoc,Modoc-2014-07
+178,178,,100.0,1651.0,Modoc Lightning Complex,False,N,8f48a8a9-facf-49e8-92dc-ea1147e53792,,Modoc,Modoc-2014-07
+179,179,,100.0,15.0,West Fire,False,N,62c2a563-1768-4c94-ac71-694a553cfdf8,,Trinity,Trinity-2014-07
+180,180,The following road closures are in effect: <li>State Route 78 at Manzanita Drive</li><li>Manzanita Drive at Lakeview Drive</li>,100.0,217.0,Banner Fire,True,N,d2623c2c-ff3d-419e-a129-b3aa542c05c4,,San Diego,San Diego-2014-07
+181,181,,100.0,80.0,Marsh Fire,True,N,dc1a83b0-500c-440f-85d7-7090884f5487,,San Joaquin,San Joaquin-2014-07
+182,182,,100.0,75.0,Cassel Fire,True,N,0bc42201-27c2-4b3d-a329-ce44bc1261d9,,Shasta,Shasta-2014-07
+183,183,,100.0,47.0,Interlake Fire,True,N,1df51ee3-c15a-4266-bf3d-d52272189cff,,Monterey,Monterey-2014-07
+184,184,,100.0,38.0,Hutto Fire,True,N,61506ea2-3f16-4aa6-ba54-d7788c3a2b35,,Nevada,Nevada-2014-07
+185,185,,100.0,143.0,Dry Fire,True,N,dcbc7afb-cdef-49a3-822e-20bbaa86a5d0,,Shasta,Shasta-2014-07
+186,186,,100.0,1680.0,Nicolls Fire ,False,N,45abd556-f41f-4507-91a5-1cf2f751bb4c,,Kern,Kern-2014-07
+187,187,,100.0,72.0,Wildlife Fire,True,N,9c21bb74-e919-403c-8a43-05f561669e4e,,Butte,Butte-2014-07
+188,188,,100.0,4240.0,Sand Fire,True,N,4d07ccc3-32be-4a1d-acac-18333884c97d,Wildfire,El Dorado,El Dorado-2014-07
+189,189,,100.0,39736.0,Bald Fire,True,N,045a1a18-72e4-4579-b64c-f34b33a1031b,,Shasta,Shasta-2014-07
+190,190,,100.0,13153.0,Day Fire,True,N,e3b7143d-6faa-4962-9fe5-c2d1559c5d20,,Lassen,Lassen-2014-07
+191,191,,100.0,35302.0,Oregon Gulch Fire (part of the Beaver Complex),True,N,3b2609f0-b3a2-493c-bf66-c5b5f64409f8,,Siskiyou,Siskiyou-2014-07
+192,192,See evacuations above,100.0,32416.0,Eiler Fire,True,N,60ea04ec-5f5e-4a49-8fbc-fa50c17a1199,,Shasta,Shasta-2014-07
+193,193,,100.0,6258.0,Coffee Fire,False,N,9d3fb01e-c29e-436a-82f8-c110a0b35179,,Trinity,Trinity-2014-07
+194,194,,100.0,5503.0,Little Deer Fire,True,N,59a31adf-4f31-4bf6-a6c6-fe62d2d2587f,,Siskiyou,Siskiyou-2014-07
+195,195,,100.0,25.0,Leopard Fire,True,N,952443ab-3af0-431d-9040-c73a45925401,,Shasta,Shasta-2014-08
+196,196,,100.0,10.0,Pines Fire,True,N,a2da7754-e907-48f2-a023-0a3053cf2903,,Madera,Madera-2014-08
+197,197,,100.0,612.0,Junction Fire,True,N,58e7e466-8807-404e-9ef6-5a6ae11a0084,,Madera,Madera-2014-08
+198,198,,100.0,101.0,Little Fire,True,N,91669a3c-d533-4eaa-a8d7-505d55f89e46,,Modoc,Modoc-2014-08
+199,199,,100.0,0.0,Happy Camp Complex,False,N,da500577-e558-4446-832f-0e537cc55204,,Siskiyou,Siskiyou-2014-08
+200,200,,100.0,20.0,Border Fire,True,N,64812487-ac4c-40da-b069-2884d7a04675,,San Diego,San Diego-2014-08
+201,201,,100.0,190.0,Shoemaker Fire,False,N,accb599e-35b8-4d5e-8d13-d0e4b0e4a1eb,,Los Angeles,Los Angeles-2014-08
+202,202,,100.0,274.0,Tecolote Fire,False,N,d805c9b9-da39-4771-965f-b3cd4c37c84b,,Los Angeles,Los Angeles-2014-08
+203,203,,100.0,84.0,Boca Fire,True,N,605ac5e1-9903-45ba-872d-3d9c437457d7,,Nevada,Nevada-2014-08
+204,204,,100.0,4045.0,Way Fire,False,N,4b281a55-65b6-43e8-bab2-3689356d82e5,,Kern,Kern-2014-08
+205,205,Weaver Bally Rd open to normal traffic flow,100.0,580.0,Oregon Fire,True,N,3b954901-aa80-4894-b330-c287d47b68be,,Trinity,Trinity-2014-08
+206,206,,100.0,1375.0,Gulch Fire,True,N,b22e378f-bfbc-40b8-aaa7-29ec6db13db1,,Shasta,Shasta-2014-09
+207,207,,100.0,70.0,Jackson Fire,True,N,726710bb-32d4-46bf-9729-7f3396defcf0,,Tuolumne,Tuolumne-2014-09
+208,208,,100.0,210.0,Bald Hill 3 Fire,False,N,d4523b72-45cf-4de2-8ccf-3905f1dc8dbd,,Humboldt,Humboldt-2014-09
+209,209,,100.0,27.0,Stage Coach Fire,True,N,7e564dd5-1d4e-4999-8aea-93691ad314ac,,Napa,Napa-2014-09
+210,210,,100.0,311.0,Dog Rock Fire,False,N,ba17d495-8ce6-4a0f-a3ba-487bd877969e,,Mariposa,Mariposa-2014-10
+211,211,,100.0,97717.0,King Fire,True,N,3df6ecf7-f095-483d-b1c4-2dc969d61261,,El Dorado,El Dorado-2014-09
+212,212,,100.0,200.0,Stephens Fire,False,N,b3062936-6b2f-4177-b3f6-0fc288049339,,Siskiyou,Siskiyou-2015-02
+213,213,,100.0,968.0,Silverado Fire,False,N,568ea489-caa1-43c3-928a-9d0b836c0c54,,Orange,Orange-2014-09
+214,214,Traffic on Dog Bar Rd. and associated streets is limited to residents only.,100.0,247.0,Dog Bar Fire,True,N,a794ecf9-2e8d-4721-a272-a3e66d2e7621,,Nevada,Nevada-2014-09
+215,215,Soft road closure is in place for residents only on Road 426 between Summit Road and Road 223. ,100.0,320.0,Courtney Fire,True,N,614efdbb-937e-47a0-9ffd-919e5e0de436,,Madera,Madera-2014-09
+216,216,,100.0,516.0,Boles Fire,True,N,ad164a35-8b27-4f96-b78e-952b08a333e8,,Siskiyou,Siskiyou-2014-09
+217,217,,100.0,48.0,Bane Fire,True,N,f5552e75-f74c-4bc0-99b8-6c66ee8cde3d,,San Bernardino,San Bernardino-2014-10
+218,218,,100.0,94.0,Irene Fire,False,N,7e60b4f7-8497-4155-9879-a3198b2ce696,,Alpine,Alpine-2014-09
+219,219,,100.0,20.0,Cascade Fire,False,N,0b2d503c-7bd5-45e7-b029-61306ae6e7c0,,El Dorado,El Dorado-2014-09
+220,220,,100.0,80.0,Otay Fire,True,N,45a0a39f-b4b0-409c-9057-0942c567b7c3,,San Diego,San Diego-2015-06
+221,221,,100.0,137.0,Ward Fire,True,N,84cb525c-7a90-4d31-8d55-d9729c05b286,,Plumas,Plumas-2015-04
+222,222,,100.0,1049.0,Highway Fire,True,N,8e3c0b14-01e5-4c41-8641-ff987ac10ad9,,Riverside,Riverside-2015-04
+223,223,,100.0,275.0,Forebay Fire,True,N,316804d6-471a-4c73-8b05-89b8abc8eeac,,Merced,Merced-2015-05
+224,224,Bald Hills Road has one lane closed with controlled traffic. Motorist advised to stay out of the area if possible.,100.0,20.0,Bald Fire,True,N,ccd896f2-f071-4d26-ba9b-f413de4d6b77,,Humboldt,Humboldt-2015-06
+225,225,,100.0,1542.0,Saddle Fire ,False,N,2aae391b-7b00-47d9-ba73-d71ad706bdad,,Trinity,Trinity-2015-06
+226,226,,100.0,67.0,Pass Fire,True,N,17b99f78-78b8-4bd1-90fc-5d9c3cb61b95,,San Luis Obispo,San Luis Obispo-2015-06
+227,227,Chiles Pope Valley Road between highway 128 and Lower Chiles Valley until at least 8:00 AM 6/17/15.,100.0,38.0,Chiles Fire,True,N,e3272697-2587-45ac-b525-76b85fabaa90,,Napa,Napa-2015-06
+228,228,,100.0,60.0,North Fire,True,N,e2077d05-1f06-4939-8857-9f630a4b722e,,San Joaquin,San Joaquin-2015-06
+229,229,,100.0,55.0,Fork Fire,True,N,7934d7bb-15e1-4217-8fa1-552e4f3d8091,,Tehama,Tehama-2015-06
+230,230,,100.0,171.0,Wildcat Fire,True,N,fc2ea6bf-e925-49f9-8390-9997c01b612d,,San Diego,San Diego-2015-06
+231,231,,100.0,31359.0,Lake Fire,True,N,17616590-ce26-4c73-bf81-70d338d027ce,,San Bernardino,San Bernardino-2015-06
+232,232,,100.0,158.0,Cook Fire,True,N,b5fa450f-9b84-4d90-9956-bda9dfe32f28,,Nevada,Nevada-2015-06
+233,233,,100.0,920.0,Corrine Fire,True,N,fa8ba2dd-c9f7-454a-870b-1b39c0d8b31a,,Madera,Madera-2015-06
+234,234,,100.0,135.0,Red Fire,True,N,0f537c6f-8a74-48f4-9fbf-ad00942ffba0,,Madera,Madera-2015-06
+235,235,,100.0,60.0,Dixie Fire,True,N,1ca8b1e7-5590-448b-86ba-6dfa4937baa6,,Lassen,Lassen-2015-06
+236,236,,100.0,533.0,Loma Fire,True,N,e7b2df46-649e-4fd9-81c5-daadaa57bc8d,,Contra Costa,Contra Costa-2015-06
+237,237,,100.0,0.0,Washington Fire,False,N,470d19d4-384d-497a-9770-cd2e2a3f3196,,Alpine,Alpine-2015-06
+238,238,,100.0,415.0,Calgrove Fire ,False,N,e61d1b0b-4f19-460a-a6ac-e83a6e0a05a9,,Los Angeles,Los Angeles-2015-06
+239,239,,100.0,100.0,Sterling Fire,False,N,ff28ce24-a13b-4903-85de-faec825de35b,,San Bernardino,San Bernardino-2015-06
+240,240,,100.0,19.0,Pleasure Fire,True,N,7c98e8db-6a6a-4f66-bfe7-7d24e926c986,,Napa,Napa-2015-06
+241,241,,100.0,35.0,Covelo Fire,True,N,56dc8f9c-98e5-4aad-b3e9-bbee503b29e9,,Mendocino,Mendocino-2015-06
+242,242,,100.0,170.0,Black Fire,True,N,8d5b00c1-0ec0-43bb-a03e-822d5fe2af52,,Tehama,Tehama-2015-07
+243,243,,100.0,23.0,Soda Fire,True,N,58dda3b8-3643-4f73-bee0-0a4cae0cb079,,Mendocino,Mendocino-2015-07
+244,244,Mix Canyon Road,100.0,150.0,Sky Fire,True,N,28b81794-bb66-466e-b9dc-337c47be5678,,Solano,Solano-2015-07
+245,245,,100.0,40.0,Ascot Fire,True,N,dff0f39c-bed4-4910-9c22-d9ccd4142809,,Solano,Solano-2015-07
+246,246,,100.0,18.0,Keswick Fire,True,N,64fa2a72-b964-421d-b88f-5ac2e37647d4,,Sacramento,Sacramento-2015-07
+247,247,,100.0,54.0,Mill 2 Fire,True,N,c8fb2c4c-2275-4ad1-aef3-859e332a1a47,,San Bernardino,San Bernardino-2015-07
+248,248,,100.0,95.0,Deer Fire,True,N,598a3d54-ce60-466e-b44f-0e7c8f9e4ff5,,San Luis Obispo,San Luis Obispo-2015-07
+249,249,,100.0,21.0,Spider Fire,True,N,48284911-67cd-4394-8aad-053d3b2cf5db,,Riverside,Riverside-2015-07
+250,250,,100.0,214.0,241 Fire,True,N,ca7da36b-1951-4d52-92b2-1a0b04aab586,,Orange,Orange-2015-07
+251,251,,100.0,181.0,Cooley Fire,True,N,8b35629f-50f4-4b32-b286-ce48cb1200e7,,Siskiyou,Siskiyou-2015-07
+252,252,,100.0,25.0,Lake Fire,True,N,98b0706c-ac34-4d9a-9ceb-55996099daed,,San Diego,San Diego-2015-07
+253,253,Hwy 15 open,100.0,4250.0,North Fire,True,N,3d81d2e5-d6e5-4368-864b-a9e29e7e5022,,San Bernardino,San Bernardino-2015-07
+254,254,,100.0,200.0,Pines Fire ,False,N,0c9948a7-98ad-4b42-888e-a7c2a4f536fa,,Los Angeles,Los Angeles-2015-07
+255,255,,100.0,25.0,Betabel Fire,True,N,296fc88f-e646-4c89-9b46-3ac0f88ff910,,San Benito,San Benito-2015-07
+256,256,,100.0,430.0,Triple Fire,True,N,9e2f6af4-ea45-4163-b6a1-e1fe9571fda3,,Tulare,Tulare-2015-07
+257,257,"Hwy 97 closed, Stateline Hwy 161 open with traffic control.",100.0,24.0,Dorris Fire,True,N,098eb80f-1ecb-489d-baef-1440fa0e98d6,,Siskiyou,Siskiyou-2015-07
+258,258,All road open to normal traffic.,100.0,8051.0,Wragg Fire,True,N,c2279826-dc2f-4eb5-9d3b-3d03eb0b139f,,Napa,Napa-2015-07
+259,259,All road closures have been lifted.,100.0,65.0,Creek Fire,True,N,3135c367-1274-4cc4-9152-661f6fd7707e,,Napa,Napa-2016-10
+260,260,,100.0,26.0,Baxter Fire,True,N,ee7ec0f0-4f5d-4fe1-b2fa-bc15f91519b3,,Placer,Placer-2015-07
+261,261,,100.0,75.0,Kyburz Fire,False,N,74635a69-f34f-4c6e-9e09-1a32d732bb42,,El Dorado,El Dorado-2015-07
+262,262,,100.0,116.0,3-11 Fire,True,N,0da79ccb-9701-4c27-8831-f10593fb8a90,,Modoc,Modoc-2015-07
+263,263,,100.0,77.0,3-12 Fire,True,N,12f68592-30e3-461c-b489-bc99ba52a38a,,Lassen,Lassen-2015-07
+264,264,,100.0,167.0,Cutca Fire,False,N,d7757da4-f9e1-451f-8316-26065888dfc2,,San Diego,San Diego-2015-07
+265,265,,100.0,25.0,Park Fire,True,N,a80b8ab7-eba5-4ef7-9992-0cf828138f1b,,San Diego,San Diego-2015-07
+266,266,All road closures have been lifted.,100.0,2304.0,Lowell Fire,True,N,d6b4bed4-f3d6-488a-a2fb-54c7cbfbd8b3,,Nevada,Nevada-2015-07
+267,267,,100.0,158.0,Queen Fire,True,N,8be9d271-ed9c-4bc9-9c22-4eff8956ab7b,,Humboldt,Humboldt-2015-07
+268,268,,100.0,5702.0,Willow Fire,True,N,8650f48d-5ea2-4dfc-96d2-f0d3f300b1e4,,Madera,Madera-2015-07
+269,269,,100.0,114.0,Mark Fire,True,N,fe668595-0980-4f41-af0c-3f14c4d391c2,,Calaveras,Calaveras-2015-08
+270,270,,100.0,40.0,Sullivan Fire,True,N,57397ed5-93a3-4e60-9142-9a3e38164ee9,,Stanislaus,Stanislaus-2015-07
+271,271,,100.0,16.0,Buck Fire,True,N,0a645cbe-2d5a-4e2b-80c9-cb9167641cca,,Humboldt,Humboldt-2015-07
+272,272,,100.0,6980.0,Cabin Fire,False,N,c316e4c3-4455-4a12-8ecc-af75339adf8f,,Tulare,Tulare-2015-07
+273,273,,100.0,400.0,Swedes Fire,True,N,7428460d-f47d-45c0-8a86-3fb653829860,,Butte,Butte-2015-07
+274,274,,100.0,69438.0,Rocky Fire,True,N,23e85238-2966-452c-8f21-fa93a51e889b,,Lake,Lake-2015-07
+275,275,,100.0,75.0,Mallard Fire,True,N,259d9359-0cc2-4058-bfc2-f28ab2a540f4,,Shasta,Shasta-2015-07
+276,276,,100.0,212.0,China Fire,True,N,efe937e3-8b63-4495-b578-e2582fb2166d,,Shasta,Shasta-2015-07
+277,277,,100.0,204.0,Big Creek Fire,True,N,55a1ec97-90fb-48df-8414-203b91adcd76,,Tuolumne,Tuolumne-2015-07
+278,278,,100.0,112.0,Tulloch Fire,True,N,72c7a5c9-82c2-44c4-8bf2-241fb36e1ee7,,Tuolumne,Tuolumne-2015-08
+279,279,,100.0,195.0,Vasco Fire,True,N,652938d9-2f23-41d8-a49c-30b218594762,,Contra Costa,Contra Costa-2015-07
+280,280,,100.0,90.0,Sprig Fire,True,N,8232dfd5-eda3-4766-83ec-83365cf21d93,,Shasta,Shasta-2015-07
+281,281,,100.0,86.0,Advance Fire,True,N,2a6270c5-859f-4ffa-91c2-ecbee5ebdd7b,,Tulare,Tulare-2015-07
+282,282,,100.0,50.0,Mendocino Lightning Fires,True,N,9f031bfa-47bc-4fee-aca1-988462d6ab53,,Mendocino,Mendocino-2015-07
+283,283,,100.0,543.0,Anza Fire,True,N,592f14da-405c-4e6d-a83b-8937322524ad,,Riverside,Riverside-2015-08
+284,284,,100.0,4863.0,Frog Fire,False,N,a063b897-28aa-43e5-b608-1b79f770050c,,Modoc,Modoc-2015-07
+285,285,,100.0,75.0,Fern Fire,True,N,dfd02b2e-7e2d-4636-a178-0ebff2d170c8,,Shasta,Shasta-2015-08
+286,286,,100.0,52.0,White Fire,True,N,f136ba8d-f6bb-4bad-9815-1d56f9dc8650,,Santa Barbara,Santa Barbara-2015-08
+287,287,,100.0,30.0,Francis Fire,True,N,139766ba-33ac-442e-9a6b-b78d270c110a,,Lake,Lake-2015-08
+288,288,,100.0,59.0,Point Fire,True,N,6c5fcfc7-659a-44ee-b225-c4ae919882e7,,Shasta,Shasta-2015-08
+289,289,,100.0,10570.0,Dodge Fire,False,N,293c6467-7b2e-43a3-94c1-41cec4339b67,,Lassen,Lassen-2015-08
+290,290,,100.0,55.0,De Luz Fire,True,N,3cc1aa4c-b87d-4b4d-99b1-83dc56291b33,,Marin,Marin-2015-08
+291,291,,100.0,110.0,36 Fire,True,N,ffbc1cb8-be33-4483-8442-85ab2587dce4,,Tehama,Tehama-2015-08
+292,292,,100.0,25118.0,Jerusalem Fire,True,N,94a7ae52-fed9-4997-b972-1761aa4b89ca,,Lake,Lake-2015-08
+293,293,,100.0,2446.0,Cuesta Fire,True,N,fde8f46b-0225-4489-be2d-68453a524190,,San Luis Obispo,San Luis Obispo-2015-08
+294,294,,100.0,146.0,Horse Fire,True,N,cbaa4a28-c732-4c11-9d44-7da6c3bd8e42,,Humboldt,Humboldt-2015-08
+295,295,,100.0,2700.0,Tesla Fire,True,N,8fc920eb-ca45-4d77-9a92-1326eca602d6,,Stanislaus,Stanislaus-2015-08
+296,296,,100.0,22.0,Grade Fire,True,N,909d6135-070c-4e3b-ba22-23877fb603c3,,Lake,Lake-2015-08
+297,297,,100.0,215.0,Peterson Fire,True,N,02d470c1-bf41-4ff9-9424-f680cef5bbbc,,Lake,Lake-2015-08
+298,298,,100.0,55.0,Summit Fire,False,N,d0875efe-54fb-4cc2-b647-4f4d210df118,,San Bernardino,San Bernardino-2015-08
+299,299,,100.0,128.0,Democrat Fire,True,N,da522578-443a-4c52-a9bb-d72bbb84dcdb,,Trinity,Trinity-2015-08
+300,300,,100.0,673.0,Elk Fire,True,N,0eed7005-6ace-4eb2-8919-eb131c246f84,,Lake,Lake-2015-09
+301,301,Temporary road closure to Mission Olive Road,100.0,72.0,Olive Fire,True,N,3435fd06-f77e-42c3-8fa5-261cf0cb828c,,Butte,Butte-2015-09
+302,302,,100.0,30.0,Kramer Fire ,True,N,bb500714-470e-4529-a15a-11d96e85cc68,,Lassen,Lassen-2015-08
+303,303,Old Oak Ranch Road  remains closed. Big Hill Road is open.,100.0,108.0,Oak Fire,True,N,40f44488-051f-4412-a577-c932f2ce751d,,Tuolumne,Tuolumne-2015-09
+304,304,,100.0,35.0,Browns Fire,True,N,5046e2ed-e2c3-4932-8f89-64dcdf19022d,,Trinity,Trinity-2015-09
+305,305,,100.0,40.0,Center Fire,True,N,75c14933-9916-4dfe-ac66-7d98706a5172,,Lassen,Lassen-2015-09
+306,306,,100.0,170.0,Creek Fire,True,N,9a3df964-7794-411c-9043-967476fe77e6,,Lassen,Lassen-2015-09
+307,307,None,100.0,70868.0,Butte Fire,True,N,13466833-32d1-418b-b145-f7ce1f7bf66e,,Amador,Amador-2015-09
+308,308,,100.0,1042.0,Lumpkin Fire,True,N,f7067bff-efb4-4ca6-a627-6145836857ec,,Butte,Butte-2015-09
+309,309,,100.0,109.0,Walker Fire,True,N,dbd39ec2-546c-4afc-9ff2-b1939eead03e,,Shasta,Shasta-2015-09
+310,310,,100.0,104.0,Munjar Fire,True,N,897d01d8-dd38-43e2-bcd6-fa62aac03318,,Butte,Butte-2015-10
+311,311,,100.0,151623.0,Rough Fire ,False,N,8c788c0a-d1fc-46d7-a17c-23f786831f7d,,Fresno,Fresno-2015-07
+312,312,,100.0,30.0,Taglio Fire,True,N,7106ba43-100b-41f9-acbf-9fb9e9ab9ef7,,Merced,Merced-2016-04
+313,313,,100.0,1388.0,Solimar Fire,False,N,c6f0705e-8bec-4a00-92a7-dc47245de7fa,,Ventura,Ventura-2015-12
+314,314,,100.0,50.0,Potrero Fire,False,N,3f31752f-4f51-4705-9fe4-50beec88a0e8,,Ventura,Ventura-2015-11
+315,315,,100.0,670.0,Cienega Fire,True,N,8e71e23c-6161-480e-b8ca-f03147475e4d,,San Benito,San Benito-2015-10
+316,316,,100.0,21.0,Gibraltar Fire,False,N,fbd3c0a8-7191-473c-bb05-43616711b6c5,,Santa Barbara,Santa Barbara-2015-10
+317,317,,100.0,30.0,McCourtney Fire,True,N,c27d03c6-361e-44b3-8335-a1fe06f88fd7,,Nevada,Nevada-2015-09
+318,318,,100.0,1086.0,Tassajara Fire,True,N,1f54817c-8832-4a47-8ede-ab8072f52677,,Monterey,Monterey-2015-09
+319,319,,100.0,95.0,Laureles Fire,True,N,9569dcd6-c94f-4849-a90a-db58bfc77bee,,Monterey,Monterey-2015-09
+320,320,,100.0,0.0,Gorman Fire,False,N,2c77fa07-73e6-45fe-a527-5bd526bdef41,,Lake,Lake-2016-04
+321,321,,100.0,85.0,Tulloch Fire,True,N,ffec404e-dea9-4175-8c50-8f2b0ca3efdd,,Tuolumne,Tuolumne-2016-05
+322,322,,100.0,3876.0,Metz Fire,True,N,55fa95e6-f09e-42c4-889b-a4b5b63dccf2,,Monterey,Monterey-2016-05
+323,323,,100.0,156.0,Wheatland Fire,False,N,ace1f464-7a70-4dcc-b8c5-d64fb1021d0e,,Lake,Lake-2016-05
+324,324,,100.0,278.0,DeWolf Fire,True,N,09ab0430-7679-494c-96d4-d7d938351cf4,,Fresno,Fresno-2016-05
+325,325,,100.0,120.0,Coe Fire,True,N,648cfdd4-f3f5-4faf-8ab1-a6f2cb5d9a6c,,Santa Clara,Santa Clara-2016-06
+326,326,,100.0,91.0,Dunstone Fire,True,N,5080eb51-53e5-4338-95ec-618efe2bd7d1,,Butte,Butte-2016-05
+327,327,Hwy 70 between Clark Rd and Wheelock Rd,100.0,30.0,70 Fire,True,N,6227f4ad-3e40-4f3b-b210-3e55483e1e84,,Butte,Butte-2016-05
+328,328,,100.0,150.0,Shedd Fire,True,N,1d76ca50-aa10-4f90-bd99-a80bcf2eacce,,San Luis Obispo,San Luis Obispo-2016-05
+329,329,,100.0,25.0,Bryson Fire,True,N,afaa2efe-d946-4ff9-93c2-459aad31b908,,Monterey,Monterey-2016-05
+330,330,,100.0,132.0,Avocado Fire,True,N,f1769b9d-c522-4a0d-92a7-f9c8321b9f1d,,Fresno,Fresno-2016-05
+331,331,,100.0,169.0,Athens Fire,True,N,e0de216a-9544-43ad-9b9f-bc05247f0550,,Placer,Placer-2016-05
+332,332,,100.0,70.0,Pala Fire,True,N,c88af25d-aff4-4b20-9c58-0b819c8ae99a,,San Diego,San Diego-2016-05
+333,333,,100.0,0.0,Chimney Fire,False,N,6afa1ccf-e1b6-492b-bcaa-9189cd3487aa,,Tulare,Tulare-2016-06
+334,334,,100.0,112.0,Coal Fire,True,N,5f422963-a30c-4cda-9427-7a0e028b6039,,Butte,Butte-2016-06
+335,335,,100.0,86.0,Frazier Fire,True,N,42fbaa73-e3c8-44ac-bf83-a576be6a804f,,Lake,Lake-2016-06
+336,336,,100.0,33.0,Campo Fire,True,N,2225d427-97d7-4d71-a83a-814f38a1c947,,Calaveras,Calaveras-2016-06
+337,337,,100.0,43.0,Paskenta Fire,True,N,b1b2a50c-c131-4be2-9398-8adee38c1c19,,Tehama,Tehama-2016-06
+338,338,,100.0,88.0,Moore Fire,True,N,d570e949-a098-4af0-84a4-d70c4a0e89c9,,Placer,Placer-2016-06
+339,339,Mount Aukum Road closed from 4 corners to Tiger's Eye.,100.0,25.0,Aukum Fire,True,N,f2b5faf1-9ff0-48b7-8151-25880262bec1,,El Dorado,El Dorado-2016-06
+340,340,,100.0,30.0,Hidden Fire,True,N,a757d4f9-2aa1-44c8-b986-ac00ca2fafdd,,San Benito,San Benito-2016-06
+341,341,,100.0,32.0,Clay Fire,True,N,c5d590f0-97fe-4ac3-987d-ebceed6dbfc2,,Sacramento,Sacramento-2016-06
+342,342,,100.0,139.0,Temecula Fire,True,N,403e6185-c0e1-4b8f-a290-b50553a47b67,,Riverside,Riverside-2016-06
+343,343,,100.0,2520.0,Coleman Fire,True,N,b8cf80c7-b617-4fe4-91b0-43b40d38c7f6,,Monterey,Monterey-2016-06
+344,344,,100.0,0.0,Soda Fire,False,N,5c86c26b-e6c0-4e47-90b7-bc5da3885ebe,,San Luis Obispo,San Luis Obispo-2016-06
+345,345,,100.0,24.0,Keswick Fire,True,N,20e4887c-b772-460d-98be-d60f39171aeb,,Shasta,Shasta-2016-06
+346,346,,100.0,210.0,Camanche Fire,True,N,fef2ab8a-20d7-4dc3-b5c9-363aa1debef3,,Amador,Amador-2016-06
+347,347,No current road closures.,100.0,7609.0,Border Fire,True,N,33099cdd-ccfc-454e-b5a3-770a69a30bd3,,San Diego,San Diego-2016-06
+348,348,,100.0,70.0,Arroyo Fire,True,N,ae6a40fa-c0f3-460b-8e19-fbf4b5803bb8,,Monterey,Monterey-2016-06
+349,349,,100.0,80.0,Hoag Fire,True,N,10a8344d-e2c6-4585-8094-bbb30e48db8c,,Butte,Butte-2016-06
+350,350,,100.0,61.0,Cotton Fire,False,N,bae93037-2a91-4189-b256-3325cd2b6979,,San Luis Obispo,San Luis Obispo-2016-06
+351,351,,100.0,83.0,Old Fire,True,N,fb7d6492-444e-420c-9111-0f8999d3af04,,San Benito,San Benito-2016-06
+352,352,,100.0,2860.0,Pony Fire,False,N,103e1cb6-0a02-4ca8-8739-4cf77b5d1c98,,Siskiyou,Siskiyou-2016-06
+353,353,,100.0,7474.0,Sherpa Fire,True,N,ffb3293b-3349-49c5-a7cb-c488391e8a72,,Santa Barbara,Santa Barbara-2016-06
+354,354,,100.0,277.0,Creek Fire,True,N,eb0fe9ad-f9f5-4bde-ad34-527ffd647669,,Yolo,Yolo-2016-06
+355,355,,100.0,49.0,70 Fire,True,N,6b542aff-fa1b-46fc-b3da-26c1afdbc446,,Butte,Butte-2016-06
+356,356,,100.0,48019.0,Erskine Fire,True,N,91816ff6-d4ec-4f31-8d40-bf2538aca09b,,Kern,Kern-2016-06
+357,357,,100.0,52.0,Lowe Fire,True,N,61556003-7789-4b9e-8f16-5563624b4621,,Monterey,Monterey-2016-06
+358,358,,100.0,1246.0,Dinosaur Fire,True,N,ec90eb29-e776-43da-a814-0c41463ae3c9,,Merced,Merced-2016-06
+359,359,,100.0,47.0,Laguna Fire,True,N,c27c5212-1891-4105-86ee-9f97016ef159,,Orange,Orange-2016-06
+360,360,,100.0,211.0,Grant Fire,True,N,3822b8a2-1a89-40e8-b239-840cfcda7a1c,,Alameda,Alameda-2016-06
+361,361,,100.0,650.0,Marina Fire,False,N,1bc85249-0d96-42d7-a23f-db99bdce17a4,,Mono,Mono-2016-06
+362,362,No road closures,100.0,215.0,Reservoir Fire,True,N,489cea9f-b3cb-4615-b412-5ac5724c3976,,Colusa,Colusa-2016-06
+363,363,,100.0,5646.0,Trailhead Fire,True,N,b604ffa7-8cee-4724-bb82-f1f4553a192f,,Placer,Placer-2016-06
+364,364,,100.0,372.0,Rancho Fire,True,N,5689b708-61e8-4451-8ad6-68d9684704c6,,Amador,Amador-2016-06
+365,365,,100.0,188.0,Big Fire,True,N,4cfb8712-1b45-4a2e-b0c9-6ed6ddde5657,,Fresno,Fresno-2016-07
+366,366,,100.0,1109.0,Sage Fire,False,N,79b446a4-d809-4aa2-9f30-091a05ed697d,,Los Angeles,Los Angeles-2016-07
+367,367,,100.0,95.0,Mercury Fire,True,N,2a04ab08-1412-4a3d-b6b2-7e5fc48f99e5,,San Benito,San Benito-2016-07
+368,368,,100.0,554.0,Fort Fire,True,N,fe112320-013f-434e-b66c-101234292711,,Kern,Kern-2016-07
+369,369,All Road closures have been lifted,100.0,441.0,Fiddler Fire,True,N,67c0a269-05bb-4b4f-af22-68a1c5ac3adf,,Shasta,Shasta-2016-07
+370,370,None,100.0,464.0,Colyear Fire,True,N,69eaa890-889e-4be9-810d-3dcee8d55981,,Tehama,Tehama-2016-06
+371,371,,100.0,1785.0,Deer Fire,True,N,140def53-175c-4f5d-b8e3-de0643781ff7,,Kern,Kern-2016-07
+372,372,,100.0,2304.0,Pine Fire,False,N,8653f541-d3ca-44b4-9edd-5a4a57349f2f,,Ventura,Ventura-2016-06
+373,373,,100.0,88.0,Flores Fire,True,N,f88a7291-9122-49fa-864d-b807fa360393,,Tehama,Tehama-2016-07
+374,374,None,100.0,2944.0,Curry Fire,True,N,423df2bd-4464-44e0-8b8a-74f953613287,,Fresno,Fresno-2016-07
+375,375,,100.0,30.0,Lone Pine Fire,True,N,6f07d935-7d64-4be8-8e96-d34384686bf8,,Inyo,Inyo-2016-07
+376,376,,100.0,310.0,Appaloosa Fire,True,N,902a3085-e518-4090-a2e5-20d0482b4dc2,,Calaveras,Calaveras-2016-07
+377,377,,100.0,87.0,Scott Fire,True,N,fbe85bec-6399-442f-8a3f-ca4a25bb2b3b,,Sacramento,Sacramento-2016-07
+378,378,,100.0,145.0,Frame Fire,True,N,e55dd16e-1712-4b97-a2f3-add0877b98cd,,Fresno,Fresno-2016-07
+379,379,,100.0,103.0,Broken Fire,True,N,8e920d15-72f4-4e76-a3b4-22a364d6cf19,,Madera,Madera-2016-07
+380,380,,100.0,45.0,Kuehner Fire,True,N,174608a2-14fd-4278-9811-cb7e5e5a3883,,Los Angeles,Los Angeles-2016-07
+381,381,,100.0,15.0,Shelter Fire,True,N,7ebdcc3e-f402-4ab7-88d4-82d99d59b019,,San Diego,San Diego-2016-07
+382,382,,100.0,341.0,Pacheco Fire,True,N,85832754-5848-4454-84fc-8b0a9abbff40,,Calaveras,Calaveras-2016-07
+383,383,,100.0,35.0,Stagecoach Fire,True,N,eb9d05b5-7578-44bf-9eb1-3ddba425ff20,,Calaveras,Calaveras-2016-07
+384,384,,100.0,84.0,Dunnigan Fire,True,N,b6b6ef56-0d7f-4c97-b072-74b712aa1e65,,Yolo,Yolo-2016-07
+385,385,,100.0,221.0,Onyx Fire,True,N,0dc19167-07b3-45e6-9bad-ad070934616a,,Kern,Kern-2016-07
+386,386,,100.0,78.0,Sherwood Fire,True,N,69b7a19e-7be7-43c1-8779-c7110b22f552,,Fresno,Fresno-2016-07
+387,387,,100.0,138.0,Famoso Fire,True,N,73083049-8bc2-4444-911b-f3d0812fb70c,,Kern,Kern-2016-07
+388,388,Auberry Rd. between Granite Creek & Little Wildhorse is closed to traffic.,100.0,123.0,Green Fire,True,N,a32de567-3d32-434a-9128-7947deaec3bb,,Fresno,Fresno-2016-07
+389,389,,100.0,100.0,Feather Fire,True,N,d96a2f4f-8e4d-4534-abe2-d90530e2bbc3,,San Diego,San Diego-2016-07
+390,390,,100.0,69.0,Foothill Fire,True,N,6a75dc36-9f37-4c3a-870d-345f94a8104c,,Lake,Lake-2016-07
+391,391,,100.0,26.0,Bailey Fire,True,N,be2805af-a801-4ca9-b9e7-14f3b896097e,,Siskiyou,Siskiyou-2016-07
+392,392,,100.0,2241.0,Goose Fire,True,N,bd2b7bdc-0f92-451a-a3a5-03569d27c952,,Fresno,Fresno-2016-07
+393,393,,100.0,57.0,Baker Fire,True,N,2dae3029-2d17-445a-9fac-e95345b179e0,,Calaveras,Calaveras-2016-07
+394,394,,100.0,57.0,Oak Fire,True,N,dc7637b2-fa97-47c7-bbce-c0fd1a015592,,Solano,Solano-2016-07
+395,395,,100.0,1245.0,Roblar Fire,False,N,78eccd24-9fe2-4ccd-90fa-a1e0fdc19b41,,Marin,Marin-2016-07
+396,396,,100.0,23.0,Table Fire,True,N,5d276af0-17d5-47d5-8f0e-86756d91b5c6,,Siskiyou,Siskiyou-2016-07
+397,397,,100.0,100.0,Bradley Fire,True,N,947aab39-3d8a-4841-8fc3-d129d8bbf6a3,,Monterey,Monterey-2016-07
+398,398,,100.0,132127.0,Soberanes Fire,True,N,977ac7ce-4204-4cd3-9f89-727142165261,,Monterey,Monterey-2016-07
+399,399,,100.0,150.0,Holy Fire,False,N,d045584a-8838-4d64-91dc-3ebfbcd8e708,,Orange,Orange-2016-08
+400,400,,100.0,20.0,Ken Fire,False,N,383c3df6-a1eb-40fd-b798-41481dff679a,,San Bernardino,San Bernardino-2016-09
+401,401,Nelson Bar Road at Lunt Road will reopen at 6:00 p.m. tonight (9/7/2016),100.0,850.0,Saddle Fire,True,N,c94fda40-ab7a-42d1-bfc9-ca5f39fb6e7d,,Butte,Butte-2016-09
+402,402,,100.0,50.0,Ruff Fire ,True,N,2a2e0af5-24d7-4903-bab4-3705f5d788fb,,Mendocino,Mendocino-2016-09
+403,403,,100.0,50.0,Spring Fire,True,N,324a3c48-efcc-4385-ab87-baf0b5e29b5d,,San Bernardino,San Bernardino-2016-09
+404,404,,100.0,38.0,Phoenix Fire,False,N,af8f8070-a3d6-4ca2-8e2b-6da1049a5bea,,Nevada,Nevada-2016-09
+405,405,,100.0,75.0,Lake Fire,True,N,47ee7239-2bc9-4794-8582-982a92fdda9f,,Lake,Lake-2016-09
+406,406,,100.0,50.0,Storksbill Fire,True,N,f273dffb-e1eb-48dc-b0f9-908857e78095,,El Dorado,El Dorado-2016-07
+407,407,,100.0,28.0,Rock Fire,True,N,0b655a9d-94b3-4095-acfd-d40ac8347318,,San Diego,San Diego-2016-07
+408,408,,100.0,40.0,Franklin Fire,True,N,416155ea-f8ff-43cf-abf0-e888584bf5bc,,Contra Costa,Contra Costa-2016-07
+409,409,,100.0,38.0,Fork Fire,True,N,7066c984-1420-4c59-b175-9536da4c5d14,,Madera,Madera-2016-07
+410,410,,100.0,32.0,Frymire Fire,True,N,f4026428-ad5a-42c7-b68e-959554a31343,,Stanislaus,Stanislaus-2016-07
+411,411,,100.0,114.0,Sierra Fire,True,N,4c88252e-34a5-4912-a590-2c4539866c62,,Santa Clara,Santa Clara-2016-07
+412,412,,100.0,35.0,Gopher Fire,True,N,4f623d67-d74b-4e8f-92f4-ed728970e20e,,San Diego,San Diego-2016-08
+413,413,,100.0,80.0,Baker Fire,True,N,140161a1-ca06-448a-87f2-27e688b2d922,,Tehama,Tehama-2016-08
+414,414,,100.0,550.0,99 Fire,True,N,e5122d1e-2bfc-4fa6-8152-da309e02c004,,Butte,Butte-2016-08
+415,415,,100.0,5731.0,Cold Fire,True,N,057fd4e2-7400-4fc4-9b23-3daf67fc8610,,Yolo,Yolo-2016-08
+416,416,,100.0,100.0,Hart Fire,True,N,f645bf93-57a3-4fdf-9544-d255f8311dc9,,Kern,Kern-2016-08
+417,417,,100.0,85.0,Grub Fire,True,N,8505d2db-7c6f-445e-9bff-407e99cac614,,Madera,Madera-2016-08
+418,418,,100.0,26.0,Deer Fire,True,N,38fe21ed-2019-4be9-abdf-bf46ac5f59e3,,Amador,Amador-2016-08
+419,419,,100.0,25.0,Oak Fire,True,N,b82b0e22-4155-43dd-ac33-1da015b6d3d2,,Santa Clara,Santa Clara-2016-08
+420,420,"Highway 173 between Grass Valley Rd. and Rock Camp<br>Forest Service Roads 2N33, 2N17X, 2N36, 2N37",100.0,8110.0,Pilot Fire,True,N,69c7b8cc-061e-4ca6-b5e8-83c6ae9d8a25,,San Bernardino,San Bernardino-2016-08
+421,421,,100.0,45.0,Kugelman Fire,True,N,28b9dc5f-f9c0-41fb-81d6-8db562122f00,,Fresno,Fresno-2016-08
+422,422,,100.0,36.0,Knoxville Fire,True,N,ef4185e8-9b3a-421f-9fae-a0b954b0b3c0,,Napa,Napa-2016-08
+423,423,,100.0,7050.0,Mineral Fire,True,N,346c59b1-375e-4d42-876a-d97b769c939f,,Fresno,Fresno-2016-08
+424,424,All evacuations orders have been lifted.  Residents only will be allowed beyond the road closures. ,100.0,36274.0,Blue Cut Fire,True,N,ea5193a1-69bc-4684-bfcd-235c17d36756,,San Bernardino,San Bernardino-2016-08
+425,425,,100.0,35.0,Mountain Fire,True,N,93995926-26b0-4158-9f93-fec263f40b47,,Shasta,Shasta-2016-08
+426,426,,100.0,21.0,Summit Fire,True,N,861bfbd3-ce1c-46bd-a32b-2848b7399119,,Humboldt,Humboldt-2016-08
+427,427,All road closures have been lifted. ,100.0,46344.0,Chimney Fire,True,N,040d03d0-fbdd-438c-8174-f81e4a1bba57,,San Luis Obispo,San Luis Obispo-2016-08
+428,428,,100.0,3929.0,Clayton Fire,True,N,a0950d5e-6f35-4023-bb60-6737146ba7bd,,Lake,Lake-2016-08
+429,429,,100.0,29322.0,Cedar Fire,False,N,e247e423-6171-4184-9dca-b373de703885,,Glenn,Glenn-2016-08
+430,430,,100.0,23.0,Stafford Fire,True,N,bc2fd9c2-da5c-4cd7-bbec-9daf2143a196,,Humboldt,Humboldt-2016-08
+431,431,,100.0,40.0,Boys Fire,True,N,2d2aa30d-5c3f-4f46-97eb-54b63bec7f3a,,Sacramento,Sacramento-2016-09
+432,432,,100.0,0.0,Mokelumne Fire,False,N,5823867d-c458-4673-858f-0ded99b6121f,,Alpine,Alpine-2016-08
+433,433,,100.0,158.0,Sunny Fire,True,N,63643257-f082-4928-bf0e-77a0417a4613,,Fresno,Fresno-2016-09
+434,434,,100.0,25.0,Oak Fire,True,N,e935ecb3-5eba-43f8-ae02-624b3d5bc03a,,Santa Clara,Santa Clara-2016-09
+435,435,,100.0,400.0,Beale Fire,True,N,822c934f-11be-48a9-8e60-f3f6802ef24d,,Monterey,Monterey-2016-08
+436,436,,100.0,36.0,Mina Fire,True,N,b44c3b1e-b243-455e-9ca9-9a1b5570e003,,Mendocino,Mendocino-2016-08
+437,437,,100.0,304.0,Havilah Fire,False,N,fa457abb-66d2-4f82-80fd-452e824e871f,,Kern,Kern-2016-08
+438,438,,100.0,33867.0,Gap Fire,False,N,85683fd7-b507-4ec7-8bbd-fb7033a42665,,Siskiyou,Siskiyou-2016-08
+439,439,,100.0,147.0,Bird Fire,True,N,86166c24-3a85-42e3-a53a-ebb1d935fb8a,,San Joaquin,San Joaquin-2016-08
+440,440,,100.0,599.0,Tully Fire,True,N,da72b0c2-835d-42a5-8fa8-4de5442610cc,,Humboldt,Humboldt-2016-08
+441,441,All road closures and traffic control points have lifted.,100.0,2575.0,Willard Fire,True,N,1243f711-c29f-4bc3-a7e7-c705a6fc40f2,,Lassen,Lassen-2016-09
+442,442,Hwy 32 is open to one-lane traffic,100.0,88.0,Santos Fire,True,N,c55cc099-43f6-4a55-81b4-59ee03618511,,Butte,Butte-2016-08
+443,443,,100.0,450.0,Willow Fire,True,N,db833182-22df-44cc-ba10-0901e74222bc,,Calaveras,Calaveras-2016-08
+444,444,,100.0,395.0,Tule Fire,False,N,954fb899-decb-461b-a0dd-76442e3370d3,,Tulare,Tulare-2016-08
+445,445,Rocky Gulch and Hawkinsville Humbug Rd will remain closed to non-residence.,100.0,710.0,Grade Fire,True,N,a2a6199c-704a-4826-a51b-23e6ee123349,,Siskiyou,Siskiyou-2016-08
+446,446,,100.0,380.0,Howard Fire,True,N,97772dc4-7fde-4412-982c-974b3316e22b,,Modoc,Modoc-2016-09
+447,447,,100.0,518.0,Range Fire,True,N,2656ad63-b3e1-467f-9982-0229fd31c0f5,,Kern,Kern-2016-08
+448,448,,100.0,20.0,Mockingbird Fire,True,N,1780f987-76f9-4a82-81bd-6cb914758eec,,Lake,Lake-2016-08
+449,449,,100.0,32.0,Moffett Fire,True,N,ed16bf52-f886-4384-b841-2e755234aa29,,Siskiyou,Siskiyou-2016-09
+450,450,,100.0,30.0,Old Fire,True,N,69e1a36d-21ab-4feb-b31c-dbfac4bf62d1,,Butte,Butte-2016-09
+451,451,,100.0,360.0,Hog Fire,True,N,060ef833-2d3f-47d4-a1d4-146d1b9a5928,,Lake,Lake-2016-09
+452,452,,100.0,150.0,Old Fire,False,N,f66ae0d0-837d-4ea9-a7ed-6a78d9bde940,,Mariposa,Mariposa-2016-09
+453,453,,100.0,47.0,Auburn Fire,True,N,1f8b3267-c3bd-43f5-9733-2b30c97d45ee,,Nevada,Nevada-2016-09
+454,454,,100.0,5443.0,Owens River Fire,False,N,821c040d-a17c-4934-990f-ca7d441a303a,,Mono,Mono-2016-09
+455,455,,100.0,2652.0,Soup Complex,False,N,92c20948-6ff6-4a2c-b13f-32c75e71b16c,,Modoc,Modoc-2016-09
+456,456,,100.0,12518.0,Canyon Fire,False,N,f6afb8c4-32dc-4e6d-8d30-e6b7ccd4a62f,,Santa Barbara,Santa Barbara-2016-09
+457,457,,100.0,215.0,Washington Fire,False,N,686e1300-65d3-4e07-8a88-e5952418649b,,Santa Barbara,Santa Barbara-2016-09
+458,458,,100.0,130.0,Bangor Fire,True,N,b4940174-75d0-4f5e-b505-4a66c17a9157,,Butte,Butte-2016-09
+459,459,,100.0,300.0,Butte Fire,True,N,f669c502-b400-4ad9-ae95-bfd9c31f903c,,Sutter,Sutter-2016-09
+460,460,None,100.0,45.0,Bell Fire,True,N,0bf08653-1441-4e73-b24b-1296afb12b45,,Amador,Amador-2016-09
+461,461,Hwy. 49 between Hwy. 120 and the Tuolumne-Mariposa County line remains closed. Hwy. 49 opened for single-lane traffic with a pilot car at 8:00 o’clock this morning. Marshes Flat Road open to residents only. The Tuolumne County Sheriff’s Department is maintaining the roadblock. ,100.0,1080.0,Marshes Fire,True,N,3a4871dc-2299-4934-8a31-b92780fe31a3,,Tuolumne,Tuolumne-2016-09
+462,462,,100.0,70.0,Newmark Fire,True,N,2e8eb057-1d9a-41a7-ab9f-9b85ce3374c4,,Fresno,Fresno-2016-09
+463,463,,100.0,100.0,Cow Fire,True,N,8a4c92b3-c1aa-41e0-aaed-999d73f0a418,,Tehama,Tehama-2016-09
+464,464,none,100.0,1547.0,Sawmill Fire,True,N,8d9b87e4-6fdb-49e4-ba6d-be85ffd6b222,,Sonoma,Sonoma-2016-09
+465,465,,100.0,248.0,Tobin Fire,False,N,abd0a296-217d-4a6a-9da0-5eb05f56f863,,Plumas,Plumas-2016-09
+466,466,,100.0,4474.0,Loma Fire,True,N,2dfac408-d2ab-4ff9-94aa-91be9d07bb59,,Santa Clara,Santa Clara-2016-09
+467,467,,100.0,2100.0,Sacata Fire,False,N,59084c8f-904c-42cb-9aa8-cae4a1f8c6ef,,Fresno,Fresno-2016-10
+468,468,Highway 89 is estimated to re-open today at noon.  Traffic will be metered through the fire area by Caltrans.  The Highway will be subject to future closure as repair work and tree removal continues and debris is removed from the highway. ,100.0,176.0,Emerald Fire,True,N,81ef7517-ab3c-4d1a-8ddd-b5d69404676f,,El Dorado,El Dorado-2016-10
+469,469,,100.0,28.0,Gopher Fire,True,N,6f600260-2bdb-4f53-9d1a-eab8afb3a11a,,San Diego,San Diego-2016-11
+470,470,,100.0,4824.0,Marek Fire,False,N,ca1227b3-1458-44c9-b32e-2994e309f940,,Los Angeles,Los Angeles-2016-11
+471,471,,100.0,10.0,Jacobson Fire,False,N,2458cd6c-82d6-43ef-b509-706e3af69451,,Tulare,Tulare-2016-10
+472,472,,100.0,4347.0,Meadow Fire,False,N,89c304db-e288-4582-90d4-884d57fd71f9,,Tulare,Tulare-2016-10
+473,473,,100.0,30.0,Aqueduct Fire,True,N,a97e2077-2013-459a-baa7-276781503e3c,,Kings,Kings-2018-04
+474,474,,100.0,0.0,Oroville Spillway ,True,N,afb8c00c-ef91-4544-90ce-54722be124af,,Butte,Butte-2017-02
+475,475,,100.0,45.0,Grace Fire,True,N,95960fa6-58ba-4b4e-aeb2-ada97d699908,,Shasta,Shasta-2017-04
+476,476,,100.0,380.0,West Fire,True,N,31b0e75c-b0e2-4796-b8a7-efc49e4c59a5,,Lassen,Lassen-2017-04
+477,477,,100.0,15.0,66 Fire,True,N,b12ae71e-c6c8-4eab-9aab-d17d1879a639,,Riverside,Riverside-2017-04
+478,478,,100.0,5738.0,Jayne Fire,True,N,0cacf259-1ba3-4e8c-a938-feaab2655c4b,,Fresno,Fresno-2017-04
+479,479,,100.0,10.0,Soledad Fire,True,N,b8bdbd12-e3a2-49e0-8d65-7c18b8d584bf,,Monterey,Monterey-2017-04
+480,480,,100.0,976.0,El Dorado Fire,False,N,17a7d561-bee7-454d-a0aa-ac450907f6fd,,Fresno,Fresno-2017-04
+481,481,,100.0,126.0,Tumey Fire,True,N,d804eebf-71de-46de-90c2-cdf0694d27e3,,Fresno,Fresno-2017-04
+482,482,,100.0,150.0,Tower Fire,False,N,45699833-fa34-4eed-9520-8c8019426122,,San Bernardino,San Bernardino-2017-04
+483,483,,100.0,1350.0,Opera Fire,True,N,c254df3f-a241-4983-a880-e12944a9f7b2,,Riverside,Riverside-2017-04
+484,484,,100.0,12.0,Jameson Fire,True,N,7fc71135-ee3b-443c-a859-90672936e0c1,,Riverside,Riverside-2017-04
+485,485,,100.0,19.0,Fay Fire,True,N,f5237d47-f15b-4f4b-8b1c-6f11235f954d,,Kern,Kern-2017-05
+486,486,,100.0,130.0,Olive Fire,True,N,87d7fb46-00f9-4bae-ba35-a7ef8e58a70e,,San Luis Obispo,San Luis Obispo-2017-05
+487,487,,100.0,12.0,Shandon Fire,True,N,c7e3bcbf-1065-4e45-a4a3-bf0b5ac6aa23,,San Luis Obispo,San Luis Obispo-2017-05
+488,488,,100.0,400.0,Sonoma Fire,True,N,eca1021e-dfea-4dec-8470-c0eb7e4d479b,,Fresno,Fresno-2017-05
+489,489,,100.0,31.0,Hub Fire,True,N,5115a26e-e8e8-42cd-9aeb-f5c41efd770a,,Kern,Kern-2017-05
+490,490,,100.0,1800.0,Wright Fire,True,N,63a81990-8521-409d-9c22-92d1c33e0353,,Merced,Merced-2017-05
+491,491,,100.0,20.0,Nacimiento Fire,True,N,1423af4f-16d5-4f19-a01d-fc3ebc124201,,San Luis Obispo,San Luis Obispo-2017-05
+492,492,,100.0,17.0,Canyon Fire,True,N,48c4b519-eaf5-4ae8-9470-31e8770a70ac,,Riverside,Riverside-2017-05
+493,493,,100.0,41.0,Feed Fire,True,N,9f416f37-a8ca-4127-a6b7-02626fd32e06,,Kern,Kern-2017-05
+494,494,,100.0,225.0,Arrow Fire,True,N,5b3329f4-1e37-4b5a-9ed6-6f8d74f495c3,,Lake,Lake-2017-05
+495,495,,100.0,288.0,Bravo Fire,True,N,0fc2a05e-689f-4c7c-b2b4-a987840b4f2c,,Kern,Kern-2017-05
+496,496,,100.0,18.0,Pine Fire,True,N,75bb079a-1de8-4824-a933-e19f69948438,,Monterey,Monterey-2017-05
+497,497,,100.0,17.0,Lonoak Fire,True,N,2d12b95c-3f4e-41bc-a771-8ae2cb80b99e,,Monterey,Monterey-2017-05
+498,498,,100.0,150.0,41 Fire,True,N,9a555129-982b-486f-a333-c96b3f9c4d2e,,Madera,Madera-2017-05
+499,499,,100.0,225.0,Camp Fire,True,N,048c085b-3162-4906-beef-7aa2ba1b868d,,San Luis Obispo,San Luis Obispo-2017-05
+500,500,All Road Closures are cancelled,100.0,10343.0,Elm Fire,True,N,65062933-27cf-48d7-8e4c-9a7ac78e65ff,,Fresno,Fresno-2017-05
+501,501,,100.0,20.0,City Fire,True,N,3fce8146-ff21-4399-9a94-f37124b34331,,Kings,Kings-2017-05
+502,502,,100.0,14.0,Moraga Fire,True,N,9348a031-c7b3-4165-890a-37a7eb7405db,,Riverside,Riverside-2017-05
+503,503,,100.0,70.0,Manning Fire,True,N,b3fc6dff-f13a-41c4-b7f3-e9e960a941d5,,Fresno,Fresno-2017-05
+504,504,,100.0,12.0,Taglio Fire,True,N,fcb8579e-7469-4c9e-9eac-527264e6f26b,,Merced,Merced-1969-12
+505,505,,100.0,0.0,Range Fire,False,N,5bfc7c8f-0d7f-4b14-903b-00014014c14b,,Monterey,Monterey-2017-05
+506,506,,100.0,486.0,Deluz Fire,False,N,3d595f75-d59e-4453-b25c-48207b02f529,,Marin,Marin-2017-05
+507,507,All Road Closures are lifted. Please drive with caution.,100.0,2056.0,Gate Fire,True,N,c4d0a25f-02f6-4877-a944-8f5d50bf2335,,San Diego,San Diego-2017-05
+508,508,,100.0,17.0,Rocky Fire,True,N,fbc11fc4-573b-465f-a9ac-a879ee2cdda2,,San Luis Obispo,San Luis Obispo-2017-05
+509,509,,100.0,506.0,Ming Fire,True,N,39967485-2cf1-4f0e-9cf1-ccfd25f6e2bf,,Kern,Kern-2017-05
+510,510,,100.0,10.0,Moreno Fire,True,N,fccf2545-cab8-452e-829c-8379054831f0,,Riverside,Riverside-2017-05
+511,511,,100.0,190.0,Wasioja Fire,True,N,06b43461-94d0-4379-a1d6-fd26ba93ceea,,Santa Barbara,Santa Barbara-2017-05
+512,512,,100.0,25.0,Ribbonwood Fire,True,N,9b9bf8b4-8378-46e5-a760-67e89e2279e2,,San Diego,San Diego-2017-05
+513,513,,100.0,21.0,Bitterwater Fire,True,N,f5ef2d0f-66a7-4d75-a9e8-03c42524d723,,San Benito,San Benito-2017-05
+514,514,,100.0,35.0,Smiley Fire,True,N,54ddf2ef-28b0-4c34-bfe0-1d084f4f57e2,,Riverside,Riverside-2017-05
+515,515,,100.0,1000.0,Range Fire,False,N,bd671dbd-dd3c-413e-b453-4002e382325d,,Marin,Marin-2017-05
+516,516,,100.0,120.0,Lamb Fire,True,N,45a205f4-bcd2-44bd-886b-26260c686ce7,,Riverside,Riverside-2017-05
+517,517,,100.0,10.0,Champagne Fire,True,N,6fa64139-e5d1-4134-b012-5c1b272ac89a,,Kern,Kern-2017-05
+518,518,,100.0,16.0,Rusty Fire,True,N,7272decf-0ae8-47aa-b46c-00fc4cd04816,,Fresno,Fresno-2017-05
+519,519,,100.0,48.0,Serenas Fire,True,N,2db503da-a7b2-47a6-92a6-697799eb63f1,,Riverside,Riverside-2017-05
+520,520,,100.0,15.0,Lombardi Fire,True,N,42f21a81-e0a3-4b4d-b837-2e6e2efd75a4,,Calaveras,Calaveras-2017-05
+521,521,,100.0,18.0,Panoche Fire,True,N,21e9f99a-35a5-41cd-a44b-92363fbf5081,,Fresno,Fresno-2017-05
+522,522,,100.0,16.0,Matz Fire,True,N,524b1e23-8921-4195-812d-7ec8ee5020b7,,San Bernardino,San Bernardino-2017-05
+523,523,,100.0,79.0,Fountain Fire ,True,N,92d70dc0-19af-4c87-ab01-8c7051caab73,,Tulare,Tulare-2017-05
+524,524,,100.0,10.0,Twenty Fire,True,N,67d31514-620f-49d1-b4bd-a3a92efd48ca,,Yuba,Yuba-2017-05
+525,525,,100.0,68.0,Clay Fire,True,N,bf3148c5-75dd-4f79-8b3b-c5b483065b47,,Sacramento,Sacramento-2017-06
+526,526,,100.0,26.0,Fairview Fire,True,N,663d291c-7ba8-415d-9cab-58d41a886cfd,,Riverside,Riverside-2017-06
+527,527,,100.0,16.0,Elk Fire,True,N,adf741f6-5416-41c5-af26-01240cc361cf,,Kern,Kern-2017-06
+528,528,,100.0,42.0,Jones Fire,True,N,7967c729-4693-47a1-b1bc-1d82825ca8db,,Modoc,Modoc-2017-06
+529,529,,100.0,27.0,Vernon Fire,True,N,b0ffe2e4-ae61-4ad9-b1cc-bf31ff254d8d,,Riverside,Riverside-2017-06
+530,530,,100.0,25.0,5 Fire,True,N,14e249f0-f21c-4d2f-bc5f-68d5d177e849,,Los Angeles,Los Angeles-2017-06
+531,531,,100.0,33.0,Creek Fire ,True,N,46c4f0c2-6760-4e42-ac2f-ec25c2486628,,Kern,Kern-2017-06
+532,532,,100.0,78.0,Spring Fire ,True,N,80f2c7d1-d28d-43d0-97a3-ff53cc991a8c,,Tehama,Tehama-2017-06
+533,533,,100.0,67.0,River Fire,True,N,b02f2513-9359-45e2-9971-08f7b1f0dc0f,,Lassen,Lassen-2017-06
+534,534,,100.0,10.0,Shirleon Fire ,True,N,7ea6269d-6ba3-41e1-aff6-b4da1c6611d1,,Riverside,Riverside-2017-06
+535,535,,100.0,20.0,Fish Fire,True,N,304c7c4c-140e-40f4-ac9f-36926c07e5fc,,Contra Costa,Contra Costa-2017-06
+536,536,,100.0,10.0,Pine Fire,True,N,8bba8daf-8d47-43e7-8593-fdfa2dea5228,,Kern,Kern-2017-06
+537,537,,100.0,91.0,Wilbur Fire,True,N,549222c5-1be6-4453-896a-caebd19b0bee,,Butte,Butte-2017-06
+538,538,,100.0,46.0,Whitepine Fire,True,N,f8b61fab-bd14-4e92-960a-d512693ea8e5,,Siskiyou,Siskiyou-2017-06
+539,539,All road closures have been lifted.,100.0,339.0,Dinely Fire,True,N,6802ed2f-5a5a-4a38-a236-e5a688639b6f,,Sierra,Sierra-2017-06
+540,540,,100.0,157.0,26 Fire,True,N,f62bd692-7aae-4e46-8284-239150acced0,,Madera,Madera-2017-06
+541,541,,100.0,206.0,Bodfish Fire,True,N,2ef06870-3602-4f1a-878d-962f7259ad46,,Kern,Kern-2017-06
+542,542,,100.0,0.0,Island Fire,False,N,b52a8c70-e431-4fce-abcd-98f892262b2f,,Imperial,Imperial-2017-06
+543,543,,100.0,35.0,Breckenridge Fire,True,N,b11adfe0-b74d-4321-b1bd-3fc0b8f0929b,,Kern,Kern-2017-06
+544,544,,100.0,14.0,Hog Fire,True,N,b9142a59-e3dd-4797-b6ed-c5c847b16f67,,Monterey,Monterey-2017-06
+545,545,,100.0,1431.0,Oakwood Fire,True,N,d11a4f65-9523-40d8-989a-6603705e9638,,Madera,Madera-2017-06
+546,546,,100.0,186.0,Wild Fire,True,N,a8e4aa40-5e2a-4fd8-a858-d673576cda73,,Fresno,Fresno-2017-06
+547,547,,100.0,22.0,Refuge Fire,True,N,7d9de7fd-f95d-4edb-bda6-804b734eedc8,,Napa,Napa-2017-06
+548,548,,100.0,32.0,Pleyto Fire,True,N,f32d4562-5032-4645-ac8f-afb3fab4c704,,Monterey,Monterey-2017-06
+549,549,,100.0,450.0,Monterey Fire,True,N,a9d270c5-aacb-4dad-a34e-ab28a7192248,,Fresno,Fresno-2017-06
+550,550,,100.0,76.0,Tivy Fire,True,N,0956bfcb-8915-4163-b4ed-4f3a6ab32895,,Fresno,Fresno-2017-06
+551,551,,100.0,38.0,Red Fire,True,N,5d521085-d92f-4664-b17b-732783658daa,,Tuolumne,Tuolumne-2017-06
+552,552,,100.0,33.0,Valley Fire,True,N,67ba6e61-b5ca-48f4-8e56-9cedeaeb65ea,,Riverside,Riverside-2017-06
+553,553,,100.0,50.0,Douglas Fire,False,N,3fc7de4e-3a0f-45e9-be1f-801f88770883,,San Diego,San Diego-2017-06
+554,554,There are traffic restrictions through the fire area.,100.0,135.0,King Fire,True,N,5f0c7697-7be3-49af-b98c-f5789e3ca6f9,,Tulare,Tulare-2017-06
+555,555,,100.0,20.0,Reed Fire,True,N,338af3e2-098b-4d1b-8f98-6020b212b68f,,Riverside,Riverside-2017-06
+556,556,,100.0,150.0,Lucy Fire,True,N,1c51deff-5b43-4f54-8acc-a682f830815a,,San Luis Obispo,San Luis Obispo-2017-06
+557,557,,100.0,63.0,Westfall Fire,True,N,1dfae538-fd95-4454-865d-3d74e4b56665,,Mariposa,Mariposa-2017-06
+558,558,,100.0,105.0,Canyon Fire,True,N,380df891-161a-44c7-a244-d7dda9d5fd32,,Riverside,Riverside-2017-06
+559,559,,100.0,28.0,Nuevo Fire,True,N,57b7776f-bae7-4b14-b94c-65806e002a88,,Riverside,Riverside-2017-06
+560,560,,100.0,134.0,Skyway Fire,True,N,a2d42b3a-32a4-4b57-a8c2-91e5d046bbb6,,Butte,Butte-2017-06
+561,561,,100.0,10.0,Springs Fire,True,N,0089929d-0b52-46fe-8982-b096b7616f30,,Riverside,Riverside-2017-06
+562,562,,100.0,32.0,Shore Fire,True,N,7cae5704-9ba2-487c-a48b-bb440c95da6e,,Monterey,Monterey-2017-06
+563,563,,100.0,800.0,Lake Fire,False,N,c982daaa-a785-4dfc-a366-1950974028af,,Los Angeles,Los Angeles-2017-06
+564,564,,100.0,60.0,Bolla Fire,True,N,ffb57bcc-80f7-4299-bfcf-c9be3b66d5ff,,Tehama,Tehama-2017-06
+565,565,,100.0,10.0,Lambs Fire,True,N,294c531a-3299-4038-baa8-c2a92d38d10a,,Riverside,Riverside-2017-06
+566,566,,100.0,153.0,Smiley Fire,True,N,54bad310-3a96-4019-b64d-61d00c559e6c,,Riverside,Riverside-2017-06
+567,567,,100.0,25.0,Road Fire,True,N,b3695ebc-e761-4577-8439-6330bed36594,,Madera,Madera-2017-06
+568,568,,100.0,1522.0,Highway Fire,False,N,1b01181e-fbcb-4dc4-86ec-cfddc864cc34,,Kern,Kern-2017-06
+569,569,,100.0,26.0,Trellis Fire,True,N,bfa879b5-b526-4114-9137-51d3ea3ad336,,Lake,Lake-2017-06
+570,570,,100.0,56.0,Bogus Fire,True,N,f173524a-ae01-47f5-942d-5e90c2b96469,,Siskiyou,Siskiyou-2017-06
+571,571,,100.0,39.0,Toll Fire,False,N,949e577d-86c2-4def-b25a-c24aa014f4d9,,Solano,Solano-2017-06
+572,572,,100.0,1503.0,Holcomb Fire,False,N,b5dd68e2-ec95-47cd-a126-d5f6f0f2b49a,,San Bernardino,San Bernardino-2017-06
+573,573,,100.0,168.0,Evans Fire,False,N,5882937b-ffce-43af-9e0a-00dcddde214a,,Lassen,Lassen-2017-06
+574,574,,100.0,65.0,Orange Fire,True,N,8740caa0-f86c-4103-b830-0435b9933a2b,,Stanislaus,Stanislaus-2017-06
+575,575,,100.0,54.0,Quimby Fire,True,N,d515cbcc-376e-4bc7-adea-189eff5a7735,,Santa Clara,Santa Clara-2017-06
+576,576,,100.0,21.0,Highway Fire,True,N,981484d0-711c-4a7b-9adc-23c9b29f9fae,,Butte,Butte-2017-06
+577,577,,100.0,111.0,Lone Fire,True,N,1b1ba02e-9db3-4224-9d8d-06d5df529f16,,Butte,Butte-2017-06
+578,578,,100.0,357.0,Creek Fire,True,N,0ed54526-1296-4863-ae40-613ee456899d,,Fresno,Fresno-2017-06
+579,579,,100.0,42.0,Paskenta Fire,True,N,982c81ca-ebe5-4591-986d-1f3e2e4cc13c,,Tehama,Tehama-2017-06
+580,580,,100.0,0.0,King Incident,False,N,e1fdc15a-5737-4c69-ab9a-7f43d6b4aab8,,Tulare,Tulare-2017-06
+581,581,,100.0,760.0,Placerita Fire,False,N,c940ef85-44ce-4684-bce3-7cbbf180cefb,,Los Angeles,Los Angeles-2017-06
+582,582,,100.0,36.0,Black Fire,True,N,49a9074c-c30b-4042-9ffd-1a10f9d9bf1d,,San Diego,San Diego-2017-06
+583,583,,100.0,6309.0,Manzanita Fire,True,N,ca0c9a5f-7a1a-4903-b790-6eb3e85e7e64,,Riverside,Riverside-2017-06
+584,584,,100.0,19.0,King Fire,True,N,91d07ea9-cf5f-489c-aa4f-97fa6c0fb8a4,,Shasta,Shasta-2017-06
+585,585,All road closures are lifted. Please drive with caution.,100.0,1598.0,Hill Fire,True,N,81b37451-57b5-4050-a54d-e9750f84a567,,San Luis Obispo,San Luis Obispo-2017-06
+586,586,,100.0,35.0,Latrobe Fire,True,N,4f0ff7c1-7c96-4f68-87e8-be4466945c2b,,Amador,Amador-2017-06
+587,587,,100.0,38.0,Pine Fire,True,N,243567d6-2692-4978-88f5-1bbfc7b818a6,,Marin,Marin-2017-06
+588,588,,100.0,25.0,Sloane Fire,True,N,7696644d-0908-4149-8d6e-aa50c1233d67,,San Diego,San Diego-2017-06
+589,589,,100.0,670.0,Mart Fire,False,N,a3159a43-d38c-4655-9acf-371bc9a6213b,,San Bernardino,San Bernardino-2017-06
+590,590,,100.0,28.0,Shore Fire,True,N,2c00a509-af87-418f-b888-edc8ec450f1f,,Del Norte,Del Norte-2017-06
+591,591,,100.0,85.0,Ranch Fire,True,N,5da65d7f-cc75-4c0c-b221-1a1e3000a120,,Santa Clara,Santa Clara-2017-06
+592,592,,100.0,15.0,Alvarado Fire,True,N,c171dc75-9d35-4c58-b787-032067b16ae7,,Monterey,Monterey-2017-06
+593,593,,100.0,562.0,Battle Fire,False,N,a0ba8679-406a-491b-a20b-bba55d63bc5b,,Modoc,Modoc-2017-06
+594,594,Road closures have been lifted,100.0,630.0,Ben Fire,True,N,d36387df-af2a-4b20-a94f-589fdccf67cd,,Mariposa,Mariposa-2017-06
+595,595,,100.0,0.0, Cristianitos Fire,False,N,47e76098-389e-4747-9e89-7ebdc963a485,,Marin,Marin-2017-06
+596,596,,100.0,1200.0,Tarina Fire ,True,N,4ac3161f-79e7-494f-88e4-72a69ef1d96b,,Kern,Kern-2017-06
+597,597,,100.0,42.0,Lockwood Fire,True,N,abe2311a-4ce6-4300-9716-4fb3fe538c75,,Monterey,Monterey-2017-06
+598,598,,100.0,55.0,Topanga Fire,False,N,d1ec9e43-04bd-4926-8362-5e04afe39c90,,Los Angeles,Los Angeles-2017-06
+599,599,,100.0,41.0,Stokes Fire,True,N,6f2f8dc0-b930-435e-a622-d3585dcac067,,Los Angeles,Los Angeles-2017-06
+600,600,,100.0,128.0,Oak Fire,True,N,2b043a7e-234c-43f7-852c-21fcb9ddc200,,Shasta,Shasta-2017-07
+601,601,,100.0,10.0,Brewer Fire,True,N,c99fe9af-6d6b-435a-9084-2248905ad251,,Nevada,Nevada-2017-07
+602,602,,100.0,11.0,Lisa Fire,True,N,64ef64a3-c8b0-48f1-8fec-9cacf8dfcd34,,Riverside,Riverside-2017-07
+603,603,,100.0,14.0,Desabla Fire,True,N,97d63e17-e546-49ae-add6-e3b5fa71cb4c,,Butte,Butte-2017-07
+604,604,"Hwy 49s is open with no escort, the right passing lane, on Spring Hill, is closed and for fire personnel only. Allred Rd. from Hwy 49s to Morningstar Ln. is open to residents only.",100.0,225.0,Spring Fire,True,N,3980fbbb-d17b-4deb-83a4-9af2290b5272,,Mariposa,Mariposa-2017-07
+605,605,,100.0,1538.0,Derrick Fire,True,N,e3e75be1-8dea-4022-975b-34a0f25b57c0,,Fresno,Fresno-2017-07
+606,606,,100.0,30.0,Timber Fire,True,N,b51d7a8d-f768-453e-abb4-665b74998b21,,Lake,Lake-2017-07
+607,607,,100.0,10.0,Canyon Fire,True,N,d4f1fc5e-b877-41ee-b491-8e92ded4984f,,Riverside,Riverside-2017-07
+608,608,,100.0,50.0,Lago Fire,True,N,2f97537a-1333-4dfc-b7a3-b7bf9400ffdd,,Riverside,Riverside-2017-07
+609,609,,100.0,34.0,Valley Fire,True,N,9668cfe5-b636-4147-bce1-da8e8b3fb5c2,,San Benito,San Benito-2017-07
+610,610,,100.0,13.0,Silver Fire,False,N,ed40ce35-7338-4f8b-a5ab-e94af6fa7e55,,San Bernardino,San Bernardino-2017-07
+611,611,,100.0,57.0,Freedom Fire,True,N,36d953e8-265f-4b05-831e-42eb2298b208,,Fresno,Fresno-2017-07
+612,612,,100.0,35.0,Jurupa Fire,True,N,252345dd-886b-4bd2-90b9-161727a2fc2d,,Riverside,Riverside-2017-07
+613,613,,100.0,18.0,Lakeland Fire,True,N,6ae3d56e-0258-49f5-9e71-5b5abe141479,,Butte,Butte-2017-07
+614,614,,100.0,50.0,Grade Fire,False,N,f6970f10-0498-4f4c-8e0c-d4b7e4fbf888,,Ventura,Ventura-2017-07
+615,615,,100.0,0.0,Klamath Fire,False,N,1be87788-1bd9-4e97-b92a-63b41fe8abf1,,Siskiyou,Siskiyou-2017-07
+616,616,,100.0,205.0,Eagle Fire,True,N,60770d23-70db-46f1-a19a-a23eaa409125,,Riverside,Riverside-2017-07
+617,617,,100.0,21.0,Globe Fire,True,N,0a664214-c090-4889-8439-06836f89d830,,Tulare,Tulare-2017-07
+618,618,,100.0,469.0,Fay Fire,True,N,b383e4bd-6815-4624-936c-be57715ce50e,,Siskiyou,Siskiyou-2017-07
+619,619,none,100.0,74.0,Axel Fire,True,N,f75027cb-2526-4524-989f-71d0d56353ec,,El Dorado,El Dorado-2017-07
+620,620,,100.0,62.0,Lake Fire,True,N,b3a6b47f-105b-4f66-b12a-76c563457a5d,,Stanislaus,Stanislaus-2017-07
+621,621,,100.0,91.0,Auberry Fire,True,N,89f34aa8-eaf3-4d19-8ef0-005102e82831,,Fresno,Fresno-2017-07
+622,622,,100.0,22.0,Gold Fire,True,N,7d77d3d1-40b5-40ab-8a53-2550f2001094,,Calaveras,Calaveras-2017-07
+623,623,All road closures have been lifted.,100.0,2269.0,Winters Fire,True,N,a7509e35-3083-4306-bcce-ebf6d101b62a,,Yolo,Yolo-2017-07
+624,624,,100.0,1626.0,Quail Fire,True,N,ea019efb-52d2-4f08-8d04-20b680e2361b,,Kern,Kern-2017-07
+625,625,None,100.0,28687.0,Alamo Fire,True,N,5a43b164-04d0-46ea-992e-ea5aa283305f,,San Luis Obispo,San Luis Obispo-2017-07
+626,626,,100.0,0.0,Antelope Fire,False,N,b4eb0b95-1a93-46a5-91f4-5c2b4c7b943c,,Lassen,Lassen-2017-07
+627,627,,100.0,2940.0,Hawk Fire,True,N,1652d79a-f4fc-4151-a0d1-1b7366730f47,,Kern,Kern-2017-07
+628,628,,100.0,0.0,Salmon-August Complex ,False,N,c35027fa-3bc5-423f-a32e-e03b134a102e,,Siskiyou,Siskiyou-2017-06
+629,629,,100.0,90.0,Daulton Fire,True,N,eeef101a-3a50-4407-8e6d-cd80d0d07599,,Madera,Madera-2017-07
+630,630,,100.0,33.0,Christmas Fire,True,N,bc89aab5-5f30-46a2-9881-6dbae22893b6,,Riverside,Riverside-2017-07
+631,631,All road closures have been lifted.,100.0,6033.0,Wall Fire,True,N,8816f0da-0818-499a-9ff6-ba4fd56ca7c8,,Butte,Butte-2017-07
+632,632,,100.0,74.0,Bryant Fire,True,N,67c20627-e6cb-4900-9f40-01e8da154a53,,San Bernardino,San Bernardino-2017-07
+633,633,,100.0,58.0,Tower Fire,True,N,effeee13-51d7-4cf2-a62f-93b47b34605a,,San Luis Obispo,San Luis Obispo-2017-07
+634,634,,100.0,36.0,Banderilla Fire,True,N,932a3f2f-6c0e-42a6-b357-f333774b4ea8,,Mariposa,Mariposa-2017-07
+635,635,,100.0,231.0,Deer Complex,True,N,248bba19-4fdf-4285-a210-1334454ad80a,,Contra Costa,Contra Costa-2017-07
+636,636,,100.0,10.0,North Fire,True,N,2ec4e814-477b-47e7-a36b-4da26f94e277,,Shasta,Shasta-2017-07
+637,637,,100.0,18430.0,Whittier Fire,False,N,dfd1e0d9-42b5-436a-aa83-ffcbbb7a6145,,Santa Barbara,Santa Barbara-2017-07
+638,638,,100.0,410.0,Dode Fire,False,N,f09f75ff-d9fe-4a25-89d0-75dc98d1fe30,,Modoc,Modoc-2017-07
+639,639,,100.0,27276.0,Orleans Complex,False,N,51bf0e2a-7f1f-4fe1-aeaa-70510ad42d0e,,Siskiyou,Siskiyou-2017-07
+640,640,Soft road closures exist at the following locations: Highway 58 at Highway 229 and Highway 58 at O’Donovan Road,100.0,340.0,Stone Fire,True,N,743b2276-742e-4d25-be9b-60364ca880f6,,San Luis Obispo,San Luis Obispo-2017-07
+641,641,,100.0,370.0,Willow Fire,True,N,2adaf964-e996-4e55-a616-ac42375ee156,,Contra Costa,Contra Costa-2017-07
+642,642,,100.0,50.0,West Fire,True,N,5a52750e-30a0-4d26-a75b-58f79e1e24f4,,Yuba,Yuba-2017-07
+643,643,,100.0,13.0,Rosado Fire,True,N,fd82cbd0-ec25-461c-aef1-4c0c92060348,,El Dorado,El Dorado-2017-07
+644,644,,100.0,1816.0,Parkfield Fire,True,N,a21faf4f-3628-4e24-ac64-8471d9d12560,,San Luis Obispo,San Luis Obispo-2017-07
+645,645,,100.0,29.0,Benson Fire,True,N,de1788c0-2996-40cf-9f76-2920b210d6a9,,Tehama,Tehama-2017-07
+646,646,,100.0,48889.0,Garza Fire,True,N,6ee351a7-9382-48bc-a161-b417f7560ff9,,Kings,Kings-2017-07
+647,647,,100.0,166.0,Honcut Fire,True,N,79fd7b45-381a-4819-9dc7-f80a98010809,,Butte,Butte-2017-07
+648,648,,100.0,747.0,Farad Fire,False,N,61cc4072-7db6-4fd2-bc9a-652728780c67,,Sierra,Sierra-2017-07
+649,649,,100.0,70.0,Felipe Fire,True,N,9a1a4247-479d-46ff-99cc-4251c5e333fa,,Santa Clara,Santa Clara-2017-07
+650,650,Forbestown Rd is now open,100.0,10.0,Rebie Fire,True,N,1be14ce2-5e9c-4cc2-89bf-f36cb1d1ccbd,,Butte,Butte-2017-07
+651,651,,100.0,50.0,Mesa Fire,True,N,a26038b9-df04-4ade-b918-0c4fb9a8dbcf,,Santa Barbara,Santa Barbara-2017-07
+652,652,,100.0,460.0,Bridge Fire,True,N,1348f32a-510f-4ad3-971f-b75b9cf9f0c0,,San Bernardino,San Bernardino-2017-07
+653,653,,100.0,400.0,Jennings Fire,True,N,04b54dc3-10a2-4fdf-bfa6-60a1fe2b0f7d,,San Diego,San Diego-2017-07
+654,654,,100.0,83733.0,Long Valley Fire,False,N,f7b03fae-de58-4674-9f4f-d3e9d2762d84,,Lassen,Lassen-2017-07
+655,655,,100.0,101.0,Lariat Fire,False,N,580ce9d9-b8dc-4dc1-9f10-11bf48df9492,,Santa Clara,Santa Clara-2017-07
+656,656,,100.0,59.0,Quail Fire,True,N,6f9581fa-7c8a-45d1-988d-0a299fc15d62,,Calaveras,Calaveras-2017-07
+657,657,,100.0,32.0,Washington Fire,True,N,bfa2d3e8-2ede-423f-b7db-f8e6f44a3c82,,Riverside,Riverside-2017-07
+658,658,,100.0,46.0,Hidden Fire,False,N,826b4661-020b-425d-84ec-9426c39839e7,,San Bernardino,San Bernardino-2017-07
+659,659,,100.0,35.0,Spaletta Fire,True,N,bf2e0a34-e600-4e21-9135-168e28c2893d,,Marin,Marin-2017-07
+660,660,,100.0,10.0,Navajo Fire,True,N,e6626b0a-428c-442f-9ec5-591effef172d,,Riverside,Riverside-2017-07
+661,661,,100.0,40.0,Reservation Fire,False,N,13dedbc3-8b85-4f64-b3db-89ed81ed4f1d,,Marin,Marin-2017-07
+662,662,Controlled traffic on Hwy 101 ,100.0,900.0,Grade Fire,True,N,95cd2f17-1278-4cc9-90f4-000e4eba415a,,Mendocino,Mendocino-2017-07
+663,663,None,100.0,81826.0,Detwiler Fire,True,N,9feb25c4-d3ae-4f78-9fc9-a1ad2b308e42,,Mariposa,Mariposa-2017-07
+664,664,,100.0,20.0,Range Fire,True,N,7f742021-ea49-4de5-89a2-f5b9d05d6bbb,,Mendocino,Mendocino-2017-07
+665,665,Parkfield – Coalinga Grade from Jacalitos Canyon Road to Valerian (V6) Ranch (where asphalt ends),100.0,1649.0,Park Fire,True,N,f44aec62-5d1d-422f-9ff9-dbef80e4e27f,,Monterey,Monterey-2017-07
+666,666,,100.0,70.0,Sand Fire,True,N,0726d9f7-2baa-4652-b1d6-cbab45783f64,,Colusa,Colusa-2017-07
+667,667,,100.0,117.0,Maria Fire,True,N,2f9f1bf9-6188-46a2-b91f-f212cdd21528,,Calaveras,Calaveras-2017-07
+668,668,,100.0,15.0,Centerville Fire,True,N,f568b94d-f388-4231-8aac-ac2572ca872d,,Modoc,Modoc-2017-07
+669,669,,100.0,40.0,Murphy Fire,True,N,1ba1f29a-5281-4f53-857d-106ae5e7db84,,Lake,Lake-2017-07
+670,670,,100.0,59.0,Fox Fire,True,N,80844950-65c8-44ec-b63a-7e51412fea0c,,Tulare,Tulare-2017-07
+671,671,,100.0,2312.0,I-5 Fire,False,N,2f2a4afd-06f1-4b57-b3f2-db8e3d9ac05c,,Kings,Kings-2017-08
+672,672,,100.0,19.0,Sway Fire,False,N,82689e99-9158-4403-b8c5-bababc3c81f6,,Humboldt,Humboldt-2017-08
+673,673,,100.0,1083.0,Hudson Fire,True,N,27759042-9df3-4d57-951e-f5727bcf013f,,Kern,Kern-2017-07
+674,674,,100.0,180.0,Laverne Fire,True,N,3c61a039-cf71-40da-89e9-bcc5a62e2c1a,,Shasta,Shasta-2017-07
+675,675,,100.0,72.0,Ellis Fire,True,N,244961af-65d5-472b-972f-e02df96e9ccb,,Riverside,Riverside-2017-07
+676,676,,100.0,58.0,Hogback Fire,True,N,7a317400-8838-4fd4-8c2f-b8c12add5d6a,,Sierra,Sierra-2017-07
+677,677,,100.0,0.0,Creek Fire,False,N,47c9e99d-ad11-497f-8238-cfd815423262,,Glenn,Glenn-2017-07
+678,678,,100.0,2289.0,Roadrunner Fire,True,N,eff9d678-293f-43aa-96af-c5cf3203b31f,,Tulare,Tulare-2017-07
+679,679,,100.0,0.0,Clear Complex (merged into Eclipse Complex),False,N,5948001c-9c7b-4722-9fa4-9f0323886bc0,,Siskiyou,Siskiyou-2017-07
+680,680,,100.0,124.0,Twist Fire,True,N,1f8c73d1-2cb8-4e98-bd44-d6dccd601c7e,,Tuolumne,Tuolumne-2017-07
+681,681,,100.0,135.0,Gorman Fire,False,N,ce6fb2ba-9799-4b36-a64f-8bf02392d6ee,,Los Angeles,Los Angeles-2017-07
+682,682,,100.0,63.0,Placentia Fire,True,N,ee20b421-06cd-40d2-a22c-0f9e8ddeee71,,Orange,Orange-2017-07
+683,683,,100.0,19.0,Willms Fire,True,N,1eef0c21-122b-4522-80d1-edf08c82c777,,Stanislaus,Stanislaus-2017-07
+684,684,,100.0,103.0,Humboldt Fire,True,N,510c877d-b80b-423f-b7e0-4276ce646f4a,,Butte,Butte-2017-07
+685,685,,100.0,4310.0,Minerva Fire,False,N,a95302d3-8574-4900-9d2a-daa33c55b70e,,Plumas,Plumas-2017-07
+686,686,,100.0,690.0,Jacksonville Fire,True,N,51e42770-97b4-4204-af57-8ab56992eb71,,Tuolumne,Tuolumne-2017-07
+687,687,,100.0,47.0,Zenon Fire,True,N,7dd19215-986b-4365-a40d-2267b4a05de0,,San Luis Obispo,San Luis Obispo-2017-07
+688,688,,100.0,10.0,Grizzly Fire,True,N,d9f83833-30c4-448d-b2ca-c5a63791b83d,,Nevada,Nevada-2017-07
+689,689,,100.0,140.0,Ranch Fire,True,N,2fd950a8-fadb-467c-ab59-88e7ea007738,,El Dorado,El Dorado-2017-07
+690,690,,100.0,416.0,Elephant Fire,True,N,0d93e84b-8460-4d5d-946c-630ade76747d,,Tulare,Tulare-2017-07
+691,691,,100.0,1286.0,Latrobe Fire,True,N,8cf9e7dc-74b9-4b97-9a03-f523f3eff56f,,Sacramento,Sacramento-2017-07
+692,692,,100.0,51.0,Weller Fire,True,N,7b95ce91-9581-4fe6-887d-ab1bf6420205,,Calaveras,Calaveras-2017-07
+693,693,,100.0,319.0,Marble Fire,False,N,be5275b7-1472-4423-a9c8-0f2491179150,,Siskiyou,Siskiyou-2017-07
+694,694,,100.0,85.0,Dollar Fire,False,N,84c8a735-9e8f-4310-84ab-39079ad1ea14,,San Bernardino,San Bernardino-2017-07
+695,695,,100.0,255.0,Lost Fire,True,N,918e4e6c-7814-42ed-9cd5-aa11d29367da,,San Diego,San Diego-2017-07
+696,696,,100.0,20.0,Seine Fire,False,N,a441e39a-1be1-4be5-8c07-b32bc6f07df0,,San Bernardino,San Bernardino-2017-07
+697,697,,100.0,13.0,Woodland Fire,True,N,855e28e2-753b-4c36-bf39-27ace518776d,,El Dorado,El Dorado-2017-07
+698,698,Highway 41 closed,100.0,150.0,Olive Fire,True,N,907cd7cd-cc26-4529-a9f8-cee1e1560086,,San Luis Obispo,San Luis Obispo-2017-07
+699,699,,100.0,39.0,Spenceville Fire,True,N,ebcee501-5709-4382-8eab-d8595ba6606d,,Yuba,Yuba-2017-07
+700,700,,100.0,78.0,Castro Fire,True,N,e8ebb6f2-16f5-4342-bce1-d36ff9c9422c,,Santa Clara,Santa Clara-2017-07
+701,701,,100.0,170.0,High Fire,True,N,1d8a8aaf-f294-46e1-8224-6ea3e8c39634,,San Bernardino,San Bernardino-2017-07
+702,702,,100.0,57.0,Live Fire,True,N,a3bd6249-555a-4ee1-99c0-69333d71bdfb,,Tehama,Tehama-2017-07
+703,703,,100.0,15.0,Greenhorn Fire,True,N,77ab4672-c61f-488f-a165-acb40eeac713,,Nevada,Nevada-2017-07
+704,704,,100.0,20.0,Falls Fire,True,N,09f55a45-f261-492f-b496-8744d878ef57,,Merced,Merced-2017-08
+705,705,,100.0,17.0,Sky Fire,True,N,00a13d84-415e-4106-aa31-2e664ed9eabf,,Shasta,Shasta-2017-07
+706,706,,100.0,155.0,Hill Fire,True,N,e9862c12-da9f-4205-9993-91a3b1437de4,,Siskiyou,Siskiyou-2017-07
+707,707,,100.0,236.0,Largo Fire,True,N,fd0a69a3-91d5-422b-bab4-dc6a4b0de134,,Sacramento,Sacramento-2017-07
+708,708,,100.0,1350.0,Garden Fire,False,N,0f4499f5-846c-4791-994e-81df04fe691a,,Kern,Kern-2017-07
+709,709,,100.0,11.0,Independence Fire,True,N,75fb489f-1e3e-4929-a6fb-a288416b96e0,,Sonoma,Sonoma-2017-07
+710,710,,100.0,100.0,Mile Fire,False,N,32a79e9b-8ce3-477e-b698-2eb16ef66aac,,San Bernardino,San Bernardino-2017-07
+711,711,,100.0,200.0,Rose Fire,True,N,3dcf54bc-89f5-41b3-b797-5dcdf0e629e8,,Lake,Lake-2017-07
+712,712,,100.0,32.0,Sandy Fire,False,N,5367822f-b489-4da5-b90e-c5b2c8abf318,,Trinity,Trinity-2017-08
+713,713,,100.0,70.0,Camatta Fire,True,N,47dd7f12-4141-473e-b2c1-2e625df3b784,,San Luis Obispo,San Luis Obispo-2017-08
+714,714,,100.0,460.0,Red Fire,True,N,a1554868-0f98-41d4-9132-1f0bbf10b22c,,San Luis Obispo,San Luis Obispo-2017-08
+715,715,,100.0,0.0,Warner Mountain Lightning,False,N,42f93f6b-0ada-4267-8e6e-4674055ed9c8,,Modoc,Modoc-2017-07
+716,716,,100.0,85.0,Saw Fire,True,N,dd6c5dfb-e5f5-4c1b-ab7f-aa9f3a4f60fc,,Humboldt,Humboldt-2017-08
+717,717,,100.0,325.0,Bryant Fire,True,N,093bdb67-4c14-402d-a034-3714b7125c49,,San Bernardino,San Bernardino-2017-08
+718,718,,100.0,10.0,Rincon Fire,False,N,9705ad0d-5bf1-4221-a7c3-3af6d99be3d0,,Los Angeles,Los Angeles-2017-08
+719,719,,100.0,30.0,Blocksburg Fire,True,N,e1582691-805c-4627-b20b-e5e8ba110f20,,Humboldt,Humboldt-2017-08
+720,720,,100.0,62.0,Bottle Fire,True,N,21714c67-dc5a-4d86-8794-79d85f87b71b,,Lake,Lake-2017-08
+721,721,,100.0,122.0,Stewart Fire,True,N,58d62aeb-29f5-45f5-93ac-a657b0708149,,Riverside,Riverside-2017-08
+722,722,,100.0,50.0,Calgary Fire,False,N,e4834d78-fd4a-44b4-8669-52cbdc41113d,,Kern,Kern-2017-08
+723,723,,100.0,1020.0,Chilcoot Fire,False,N,d3213d2a-4b10-4eef-b8df-bdebc5cd948f,,Plumas,Plumas-2017-08
+724,724,,100.0,530.0,W-2 Fire,False,N,93fe220b-0458-4e26-827c-93883093681e,,Lassen,Lassen-2017-08
+725,725,,100.0,859.0,Poslin Fire,False,N,06664fe1-c56c-4a00-833c-f9f3f6d6d18f,,Lassen,Lassen-2017-08
+726,726,,100.0,92.0,Reed Fire,True,N,ab009bd1-6784-4fda-a931-532520742a8b,,Riverside,Riverside-2017-08
+727,727,,100.0,82.0,Country Fire,True,N,e65c3e0b-08d9-43cf-b1ac-8e57d5f407fc,,Monterey,Monterey-2017-08
+728,728,,100.0,4736.0,Ruth Complex,False,N,9eb07177-e62a-4f5a-adeb-e95508e31959,,Trinity,Trinity-2017-08
+729,729,,100.0,338.0,Rose Fire,True,N,09e74687-85e7-488f-a5c8-8a11f75ab7d8,,Kern,Kern-2017-08
+730,730,,100.0,100.0,Tilton Fire,True,N,a8ab00de-6074-45a0-9e3d-f43b090e8346,,Santa Clara,Santa Clara-2017-08
+731,731,,100.0,15.0,Paskenta Fire ,True,N,a43d0b54-a91e-40ba-b121-2e0f067201b6,,Tehama,Tehama-2017-08
+732,732,,100.0,114.0,Canyon Fire,True,N,4b885d8c-8951-46c5-a3d1-520cfd0ac964,,Napa,Napa-2017-08
+733,733,,100.0,19.0,Nuevo Fire,True,N,bae69034-3bf6-48c3-a642-d0242cf090f9,,Riverside,Riverside-2017-08
+734,734,,100.0,775.0,Yankee Fire,True,N,e6308517-0b7c-4efb-9369-b9aa3fe3ad14,,Monterey,Monterey-2017-08
+735,735,,100.0,41.0,Ward Fire,False,N,f0dbf1f5-9f21-4d11-a432-d32f7f18c412,,Siskiyou,Siskiyou-2017-08
+736,736,,100.0,1044.0,Blaine Fire,True,N,c57ff6c2-e5df-48c5-831c-1dbad73df5ef,,Riverside,Riverside-2017-08
+737,737,,100.0,125.0,Coronado Fire,True,N,8779fe43-665b-4643-a730-6344c44018c7,,Mariposa,Mariposa-2017-08
+738,738,,100.0,8094.0,Empire Fire,False,N,2995e2b3-f18d-44ec-952f-9f148b8354d9,,Mariposa,Mariposa-2017-08
+739,739,,100.0,7000.0,South Fork Fire,False,N,b02ec4f1-ac5c-4b22-b7fa-5834af16d807,,Mariposa,Mariposa-2017-08
+740,740,,100.0,545.0,Mias Fire,True,N,c3ad74dc-6842-463f-8808-05161a8ba570,,Riverside,Riverside-2017-08
+741,741,,100.0,17.0,Corner Fire,True,N,1b49e4e3-7506-4bf4-b86f-fd3ca93fd85b,,Shasta,Shasta-2017-08
+742,742,,100.0,168.0,Hills Fire,True,N,a1b6ff5e-0533-408c-b02a-3061f60fb263,,Riverside,Riverside-2017-08
+743,743,,100.0,867.0,Beale Fire,True,N,f31a117a-572a-4956-9797-ad08e3933bb7,,Yuba,Yuba-2017-08
+744,744,,100.0,191125.0,Chetco Fire,False,N,5555d1d7-0bb4-4c66-81b6-e1113987f217,,,
+745,745,,100.0,186.0,Toll Fire,False,N,3becdf3e-b110-41ab-86ce-645e041d296f,,Plumas,Plumas-2017-08
+746,746,,100.0,78698.0,Eclipse Complex,False,N,490ae25d-c3d8-4a90-9e75-0ad85e0f629f,,Siskiyou,Siskiyou-2017-08
+747,747,,100.0,2295.0,Indian Fire,False,N,345f6faa-9946-418e-8a60-d5cb9efb3af4,,Tulare,Tulare-2017-08
+748,748,All road closures have been lifted in the area of the fire. ,100.0,200.0,Eclipse Fire,True,N,2f1b8cff-f7d6-4459-866b-7c84bd531dcc,,San Diego,San Diego-2017-08
+749,749,,100.0,3142.0,Young Fire,False,N,687e2987-2306-477b-bbaf-0d5465eb1e7c,,Del Norte,Del Norte-2017-08
+750,750,,100.0,7697.0,Parker 2 Fire,False,N,3e005fd9-11a4-4145-a71f-8a4cf9a1341a,,Modoc,Modoc-2017-08
+751,751,,100.0,200.0,Range Fire,False,N,89b5d4db-ce4e-43b9-8618-f89088d35ee1,,Alameda,Alameda-2017-08
+752,752,,100.0,31.0,Juniper Fire,True,N,83d87ff0-be6c-46fa-ab96-b9845d5d4edc,,Fresno,Fresno-2017-08
+753,753,,100.0,62.0,Montezuma Fire,True,N,1f8d9fe1-e644-4f53-88ae-4418cc0b4451,,San Diego,San Diego-2017-08
+754,754,,100.0,157.0,Peg Fire,True,N,bfc6b8e4-8021-44ca-8f92-58c724682ba1,,Lassen,Lassen-2017-08
+755,755,,100.0,40.0,Vestal Fire,True,N,becd0762-0e22-4c54-a1c5-3ecd3660dd70,,Tehama,Tehama-2017-08
+756,756,,100.0,111.0,Flat Fire,True,N,90473f02-6572-4a9b-9451-1a18a4bee1ed,,Fresno,Fresno-2017-08
+757,757,,100.0,44.0,Mines Fire,True,N,399dba2c-02c1-4756-a76d-1198d0e838ed,,Alameda,Alameda-2017-08
+758,758,,100.0,18.0,Bodega Fire,True,N,d83bfb8a-f1e6-4213-b514-89fc16d2eb72,,Sonoma,Sonoma-2017-08
+759,759,,100.0,46.0,Canyon Fire,False,N,78754c68-2800-4c5d-aff0-ab0b399ab5ce,,Riverside,Riverside-2017-08
+760,760,,100.0,69.0,Hill Fire,True,N,386b7562-fe70-490b-a92c-a3c21eece0c2,,Fresno,Fresno-2017-08
+761,761,,100.0,40.0,Translator Fire,False,N,18a2b3d6-d86e-4147-ab42-d45b8792e98a,,Humboldt,Humboldt-2017-08
+762,762,,100.0,10.0,Sandra Fire,True,N,f3c1f59e-b0d5-4c14-976f-ae6c583b2224,,Amador,Amador-2017-08
+763,763,,100.0,36556.0,Pier Fire,False,N,c8ebf0c1-e560-4e22-a946-129af8699dfb,,Tulare,Tulare-2017-08
+764,764,,100.0,54.0,Bradley Fire,False,N,f8cd3b44-ec6b-4338-9edc-ebd879a8aafc,,Shasta,Shasta-2017-08
+765,765,,100.0,4016.0,Ponderosa Fire,True,N,7c9253af-4c43-41bb-b1de-44af15e0d83e,,Butte,Butte-2017-08
+766,766,,100.0,12407.0,Railroad Fire,False,N,9989e07d-5125-472d-9601-0d7158b13073,,Mariposa,Mariposa-2017-08
+767,767,,100.0,6042.0,Mud Fire,False,N,b77ff66d-d8ee-49c9-bd0f-92a4350a095a,,Lassen,Lassen-2017-08
+768,768,,100.0,55.0,Owens Fire,True,N,62b8a6af-700a-4c93-85d5-a9b85a30faf5,,Siskiyou,Siskiyou-2017-08
+769,769,,100.0,8925.0,Slinkard Fire,False,N,71ea2924-bc37-44f4-b454-47eff22e426c,,Mono,Mono-2017-08
+770,770,,100.0,28.0,4-4 Fire,True,N,5e01dba8-3d59-41a6-ba60-d78d874eba42,,Modoc,Modoc-2017-08
+771,771, All road closures have been lifted. ,100.0,392.0,Pleasant Fire,True,N,f571f91e-bc07-450c-8822-3ecc61a27863,,Nevada,Nevada-2017-08
+772,772,,100.0,27.0,4-10 Fire,True,N,182f71e9-0f85-4cb0-8711-ee14c0b6b8f8,,Modoc,Modoc-2017-08
+773,773,,100.0,102.0,Coalinga Fire,True,N,4adae6c4-71c9-46d1-9743-e04f186b2c3e,,Fresno,Fresno-2017-08
+774,774,,100.0,34.0,Miller Fire,True,N,62a6c794-97db-4b57-9033-958bcf2e5a99,,Humboldt,Humboldt-2017-08
+775,775,,100.0,21846.0,Helena - Fork Fire,False,N,220a986e-6d2c-4893-9473-232d1e1abf0c,,Trinity,Trinity-2017-08
+776,776,,100.0,85.0,Marlborough Fire,True,N,7bc10ea0-55b4-40bd-8eca-36ec10106528,,Riverside,Riverside-2017-08
+777,777,,100.0,30.0,Castaic Fire,False,N,1e9d7aca-8862-4dff-a8af-5f687afdfda0,,Los Angeles,Los Angeles-2017-08
+778,778,,100.0,130.0,Border Fire,True,N,10a447c8-708f-44a3-8679-251500c761d6,,San Diego,San Diego-2017-09
+779,779,,100.0,5247.0,Summit Complex,False,N,68328f20-5aed-404d-8c29-81b4b69e8439,,Tuolumne,Tuolumne-2017-07
+780,780,,100.0,34.0,Ellie Fire,True,N,99a7ed51-e64a-4aa9-b8ba-6a9ae4752db0,,Lake,Lake-2017-09
+781,781,,100.0,1749.0,Creek Fire,False,N,7f33fd28-9a93-438b-84ca-0e57e7c441f4,,Tuolumne,Tuolumne-2017-09
+782,782,,100.0,25.0,Hopper Fire,True,N,406e30d2-2ac0-4c0b-998c-761adde20177,,Shasta,Shasta-2017-09
+783,783,,100.0,1319.0,Caldwell Fire,False,N,340e471a-a37e-47dd-90da-6c9f35b7eb3b,,Kern,Kern-2017-09
+784,784,,100.0,7194.0,La Tuna Fire ,False,N,c2bf9820-7e90-43c4-bd3d-1b26ef7ada51,,Los Angeles,Los Angeles-2017-09
+785,785,Douglas Station Road at Road 225; Rainbow Drive at Road 225; Cascade; Drive at Road 225,100.0,1035.0,Mission Fire,True,N,297d6516-ce4f-407d-93f8-9669dc6fd392,,Madera,Madera-2017-09
+786,786,,100.0,100.0,Parkfield Fire,True,N,a983c540-b47c-4250-a65d-c5d3d76c9b3b,,Fresno,Fresno-2017-09
+787,787,San Timoteo Canyon Road CLOSED from Live Oak Road to Palmer Road,100.0,3874.0,Palmer Fire,True,N,cfa04438-152b-4f4b-a712-4343af8c7fcf,,Lake,Lake-2017-09
+788,788,,100.0,120.0,Margarita Fire,True,N,17cd878b-0d5d-49ff-b205-7e0203908f4c,,San Luis Obispo,San Luis Obispo-2017-09
+789,789,,100.0,21.0,Mule Fire,True,N,180ea977-b5c2-483d-b9f4-c2f8b8b05ebe,,Lake,Lake-2017-09
+790,790,,100.0,79.0,Mills File,True,N,ba20d998-185c-48ac-8006-15aadf4d3106,,Plumas,Plumas-2017-09
+791,791,,100.0,100.0,Bally Fire,True,N,7b02d757-4f96-4616-99d5-04e4eaa34440,,Santa Clara,Santa Clara-2017-09
+792,792,,100.0,680.0,Peak Fire,True,N,c7a0a280-17c9-409b-85f9-fdda301b6ede,,Mariposa,Mariposa-2017-09
+793,793,,100.0,18618.0,R-4 Fire,False,N,49757269-445f-4525-8698-858d8e0a5398,,Nevada,Nevada-2017-08
+794,794,,100.0,25.0,Cove Fire,True,N,92fc9725-ac49-4632-8bbf-e299483940b8,,San Luis Obispo,San Luis Obispo-2017-09
+795,795,,100.0,54.0,Bradley Fire,False,N,59fae761-fd49-4f06-a2e9-1495c00eb7e9,,Shasta,Shasta-2017-08
+796,796,,100.0,32.0,Sandy Fire,False,N,5ef75bbf-adba-424a-bef3-a5efed5b5e2c,,Trinity,Trinity-2017-08
+797,797,,100.0,39.0,Table Fire,True,N,38c666cb-6545-428f-985d-a2589dfb3700,,Tuolumne,Tuolumne-2017-09
+798,798,,100.0,25.0,Border 9 Fire,True,N,d0b51e42-5558-47c9-8617-34f6f977ab79,,San Diego,San Diego-2017-09
+799,799,,100.0,0.0,Rattlesnake Fire,False,N,e21384c7-8060-4336-9a71-a006330d9939,,Mariposa,Mariposa-2017-09
+800,800,,100.0,74.0,Linne Fire,True,N,98bf51ea-bf23-40a3-b95e-4b795baced3e,,San Luis Obispo,San Luis Obispo-2017-09
+801,801,,100.0,43.0,Pine Fire,True,N,ed4e06ba-6d17-459a-831a-9b15a9bd116e,,Monterey,Monterey-2017-09
+802,802,,100.0,2575.0,Eureka Fire,False,N,47988f74-d4bd-4ddd-814e-22ebc2ca5ccf,,Plumas,Plumas-2017-09
+803,803,,100.0,10.0,Shaver Fire,True,N,e1a5b757-2bc1-440f-b3d1-06cd41171775,,Fresno,Fresno-2017-09
+804,804,,100.0,200.0,Skeleton Fire,False,N,089f95f8-8834-4cc6-87c7-15cb1aeca7b8,,Lake,Lake-2017-09
+805,805,,100.0,143.0,Soda Fire,True,N,01202971-a157-41f8-91cc-cf7c3b8f9473,,Butte,Butte-2017-09
+806,806,,100.0,39715.0,Miller Complex,False,N,d43c681d-b57e-47e6-a6ad-e3ed08de9ff7,,Siskiyou,Siskiyou-2017-08
+807,807,,100.0,50.0,Skeggs Fire,True,N,81b26bc7-7d65-4591-9d27-4e698cab4f12,,San Mateo,San Mateo-2017-09
+808,808,<li>River Road is closed from Pit 4 Dam to Pit 3 Powerhouse</li>,100.0,995.0,Berry Fire,True,N,4a015862-8ac1-4c91-aa4c-c9831630b75a,,Shasta,Shasta-2017-09
+809,809,,100.0,40.0,Hole Fire,False,N,59d6fc84-0d58-4e29-b910-1993dba51b3a,,Del Norte,Del Norte-2017-09
+810,810,,100.0,12.0,Pacific Fire,True,N,ea832344-b0c6-4443-b5f0-457c462d911c,,Butte,Butte-2017-09
+811,811,,100.0,58.0,Slides Fire,False,N,ab08cb64-67c4-4e7d-8081-b5574131f755,,Lake,Lake-2017-09
+812,812,,100.0,13417.0,Buck Fire,False,N,7cc06465-bf2a-4df2-a68d-5f330e1cea42,,Trinity,Trinity-2017-09
+813,813,,100.0,136.0,French Fire,True,N,f7a51800-b219-428c-aef0-ee5fa5de4d64,,El Dorado,El Dorado-2017-09
+814,814,,100.0,429.0,Eastman Fire,True,N,32d7eab5-d948-4be0-af69-b233e311d2b9,,Madera,Madera-2017-09
+815,815,,100.0,146.0,Grape Fire,True,N,efa1dc61-85e3-4fb6-b6f6-04c3845d9ca6,,Mendocino,Mendocino-2017-09
+816,816,,100.0,155.0,Corral Fire,True,N,19ada70e-4932-449c-8483-d65685995487,,Alameda,Alameda-2017-09
+817,817,,100.0,237.0,Murphy Fire,True,N,a8567989-a0c5-4c31-9012-82f99d76129f,,Fresno,Fresno-2017-09
+818,818,,100.0,48.0,Power Fire,True,N,e7cb239e-7d9e-440d-ba5a-c6881406ce95,,Merced,Merced-2017-09
+819,819,,100.0,245.0,Huasna Fire,True,N,c64e288e-d258-45e0-8357-b7a7289c0b92,,San Luis Obispo,San Luis Obispo-2017-09
+820,820,,100.0,10.0,Dexter Fire,True,N,04b4caff-a62d-465b-b9a7-81986f91c0c3,,Mariposa,Mariposa-2017-09
+821,821,,100.0,28.0,32 Fire,True,N,cf38fe5e-29ca-498d-bc9c-d3f2fd8ff883,,Butte,Butte-2017-09
+822,822,,100.0,55.0,Estate Fire,True,N,c9009967-c0c1-47d3-b2eb-47b2d7a5da0e,,Solano,Solano-2017-09
+823,823,,100.0,26.0,Jasper Fire,True,N,ab42234a-7930-4636-8af5-3fc11ca8b34d,,Yuba,Yuba-2017-09
+824,824,,100.0,22.0,Edwards Fire,False,N,c4f61042-d1ef-4d00-956d-785368ee34ca,,Alameda,Alameda-2017-09
+825,825,,100.0,105.0,Poly Fire,True,N,cb3599f6-751d-4072-8db1-6e366ac603c9,,San Luis Obispo,San Luis Obispo-2017-09
+826,826,,100.0,2662.0,Canyon Fire,True,N,0176a674-c102-4854-92af-7d09aa3e1430,,Orange,Orange-2017-09
+827,827,,100.0,18900.0,Lion Fire,False,N,f2e55878-e387-412b-a067-dadc649bed43,,Tulare,Tulare-2017-09
+828,828,,100.0,444.0,Rucker Fire,True,N,f839c34f-de3b-4e79-9b4f-e3502557d32b,,Santa Barbara,Santa Barbara-2017-09
+829,829,,100.0,40.0,Lakewood Fire,True,N,62a5257e-a841-4f7a-ae19-52aa89570bd9,,Kern,Kern-2017-09
+830,830,,100.0,35.0,Melba Fire,True,N,58533f37-ed81-4ac4-89e9-b4088684d9e7,,Riverside,Riverside-2017-09
+831,831,,100.0,100.0,Timm Fire,True,N,03d74bbd-627c-47af-a2e9-5351e6e16f6a,,Solano,Solano-2017-10
+832,832,,100.0,17.0,Ramblin Fire,True,N,273d1f78-c432-46c0-8969-26c3f936cc65,,Mariposa,Mariposa-2017-10
+833,833,,100.0,20.0,36 Fire,True,N,bc12dbf6-db36-4dcf-86d6-84d3beb14cad,,Tehama,Tehama-2017-10
+834,834,,100.0,87.0,Ridge Fire,True,N,2049dbb6-1a87-4d9d-abde-092d35072934,,Lake,Lake-2017-10
+835,835,,100.0,40.0,Jones Fire,True,N,6ab80358-cb3c-4e2a-85da-0cd77003fc12,,Shasta,Shasta-2017-10
+836,836,,100.0,20.0,Fort Fire,True,N,fc87e089-36dc-4314-8321-7d91e7eead21,,Sonoma,Sonoma-2017-10
+837,837,,100.0,10.0,Freeway Fire,True,N,e3ed6829-5211-436a-8e32-ec617c3ebc83,,Tehama,Tehama-2017-10
+838,838,Hwy 299 shut down both directions,100.0,20.0,Blue Fire,True,N,e2c1718a-40e5-4139-a379-011c77f021bd,,Humboldt,Humboldt-2017-10
+839,839,Cherokee Road is now open. ,100.0,8417.0,Cherokee Fire,True,N,adf929a5-d508-4f69-8845-8fa1df8d4f95,,Butte,Butte-2017-10
+840,840,,100.0,51624.0,Atlas Fire (Southern LNU Complex),True,N,676946dc-1b38-4a09-9bbe-9ce638cfed52,Wildfire,Napa,Napa-2017-10
+841,841,,100.0,36807.0,Tubbs Fire (Central LNU Complex),True,N,82c2aafa-ef04-49f0-a172-0dfa8a15582e,Wildfire,Napa,Napa-2017-10
+842,842,,100.0,56556.0,Nuns / Adobe / Norrbom/ Pressley / Partrick Fires / Oakmont (Central LNU Complex),True,N,be79d28c-767d-4a0d-b168-e86a5842004f,Wildfire,Sonoma,Sonoma-2017-10
+843,843,,100.0,0.0,Partrick Fire (Central LNU Complex),True,N,36d55b1a-a2f4-4f40-b57c-48341bb2ace5,,Napa,Napa-2017-10
+844,844,,100.0,6151.0,LaPorte Fire (Wind Complex),True,N,4ca0e06c-4e6e-4e00-a4a4-6813e3200bd5,,Butte,Butte-2017-10
+845,845,,100.0,9989.0,Cascade Fire (Wind Complex),True,N,608ed849-d1ec-4b0d-a477-d1b8e9c7e6dd,Wildfire,Yuba,Yuba-2017-10
+846,846,,100.0,76.0,McCourtney Fire (Wind Complex),True,N,9a2b8ac1-41f4-4f98-a4e1-9b5ddee37251,,Nevada,Nevada-2017-10
+847,847,,100.0,36523.0,Redwood Valley Fire (Mendocino Lake Complex),True,N,c229ea5c-2ebd-4f80-892e-fc5da8a1eeea,Wildfire,Mendocino,Mendocino-2017-10
+848,848,,100.0,130.0,Point Fire,True,N,f30518d1-83ef-440c-8058-d4189bfedab7,,Calaveras,Calaveras-2017-10
+849,849,,100.0,1660.0,37 Fire,True,N,fe6e94d7-7b47-4992-9a52-787e1fad8171,,Sonoma,Sonoma-2017-10
+850,850,,100.0,45.0,Pozo Fire,False,N,f8ce12e2-e7c1-4922-b584-63e4421d0598,,San Luis Obispo,San Luis Obispo-2017-10
+851,851,,100.0,50.0,Tank Fire,True,N,fb042e0f-1aab-4ac4-9d09-947c9b9f14b6,,Kern,Kern-2017-10
+852,852,,100.0,2207.0,Sulphur Fire (Mendocino Lake Complex),True,N,0f32c2db-7d28-4cf6-85b8-44b53899c8eb,,Lake,Lake-2017-10
+853,853,,100.0,821.0,Lobo Fire (Wind Complex),True,N,29c37ab7-3af9-458f-b6d3-72023a8c1046,Wildfire,Nevada,Nevada-2017-10
+854,854,Honey Run Road remains closed in the fire area.,100.0,150.0,Honey Fire,True,N,579d5d2a-0e51-4058-92c7-37abd7fe4aad,,Butte,Butte-2017-10
+855,855,"All Evacuation Orders have been lifted for the impacted fire areas as of October 11, 2017 at 5:00 p.m",100.0,9217.0,Canyon 2 Fire,True,N,969c721c-5f27-41d4-9a94-ffa12e351204,,Orange,Orange-2017-10
+856,856,,100.0,866.0,Wildomar Fire,True,N,561d4f1b-0827-48a9-8034-e783d2761945,,Riverside,Riverside-2017-10
+857,857,,100.0,194.0,Tehama Fire,True,N,09425074-8348-4fbc-b95d-4939750f9345,,Tehama,Tehama-2017-10
+858,858,All road closures lifted.,100.0,58.0,Silver Fire,True,N,46d1ec10-be8e-474a-b98f-ba7cd3521ccd,,Fresno,Fresno-2017-10
+859,859,,100.0,17357.0,Pocket Fire (Central LNU Complex),True,N,0de36981-b31f-45c7-befd-1596f982e7db,,Sonoma,Sonoma-2017-10
+860,860,All roads are open. Please watch your speed on Bear Creek Road as fire vehicles will continue to patrol the area. Be advised that all roads in the fire area are private roads and access should be limited to those with official business.,100.0,391.0,Bear Fire,True,N,b3627eac-9f2f-482a-81a6-681e60b5b24a,,Santa Cruz,Santa Cruz-2017-10
+861,861,,100.0,50.0,Wilson Fire,False,N,dcd7fb2e-3a4f-427e-9b13-1d2bcb0e8ac6,,Los Angeles,Los Angeles-2017-10
+862,862,,100.0,148.0,River Fire,False,N,eb8b50ba-b6bc-4668-b3f1-dcdbfbe71b17,,Trinity,Trinity-2017-10
+863,863,,100.0,183.0,Quarry Fire,True,N,ec27a3bd-959b-48f3-872e-2c87047dbae2,,Kern,Kern-2017-10
+864,864,,100.0,25.0,Wilson Fire,True,N,d720af5d-af7c-4052-92b3-fced863cb675,,San Diego,San Diego-2017-10
+865,865,,100.0,19.0,Garden Fire,True,N,11392e98-1571-4405-8f9c-d347caca28ce,,Nevada,Nevada-2017-10
+866,866,,100.0,29.0,Ice Fire,False,N,0e9f14ae-01d5-4fbe-85a0-d0967233dc90,,El Dorado,El Dorado-2017-10
+867,867,,100.0,23.0,Portola Fire,True,N,61e9a1f4-a263-47a0-93ee-64b52ebd92a9,,Riverside,Riverside-2017-10
+868,868,,100.0,34.0,Meyers Fire,True,N,c5783ba0-227e-4ff6-9d7d-61532ccd469b,,San Bernardino,San Bernardino-2017-12
+869,869,,100.0,260.0,Little Mountain Fire,True,N,eb87224a-f7da-4432-84ca-03a706ee3bac,,San Bernardino,San Bernardino-2017-12
+870,870,,100.0,50.0,Extension Fire,True,N,33bf7f90-edd9-4bf7-a079-561d5dad25c9,,Riverside,Riverside-2017-10
+871,871,,100.0,40.0,Freeway Fire,False,N,50bd55cc-7c58-462d-a919-923b4bdcca15,,San Bernardino,San Bernardino-2017-10
+872,872,,100.0,184.0,Rolling Fire,True,N,733028fc-bf0a-4737-878b-78a29c9ee2ee,,Kern,Kern-2017-10
+873,873,,100.0,73.0,Lynch Fire,True,N,92a8a466-061b-430a-87f9-3b5192947578,,San Luis Obispo,San Luis Obispo-2017-10
+874,874,,100.0,426.0,Table Fire,False,N,2725461a-6ad1-43fd-8b83-5e219df4d558,,El Dorado,El Dorado-2017-10
+875,875,,100.0,100.0,Long Fire,True,N,a7ecc679-7fbc-4370-9a55-8e17bf262a2e,,Lake,Lake-2017-10
+876,876,,100.0,100.0,Oakmont Fire (Central LNU Complex),True,N,3f481060-1106-4857-8ac3-374a68763922,,Sonoma,Sonoma-2017-10
+877,877,,100.0,0.0,Pressley Fire (Central LNU Complex),True,N,15b21d31-eadf-47bb-a030-20c531b3077b,,Sonoma,Sonoma-2017-10
+878,878,,100.0,31.0,York Fire,True,N,c58da6fd-a2e2-4706-9a2e-ee03884c714d,,Monterey,Monterey-2017-10
+879,879,,100.0,116.0,Fallon Fire,True,N,e8c7f247-bc31-4e5b-bf71-fe903366d9e5,,Alameda,Alameda-2017-10
+880,880,,100.0,1088.0,Buffalo Fire,False,N,081c7307-b328-4b64-869a-dce8718bab11,,Marin,Marin-2017-10
+881,881,,100.0,13.0,Milton Fire,True,N,6418a3f5-8f76-4b47-9a46-64af91838857,,Stanislaus,Stanislaus-2017-10
+882,882,None,100.0,6049.0,Rye Fire,True,N,1e11fa40-e850-45d2-b65e-05aadc9f02f1,,Los Angeles,Los Angeles-2017-12
+883,883,,100.0,15619.0,Creek Fire,False,N,a245b55b-3eb7-49dd-9a5e-909d53854055,,Los Angeles,Los Angeles-2017-12
+884,884,,100.0,281893.0,Thomas Fire,True,N,d28bc34e-73a8-454d-9e55-dea7bdd40bee,Wildfire,Ventura,Ventura-2017-12
+885,885,,100.0,40.0,Riverdale Fire,True,N,c425ed8d-1aab-44c8-bc03-39675ad2b0d2,,Riverside,Riverside-2017-12
+886,886,,100.0,43.0,Roser Fire,True,N,eadd73be-51ab-4078-91cc-04784be3f17f,,Tehama,Tehama-2017-11
+887,887,,100.0,370.0,Chris Fire,False,N,23353f29-33d4-4a7b-b78e-66bc761a55c8,,Mono,Mono-2017-11
+888,888,,100.0,81.0,Loma Fire,False,N,d12bbce8-5acb-43ef-a259-4fbaf90d32ff,,Marin,Marin-2017-10
+889,889,,100.0,40.0,Palm Fire,True,N,60d9b4f4-7b48-4820-9adc-5be0b4353a5c,,Riverside,Riverside-2017-11
+890,890,,100.0,86.0,Vista Fire,True,N,fc8f89b5-988a-4a23-b9e3-333cc690363e,,Ventura,Ventura-2017-10
+891,891,,100.0,21.0,Soda Fire,True,N,494792db-3107-4323-b176-fde4c58cd647,,Lake,Lake-2017-10
+892,892,,100.0,47.0,Bitterwater Fire,True,N,c265dfe8-6217-4a0d-9ea9-37be3b38baef,,San Benito,San Benito-2017-11
+893,893,,100.0,100.0,Church Fire,True,N,773795d8-5801-4f7c-a2fe-3f8d0ae18f51,,San Diego,San Diego-2017-10
+894,894,,100.0,99.0,Oak Fire,True,N,666b3951-76ce-4351-abc6-3e0518d44901,,San Bernardino,San Bernardino-2017-11
+895,895,All roads reopened.,100.0,4100.0,Lilac Fire,True,N,fc4fcd00-8eee-43e5-b77f-bbd0c1669744,,San Diego,San Diego-2017-12
+896,896,,100.0,300.0,Liberty Fire,False,N,e1a8e4f1-ba7c-431a-a8c4-069fa3d3d36c,,Riverside,Riverside-2017-12
+897,897,,100.0,19.0,Longhorn Fire,True,N,d3f8db86-9947-4a4e-9113-0d7e4806417f,,Riverside,Riverside-2017-12
+898,898,,100.0,422.0,Skirball Fire,False,N,2aad53ef-d6c3-43dc-92e6-b2f9881ff161,,Los Angeles,Los Angeles-2017-12
+899,899,,100.0,14.0,Drum Fire,True,N,64779f92-8353-4187-ae56-2b83eb66d7ca,Wildfire,Santa Barbara,Santa Barbara-2017-12
+900,900,,100.0,14.0,Coast Fire,True,N,2fa6f5ce-1c5b-4147-9f1f-9beb01c499af,Wildfire,Santa Barbara,Santa Barbara-2017-12
+901,901,,100.0,45.0,Riverbottom Fire,False,N,e32c7957-8f4f-4ec1-a0f6-98085a2a7e89,Wildfire,Riverside,Riverside-2017-12
+902,902,,100.0,80.0,Holiday Fire,False,N,d20645f2-81b9-450f-abc1-433b81bd7fea,Wildfire,Nevada,Nevada-2017-12
+903,903,,100.0,50.0,Haycamp Fire,False,N,9d0be6f9-d61b-467d-be68-c8a48c0cf930,,Monterey,Monterey-2018-02
+904,904,,100.0,2070.0,Pleasant Fire,True,N,3d866877-330a-4a14-b5bd-48675955af64,,Inyo,Inyo-2018-02
+905,905,,100.0,12.0,Grant Fire,True,N,f78b2acd-fff2-413a-93d6-8479e138120b,,Alameda,Alameda-2018-05
+906,906,,100.0,1261.0,Patterson Fire,True,N,693a86e6-8985-4e70-8ba8-869786ff538b,,Riverside,Riverside-2018-05
+907,907,,100.0,15.0,Tyler Fire,True,N,8b34406c-93b7-4a40-a832-2fc525876e59,,Riverside,Riverside-2018-04
+908,908,,100.0,258.0,Santa Cruz Fire,False,N,f87005f7-c31b-4135-989a-ee5611626b3c,,Santa Barbara,Santa Barbara-2018-03
+909,909,,100.0,11.0,Rock Fire,True,N,958c8ac0-6111-4d29-b5ac-8ca0e7a2f484,,Shasta,Shasta-2018-03
+910,910,,100.0,21.0,Meadow Fire,True,N,9a49cf24-0e41-4817-b0d0-966e7b5c7e77,,Riverside,Riverside-2018-04
+911,911,,100.0,12.0,Volcan Fire,True,N,81cf4d22-336d-4035-b2c3-5b5a8cf2fcc2,,San Diego,San Diego-2018-05
+912,912,,100.0,127.0,Shastina Fire,True,N,e84f2881-743c-4e36-863d-ddb37c2540d3,,Siskiyou,Siskiyou-2018-05
+913,913,,100.0,18.0,Lago Fire,True,N,fb8c9354-384c-45ab-b209-4a0f6d234516,,Riverside,Riverside-2018-04
+914,914,,100.0,20.0,French Fire,False,N,508b3f52-3a8e-4572-99a9-73c28bbdfbef,,Plumas,Plumas-2018-04
+915,915,,100.0,60.0,Happy Fire,True,N,1a08a7d9-47b2-42ba-94c1-a2e15415b887,,Santa Barbara,Santa Barbara-2018-05
+916,916,,100.0,18.0,Jacques Fire,False,N,f96cf1fb-78d6-4763-a754-23aac25a3b96,,Marin,Marin-2018-05
+917,917,,100.0,300.0,Alpha Fire,False,N,32708961-025a-4bf7-88c1-8cd91bbc3cce,,Marin,Marin-2018-05
+918,918,,100.0,1756.0,Nees Fire,True,N,92c441f3-4729-4ba5-890f-fb7693725275,,Fresno,Fresno-2018-05
+919,919,,100.0,70.0,Tornado Fire,True,N,57ef80d4-4674-4a3a-9fd6-3f1d792a1953,,Riverside,Riverside-2018-05
+920,920,,100.0,15.0,Woodchuck Fire,True,N,08a9481d-8742-4256-a419-2a59196e0a8d,,Riverside,Riverside-2018-05
+921,921,,100.0,1265.0,Moffat Fire,True,N,a339b368-ec58-463e-9a26-9af37c938f49,,Inyo,Inyo-2018-04
+922,922,,100.0,0.0,Grape Fire,False,N,d6753341-5c6f-4530-9c02-25974496ddc8,,Humboldt,Humboldt-2018-04
+923,923,,100.0,73.0,Main Fire,True,N,8e840df1-b34b-44fd-8ade-0350a0113a81,,Lake,Lake-2018-04
+924,924,,100.0,26.0,White Fire,True,N,0d030a31-8531-4172-88f1-08ac34c3d805,,Tulare,Tulare-2018-05
+925,925,,100.0,103.0,Jelly Fire,True,N,e1ab6577-7ce9-4b19-bb29-68b5bdd699b6,,Tehama,Tehama-2018-05
+926,926,,100.0,27.0,Ager Fire,True,N,454ed7a0-3e17-47a6-9ff1-7a629471df5c,,Siskiyou,Siskiyou-2018-05
+927,927,,100.0,88.0,Plaza Fire,True,N,d77a050b-9928-49bf-92de-1159edddd07c,,Merced,Merced-2018-05
+928,928,,100.0,12.0,Bellagio Fire,True,N,03b0e3c2-7b65-4a7b-b061-d297ebd267f4,,Napa,Napa-2018-05
+929,929,,100.0,59.0,Agua Fire,True,N,b9cd9a90-1983-4a0a-aad4-9c286382f158,,San Diego,San Diego-2018-05
+930,930,,100.0,56.0,Experimental Fire,True,N,f163aa10-1dd9-4fd0-9e5b-fda78ef5bcc6,,Madera,Madera-2018-05
+931,931,,100.0,100.0,Water Fire,True,N,31c47bb9-1913-463e-95e4-86e48fadfda6,,San Luis Obispo,San Luis Obispo-2018-05
+932,932,,100.0,108.0,Cobble Fire,True,N,737f9bb2-5a43-4730-94c1-4031bce6d626,,Fresno,Fresno-2018-05
+933,933,,100.0,16.0,Keeler Fire,True,N,7f775329-242f-4211-b564-92f90062c227,,Santa Clara,Santa Clara-2018-05
+934,934,,100.0,10.0,70th Fire,True,N,79dee087-3393-473f-aaa9-5d253cc5e1fa,,Riverside,Riverside-2018-05
+935,935,,100.0,75.0,Chrome Fire,True,N,09f22e57-6058-4a87-972a-ece08f4527d4,,Glenn,Glenn-2018-05
+936,936,,100.0,63.0,Stuhr Fire,True,N,e596a67e-177f-4db9-a2d6-dda7da1678fb,,Stanislaus,Stanislaus-2018-05
+937,937,,100.0,25.0,Vineyard Fire,True,N,4b641aa9-e8b4-492e-a181-f1bad47c4d6d,,San Luis Obispo,San Luis Obispo-2018-05
+938,938,,100.0,484.0,Grant Fire,True,N,503cf916-4f56-4be7-8083-730122f686dc,Wildfire,Alameda,Alameda-2018-05
+939,939,,100.0,14.0,Madison FIre,True,N,4235f934-ed24-425d-821c-46363dcb16e8,,Yolo,Yolo-2018-06
+940,940,,100.0,127.0,Open Fire,False,N,3db90629-694f-43d7-b46a-6378f6bc1472,,Glenn,Glenn-2018-06
+941,941,,100.0,23.0,Plymire Fire,True,N,b48e83d3-eb05-47df-a198-185912d8190e,,Tehama,Tehama-2018-06
+942,942,,100.0,23.0,Glen Fire,True,N,abe0e447-8977-406f-9e13-5514f4e954bc,,Contra Costa,Contra Costa-2018-06
+943,943,,100.0,175.0,Aliso Fire,True,N,105b65f3-7e99-4cd6-8b0a-f78004c041eb,,Orange,Orange-2018-06
+944,944,,100.0,10.0,Jardin Fire,True,N,c88bdcbd-2592-44d2-b44d-1c5a37593ffb,,Riverside,Riverside-2018-06
+945,945,,100.0,13.0,Coldwell Fire,True,N,af8fe898-e4a6-4b9f-86a5-e6fc3226832b,,Fresno,Fresno-2018-06
+946,946,,100.0,10.0,Black Fire,True,N,2d27a570-a8b0-4332-a40a-3afb8f2a575c,,Tehama,Tehama-2018-06
+947,947,,100.0,11.0,Grande Fire,True,N,a0b7fa30-74d0-419f-927b-de29b0d00018,,Riverside,Riverside-2018-06
+948,948,,100.0,17.0,Ethanac Fire,True,N,368fb83d-2660-4d9f-b6ad-0a2ef5de1e52,,Riverside,Riverside-2018-06
+949,949,,100.0,35.0,Fairview Fire,True,N,39ace715-e375-4083-a05c-7fb7448e17b9,,San Benito,San Benito-2018-06
+950,950,,100.0,12.0,Resort Fire,True,N,0fd4a4af-b243-4e88-b983-648d0c127f47,,San Luis Obispo,San Luis Obispo-2018-06
+951,951,,100.0,37.0,Martin Fire,True,N,a9d772ae-90d9-4f8e-9fe7-342b4266dd52,,Siskiyou,Siskiyou-2018-06
+952,952,,100.0,38.0,Adobe Fire,False,N,8efb9edc-dbe7-4824-9027-22993569f794,,San Diego,San Diego-2018-06
+953,953,,100.0,10.0,Green Fire,False,N,60041942-db7c-4c3d-8a94-151addbd9d20,,San Diego,San Diego-2018-06
+954,954,,100.0,1352.0,Stone Fire,False,N,5340807b-1be1-4894-b446-c81c46456641,,Los Angeles,Los Angeles-2018-06
+955,955,,100.0,12.0,Meamber Fire,True,N,c48eaae5-afb4-472c-be65-7dfbb3c82f4d,,Siskiyou,Siskiyou-2018-06
+956,956,,100.0,1314.0,Airline Fire,True,N,df2538f9-20c9-4d40-9a64-9d6334b6f7d6,,San Benito,San Benito-2018-06
+957,957,,100.0,513.0,Eastern Fire,True,N,5228fabc-64f6-4ccf-aedc-dc1e781277a6,,San Benito,San Benito-2018-06
+958,958,,100.0,300.0,ONeals Fire,True,N,9662b158-b17f-4386-867a-3afa5ea28929,,Madera,Madera-2018-06
+959,959,,100.0,64.0,Panoche Fire,True,N,9f926d66-2cfa-4e3d-b4a3-4ea3b4b23698,,San Benito,San Benito-2018-06
+960,960,,100.0,10.0,Pallet Fire,False,N,6eed6c93-14f3-450a-80c8-65c5450a8cbd,,Sonoma,Sonoma-2018-06
+961,961,,100.0,12.0,Vista Fire,True,N,a43a2839-d85f-4152-ac07-4a29c31723cf,,San Diego,San Diego-2018-06
+962,962,"All road closures have been lifted. Please drive with caution, emergency personnel will be working in the area.",100.0,265.0,Recycle Fire,True,N,9ededdf0-b250-49ec-999d-eb988dab08a9,,San Diego,San Diego-2018-06
+963,963,,100.0,62.0,Liberty Fire,True,N,7278467f-ca4a-47f1-b876-a6722b546f30,,San Joaquin,San Joaquin-2018-06
+964,964,,100.0,200.0,Bear Fire,True,N,cdd46073-0336-4003-8a06-161947985987,,Merced,Merced-2018-06
+965,965,,100.0,2956.0,Apple Fire,True,N,22fc8e84-ae8e-4a10-a9f3-828464616253,,Butte,Butte-2018-06
+966,966,,100.0,2290.0,Chrome Fire,True,N,1d926fc4-0f23-47dd-a750-5e7fac4ad416,,Glenn,Glenn-2018-06
+967,967,,100.0,12.0,Mission Fire,False,N,5adaf6fa-0c4a-43e4-bd32-baa089a7f0b2,,Marin,Marin-2018-06
+968,968,,100.0,175.0,South Fire,False,N,d6d4d085-1c3b-4ee5-bd2a-dd3779797e97,,Marin,Marin-2018-06
+969,969,,100.0,96.0,Sam Fire,False,N,63e41793-2c9c-4dda-98e0-62b5069514a7,,Monterey,Monterey-2018-06
+970,970,,100.0,215.0,Beaver Fire,True,N,b3ab43c4-6f73-4ccc-a3ca-f2c54959f8b1,,San Benito,San Benito-2018-06
+971,971,,100.0,60.0,Vista Fire,True,N,d886d8aa-00b7-41d7-b48f-665f5c6cf01e,,San Luis Obispo,San Luis Obispo-2018-06
+972,972,,100.0,155.0,Santiago Fire,True,N,96781eb8-6146-4b96-a5cb-7457defea461,,Orange,Orange-2018-06
+973,973,,100.0,154.0,Euclid Fire,True,N,e1c9dae5-a2d8-4c97-8e6d-65937ade5e79,,San Bernardino,San Bernardino-2018-06
+974,974,,100.0,20.0,Portola Fire ,False,N,7307857b-b127-4b3a-bf11-ee19d07e0736,,Los Angeles,Los Angeles-2018-06
+975,975,,100.0,70.0,Spring Fire,True,N,994876ff-2369-4a13-9642-d2dfbd372ac9,,Tehama,Tehama-2018-06
+976,976,,100.0,20.0,Bridle Fire,True,N,764b9aac-411e-442d-a045-1bd02ec773c2,,Riverside,Riverside-2018-06
+977,977,,100.0,20.0,70 Fire,True,N,59b452f4-04fe-4251-8cf9-70dfc53ada0c,,Butte,Butte-2018-06
+978,978,,100.0,60.0,Creston FIre,True,N,f3d3e61e-4ab4-4155-a882-4e27de976659,,San Luis Obispo,San Luis Obispo-2018-06
+979,979,,100.0,646.0,Tumbleweed Fire,False,N,b307b3b5-529a-4dd0-ad30-e678180a6174,,Lassen,Lassen-2018-06
+980,980,,100.0,4564.0,Planada Fire,True,N,3de50f18-061e-40f4-8ee4-8a3d3ef25fb1,,Merced,Merced-2018-06
+981,981,,100.0,60.0,Raymond Fire,True,N,06ccdd6b-fd15-4cba-a9ed-6cb7c70327d9,,Madera,Madera-2018-06
+982,982,,100.0,53.0,Boyer Fire,True,N,42bd7e44-5bfa-4e25-961d-941a18bc00d0,,Mariposa,Mariposa-2018-06
+983,983,,100.0,40.0,Oregon Fire,True,N,9b6b1707-4342-4b38-b4a2-1056c202a32a,,Butte,Butte-2018-06
+984,984,,100.0,32.0,Creek Fire,True,N,af251be5-4fa6-4ced-954c-a0e0aa34a517,,Lake,Lake-2018-06
+985,985,,100.0,25.0,Willow Fire,True,N,0ffbb118-8070-4220-95a7-cdef27b0a7ae,,Contra Costa,Contra Costa-2018-06
+986,986,,100.0,17.0,China Fire,True,N,43d24c96-7841-423f-9e14-bc9a7ff49416,,Amador,Amador-2018-06
+987,987,,100.0,1202.0,Upper Colony Fire,False,N,bd149eaf-5a3e-4eac-9973-243e78862b35,,Nevada,Nevada-2018-06
+988,988,,100.0,20.0,Vallecitos Fire,True,N,1f49d4b1-f08f-4fce-8b55-48ff0e521a2f,,Alameda,Alameda-2018-06
+989,989,,100.0,185.0,Dinosaur Fire,True,N,fc911680-49a8-454b-be0f-d78cd957bd29,,Merced,Merced-2018-06
+990,990,,100.0,115.0,Wheeler Fire,True,N,8f98a50c-fac6-4dcd-844f-76c49891f0f6,,Mariposa,Mariposa-2018-06
+991,991,,100.0,40.0,Iron Fire,True,N,2bee561f-fd8f-44ad-9c25-ccdc671029bc,,Contra Costa,Contra Costa-2018-06
+992,992,,100.0,10.0,Ranchita Fire,True,N,b2adde70-a40e-4b81-9f5f-8f6b96042af2,,San Luis Obispo,San Luis Obispo-2018-06
+993,993,,100.0,1500.0,Yankee Fire,False,N,d963ff00-9c98-4bc6-a3b3-4856d8192e87,,San Luis Obispo,San Luis Obispo-2018-06
+994,994,,100.0,10.0,Creek Fire,True,N,d752892a-9bdf-4b91-83f0-2d3f94c3f370,Wildfire,San Luis Obispo,San Luis Obispo-2018-06
+995,995,,100.0,328.0,Bascom Fire,True,N,9fe34773-10d3-419a-a6f5-4ddb2d43a145,,Shasta,Shasta-2018-06
+996,996,,100.0,3716.0,Lane Fire,True,N,299d84d9-ff65-4669-bcd7-cb5abb191c75,,Tehama,Tehama-2018-06
+997,997,,100.0,170.0,Sierra Fire,False,N,75ad696c-b094-4919-89e3-f879361f5151,,Tehama,Tehama-2018-06
+998,998,,100.0,268.0,Stoll Fire,True,N,72999057-198b-4cd2-a316-2e854ef9a7f8,Wildfire,Tehama,Tehama-2018-06
+999,999,Walker Ridge Road at Highway 20,100.0,15185.0,Pawnee Fire,True,N,25574325-cf1d-4191-bc3d-c50ed0a15f9c,Wildfire,Lake,Lake-2018-06
+1000,1000,,100.0,62.0,Canyon Fire,False,N,c8c8905e-4ff4-4563-8ad8-3838a8d0a3bb,,Ventura,Ventura-2018-06
+1001,1001,,100.0,75.0,Stony Fire,True,N,b4377461-c17b-41b1-8dc2-9722f8ead519,,Colusa,Colusa-2018-07
+1002,1002,,100.0,95.0,Sheep Fire,True,N,d7365a2a-a113-4693-92d3-152f52b0d743,,Kern,Kern-2018-06
+1003,1003,,100.0,1678.0,Creek Fire,True,N,b900fe52-8900-4578-9745-58036920a1ab,,Shasta,Shasta-2018-06
+1004,1004,,100.0,163.0,Flat Fire,True,N,28d55249-7c63-4213-a7b4-c0796dbb18ca,,Tuolumne,Tuolumne-2018-06
+1005,1005,,100.0,80.0,Horse Fire,True,N,f2d02439-f682-47e7-b6e9-6e51ca068c86,Wildfire,Calaveras,Calaveras-2018-06
+1006,1006,,100.0,68.0,Romero Fire,True,N,bda69d0e-716e-439e-9a18-49f44d449086,,Merced,Merced-2018-06
+1007,1007,,100.0,90.0,Peach Fire ,True,N,eabc7fc2-d02b-480a-9472-7c7677e812cb,,Mendocino,Mendocino-2018-07
+1008,1008,,100.0,12300.0,Waverly Fire,True,N,4efc7855-ecbf-4507-8435-399e23a91fef,Wildfire,San Joaquin,San Joaquin-2018-06
+1009,1009,,100.0,10.0,Llano Fire,True,N,465ed1e1-89be-4556-b616-834b65746005,,Butte,Butte-2018-06
+1010,1010,,100.0,300.0,Flat Fire,True,N,70ff3ebc-0d1f-43eb-ab56-1ff13fe9c9e3,,Trinity,Trinity-2018-06
+1011,1011,,100.0,375.0,San Ardo,True,N,8811a5f8-b99a-454a-9af5-6753579c8d45,,Monterey,Monterey-2018-06
+1012,1012,,100.0,4064.0,Lions Fire,False,N,b17eb5bf-c44a-4e13-99d0-bbdf5e8f8f67,,Madera,Madera-2018-06
+1013,1013,,100.0,76.0,Anchor Fire,True,N,595f6f52-a55b-40e7-8aa6-b409ff9a7a5b,,Fresno,Fresno-2018-06
+1014,1014,,100.0,347.0,Shippee Fire,True,N,a3ba8fc0-37f7-4c1a-9386-627d3369a03e,,Butte,Butte-2018-06
+1015,1015,,100.0,260.0,Fox Fire,True,N,91b94b02-cd05-471a-a4e7-5168d56c46ba,,San Luis Obispo,San Luis Obispo-2018-06
+1016,1016,,100.0,441.0,Hyatt Fire,True,N,218619b5-ad0c-4238-8e31-ab6d98932a73,Wildfire,Lassen,Lassen-2018-06
+1017,1017,,100.0,63.0,Cherry Fire,False,N,5aa13874-fb24-44f0-969a-d12dbc7edca8,,Siskiyou,Siskiyou-2018-06
+1018,1018,,100.0,191.0,Par Fire,True,N,cbf84797-7cc2-40a4-8157-d74c89792e9e,,Butte,Butte-2018-07
+1019,1019,,100.0,30.0,Grant Fire,True,N,c8060137-4a83-479b-9f36-429a698aac06,,Sacramento,Sacramento-2018-06
+1020,1020,,100.0,268.0,Valley Fire,True,N,53770321-4d20-4db9-bfad-754f9eeabc2b,,Contra Costa,Contra Costa-2018-06
+1021,1021,,100.0,70.0,Tesla Fire,True,N,a4d4923c-cf9e-43a9-b62e-dc9c04f0ec24,,Alameda,Alameda-2018-06
+1022,1022,,100.0,33.0,Creek Fire,False,N,d4618db6-e417-4590-8c1f-9b5ace341bb3,,San Bernardino,San Bernardino-2018-06
+1023,1023,,100.0,90288.0,County Fire,True,N,97ff14e8-6d08-4214-ad3b-847fa3a0e84a,Wildfire,Yolo,Yolo-2018-06
+1024,1024,,100.0,63.0,Benton Fire,True,N,28599f05-c64d-49a5-be59-23879eecb980,,Riverside,Riverside-2018-07
+1025,1025,,100.0,33.0,Lariat Fire,True,N,15d8c9e7-7029-4027-85d8-95f308f83790,,Tehama,Tehama-2018-07
+1026,1026,,100.0,12.0,School Fire,True,N,f5d14543-5d98-41ca-99f5-09c1197161b2,,Madera,Madera-2018-07
+1027,1027,,100.0,215.0,Petersburg Fire,False,N,6103c099-a3eb-481e-8a76-1296f5fdb25d,,Siskiyou,Siskiyou-2018-07
+1028,1028,All roads are opened.,100.0,504.0,West Fire,True,N,2a1c14d1-2a88-4564-bd09-585e09ffc9a7,Wildfire,San Diego,San Diego-2018-07
+1029,1029,,100.0,45.0,Buckingham Fire,False,N,f7bacdf4-ba33-436a-ad94-549395286fc2,,Contra Costa,Contra Costa-2018-07
+1030,1030,,100.0,10.0,Building Fire,True,N,59c697e4-5083-4f45-b03a-ef580f6618dd,,San Diego,San Diego-2018-07
+1031,1031,,100.0,316.0,Shingle Fire,True,N,29a5f777-bea5-411e-9139-fe0d094616b0,,Sacramento,Sacramento-2018-07
+1032,1032,I-5 is open,100.0,38008.0,Klamathon Fire,True,N,d7e7eaca-5716-48b3-bd34-37acea282634,Wildfire,Siskiyou,Siskiyou-2018-07
+1033,1033,All roads are opened.,100.0,825.0,Irish Fire,True,N,be804253-e994-4f40-9e07-5c215533231c,Wildfire,Amador,Amador-2018-07
+1034,1034,,100.0,1350.0,Valley Fire,False,N,b90be7b6-e9ec-4a18-a910-957f700c6ed6,,San Bernardino,San Bernardino-2018-07
+1035,1035,,100.0,2100.0,Eagle Fire,False,N,656c37d9-6876-47ba-bf8e-ec6c351c3595,,Modoc,Modoc-2018-07
+1036,1036,,100.0,113.0,Holiday Fire,True,N,76725105-a814-4e8d-bd5b-d0f2f1879dae,Wildfire,Santa Barbara,Santa Barbara-2018-07
+1037,1037,,100.0,116.0,Bridle Fire,True,N,8d5856ff-4cd4-4b88-afb0-c6df08f548a8,,Santa Clara,Santa Clara-2018-07
+1038,1038,,100.0,962.0,Stoney Fire,True,N,3c17be70-66f8-4df2-97be-873fe924d99c,,Butte,Butte-2018-07
+1039,1039,,100.0,12.0,Gray Fire,True,N,8ff78ab4-378d-4e1b-9ba0-b90d8be07a06,,San Bernardino,San Bernardino-2018-07
+1040,1040,,100.0,96901.0,Ferguson Fire,False,N,29d15973-a999-409e-adf4-486854df44ed,,Mariposa,Mariposa-2018-07
+1041,1041,,100.0,62.0,Lebec Fire,True,N,22171870-baaf-480f-902a-45ec9282df35,,Kern,Kern-2018-07
+1042,1042,,100.0,11.0,Dark Fire,True,N,c2dc8734-e165-4fa1-9a1a-f393516bd5a5,,Butte,Butte-2018-07
+1043,1043,,100.0,70.0,Curie Fire,True,N,01018620-8f10-4de0-a7e6-78cc9a77cc9a,,Santa Clara,Santa Clara-2018-07
+1044,1044,,100.0,51.0,Hale Fire,True,N,a125058d-abfe-4593-bd53-503ceea3f4f0,,Santa Clara,Santa Clara-2018-07
+1045,1045,,100.0,52.0,Kelley Fire,False,N,20495cc8-cb22-4fd1-9bc3-0b9c654d12a0,,Modoc,Modoc-2018-07
+1046,1046,,100.0,278.0,Panoche Fire,True,N,68957772-711e-4874-99f2-2b9267dbe725,,San Benito,San Benito-2018-07
+1047,1047,Some closures still exist in the fire area. Please avoid the fire area for your safety and for our firefighters’ safety.,100.0,2883.0,Georges Fire,False,N,09395db0-1c76-43c3-a3db-d18081b31a35,,Inyo,Inyo-2018-07
+1048,1048,,100.0,31.0,Vista Fire,True,N,9636bdf4-8754-4745-80c8-90a5fcd90ec2,,Shasta,Shasta-2018-07
+1049,1049,,100.0,56.0,Bruce Fire,True,N,7e24911d-5dc9-4449-ba08-f718c094ac9e,,Contra Costa,Contra Costa-2018-07
+1050,1050,,100.0,640.0,Grant Fire,True,N,d0e1cdc0-9dea-467a-8ae8-040e0f94178d,,Alameda,Alameda-2018-07
+1051,1051,,100.0,280.0,James Loop Fire,False,N,a9386b8b-8d40-44ea-ab84-1593ced5f9fb,,Nevada,Nevada-2018-07
+1052,1052,,100.0,100.0,Box Fire,False,N,1a4aeaa6-7f90-420f-ad6b-6942658a7fee,,San Bernardino,San Bernardino-2018-07
+1053,1053,,100.0,11.0,Cornerstone Fire,True,N,dc55524d-c29f-4990-8f73-2974348c7fc7,,Madera,Madera-2018-07
+1054,1054,,100.0,80.0,Spring 2 Fire,True,N,78eabcbb-32b9-4438-ab84-8eb65c044db7,Wildfire,Lake,Lake-2018-07
+1055,1055,,100.0,856.0,Dale Fire,True,N,3b576efa-90b7-4b87-983d-b38630e10576,,Tehama,Tehama-2018-07
+1056,1056,,100.0,116.0,Idria Fire,True,N,a0b16523-d6f9-4a21-809d-4f2bdbc2bea7,,San Benito,San Benito-2018-07
+1057,1057,,100.0,14.0,3-2 Fire,True,N,b89ae0bb-4b8b-47f6-b7c6-5e689a265288,,Lassen,Lassen-2018-07
+1058,1058,,100.0,224.0,Steamboat Fire,True,N,052acbfd-0552-47ac-8be7-6f79b4aecf0e,,Siskiyou,Siskiyou-2018-07
+1059,1059,,100.0,56.0,3-10 Fire,True,N,8d7302b1-605f-404d-9641-a890720e8657,,Lassen,Lassen-2018-07
+1060,1060,,100.0,16.0,Johnson Fire,True,N,8c94a8f0-1d63-4ea7-88af-52fee196a9a6,,Humboldt,Humboldt-2018-07
+1061,1061,,100.0,32.0,3-18 Fire,True,N,f141dba0-ae4b-4972-b926-81d1595d0917,,Lassen,Lassen-2018-07
+1062,1062,,100.0,89.0,3-16 Fire,True,N,62b14189-aea8-4dcb-8702-a1dfc11abda7,,Lassen,Lassen-2018-07
+1063,1063,,100.0,50.0,Tuscan Fire,True,N,02ebd2cc-c4da-4508-92f6-30446d041ae9,,Tehama,Tehama-2018-07
+1064,1064,,100.0,3674.0,Mill Creek 1 Fire,False,N,d3ead5e1-12bb-4d27-8c1d-c723c0747265,,Humboldt,Humboldt-2018-08
+1065,1065,,100.0,14.0,Camp Fire,True,N,0194a44a-0c12-4e47-a053-f3b9b2382858,,San Luis Obispo,San Luis Obispo-2018-07
+1066,1066,,100.0,28.0,Border Fire,True,N,1dad019f-12c1-47a0-a20c-2408d942f1c4,,San Diego,San Diego-2018-07
+1067,1067,,100.0,10.0,Lott Fire,True,N,14207c18-f9a3-4a69-9f3a-d778d2f6960f,,Siskiyou,Siskiyou-2018-07
+1068,1068,,100.0,77.0,Cruces Fire,True,N,756cceab-80e1-47af-8c85-9e650352b48e,,Santa Barbara,Santa Barbara-2018-07
+1069,1069,,100.0,822.0,Eighty Eight Fire,True,N,e51ff5f0-09d5-42f3-8bed-c1c6eb85d245,,Yolo,Yolo-2018-07
+1070,1070,All roads are open.,100.0,43.0,Simmons Fire,True,N,d56aeb11-09a3-4854-b422-9a1e41f18a51,,Butte,Butte-2018-07
+1071,1071,,100.0,40.0,Ben Fire,True,N,e4c8aa24-e396-46d1-ae6e-bc9c7889967a,,Mariposa,Mariposa-2018-07
+1072,1072,Creek Hollow Dr at Old Julian Hwy,100.0,13.0,Cinnamon Fire,True,N,05fb81ea-7e85-4d0d-9587-64c907a45561,,San Diego,San Diego-2018-07
+1073,1073,,100.0,282.0,Skyline Fire,True,N,022bee6b-1559-4792-a2d2-014d3adfecad,,Orange,Orange-2018-07
+1074,1074,,100.0,63.0,Highland Fire,True,N,9626db35-9c2a-4431-8c91-00e0bba794fa,,Shasta,Shasta-2018-07
+1075,1075,,100.0,110.0,Windmill Fire,True,N,389e3075-51b9-45a8-ab9a-a75b03225c8d,,Santa Barbara,Santa Barbara-2018-07
+1076,1076,,100.0,50.0,Carder Fire,True,N,d7745759-07bd-40a7-a66c-003b174851b2,Wildfire,Lake,Lake-2018-07
+1077,1077,,100.0,30.0,Rock Fire,True,N,5b5274df-2cb7-402e-b002-778cce00ac1d,,San Luis Obispo,San Luis Obispo-2018-07
+1078,1078,,100.0,37.0,Mustang Fire,True,N,a710f41c-aa03-41e1-813f-a98812aea01b,,Lake,Lake-2018-07
+1079,1079,All previously closed roads have been reopened. There is still heavy fire apparatus traffic in the area. Extreme caution is advised for people driving in the area.,100.0,320.0,Country Fire,True,N,0dd9bca6-35b9-4a75-8f3b-a5e57e1b90e7,,Santa Clara,Santa Clara-2018-07
+1080,1080,,100.0,67.0,Heart Fire,True,N,fb7f7795-ede7-40cc-acf6-3ee6e761d0a9,,Mendocino,Mendocino-2018-07
+1081,1081,,100.0,34.0,Horse Creek Fire,False,N,f6693336-817b-4424-8aea-1c966fae5e23,,Tulare,Tulare-2018-07
+1082,1082,,100.0,229651.0,Carr Fire,True,N,240b1f55-0f4e-448d-a4ce-3ecfec7a6c9d,Wildfire,Shasta,Shasta-2018-07
+1083,1083,,100.0,128.0,Pico Fire,True,N,6e0b516c-9da1-4ff7-a0ce-3251b2cbabb9,,Los Angeles,Los Angeles-2018-07
+1084,1084,,100.0,40.0,Martinez Fire,True,N,e18c9556-706f-4bb7-b908-e7b44293923d,,Riverside,Riverside-2018-07
+1085,1085,,100.0,36.0,Ridge Fire,True,N,9b9b6d81-9590-48a0-a750-fc7da05bfecc,,Lake,Lake-2018-09
+1086,1086,,100.0,51.0,Crestline Fire,True,N,2fdf2c14-77b4-458c-96fc-bd883dec3ad3,,Shasta,Shasta-2018-07
+1087,1087,,100.0,167.0,Roxie Fire (Formerly 1-1 Fire),True,N,a18ed51c-1083-4f48-ab1b-6ae0c5454073,,Lassen,Lassen-2018-07
+1088,1088,,100.0,20.0,Church Fire,True,N,655b2bde-09c6-43b8-9cdb-43096bcf1155,,Santa Clara,Santa Clara-2018-07
+1089,1089,,100.0,247.0,Marsh Fire,True,N,df681456-a50e-4400-a95a-77533a0978ba,Wildfire,Contra Costa,Contra Costa-2018-07
+1090,1090,,100.0,39.0,Hidden Fire,True,N,708b3dde-3f1a-4813-8501-8a52bf3b1d9c,,San Benito,San Benito-2018-07
+1091,1091,,100.0,34.0,Patterson Fire,True,N,f306893c-d6b5-4d68-a2a3-4a306822e041,,San Joaquin,San Joaquin-2018-07
+1092,1092,,100.0,106.0,Western Fire,True,N,9d63cbd8-7dbf-4b2d-918d-036e3a282d2d,,Mendocino,Mendocino-2018-08
+1093,1093,,100.0,365.0,Pasqual Fire,True,N,2b56b06d-46d6-43f2-b474-2598dd163e82,,San Diego,San Diego-2018-07
+1094,1094,,100.0,205.0,Ribbon Fire,True,N,1f942827-c242-49a1-bccd-f2375be91ad9,,Riverside,Riverside-2018-07
+1095,1095,,100.0,136.0,Parrots Fire,True,N,190306eb-357b-40d2-9871-92cdd8784332,,Calaveras,Calaveras-2018-08
+1096,1096,,100.0,22.0,Wagner Fire,True,N,deb9364c-ab73-4661-b287-2ffc1797296e,Wildfire,Mariposa,Mariposa-2018-08
+1097,1097,,100.0,30.0,Creek Fire,True,N,6bc7ef6f-2d81-4bdc-ab41-9db6af9d4abb,,Alameda,Alameda-2018-08
+1098,1098,,100.0,2950.0,Tarina Fire,True,N,676aa48b-d962-4026-a354-db047f14233f,,Kern,Kern-2018-08
+1099,1099,,100.0,410203.0,Ranch Fire (Mendocino Complex),True,N,90b0daf7-5d84-42d9-bb35-bb78d4faf950,Wildfire,Mendocino,Mendocino-2018-07
+1100,1100,,100.0,100.0,Balch Fire,True,N,e775e724-0a1b-4156-a477-623031c09b0e,,Tulare,Tulare-2018-07
+1101,1101,,100.0,48920.0,River Fire (Mendocino Complex),True,N,af30fe23-6cfd-4fd6-b2d9-91648eeae814,Wildfire,Mendocino,Mendocino-2018-07
+1102,1102,,100.0,993.0,Breckenridge Fire,True,N,53a9be88-6d10-483e-8dc7-59cb84326ab8,,Kern,Kern-2018-07
+1103,1103,,100.0,18703.0,Whaleback Fire,True,N,684ded31-5a60-4c05-bbdb-2fb913ca0041,,Lassen,Lassen-2018-07
+1104,1104,,100.0,38134.0,Natchez Fire,False,N,9bc283c4-6011-4488-b8ec-a85db51dc137,,Del Norte,Del Norte-2018-07
+1105,1105,,100.0,36450.0,Donnell Fire,False,N,c62fc5e2-2340-49b7-b3d8-b883a266827f,,Tuolumne,Tuolumne-2018-08
+1106,1106,,100.0,338.0,Owens Fire,False,N,574b0b35-4c66-44ac-8797-3eadf09e495d,,Mono,Mono-2018-07
+1107,1107,,100.0,30.0,Sobrante Fire,True,N,45845135-0abc-4964-9038-db1e26fa9b22,,Riverside,Riverside-2018-07
+1108,1108,All road closure have been lifted.,100.0,207.0,Rock Fire,True,N,e3406861-3e7f-4a4b-b16d-6004f3edc5e6,,San Diego,San Diego-2018-07
+1109,1109,,100.0,1200.0,Butte Fire,False,N,ea58640a-7837-4d93-a145-96e48b7df8ee,,Sutter,Sutter-2018-07
+1110,1110,All roads are open.,100.0,135.0,Steele Fire,True,N,2410754e-b988-4f4f-b7ee-21f954c2bbf2,Wildfire,Napa,Napa-2018-07
+1111,1111,,100.0,972.0,Eel Fire,False,N,fa745e18-be7a-42e0-b3c7-30333ddcf3aa,,Mendocino,Mendocino-2018-07
+1112,1112,,100.0,35.0,Corner Fire,True,N,46f35b6b-9c64-41e3-a7e2-f76dc6719145,,Shasta,Shasta-2018-07
+1113,1113,,100.0,51.0,Reservoir Fire,True,N,6832f18a-6515-4436-bf3b-553bf6302de4,,San Luis Obispo,San Luis Obispo-2018-09
+1114,1114,,100.0,14.0,Casner Fire,True,N,775494c3-ae61-40aa-82b0-667a3ddcbdcc,,San Diego,San Diego-2018-08
+1115,1115,,100.0,67.0,Bumper Fire,True,N,d8de1c4a-9b2c-46ad-aab4-3b2012571e4a,,El Dorado,El Dorado-2018-08
+1116,1116,,100.0,66.0,Omega Fire,True,N,6e4ecf7a-2864-4fc6-85cb-9b2a0ac324df,Wildfire,El Dorado,El Dorado-2018-08
+1117,1117,,100.0,700.0,Sunset Fire,True,N,4f3f4f66-871c-4d50-bd3f-f641210552c9,,Placer,Placer-2018-08
+1118,1118,,100.0,2225.0,Turkey Fire,True,N,c7152819-8f07-489c-a219-b58bed82733e,,Monterey,Monterey-2018-08
+1119,1119,,100.0,23136.0,Holy Fire,False,N,5b9e5ea7-1f63-46dd-aabd-8cf407c6f4ba,Wildfire,Orange,Orange-2018-08
+1120,1120,,100.0,35.0,Terra Fire,True,N,dd114f40-6fcb-487b-931e-7a9107371daa,,Riverside,Riverside-2018-08
+1121,1121,,100.0,290.0,South Fire,True,N,a1e73f5c-68e2-4109-b741-046eb7349265,,Calaveras,Calaveras-2018-08
+1122,1122,,100.0,117.0,Murphy Fire,False,N,b9f703f7-18bb-4845-a480-ce7d63b5f57a,,Plumas,Plumas-2018-08
+1123,1123,,100.0,2995.0,Five Fire,False,N,0ba9a90d-6615-4fa8-9a10-3efb660437ca,,Kings,Kings-2018-08
+1124,1124,,100.0,45.0,Bridge Fire,False,N,49232e73-c3ba-4dc3-b673-b973a918fa7c,,Marin,Marin-1969-12
+1125,1125,,100.0,114.0,Pine Fire,True,N,471980a3-9ffb-4b1f-8e51-eabb9736b51b,,Kern,Kern-2018-08
+1126,1126,,100.0,46150.0,Hirz Fire,False,N,cb647b06-1772-4d65-8087-0b841fcfb502,,Shasta,Shasta-2018-08
+1127,1127,,100.0,23.0,Land Fire,True,N,f81830b2-ece2-4f59-87c7-fd43193bd996,,Riverside,Riverside-2018-08
+1128,1128,,100.0,250.0,Rangeland Fire,True,N,8dddf572-84de-4b20-b740-f5c7847cec3b,,San Diego,San Diego-2018-08
+1129,1129,,100.0,1900.0,Hat Fire,True,N,ce93c72c-eb9c-4176-a2b6-7750a4a6bb20,,Shasta,Shasta-2018-08
+1130,1130,,100.0,10.0,Syar Fire,True,N,1bdf7030-adc6-442f-ab31-d182e53b4a73,,Napa,Napa-2018-08
+1131,1131,,100.0,30.0,Alhambra Fire,False,N,f012f0ea-4102-47dc-9c6d-609ebac85142,,Contra Costa,Contra Costa-2018-08
+1132,1132,,100.0,2490.0,Snell Fire,True,N,db2344ac-f195-4f94-8999-e8c8ebb4a7a2,,Napa,Napa-2018-09
+1133,1133,Peabody Road (between Foxboro Road and Chuck Hammond Drive),100.0,2162.0,Nelson Fire,True,N,2ce8de99-7e66-4de8-9426-48a4fc8500ac,,Solano,Solano-2018-08
+1134,1134,,100.0,34.0,Marcel Fire,True,N,b03ec37e-8596-4e7e-8826-729957a794f8,,Kern,Kern-2018-08
+1135,1135,,100.0,16.0,Oak Fire,True,N,b2695350-87ea-49f4-a579-ce0c4cf7f926,,Nevada,Nevada-2018-08
+1136,1136,,100.0,100.0,Cloverdale Fire,False,N,791a3a00-2c51-4679-b4b7-27cc77ec699d,,San Diego,San Diego-2018-08
+1137,1137,,100.0,650.0,Gulch Fire,True,N,3bb731cc-eb21-421f-b5f5-4949346dc316,,Monterey,Monterey-2018-08
+1138,1138,,100.0,668.0,River Fire,True,N,b83feee5-a799-4481-bd25-1d4cc3befd7d,,Kern,Kern-2018-08
+1139,1139,,100.0,39387.0,Stone Fire,False,N,58e6dde2-eeae-4a9e-be1e-bfd654d4405b,,Modoc,Modoc-2018-08
+1140,1140,,100.0,48.0,Castro Fire,True,N,a2fbfcae-d658-41f4-88c6-98239d08ff29,,Alameda,Alameda-2018-08
+1141,1141,,100.0,367.0,Call Fire,False,N,5eab06a3-5deb-4934-98a7-7c42eb86cbf9,,Kern,Kern-2018-08
+1142,1142,,100.0,155.0,Gorge Fire,True,N,5dbbbc9f-deec-4c33-a172-19614492d860,,Shasta,Shasta-2018-08
+1143,1143,,100.0,1014.0,Front Fire,False,N,8dd81979-48ba-48db-bb24-e4f1bf85d262,,San Luis Obispo,San Luis Obispo-2018-08
+1144,1144,,100.0,10.0,Keller Fire,True,N,23f8d2d9-0e9e-4f07-b830-8c02cf74b5d0,,Riverside,Riverside-2018-08
+1145,1145,,100.0,289.0,Eastman Fire,True,N,eeb859ef-dc44-48e2-a2d7-dce44bc47d01,,Madera,Madera-2018-08
+1146,1146,,100.0,32.0,Country Fire,True,N,2bdeaf01-fe98-4f63-b2e8-4857815bc87c,,Riverside,Riverside-2018-08
+1147,1147,,100.0,88.0,Redinger Fire,False,N,f6555118-f01e-4524-a14d-e01303a482db,,Madera,Madera-2018-08
+1148,1148,,100.0,103.0,Cache Fire,True,N,ef9c8f82-8607-4c53-9bdd-5196e6a1071c,,Lake,Lake-2018-08
+1149,1149,,100.0,36.0,Winchester Fire,True,N,e69be637-e9e9-4964-96ed-4d6a1a1c159d,,Riverside,Riverside-2018-08
+1150,1150,,100.0,166.0,Fork Fire,False,N,9bffc947-2f15-4486-98df-9a632b2038a7,,Los Angeles,Los Angeles-2018-09
+1151,1151,,100.0,60.0,Grade Fire,True,N,c203606a-d2eb-4ba2-97cc-2ee7403432b1,,Napa,Napa-2018-08
+1152,1152,,100.0,172.0,Ogilvy Fire,False,N,c9001401-a2b0-4cae-9e03-e60509342a53,,Santa Barbara,Santa Barbara-2018-09
+1153,1153,,100.0,15.0,Essex Fire,False,N,e9d48e43-940e-4151-9ffb-20881d03c151,,Modoc,Modoc-2018-09
+1154,1154,,100.0,125.0,Sterling,False,N,0683b4a7-6a8c-4339-abc1-dfbe64dcb5a1,,San Bernardino,San Bernardino-2018-08
+1155,1155,,100.0,63311.0,Delta Fire,True,N,ba818380-4001-46a2-ac04-d5f322cdf3b9,Wildfire,Shasta,Shasta-2018-09
+1156,1156,,100.0,24.0,Kelsey Fire,True,N,1a3ccacd-e743-4a0b-97ab-4d99a133654e,,Lake,Lake-2018-09
+1157,1157,,100.0,1120.0,North Fire,False,N,d8235a76-7b43-4e23-8f60-dc308c250fab,,Placer,Placer-2018-09
+1158,1158,All road closures have been lifted.,100.0,150.0,Sliger Fire,True,N,94e0a869-04f6-4265-9c1f-c53fbdde98ad,,El Dorado,El Dorado-2018-09
+1159,1159,,100.0,13.0,Ranchera Fire,False,N,20b57ee7-b0b7-47db-8a12-e5fcdb114459,,Lake,Lake-2018-09
+1160,1160,,100.0,573.0,Tulloch Fire,True,N,849ad1a0-472b-4cc6-a513-030491fa1ffb,,Tuolumne,Tuolumne-2018-09
+1161,1161,,100.0,1751.0,Kerlin Fire,False,N,3506eaf5-e815-4a7f-9c52-816fe5eee7d5,,Trinity,Trinity-2018-09
+1162,1162,,100.0,6974.0,Boot Fire,False,N,a81f5149-5ac2-48de-a189-609e46f5fad8,,Mono,Mono-2018-09
+1163,1163,,100.0,400.0,Metz Fire,True,N,7fc0b9c8-dec7-430d-9790-1bbebae404eb,,Monterey,Monterey-2018-09
+1164,1164,,100.0,152.0,Irving Fire,True,N,65689d5f-910c-4e00-9bf3-e5626cd1361c,,Marin,Marin-2018-09
+1165,1165,,100.0,200.0,Water Fire,True,N,f694c74c-adad-459c-b357-4cd2f10f16df,,Kern,Kern-2018-09
+1166,1166,,100.0,25.0,Soboba Fire,False,N,d5885e9d-1310-4f84-a658-d972d17ecad9,,Riverside,Riverside-2018-09
+1167,1167,,100.0,12.0,Meyers Fire,True,N,9ea41d38-ee7c-4394-9ea8-cbf33e788f13,Wildfire,El Dorado,El Dorado-2018-09
+1168,1168,,100.0,3380.0,Charlie Fire,False,N,4fa2e1e0-a920-4991-beb6-3c080b6c1500,,Los Angeles,Los Angeles-2018-09
+1169,1169,,100.0,360.0,Oak Fire,True,N,6b6dff76-8fab-4852-a71c-e735f87bd6fa,,Madera,Madera-2018-09
+1170,1170,,100.0,53.0,Copper Fire,True,N,b9d64431-d96d-413f-84df-ef3b381d3002,,Lassen,Lassen-2018-09
+1171,1171,,100.0,261.0,Wilson Fire,False,N,d0ae0a7f-dd7b-4cb1-8f4a-2a784a17d6d4,,Lake,Lake-2018-09
+1172,1172,,100.0,76.0,Silver Fire,True,N,b181e69a-5864-44c1-b5b4-f4c5832a4539,,Shasta,Shasta-2018-09
+1173,1173,,100.0,30.0,Quimby Fire,True,N,04100255-b014-4a69-92c2-5388c7f9b9d6,,Santa Clara,Santa Clara-2018-09
+1174,1174,,100.0,33.0,Nimshew Fire,True,N,9856efb8-4d41-4276-9d4e-a5b29d912996,,Butte,Butte-2018-09
+1175,1175,,100.0,80.0,Shandon Fire,True,N,9c03d484-e442-4eaa-8a7b-99d6c769750a,,San Luis Obispo,San Luis Obispo-2018-09
+1176,1176,,100.0,53.0,Keenbrook Fire,False,N,2c41731e-1e13-494c-b7f7-928b89bb7d32,,San Bernardino,San Bernardino-2018-09
+1177,1177,,100.0,150.0,Nacimiento Fire,False,N,9d69b6cb-1dee-43df-83ca-b2b5485006d7,,Monterey,Monterey-2018-10
+1178,1178,,100.0,32.0,Eagle Fire,False,N,8c4b830f-be4f-4469-9448-f0e98ea1d189,,Fresno,Fresno-2018-10
+1179,1179,All roads are open.,100.0,3889.0,Sun Fire,True,N,8f633ae7-b5f0-455f-a60e-13d9566e5844,,Tehama,Tehama-2018-10
+1180,1180,,100.0,63.0,Park Fire,False,N,f19a49b4-9d0f-4c61-83ea-9b4a741b0bef,,Santa Clara,Santa Clara-2018-10
+1181,1181,,100.0,15.0,Iron Gate Fire,True,N,28725d54-51bc-41f9-99ed-aca0396be12a,,Siskiyou,Siskiyou-2018-10
+1182,1182,,100.0,160.0,Winters Fire,False,N,e9c8c0aa-4d21-4f09-9858-890ea163d580,,Solano,Solano-2018-10
+1183,1183,,100.0,167.0,Priest Fire,True,N,8a79c31d-0df0-4448-a855-b04cfc384825,,Monterey,Monterey-2018-10
+1184,1184,,100.0,12.0,Tower Fire,True,N,a8f54d41-fc8c-476c-9122-f1357aa166a0,,Shasta,Shasta-2018-10
+1185,1185,,100.0,38.0,Masonic Fire,False,N,83c539f5-64c1-4156-86e5-ac6cf4c947d5,,Shasta,Shasta-2018-10
+1186,1186,,100.0,10.0,Powellton Fire,True,N,b8dc21be-0807-4434-9536-45a4a660ed83,,Butte,Butte-2018-10
+1187,1187,,100.0,58.0,Camino Fire,True,N,a728d915-1c00-43b6-bd5b-228be34a38fe,,San Luis Obispo,San Luis Obispo-2018-10
+1188,1188,,100.0,120.0,Market Fire,True,N,87760805-5b1a-486e-91c4-590557929182,,Tulare,Tulare-2018-10
+1189,1189,,100.0,550.0,June Fire,True,N,7ee82e4f-f5e8-4278-b4e7-e82c390b395e,,Butte,Butte-2018-10
+1190,1190,,100.0,17.0,Rincon Fire,True,N,7d1f523d-6940-4b64-bc5a-7ecb5a63538a,,Santa Cruz,Santa Cruz-2018-11
+1191,1191,,100.0,35.0,Brushy Fire,True,N,10d67079-faa9-4034-a4d7-8346b450e7de,,Mendocino,Mendocino-2018-11
+1192,1192,See Incident Update,100.0,153336.0,Camp Fire,True,N,75dafe80-f18a-4a4a-9a37-4b564c5f6014,Wildfire,Butte,Butte-2018-11
+1193,1193,,100.0,60.0,Adams Fire,True,N,8030a870-0453-48e0-b243-86dbae075434,,Tehama,Tehama-2018-11
+1194,1194,,100.0,88.0,Horn Fire,False,N,79968306-21a9-465e-acbe-4ea715c70ab5,,Lassen,Lassen-2018-11
+1195,1195,,100.0,1500.0,Nurse Fire,False,N,b8fe54be-15a8-4088-b0bb-16992df93a7e,,Solano,Solano-2018-11
+1196,1196,,100.0,4531.0,Hill Fire,True,N,bc95da49-28a0-4e56-88d9-72e7455063c0,Wildfire,Ventura,Ventura-2018-11
+1197,1197,,100.0,96949.0,Woolsey Fire,True,N,92d7aeea-7abf-47a4-bf76-a4fe0fac65c6,Wildfire,Ventura,Ventura-2018-11
+1198,1198,,100.0,30.0,Pilot Fire,True,N,6004d3e5-66f8-487a-80a4-689d3852378c,,Humboldt,Humboldt-2019-01
+1199,1199,,100.0,0.0,Honey Flooding,True,N,e6b8af54-15fb-42bb-8be9-f323c9d5cc78,Flood,Butte,Butte-2018-11
+1200,1200,,100.0,20.0,Morgan Fire,True,N,e83e7346-5b83-4e3a-845c-867fd84d17f0,,Contra Costa,Contra Costa-2018-11
+1201,1201,,100.0,10.0,Green Hill Fire,True,N,116fabb6-7440-4d6d-aa89-668989c028db,,Humboldt,Humboldt-2018-11
+1202,1202,,100.0,147.0,Sierra Fire,False,N,d18da394-5ed4-4004-8dea-600e15d398e4,,San Bernardino,San Bernardino-2018-11
+1203,1203,,100.0,20.0,Niles Fire,True,N,03f49769-b928-44a5-be82-236d3d341eba,,Alameda,Alameda-2018-11
+1204,1204,,100.0,150.0,Briggs Fire,True,N,c003df4f-d19c-4e21-a90f-81d3f14aaf99,,Ventura,Ventura-2018-11
+1205,1205,,100.0,186.0,Peak Fire,True,N,c3b66e33-ef00-4874-a29b-b36640c16122,Wildfire,Ventura,Ventura-2018-11
+1206,1206,,100.0,10.0,Bear Fire ,True,N,b6fb27e6-073c-4092-b8a8-51e96be987a4,,Santa Cruz,Santa Cruz-2018-11
+1207,1207,,100.0,80.0,Scott Fire,True,N,31cbc968-6d9d-412b-8bc3-6846ca398fe2,,Yuba,Yuba-2019-06
+1208,1208,,100.0,161.0,York Fire,True,N,85bdd89a-4ce5-4539-a274-23fa2b030e7d,,Kings,Kings-2019-04
+1209,1209,,100.0,10.0,Cana Fire,True,N,34abbc65-5bbe-474b-85c8-16d07bb5b503,,Butte,Butte-2019-04
+1210,1210,,100.0,115.0,Woody Fire,False,N,d3beabf6-63e9-4cad-a17c-58bb36abd7ac,,Glenn,Glenn-2019-04
+1211,1211,,100.0,50.0,Meridian Fire,True,N,398bb669-190d-4dbf-9af0-6ccb27817c13,,Butte,Butte-2019-05
+1212,1212,,100.0,172.0,Vulcan Fire,True,N,ee290ec6-3815-4c44-a96a-edb331fcc925,,Kern,Kern-2019-05
+1213,1213,,100.0,2500.0,Refuge Fire,False,N,6f329208-5aa0-45fc-a4ec-db9caf865ca7,,Kern,Kern-2019-05
+1214,1214,,100.0,65.0,Sugar Fire,False,N,0888bb9d-0d9b-4a49-bf3d-a55a7c40a707,,Placer,Placer-2019-05
+1215,1215,,100.0,22.0,Border Fire,True,N,a81e03a3-de18-48e4-93bf-f8da83a17927,,San Diego,San Diego-2019-05
+1216,1216,,100.0,130.0,Shady Fire,True,N,e98603d2-f44e-4a9e-b83d-5e9f94766b53,,Riverside,Riverside-2019-05
+1217,1217,,100.0,63.0,Paskenta Fire,True,N,aed86291-4631-4d79-ba5f-6b2c8ca399c9,,Tehama,Tehama-2019-05
+1218,1218,,100.0,26.0,Foothill Fire,True,N,9d7c5ad0-6682-430a-b4d1-d39cfea73a29,,Riverside,Riverside-2019-05
+1219,1219,,100.0,835.0,Belmont Fire,True,N,e2d77e59-b831-4267-a50b-89ede499a885,,San Luis Obispo,San Luis Obispo-2019-05
+1220,1220,,100.0,121.0,Hill Fire,True,N,72cb3684-c194-4180-bdfe-22775f86a594,,Fresno,Fresno-2019-05
+1221,1221,,100.0,45.0,Diversion Fire,True,N,e354cde8-d0e6-4150-9f6b-1c12045e77d0,,Riverside,Riverside-2019-05
+1222,1222,,100.0,144.0,Canyon Fire,True,N,329ac0b8-a2c1-4a72-bd09-dd86c477162b,,Stanislaus,Stanislaus-2019-05
+1223,1223,,100.0,55.0,66 Fire,False,N,b4616173-5807-4c04-a416-5374139f3fcc,,Riverside,Riverside-2019-05
+1224,1224,,100.0,155.0,Spruce Fire,True,N,812a492e-35cb-4bb0-9e5a-1ec181d8b97e,,Tulare,Tulare-2019-06
+1225,1225,,100.0,257.0,Citrus Fire,True,N,11e0324e-e8ff-4591-b592-9e704ade60d6,,Tulare,Tulare-2019-06
+1226,1226,,100.0,33.0,Yokohl Fire,True,N,db2a5b4c-260b-4888-aeb3-663b8bf41106,,Tulare,Tulare-2019-06
+1227,1227,,100.0,25.0,Bear Fire,True,N,e1f34f39-beea-4a6d-9ba6-64b6b55ff567,,Tulare,Tulare-2019-06
+1228,1228,,100.0,1127.0,Boulder Fire,True,N,107dd529-31b8-4b5f-ab09-4aa79c770d4b,,San Luis Obispo,San Luis Obispo-2019-06
+1229,1229,,100.0,23.0,Willow Fire,True,N,2e71d51a-49f1-4e86-82e2-054637efd1a5,,Contra Costa,Contra Costa-2019-06
+1230,1230,,100.0,24.0,Nelson Fire ,False,N,b433dceb-f5b4-4b46-8eb3-2aae9fc2d45a,,Solano,Solano-2019-06
+1231,1231,,100.0,27.0,Watt Fire,True,N,24997ef5-a558-4ea6-8a96-b3cdff79fe2b,,Placer,Placer-2019-06
+1232,1232,,100.0,600.0,Stuhr Fire,True,N,8edf51ea-1e4f-4e73-8e04-e168417ed39b,,Stanislaus,Stanislaus-2019-06
+1233,1233,,100.0,70.0,Levee Fire,False,N,3fd43a39-4e82-4b7e-a642-be86b5c73522,,Yuba,Yuba-2019-06
+1234,1234,,100.0,2512.0,Sand Fire,True,N,1760d7f8-57a2-4a04-b7e5-0861cc0ee963,,Yolo,Yolo-2019-06
+1235,1235,,100.0,50.0,Ink Fire,True,N,78c1dacb-653a-42fe-b025-ab80ec4996bd,,Napa,Napa-2019-06
+1236,1236,,100.0,1350.0,West Butte Fire,False,N,23cee99c-662f-4409-80d0-b9eb3a6287b3,,Butte,Butte-2019-06
+1237,1237,,100.0,1764.0,McMillan Fire,True,N,88a285bc-0dc7-4c51-a35a-5026850b0a6d,,San Luis Obispo,San Luis Obispo-2019-06
+1238,1238,,100.0,210.0,Malech Fire,True,N,6f509c42-9d2b-45df-b705-02dcb9147dde,,Santa Clara,Santa Clara-2019-06
+1239,1239,,100.0,35.0,Calaveras Fire ,True,N,0cd5a369-2f91-4786-9df1-98ece3e9e78c,,Calaveras,Calaveras-2019-06
+1240,1240,,100.0,43.0,Ardo Fire,True,N,20ccd7ec-de69-4967-9877-db5e143fe99a,,Monterey,Monterey-2019-06
+1241,1241,,100.0,47.0,Springs Fire,True,N,b671965d-2369-4107-98fe-432eab6ffdc0,,Tulare,Tulare-2019-06
+1242,1242,,100.0,120.0,Bitter Fire ,True,N,e1e4dad4-7ea6-48ec-b34d-3128cf55cc43,,San Luis Obispo,San Luis Obispo-2019-06
+1243,1243,,100.0,15.0,Pauma Fire,True,N,77671ac0-0868-4cc9-a699-26f0131cd493,,San Diego,San Diego-2019-06
+1244,1244,,100.0,17.0,32 Fire,True,N,921a69d2-ddde-4fd8-a874-f5ba15a4edd2,,Butte,Butte-2019-06
+1245,1245,,100.0,17.0,Rocky Fire,True,N,45cad03f-97e7-4301-92e2-e63a0040913a,,Siskiyou,Siskiyou-2019-06
+1246,1246,,100.0,10.0,IronGate Fire,True,N,fe63d965-9069-4a96-b9da-99d5fefdaa19,Wildfire,Siskiyou,Siskiyou-2019-06
+1247,1247,,100.0,120.0,Weisgarber Fire,True,N,779c4b9a-19bf-487f-ba65-6589aea27420,,Marin,Marin-2019-06
+1248,1248,,100.0,207.0,Lumgrey Fire,False,N,48d3b3c4-fcf5-47d9-920f-3b3c1b0f6fb1,,Butte,Butte-2019-06
+1249,1249,,100.0,525.0,Jerry Fire,True,N,8c666963-1f9d-43c6-bc3a-cab623d81f27,,Riverside,Riverside-2019-06
+1250,1250,,100.0,30.0,Mountain Fire,False,N,bc5d73ab-3100-4117-9978-a99b8e3daf5c,,Alameda,Alameda-2019-06
+1251,1251,,100.0,46.0,Paskenta Fire,True,N,50328016-5e03-4e90-bff0-95d36942728f,,Tehama,Tehama-2019-06
+1252,1252,,100.0,80.0,Scott Fire,True,N,937f9f26-8d23-4ee7-a0f3-61313dcc63f3,,Yuba,Yuba-2019-06
+1253,1253,,100.0,2422.0,Rock Fire,True,N,4edb5c7c-08d6-4ae0-b8b3-7bb471e26d8e,,Stanislaus,Stanislaus-2019-06
+1254,1254,,100.0,2546.0,Lonoak Fire,True,N,35ba5eb8-520f-4660-af60-9e0e00e7b42b,,San Benito,San Benito-2019-06
+1255,1255,,100.0,90.0,Trinity Fire,True,N,2f3e47bb-8595-4c9f-bfa6-6fd76e465c12,,Shasta,Shasta-2019-06
+1256,1256,,100.0,17.0,Mines Fire,True,N,7a0029c7-64c8-442d-8c7a-080a553e2b8e,,Alameda,Alameda-2019-06
+1257,1257,,100.0,148.0,Dyer Fire,True,N,ac723863-413e-43f8-b4b6-2311e81e36ae,,Placer,Placer-2019-06
+1258,1258,,100.0,20.0,Nuevo Fire,True,N,c6e38284-336a-4435-a3a1-b2b91ee84a91,,Riverside,Riverside-2019-06
+1259,1259,,100.0,2.0,Long Fire,True,N,b38c0563-b321-431b-9174-6336c5a0d449,,Sierra,Sierra-2019-06
+1260,1260,,100.0,28.0,Otay Fire,True,N,c51a2db5-6d0b-4b4a-8692-a6d73714829f,,San Diego,San Diego-2019-06
+1261,1261,,100.0,214.0,Wolf Fire ,True,N,24d9c2ae-8b11-4536-9b9c-5f4e0d476af0,,Riverside,Riverside-2019-06
+1262,1262,,100.0,210.0,Merced Fire ,True,N,cc06431a-5153-4f66-8ada-07af53c175c3,Wildfire,Merced,Merced-2019-06
+1263,1263,,100.0,12.0,Mayberry Fire ,True,N,42e2b6f0-2d63-4fbf-bbb4-4fc2eda4805d,,Yuba,Yuba-2019-06
+1264,1264,,100.0,74.0,Coyote Fire,False,N,be4489fb-f51f-4109-8132-c7a28e0d9995,Wildfire,Santa Clara,Santa Clara-2019-07
+1265,1265,,100.0,283.0,Hollow Fire,True,N,89db8bb4-6e3b-4de7-b7d9-287c1a9032c0,Wildfire,San Joaquin,San Joaquin-2019-07
+1266,1266,,100.0,25.0,Bikeway Fire,True,N,65e8fbe1-5300-4c90-9f48-0e7bfe55b1bc,Wildfire,Stanislaus,Stanislaus-2019-07
+1267,1267,,100.0,24.0,Fellow Fire,True,N,bc3e7037-5022-4e6a-8a1f-925c7e9aafc8,Wildfire,Contra Costa,Contra Costa-2019-07
+1268,1268,,100.0,30.0,Ranch Fire,True,N,65330473-c21f-446b-a6f4-7bd76bf0ebdc,Wildfire,Shasta,Shasta-2019-07
+1269,1269,Not a CAL FIRE Incident. Please contact the Bureau of Land Management for more information.,100.0,263.0,Snowstorm Fire,False,N,0f965f2f-3977-4ba5-bf7c-29feef27ee82,Wildfire,Lake,Lake-2019-07
+1270,1270,,100.0,38.0,Far Fire,True,N,2d3b577c-7b58-4ee3-9e21-cbec5abd8ce4,Wildfire,Yuba,Yuba-2019-07
+1271,1271,,100.0,244.0,Lake Fire,True,N,6be8378d-9a89-40a3-bc66-4fc0ab22ebc2,Wildfire,Lake,Lake-2019-07
+1272,1272,,100.0,974.0,Gillis Fire,True,N,1fd11e53-a132-4b89-bc8f-f7061f685ad3,Wildfire,San Luis Obispo,San Luis Obispo-2019-07
+1273,1273,,100.0,190.0,Sargent Fire,True,N,f32eaf92-82dc-4c31-8a05-76c21845f078,Wildfire,Monterey,Monterey-2019-07
+1274,1274,,100.0,20.0,Gibbel Fire ,True,N,6564081d-5ce7-4330-8ad7-2d1d976d778a,Wildfire,Riverside,Riverside-2019-07
+1275,1275,,100.0,100.0,Border Fire,True,N,8c46fde6-7a1c-482b-97cc-afff1bc5d27c,Wildfire,San Diego,San Diego-2019-07
+1276,1276,,100.0,80.0,Lincoln Fire,True,N,6311a921-f8e9-45c1-b10d-fee8be8dae29,Wildfire,Riverside,Riverside-2019-07
+1277,1277,,100.0,22.0,Mid Fire,True,N,3fc9ae75-8844-43a5-8330-6956cdb6e3a7,Wildfire,Santa Clara,Santa Clara-2019-07
+1278,1278,,100.0,30.0,Horse Fire,True,N,ab6d9c8e-5fbb-4a0d-a206-30e83ab51877,Wildfire,Shasta,Shasta-2019-07
+1279,1279,,100.0,96.0,Orange fire,True,N,777caabb-3850-4db2-ba02-2d95fda38db6,Wildfire,Orange,Orange-2019-07
+1280,1280,Full containment expected on 7/16 at 6 p.m.,100.0,1165.0,Jasper Fire,False,N,3086ac2b-bbb3-4321-81e3-3cfdb9e571e9,Wildfire,Nevada,Nevada-2019-07
+1281,1281,,100.0,193.0,Doyle Fire,False,N,0ab090de-1ec9-41db-b6cf-c7acd370626a,Wildfire,Lassen,Lassen-2019-07
+1282,1282,,100.0,131.0,South Fire ,True,N,c1574fd4-92ca-400f-84cb-b10f18ebb4bd,Wildfire,Ventura,Ventura-2019-07
+1283,1283,,100.0,202.0,Milton Fire ,True,N,a03c52ec-7366-43c5-965e-52e2b73df452,Wildfire,Stanislaus,Stanislaus-2019-07
+1284,1284,,100.0,47.0,Aborn Fire,True,N,42dab7c3-458f-4838-b70f-d5bb3d0f0b80,Wildfire,Santa Clara,Santa Clara-2019-07
+1285,1285,,100.0,213.0,Madera Fire ,True,N,f2629bc3-1c8c-4a97-95fa-7d08566dc246,Wildfire,Madera,Madera-2019-07
+1286,1286,,100.0,81.0,Meadow Fire,True,N,72384606-035c-4d00-8887-84a9da7d0e57,Wildfire,Riverside,Riverside-2019-07
+1287,1287,,100.0,90.0,Whiskey Fire,True,N,12528e0f-03e0-4598-8df0-e3017fa7382a,Wildfire,San Joaquin,San Joaquin-2019-07
+1288,1288,,100.0,128.0,Goose 2 Fire,False,N,d5ebf295-49d5-4a6a-ae13-47a921355e19,Wildfire,Modoc,Modoc-2019-07
+1289,1289,The forward spread has been stopped and firefighters continue to make good progress. All evacuation warnings have been lifted. Full containment expected later today.,100.0,25.0,Vista Fire,True,N,06fa2750-afea-4f88-b1c4-48b9bc21f4eb,Wildfire,San Diego,San Diego-2019-07
+1290,1290,,100.0,35.0,Rains Fire,True,N,900997e0-f30a-48bf-9358-971ca2afa1d6,Wildfire,Stanislaus,Stanislaus-2019-07
+1291,1291,,100.0,27.0,Whiskey Fire,True,N,17596a7a-31fc-4270-8aaf-efe1df3ba848,Wildfire,Calaveras,Calaveras-2019-07
+1292,1292,,100.0,149.0,Valley Fire,True,N,f8a2fd4a-286e-4688-8a5c-fa2ad98751ab,Wildfire,Mariposa,Mariposa-2019-07
+1293,1293,,100.0,208.0,Tejon Fire,False,N,49dbe286-1cfe-4e03-a872-13185aae767a,Wildfire,Kern,Kern-2019-07
+1294,1294,,100.0,64.0,Canyon Fire,True,N,26676376-4e61-4d68-a28f-5fd8b4501acd,Wildfire,Napa,Napa-2019-07
+1295,1295,,100.0,81.0,Milpas Fire,True,N,9e6b72f0-5f8a-41fe-a60d-40d7bc2f5637,Wildfire,San Bernardino,San Bernardino-2019-07
+1296,1296,,100.0,10.0,Moms Fire ,True,N,7955a367-99da-4047-9f69-cc60ad3208e6,Wildfire,Butte,Butte-2019-07
+1297,1297,,100.0,183.0,Marshview Fire,True,N,f0577ec6-5504-4460-83ce-d9bd91624e0a,Wildfire,Solano,Solano-2019-07
+1298,1298,,100.0,80.0,Sweigert Fire ,True,N,a8c2bf1e-bb0f-4eec-a435-36d7723dfda6,Wildfire,Santa Clara,Santa Clara-2019-07
+1299,1299,,100.0,95.0,Thompson Fire ,True,N,63b69be6-bd39-4bb4-aee1-7b59dbf7c360,Wildfire,San Luis Obispo,San Luis Obispo-2019-07
+1300,1300,Not a CAL FIRE Incident. Please contact the Klamath National Forest for more information.,100.0,83.0,Tree Fire,False,N,4ba68199-b45d-49da-91e8-bee9921b621b,Wildfire,Siskiyou,Siskiyou-2019-07
+1301,1301,Not a CAL FIRE Incident. Please contact the Klamath National Forest for more information.,100.0,35.0,Community Fire,False,N,ee681e0b-54a3-48ad-900c-8037eeb88159,Wildfire,Siskiyou,Siskiyou-2019-07
+1302,1302,,100.0,130.0,Usal Fire,True,N,5edb4ec4-615c-45fb-a236-9a4225eedaff,Wildfire,Mendocino,Mendocino-2019-07
+1303,1303,,100.0,156.0,Star Fire,False,N,d79e71f2-d827-465d-95a8-d80b6e54456e,Wildfire,San Bernardino,San Bernardino-2019-07
+1304,1304,,100.0,14217.0,Tucker Fire,False,N,2939928b-0308-4d76-b232-246f064ddd11,Wildfire,Modoc,Modoc-2019-07
+1305,1305,,100.0,150.0,Dehesa Fire,True,N,5a633180-7b70-4fb6-b859-b5826775b5fc,Wildfire,San Diego,San Diego-2019-07
+1306,1306,,100.0,100.0,Range Fire,False,N,bc2edb86-fb4b-4dba-a9e0-5339f27d9bce,Wildfire,Santa Barbara,Santa Barbara-2019-07
+1307,1307,,100.0,316.0,Lake Fire,True,N,540b19a4-b84c-4d9c-9cb3-746b53a094b7,Wildfire,Monterey,Monterey-2019-07
+1308,1308,,100.0,280.0,Mill Fire,False,N,233708cc-ed2d-4b85-ba8c-60cf71c912c8,Wildfire,Monterey,Monterey-2019-07
+1309,1309,,100.0,13.0,Carson Fire,True,N,6ac64fee-1420-420c-bff1-1d4908b059be,Wildfire,El Dorado,El Dorado-2019-07
+1310,1310,,100.0,448.0,Mesa Fire ,False,N,1f0d1a35-bf41-45d8-b3b8-26cca8d2d83e,Wildfire,Kern,Kern-2019-07
+1311,1311,,100.0,448.0,Caliente Fire,False,N,ca65fae0-e6d7-4600-890c-62da03753131,Wildfire,San Diego,San Diego-2019-08
+1312,1312,,100.0,84.0,Browns Fire,True,N,12e44df4-d425-4f09-96b9-25256ffbdcb2,Wildfire,Sacramento,Sacramento-2019-08
+1313,1313,,100.0,50.0,Prairie Fire ,True,N,a0d95805-48db-467e-8dd5-db761eb5ae74,Wildfire,Sacramento,Sacramento-2019-08
+1314,1314,,100.0,103.0,Meadow Fire (Not a CAL FIRE incident),False,N,2f735b66-c275-4557-a8ad-0ff60e0552f3,Wildfire,Modoc,Modoc-2019-08
+1315,1315,,100.0,757.0,Marsh Complex,True,N,1f576988-2ad0-4a7b-afed-f650caafc579,Wildfire,Contra Costa,Contra Costa-2019-08
+1316,1316,,100.0,156.0,Five Fire,False,N,ed5e111d-e34a-42c0-9ce7-818270037c2c,Wildfire,Los Angeles,Los Angeles-2019-08
+1317,1317,Forward spreads stopped.,100.0,26.0,La Barisa Fire,True,N,4433d477-a962-4ad9-a306-71f0f79fff65,Wildfire,San Bernardino,San Bernardino-2019-08
+1318,1318,,100.0,30.0,Gilbert Fire,True,N,0f3326bd-4a0f-4351-b978-38eb29f4d490,Wildfire,Shasta,Shasta-2019-08
+1319,1319,,100.0,29.0,Caliente Fire,False,N,fbe088d0-2a17-4d04-aac7-0e32ac8a1ef7,Wildfire,Kern,Kern-2019-08
+1320,1320,,100.0,94.0,Toro Fire ,True,N,0089d3c4-c554-46e1-8eb9-af95e4dfae0c,Wildfire,Riverside,Riverside-2019-08
+1321,1321,Forward spread has been stopped. Crews will continue with mop up operations to establish full containment.,100.0,58.0,Sellers Fire,False,N,e338f506-b9fa-44c0-ae64-324ed0e590d4,Wildfire,Contra Costa,Contra Costa-2019-08
+1322,1322,,100.0,130.0,R-1 Fire,False,N,5f7b19a6-5f22-49ac-bf0e-ecef96385d37,Wildfire,Lassen,Lassen-2019-08
+1323,1323,,100.0,107.0,3-2 Willow (Previously H-1 Fire),True,N,9a9bc21f-36f5-4092-b98e-c0d584d198db,Wildfire,Lassen,Lassen-2019-08
+1324,1324,Cause: Improperly discarded cigarette,100.0,20.0,Golf Fire,True,N,280f9652-7843-4275-9016-b95296fbf571,Wildfire,Lake,Lake-2019-08
+1325,1325,Forward progress stopped.,100.0,21.0,Preston Fire,True,N,3e020c0d-e35b-4e01-96b7-a3c8e40fd281,Wildfire,Tuolumne,Tuolumne-2019-08
+1326,1326,"Final acreage: 1,020 (829 acres BLM and 191 Private).",100.0,1020.0,W1 McDonald Fire,False,N,94cdd032-ea04-4713-b54a-dc3476635684,Wildfire,Lassen,Lassen-2019-08
+1327,1327,,100.0,240.0,Harte Fire,False,N,4affde91-31a9-4588-bf14-7201fc5c548b,Wildfire,Alameda,Alameda-2019-08
+1328,1328,All CAL FIRE Resources have been released from this incident.,100.0,1301.0,Ward Fire,False,N,e3d66b1b-3b3b-40a3-96ec-574c1a27cbe9,Wildfire,State of Oregon,State of Oregon-2019-08
+1329,1329,,100.0,33.0,Heavy Range Fire,False,N,f044a406-06ab-457d-8a93-c52bb1930604,Wildfire,Yuba,Yuba-2019-08
+1330,1330,,100.0,20.0,Radio Fire,True,N,073d3328-3d8c-459a-8ac8-5dc6095511ec,Wildfire,Riverside,Riverside-2019-08
+1331,1331,Forward spread stopped.,100.0,46.0,Lower Fire,True,N,618ca03c-28fd-4d66-abf3-d065d72d8cb4,Wildfire,Shasta,Shasta-2019-08
+1332,1332,Fire resources will continue patrolling and mopping up.  Suppression repair work has begun.,100.0,225.0,Moose Fire,True,N,c8f94c30-d0ee-450a-8501-30678aa37c0f,Wildfire,Mendocino,Mendocino-2019-08
+1333,1333,,100.0,105.0,West Fire ,True,N,eb975e90-a689-40fc-8f44-b13c774de0e8,Wildfire,Los Angeles,Los Angeles-2019-08
+1334,1334,,100.0,81.0,Timm Fire ,True,N,ce97fe6d-a635-45f1-bc18-cdd1698673c2,Wildfire,Solano,Solano-2019-08
+1335,1335,Fire fighters have made great progress and gained full containment of the fire. Fire crews will continue to patrol the area and mop up any hot spots throughout the evening. Total acreage reduced to 16 due to more accurate mapping.,100.0,16.0,Greenstone Fire ,True,N,22c3cb30-55b1-4fcd-9606-6a0dcedce4ef,Wildfire,El Dorado,El Dorado-2019-08
+1336,1336,"Crews arrived to a vegetation fire approximately three acres in size. Some hazards in the path of the fire were straw bales and several bee boxes. Quick response from air tankers and firefighters saved both from any damage as well as any structures or infrastructure. The fire was held to 20 acres, no injuries were reported.",100.0,20.0,Spring Fire ,True,N,f2a78d1c-66be-40f8-a2d8-5756eb265162,Wildfire,Colusa,Colusa-2019-08
+1337,1337,,100.0,60.0,Bayliss Fire,True,N,0deca389-4481-4d91-8765-40caba3ea31c,Wildfire,Santa Clara,Santa Clara-2019-08
+1338,1338,Firefighters made good progress today extinguishing interior hotspots and securing containment lines. They will continue to mop up and patrol overnight. Residents traveling in the area are asked to drive with caution as fire apparatus and personnel continue to work in the area.,100.0,156.0,Cottage Fire,True,N,2443f637-15d7-4cf9-a405-133cf1748300,Wildfire,Shasta,Shasta-2019-08
+1339,1339,,100.0,423.0,Hunter Fire,True,N,852f3058-ccaa-4877-8e8e-f5b8a9649936,Wildfire,Mariposa,Mariposa-2019-08
+1340,1340,,100.0,80.0,Border 9 Fire,True,N,e094035d-ac9c-4ea9-a23b-bb55321a64d6,Wildfire,San Diego,San Diego-2019-08
+1341,1341,All evacuation orders have been lifted.,100.0,35.0,Patterson Fire,True,N,2760040b-e17b-430f-b581-a81694b450ac,Wildfire,El Dorado,El Dorado-2019-08
+1342,1342,"Threat to City of Tecate, Mexico",100.0,1507.0,Border 8 Fire,True,N,74b94fe9-3524-40ce-ac18-ee637bf66f15,Wildfire,Mexico,Mexico-2019-08
+1343,1343,,100.0,1300.0,Gaines Fire,True,N,547b7d19-9b75-4c11-8b88-56adb6460a3c,Wildfire,Mariposa,Mariposa-2019-08
+1344,1344,,100.0,139.0,Patterson Fire,True,N,d35fa87b-0f19-4dd8-8739-4bdbc92d1361,Wildfire,San Joaquin,San Joaquin-2019-08
+1345,1345,,100.0,600.0,Mountain Fire,True,N,1bf3e829-5fb3-43d2-9179-6c337709df19,Wildfire,Shasta,Shasta-2019-08
+1346,1346,,100.0,34.0,Yucca Fire,True,N,46896a04-8502-403c-b362-e4adc9e7ad4d,Wildfire,Riverside,Riverside-2019-08
+1347,1347,,100.0,131.0,Horse Fire,False,N,97c4d72f-c1e9-425e-9dcf-44150047af92,Wildfire,Lassen,Lassen-2019-08
+1348,1348,,100.0,2438.0,Long Valley Fire ,False,N,2ce810c9-88f1-4efe-9254-8cbd339d2397,Wildfire,Lassen,Lassen-2019-08
+1349,1349,,100.0,80.0,Ivy Fire,True,N,cb87a6f4-a560-41a5-81c0-1064d0c368b6,Wildfire,Riverside,Riverside-2019-08
+1350,1350,,100.0,35.0,Jamieson Fire,True,N,19343958-2921-41d2-a3f8-501badcd0bee,Wildfire,Santa Clara,Santa Clara-2019-08
+1351,1351,,100.0,25.0,Border 10 Fire,True,N,808c34bb-4e64-4eb5-9c3e-2a1e58195074,Wildfire,"Mexico, San Diego","Mexico, San Diego-2019-08"
+1352,1352,,100.0,12.0,Sage Fire,True,N,faf6064e-fc50-4289-8486-1235f20289d7,Wildfire,Riverside,Riverside-2019-08
+1353,1353,,100.0,3380.0,R-1 Fire,False,N,4ee8f023-1c92-4266-bb79-d41fdb3a5826,Wildfire,Lassen,Lassen-2019-08
+1354,1354,,100.0,19.0,Carroll Fire,True,N,40ce99a7-fbca-4b41-b3bf-e2f863fdcc7e,Wildfire,Alameda,Alameda-2019-08
+1355,1355,,100.0,756.0,Creek Fire,True,N,8faaa845-634f-4f94-b25e-f5ae78703da6,Wildfire,Tulare,Tulare-2019-08
+1356,1356,,100.0,66.0,Jolon Fire,True,N,954bfbe7-424c-49e0-9611-23e9f7a475a2,Wildfire,Monterey,Monterey-2019-09
+1357,1357,,100.0,279.0,Snail Fire,False,N,1b6cdbc8-4ab9-49e9-b6ed-e38d55e263cc,Wildfire,Ventura,Ventura-2019-09
+1358,1358,,100.0,11.0,Mines Fire,True,N,de9cacb4-0be2-47d1-8cf2-7a25aabacfae,Wildfire,Alameda,Alameda-2019-09
+1359,1359,,100.0,167.0,Antelope Fire,True,N,ebdceb89-fa30-486a-94f8-3eff8eedbd67,Wildfire,San Benito,San Benito-2019-09
+1360,1360,,100.0,15.0,Telephone Fire,True,N,a5331bf6-d695-4309-a846-96808e41d757,Wildfire,San Bernardino,San Bernardino-2019-09
+1361,1361,,100.0,85.0,Country Fire,True,N,89008310-149d-480f-946f-4ce5a2a71c3f,Wildfire,El Dorado,El Dorado-2019-09
+1362,1362,,100.0,10.0,Deer Fire,True,N,23f65de3-bf4d-4edf-a5eb-b21299195b0f,Wildfire,Santa Cruz,Santa Cruz-2019-09
+1363,1363,,100.0,54612.0,Walker Fire,False,N,3a48b649-8714-433d-9952-ff2bf9e8c90a,Wildfire,Plumas,Plumas-2019-09
+1364,1364,,100.0,1926.0,Tenaja,True,N,f68808fb-a705-4083-a136-1a45c61c7f74,Wildfire,Riverside,Riverside-2019-09
+1365,1365,,100.0,28.0,Glass Fire,True,N,da7fa4d6-cbf3-4cf9-babf-1cc79aa2f536,Wildfire,Lake,Lake-2019-09
+1366,1366,,100.0,17.0,Foster Fire ,True,N,d8c705d2-2820-43d2-bee4-8335354bcab0,Wildfire,San Benito,San Benito-2019-09
+1367,1367,,100.0,8838.0,Red Bank Fire,True,N,14ad161c-bfc6-41ae-af84-a464084a4142,Wildfire,Tehama,Tehama-2019-09
+1368,1368,,100.0,44.0,Flood Fire ,True,N,3d4c2809-cd37-4f07-b86e-68dcd52c7434,Wildfire,San Joaquin,San Joaquin-2019-09
+1369,1369,,100.0,244.0,Henthorne Fire,False,N,791059a2-b50f-4ab0-924a-bfdac001e4b9,Wildfire,Trinity,Trinity-2019-09
+1370,1370,,100.0,5332.0,South Fire,False,N,38d46a2f-d1f6-4ed8-a502-e57e393844ea,Wildfire,Tehama,Tehama-2019-09
+1371,1371,,100.0,4840.0,Springs Fire,False,N,226da8c8-26c0-49d7-b5ef-952cd969f918,Wildfire,Mono,Mono-2019-09
+1372,1372,,100.0,5737.0,Lone Fire,False,N,81977367-45ad-4962-92f3-ae30f22ef723,Wildfire,Modoc,Modoc-2019-09
+1373,1373,,100.0,1975.0,Cow Fire,False,N,c3b236b9-3a1d-481d-b1eb-b0aa77c5b462,Wildfire,Tulare,Tulare-2019-09
+1374,1374,,100.0,381.0,Broder Fire,False,N,737ef617-abaa-44a1-9bbc-f46240468b8f,Wildfire,Tulare,Tulare-2019-09
+1375,1375,,100.0,10296.0,Taboose Fire,False,N,e7ea56c5-4290-4406-b0a5-c9d1718e9700,Wildfire,Inyo,Inyo-2019-09
+1376,1376,,100.0,58.0,Forbestown Fire,True,N,2de3ab6b-60c5-4400-9bff-74c79ed7d553,Wildfire,Butte,Butte-2019-09
+1377,1377,,100.0,260.0,R-6 Fire,False,N,393edada-d2bf-4a33-94f2-2d2123357015,Wildfire,Lassen,Lassen-2019-09
+1378,1378,,100.0,1872.0,Lime Fire,False,N,5c74d3fc-eaeb-4a75-9a07-5f8af961237b,Wildfire,Siskiyou,Siskiyou-2019-09
+1379,1379,,100.0,227.0,Kidder 2 Fire,False,N,69b0cca6-c0c6-4a96-8f61-07ebb0ff9dc7,Wildfire,Siskiyou,Siskiyou-2019-09
+1380,1380,,100.0,280.0,Rams Horn Fire,False,N,b24dc89c-632d-46a1-8984-2ce037e37834,Wildfire,Trinity,Trinity-2019-09
+1381,1381,,100.0,53.0,Oak Fire,True,N,25e65946-2e28-453b-bcb4-617b623be750,Wildfire,Lake,Lake-2019-09
+1382,1382,,100.0,496.0,Swedes Fire,True,N,63a43984-64ce-40aa-bbc3-98330a46353f,Wildfire,Butte,Butte-2019-09
+1383,1383,,100.0,15.0,Duzel Fire,True,N,efba4d61-2027-4b05-8506-04d9858154ca,Wildfire,Siskiyou,Siskiyou-2019-09
+1384,1384,,100.0,250.0,Sycamore Fire,False,N,a14c1f49-8e49-4709-a21b-6c06471a1002,Wildfire,Riverside,Riverside-2019-09
+1385,1385,,100.0,200.0,McMurray Fire,False,N,4cebaf5a-70a7-4262-864b-fb3fe3b1d84d,Wildfire,Santa Barbara,Santa Barbara-2019-09
+1386,1386,,100.0,10.0,Bailey Fire,True,N,5a4639e4-0d1d-4cee-8215-0aa1d53a5160,Wildfire,Riverside,Riverside-2019-09
+1387,1387,,100.0,190.0,Stuhr Fire ,True,N,8f6c8f60-1daf-4c04-8507-dcc81656b8c5,Wildfire,Stanislaus,Stanislaus-2019-09
+1388,1388,,100.0,34.0,Redwood Fire,True,N,b277af3b-3785-44c1-bdfb-c5a5ba766d2b,Wildfire,Riverside,Riverside-2019-09
+1389,1389,,100.0,11.0,Bridge Fire,True,N,a8b79d35-dab7-4513-ac65-25fd99541662,Wildfire,Merced,Merced-2019-09
+1390,1390,,100.0,520.0,Horseshoe Fire ,False,N,c9327432-b3d3-4ea1-b810-d339dc9e25c3,Wildfire,Riverside,Riverside-2019-09
+1391,1391,,100.0,91.0,Bar Fire,False,N,8b4a5b95-3f51-4038-a7ea-b5ed3c73c2e5,Wildfire,Siskiyou,Siskiyou-2019-09
+1392,1392,,100.0,167.0,Bautista Fire,False,N,980c4c7d-dcc9-45b3-b5c1-181c1cd445e9,Wildfire,Riverside,Riverside-2019-09
+1393,1393,,100.0,604.0,Baseline Fire ,True,N,ebc468e3-c2ec-43ff-95e9-c319a7ec3d40,Wildfire,Placer,Placer-2019-09
+1394,1394,,100.0,128.0,Reservoir Fire,True,N,3934f762-ba99-471a-b1d9-dc064276c383,Wildfire,Santa Clara,Santa Clara-2019-09
+1395,1395,,100.0,220.0,Lopez Fire,False,N,840010ca-aef0-4f91-b771-3bf196317d03,Wildfire,San Luis Obispo,San Luis Obispo-2019-09
+1396,1396,,100.0,98.0,Kennedy Fire,True,N,7b283f4f-c613-4840-aa90-1f6e9fa1573a,Wildfire,Riverside,Riverside-2019-09
+1397,1397,,100.0,67.0,Lynette Fire,True,N,9fc12331-47f4-4d79-bffe-914f13658993,Wildfire,Calaveras,Calaveras-2019-09
+1398,1398,,100.0,83.0,Tulloch Fire,True,N,e7910549-a5ca-4712-bd04-349c49c1ba15,Wildfire,Stanislaus,Stanislaus-2019-09
+1399,1399,,100.0,16.0,Cow Fire,True,N,f24e0e23-63ee-4038-a04d-41fe70cac747,Wildfire,Shasta,Shasta-2019-09
+1400,1400,,100.0,200.0,Dehesa Fire ,True,N,94cd8534-defa-4a82-b1be-42a2704c13d2,Wildfire,San Diego,San Diego-2019-09
+1401,1401,,100.0,10.0,Electra Fire,True,N,755df0b3-ad02-406b-af5d-738b67d8c755,Wildfire,Amador,Amador-2019-09
+1402,1402,,100.0,52.0,Willow Fire,False,N,abdb011f-15d8-475b-b08e-4df583700411,Wildfire,Lake,Lake-2019-09
+1403,1403,,100.0,30.0,Mare Fire,False,N,178b2af3-340c-409d-80e6-21ac119969f0,Wildfire,Solano,Solano-2019-09
+1404,1404,,100.0,300.0,Hwy Fire,True,N,b8e5a940-0fb5-4c63-93ab-a855cfdc4e0c,Wildfire,Butte,Butte-2019-09
+1405,1405,,100.0,22.0,Chaparral Fire,True,N,48f89096-4641-42cc-8ec4-9cba635e79a1,Wildfire,El Dorado,El Dorado-2019-09
+1406,1406,,100.0,19.0,Warren Fire,True,N,1e85b2a3-0d55-4c3a-9fbb-5208d615cccd,Wildfire,Riverside,Riverside-2019-09
+1407,1407,,100.0,25.0,Frame Fire,True,N,05b9432b-a5cf-4a8f-bf0e-9b95a04bbdde,Wildfire,Fresno,Fresno-2019-09
+1408,1408,,100.0,52.0,Ranch Fire,False,N,e2a0252b-2da9-4967-ba33-7abe3ced1efa,Wildfire,San Luis Obispo,San Luis Obispo-2019-10
+1409,1409,,100.0,18.0,Del Fire,True,N,2e4017ba-5c18-4de6-8098-54b2a6caf5bd,Wildfire,Stanislaus,Stanislaus-2019-10
+1410,1410,,100.0,63.0,Elk Fire,True,N,082bd2d3-457b-496b-a469-0d2550aac7ef,Wildfire,Siskiyou,Siskiyou-2019-10
+1411,1411,,100.0,10.0,Wilson Fire,True,N,1dd6f339-956d-4ec5-bac5-713ba3cd53d4,Wildfire,Mendocino,Mendocino-2019-10
+1412,1412,,100.0,5563.0,Briceburg Fire,True,N,e7aeb204-15af-4a2a-8f2a-bfd2c8dbe411,Wildfire,Mariposa,Mariposa-2019-10
+1413,1413,,100.0,526.0,American Fire,True,N,74c3d01f-8809-40bc-a0e2-b1cc24bf1a7d,Wildfire,Napa,Napa-2019-10
+1414,1414,,100.0,29.0,Point Fire ,True,N,25e80e7d-5790-4192-9cf0-a190f36158f0,Wildfire,Santa Clara,Santa Clara-2019-10
+1415,1415,,100.0,11.0,Dales Fire,True,N,a4bd4cbb-53de-47c8-972f-cca4c36aaf74,Wildfire,Tehama,Tehama-2019-10
+1416,1416,,100.0,12.0,Little Fire,True,N,a87ab8be-3da9-4cb0-a72c-5125acc001ef,Wildfire,Alameda,Alameda-2019-10
+1417,1417,,100.0,289.0,Cross Fire,True,N,207f72f7-1453-40dc-919e-3551f7041b22,Wildfire,San Luis Obispo,San Luis Obispo-2019-10
+1418,1418,,100.0,68.0,Corning Fire ,True,N,18fe1e24-799d-4aa9-a7ec-fa8e331ae3e9,Wildfire,Tehama,Tehama-2019-10
+1419,1419,,100.0,10.0,Inghram Fire,True,N,d6114db7-8a39-4b86-92a5-5c3dea1f348f,Wildfire,Tehama,Tehama-2019-10
+1420,1420,,100.0,40.0,Merrill Fire,False,N,19578ef2-6101-45b0-a82e-db3004c3a8a5,Wildfire,Contra Costa,Contra Costa-2019-10
+1421,1421,,100.0,9.0,Eagle Fire,True,N,6e93b252-99a3-4214-9921-238373b17535,Wildfire,Riverside,Riverside-2019-10
+1422,1422,,100.0,350.0,Reche Fire,True,N,8739a46c-9d9b-464c-87d0-31738601d96f,Wildfire,Riverside,Riverside-2019-10
+1423,1423,,100.0,1011.0,Sandalwood Fire,True,N,7ff84b11-c3fb-4f5c-8a00-07243d4a4e33,Wildfire,Riverside,Riverside-2019-10
+1424,1424,,100.0,42.0,Plains Fire,True,N,f20ba27e-4c6c-4ca9-a356-ef88c4f788bb,Wildfire,Shasta,Shasta-2019-10
+1425,1425,,100.0,75.0,Wolf Fire,True,N,d37acb3f-94c8-47ef-b3da-6eb0d7353aa7,Wildfire,Riverside,Riverside-2019-10
+1426,1426,,100.0,91.0,Wendy Fire,False,N,fd21c9dc-a89f-4a29-990b-33b95ae2adc9,Wildfire,Ventura,Ventura-2019-10
+1427,1427,,100.0,8799.0,Saddle Ridge Fire,False,N,c52717d6-0297-4c5b-a0f1-f17abcd7ac27,Wildfire,Los Angeles,Los Angeles-2019-10
+1428,1428,,100.0,30.0,Bitter Fire,True,N,fd1bc30a-4377-45f6-ba2b-b4e1c7e65ee7,Wildfire,San Luis Obispo,San Luis Obispo-2019-10
+1429,1429,,100.0,3435.0,Caples Fire,False,N,451c3012-2831-44c1-8fc7-146fd02d2ce0,Wildfire,El Dorado,El Dorado-2019-10
+1430,1430,,100.0,200.0,Olivas Fire,False,N,02e6023e-d306-4a67-a09c-b9224b98661e,Wildfire,Ventura,Ventura-2019-10
+1431,1431,,100.0,55.0,Horse Fire,False,N,72c6a0db-a014-4cd9-9788-926707ef839c,Wildfire,Lassen,Lassen-2019-10
+1432,1432,,100.0,75.0,Johnson Fire ,False,N,8bf75401-999f-42bd-8c0a-8db508591545,Wildfire,Riverside,Riverside-2019-10
+1433,1433,,100.0,15.0,Nustar Fire,True,N,0baff961-3ce3-45ec-80f1-a72957f2f3f4,Wildfire,Contra Costa,Contra Costa-2019-10
+1434,1434,,100.0,10.0,Fairmont Fire,False,N,2a516d14-36ce-43b0-b34c-7483759a9c84,Wildfire,San Diego,San Diego-2019-10
+1435,1435,,100.0,420.0,Real Fire,False,N,baa2a51c-40bc-420c-9f88-db4783872d65,Wildfire,Santa Barbara,Santa Barbara-2019-10
+1436,1436,,100.0,25.0,Grove Fire,True,N,df7805d1-682e-4a3d-b917-1bbab5e078ef,Wildfire,Lake,Lake-2019-10
+1437,1437,,100.0,137.0,Mud Fire ,True,N,ff8701f0-a12a-4b40-baa9-b58c4e2e31f3,Wildfire,Fresno,Fresno-2019-10
+1438,1438,,100.0,11.0,Beaumont Fire,True,N,6ad5dc4a-bd52-4cb4-9664-2ab606289d21,Wildfire,San Bernardino,San Bernardino-2019-10
+1439,1439,,100.0,42.0,Palisades Fire,False,N,24eb323e-b97f-4087-886b-7efae8937bae,Wildfire,Los Angeles,Los Angeles-2019-10
+1440,1440,,,,Oak Fire,False,N,7264a106-e0f4-41de-8fd0-3f9110431e28,Wildfire,Marin,Marin-2019-10
+1441,1441,,100.0,77758.0,Kincade Fire,True,N,809d101c-8aa3-4a53-bf20-f38ae7ec7941,Wildfire,Sonoma,Sonoma-2019-10
+1442,1442,,100.0,145.0,Old Water Fire,False,N,956f8cd5-f4fb-43d7-8a34-1bb5db551995,Wildfire,San Bernardino,San Bernardino-2019-10
+1443,1443,,100.0,67.0,Muir Fire,True,N,16b1921b-f753-4a36-85bc-d903555f0af4,Wildfire,Marin,Marin-2019-10
+1444,1444,,100.0,80.0,Nelson Fire ,True,N,6890469e-78d7-4dac-b162-6c23498fabcc,Wildfire,Butte,Butte-2019-10
+1445,1445,,100.0,4615.0,Tick Fire,False,N,020310d3-7834-4f57-a125-eff0eb3f54e5,Wildfire,Los Angeles,Los Angeles-2019-10
+1446,1446,,100.0,62.0,Cabrillo Fire,True,N,ab8109fd-e8eb-4690-9f5c-3a8c9c47ff48,Wildfire,San Mateo,San Mateo-2019-10
+1447,1447,,100.0,35.0,Mines Fire,True,N,87404846-bc30-41b8-82fe-31c9aedb9ef7,Wildfire,Alameda,Alameda-2019-10
+1448,1448,,100.0,97.0,Sawday Fire ,True,N,a6701bb9-7086-4dbc-ac5f-8c98eeb0279a,Wildfire,San Diego,San Diego-2019-10
+1449,1449,,100.0,37.0,Miller Fire,True,N,7ff229e4-be94-4319-8916-19eb43753843,Wildfire,San Diego,San Diego-2019-10
+1450,1450,,100.0,605.0,Rawson Fire,True,N,828b2492-fc44-4fc0-97fa-f0b439e6fa0d,Wildfire,Tehama,Tehama-2019-10
+1451,1451,,100.0,200.0,Cypress Complex,False,N,d299dec7-b09f-47f7-80c9-859ddd1ecef3,Wildfire,Contra Costa,Contra Costa-2019-10
+1452,1452,,100.0,150.0,Sky Fire ,True,N,64104ca2-a187-4b11-bb43-e22253bbcb52,Wildfire,Contra Costa,Contra Costa-2019-10
+1453,1453,,100.0,140.0,Glencove Fire ,False,N,c9f9ded3-170f-4b04-a50e-2c03153c663f,Wildfire,Solano,Solano-2019-10
+1454,1454,,100.0,703.0,Burris Fire,True,N,9cc1af36-29f2-4af5-afa7-23b9ce17630e,Wildfire,Mendocino,Mendocino-2019-10
+1455,1455,,100.0,50.0,Forest Fire,False,N,b36ed23e-a3de-4aff-bdbc-d6ebf8d8f077,Wildfire,Contra Costa,Contra Costa-2019-10
+1456,1456,,100.0,745.0,Getty Fire ,False,N,e693477a-37d2-4aba-9e73-a63421a2b3a6,Wildfire,Los Angeles,Los Angeles-2019-10
+1457,1457,,100.0,1806.0,Easy Fire,True,N,00e6d6d5-f168-45fa-817a-f7758a5170b7,Wildfire,Los Angeles,Los Angeles-2019-10
+1458,1458,,100.0,494.0,Hill Fire ,True,N,8f23653c-1a4c-4609-bfb3-72b1665eab69,Wildfire,Riverside,Riverside-2019-10
+1459,1459,,100.0,328.0,46 Fire,True,N,e59fa47f-0f47-49a9-a2c5-092cfaf68ed5,Wildfire,Riverside,Riverside-2019-10
+1460,1460,,100.0,50.0,Copper Fire,True,N,e471b23c-f00c-44bc-afc1-6ab02b0af4c3,Wildfire,San Diego,San Diego-2019-10
+1461,1461,,100.0,200.0,Hillside Fire,False,N,dfc32e06-b88e-4d30-ae3d-22bc18792f5e,Wildfire,San Bernardino,San Bernardino-2019-10
+1462,1462,,100.0,9999.0,Maria Fire ,True,N,31852a71-e639-496f-9e7d-0968d1c218b3,Wildfire,Ventura,Ventura-2019-10
+1463,1463,,100.0,19.0,Sobrante Fire ,True,N,305f30f5-622d-4c55-8813-45ffbc15aed0,Wildfire,Riverside,Riverside-2019-11
+1464,1464,,100.0,2534.0,Ranch Fire,True,N,69d98a94-4980-4dc0-b388-61c37c635f32,Wildfire,Tehama,Tehama-2019-11
+1465,1465,,100.0,75.0,Eagle Fire,True,N,600d608d-6279-435d-bc9b-99aacaa5e80f,Wildfire,Colusa,Colusa-2019-11
+1466,1466,,100.0,355.0,Foothills Fire,True,N,77d64e4c-a50f-4f4d-a750-e6a6f0ddadc9,Wildfire,Placer,Placer-2019-11
+1467,1467,,,,Cashe Fire ,False,N,9c26f915-1b33-422d-b30a-9eb4da6fd729,Wildfire,Yolo,Yolo-2019-11
+1468,1468,,100.0,3126.0,Cave Fire (No Longer a CAL FIRE Incident),False,N,7555692b-f672-4660-8f15-d0dab068a193,Wildfire,Santa Barbara,Santa Barbara-2019-11
+1469,1469,,100.0,15.0,Bear Fire ,True,N,94f20083-2412-4058-bc16-afa6b45c3935,Wildfire,Humboldt,Humboldt-2020-02
+1470,1470,,100.0,102.0,Antelope Fire,False,N,c9bb59f7-be32-4296-8c11-3f1233116827,Wildfire,Sierra,Sierra-2020-02
+1471,1471,,100.0,75.0,Beegum Fire,True,N,f6e7a62d-4796-452d-8e41-66ed1aef6d63,Wildfire,Tehama,Tehama-2020-02
+1472,1472,,100.0,57.0,Wood Fire,False,N,edd2012d-0574-46a1-97d5-9ca42e7c5912,Wildfire,Lassen,Lassen-2020-02
+1473,1473,,100.0,211.0,Baseball Fire,False,N,ad9ab6b9-53ed-417c-a490-6b594974f110,Wildfire,Mendocino,Mendocino-2020-02
+1474,1474,,100.0,154.0,Grizzly Fire,True,N,405d5f3f-66c9-4b69-8660-82780fa582b5,Wildfire,Butte,Butte-2020-03
+1475,1475,,100.0,180.0,Mann Fire,True,N,e1298aaa-1337-412e-ba09-7b29e87dad8b,Wildfire,Riverside,Riverside-2020-03
+1476,1476,,,,Baker Fire,False,N,7411452c-1613-4e4f-afe6-865db0c476c4,Wildfire,Yuba,Yuba-2020-03
+1477,1477,,100.0,20.0,South Main Fire,True,N,083f1638-4369-410f-9b57-d53cfaa938f7,Wildfire,Riverside,Riverside-2020-03
+1478,1478,,100.0,275.0,Carter Fire ,False,N,a87d4713-817a-47ac-9fa5-427c474cf9a5,Wildfire,Imperial,Imperial-2020-04
+1479,1479,,100.0,26.0,Red Fire ,True,N,3eff88c0-89ee-4abe-8f6d-f74b90c42f30,Wildfire,Tehama,Tehama-2020-04
+1480,1480,,100.0,55.0,Bar Fire,True,N,4b1b0f5b-a4f9-4965-ad6a-029c9d89c68c,Wildfire,Trinity,Trinity-2020-04
+1481,1481,,100.0,47.0,Byron Fire,False,N,18b88d88-2c76-41cb-9b07-5c9dda8f56d9,Wildfire,Contra Costa,Contra Costa-2020-04
+1482,1482,,100.0,2060.0,Interstate 5 Fire,False,N,2dac9fb4-1c2a-405a-93be-92ed7788a1d2,Wildfire,Fresno,Fresno-2020-05
+1483,1483,Forward spread has stopped,100.0,156.0,Hollister Fire,False,N,d0dbf515-0e04-42d9-a46b-8ea21d18374a,Wildfire,Santa Barbara,Santa Barbara-2020-05
+1484,1484,,100.0,17.0,Candy Fire,False,N,9a8425a9-f3ba-4afe-82d2-d9a9776959aa,Wildfire,Butte,Butte-2020-05
+1485,1485,,100.0,20.0,Gilman Fire,True,N,3788f0dd-0d61-4458-95a2-ebda03b815b2,Wildfire,Riverside,Riverside-2020-05
+1486,1486,,100.0,152.0,Acres Fire,False,N,0fa5653a-c3c8-4aad-84ce-8d1dd74f211b,Wildfire,Madera,Madera-2020-05
+1487,1487,,100.0,20.0,Spanish Fire ,False,N,adbbc326-9f9a-434d-b18b-67a44f3906e5,Wildfire,Napa,Napa-2020-05
+1488,1488,"The Range Fire started May 27, 2020 near Range M22 Camp Roberts Military Reserve, north of San Luis Obispo in San Luis Obispo County.",100.0,5000.0,Range Fire,False,N,53d70cde-ef0f-49c1-80a9-dc306a8cc043,Wildfire,San Luis Obispo,San Luis Obispo-2020-05
+1489,1489,,100.0,60.0,Harley Fire,True,N,57f40970-22b5-4d75-a8f2-2482a18f5bca,Wildfire,Riverside,Riverside-2020-05
+1490,1490,,50.0,60.0,Creek Fire,True,N,0e1e69d4-cb59-4228-8c55-f18e6b5ad71c,Wildfire,Contra Costa,Contra Costa-2020-05
+1491,1491,,100.0,1395.0,Scorpion Fire,False,N,7a979a96-aeab-4afd-b55f-532882f36a6b,Wildfire,Santa Barbara,Santa Barbara-2020-05
+1492,1492,,100.0,237.0,Acres Fire,True,N,8ad07f5d-c8eb-43c3-94d5-547ee9c0e5cd,Wildfire,Madera,Madera-2020-06
+1493,1493,,100.0,650.0,Amoruso Fire,True,N,a47ae21e-d488-4978-ade9-aeed0db63fa6,Wildfire,Placer,Placer-2020-06
+1494,1494,,100.0,10.0,Nash Fire,False,N,0b723ec6-680d-464b-ba30-b444506ceb44,Wildfire,Mendocino,Mendocino-2020-06
+1495,1495,,100.0,37.0,Horn Fire ,False,N,0eca3343-e9f9-4d09-9fc3-95ab90b153ae,Wildfire,Lassen,Lassen-2020-06
+1496,1496,,100.0,129.0,Smoketree Fire,False,N,94b147a7-68ac-4e60-ba42-81fce8facd30,Wildfire,Riverside,Riverside-2020-06
+1497,1497,,100.0,300.0,Wildlife Fire,False,N,2672d8d0-6523-40da-ae4e-6ae6d48e810a,Wildfire,Solano,Solano-2020-06
+1498,1498,,100.0,19.0,Silver Fire,False,N,0416a81f-0a17-4835-b05e-fe59a6e7379a,Wildfire,Santa Clara,Santa Clara-2020-06
+1499,1499,,100.0,15.0,Brock Fire,False,N,a5085c95-252d-4d1c-9e8a-6657a74b7ed5,Wildfire,Shasta,Shasta-2020-06
+1500,1500,Evacuations in progress,100.0,126.0,Colleen Fire,False,N,3837f75a-208d-41d0-8d89-5719a11912ef,Wildfire,Santa Clara,Santa Clara-2020-06
+1501,1501,,100.0,39.0,Karchner Fire,True,N,57a6f6b7-eba1-4ed7-ba7b-6b078b06731d,Wildfire,Placer,Placer-2020-06
+1502,1502,,100.0,141.0,Lakeville Fire,True,N,db5ad2e7-dc3d-41f2-91b4-4019857ee51e,Wildfire,Sonoma,Sonoma-2020-06
+1503,1503,,100.0,79.0,McGary Fire ,False,N,5698ae57-d61f-421b-8b75-623e9aa6debb,Wildfire,Solano,Solano-2020-06
+1504,1504,,100.0,107.0,Gulch Fire,True,N,e3e89516-4647-44bf-bd24-3293303f0776,Wildfire,Sonoma,Sonoma-2020-06
+1505,1505,,100.0,1837.0,Quail Fire,True,N,74b04a44-7cc1-4c8e-bd9e-9f3efa631df4,Wildfire,Solano,Solano-2020-06
+1506,1506,,100.0,100.0,Willow Fire ,False,N,b5527f83-ebbe-4b09-a701-4b4fe6d37b45,Wildfire,Contra Costa,Contra Costa-2020-06
+1507,1507,,100.0,211.0,Bitterwater Fire,True,N,9247b89a-38f0-4e14-ac4a-59386cf867b4,Wildfire,Monterey,Monterey-2020-06
+1508,1508,,100.0,85.0,Hunters Fire,True,N,876b63ff-62a2-4584-8aa2-d99f027c0e9f,Wildfire,Mariposa,Mariposa-2020-06
+1509,1509,,100.0,80.0,Sperry Fire,True,N,5a6e0c14-2906-4547-8024-e7b33071104b,Wildfire,Stanislaus,Stanislaus-2020-06
+1510,1510,,100.0,27.0,Grand Fire,True,N,8a4b6636-55b6-4999-9de4-7b0cb22390a2,Wildfire,Lake,Lake-2020-06
+1511,1511,,100.0,230.0,Bradley Fire ,True,N,6b50bab1-7dcf-43c8-b4d1-afada595dd32,Wildfire,Monterey,Monterey-2020-06
+1512,1512,,100.0,100.0,Sierra Fire,False,N,125e30fa-37fb-46ea-86ab-13058518aab6,Wildfire,Riverside,Riverside-2020-06
+1513,1513,,100.0,20.0,Oak Fire,True,N,fdd59b55-6aa2-442f-b788-e1291bb49cb1,Wildfire,Riverside,Riverside-2020-06
+1514,1514,,100.0,29.0,Cronan Fire ,True,N,d77e9eeb-a4ed-41b8-adff-9dd99aac5971,Wildfire,El Dorado,El Dorado-2020-06
+1515,1515,,100.0,151.0,Vineyard Fire ,True,N,dc1f8080-9c95-40e3-859b-71f6a080f05b,Wildfire,Mendocino,Mendocino-2020-06
+1516,1516,,100.0,1100.0,India Fire,False,N,21f49b4c-a5cd-4f17-90fd-b9f464b823c1,Wildfire,Marin,Marin-2020-06
+1517,1517,Acreage change due to better mapping.,100.0,289.0,Elizabeth Fire,False,N,c3c10b8f-a073-4ca6-bb7f-fdc57cf82b4c,Wildfire,Ventura,Ventura-2020-06
+1518,1518,,100.0,1672.0,Soda Fire,True,N,3e6e0977-3563-442d-8bf3-d87c97b49880,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1519,1519,,100.0,803.0,Lime Fire,True,N,4561c1c7-f447-4450-9ea8-f9717ee19f8d,Wildfire,Ventura,Ventura-2020-06
+1520,1520,Forward spread stopped. Evacuations Lifted,100.0,100.0,Skyline Fire,True,N,36e3b13b-c2d3-44f5-ba9f-23c1e9f73878,Wildfire,San Diego,San Diego-2020-06
+1521,1521,,100.0,90.0,Border 7 Fire,True,N,203115aa-8ef9-436c-9d18-32613f9fa286,Wildfire,San Diego,San Diego-2020-06
+1522,1522,Acreage change due to better mapping.,100.0,40.0,Watt Fire,True,N,e86309b6-2223-4448-a7a2-bb83d4bc8352,Wildfire,Placer,Placer-2020-06
+1523,1523,,100.0,5042.0,Grant Fire,True,N,86e91f38-4e2e-406f-ad97-5a3b47a9ce76,Wildfire,Sacramento,Sacramento-2020-06
+1524,1524,,100.0,533.0,Hog Fire,False,N,50adb8e9-d672-49fa-95d0-657879169302,Wildfire,Fresno,Fresno-2020-06
+1525,1525,,100.0,191.0,Cornetts Fire,True,N,44bf7479-689e-4203-9f38-8b05917db66b,Wildfire,Mariposa,Mariposa-2020-06
+1526,1526,,100.0,10.0,Dawson Fire ,True,N,90d7bf99-5b46-4a48-a07c-7468829e50b3,Wildfire,Riverside,Riverside-2020-06
+1527,1527,,100.0,34.0,Hopland Fire,True,N,2aa93d4d-809e-42ed-8025-7449711f667d,Wildfire,Mendocino,Mendocino-2020-06
+1528,1528,,100.0,696.0,Drum Fire,False,N,b19c7e40-eac0-4c33-9414-590752f5c100,Wildfire,Santa Barbara,Santa Barbara-2020-06
+1529,1529,,100.0,445.0,Avila Fire,True,N,4382036a-3c19-479e-9a78-325007c1de3b,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1530,1530,,100.0,895.0,Bitter Fire ,True,N,2190e4db-2b64-4d98-a5f9-00cc6221eec8,Wildfire,San Benito,San Benito-2020-06
+1531,1531,,100.0,18.0,Riata Fire ,True,N,2250dea8-20a0-4e5e-b86e-bfe7821892c2,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1532,1532,,100.0,1455.0,Walker Fire,True,N,55a8e286-c088-45dc-8010-5c604dba3b69,Wildfire,Calaveras,Calaveras-2020-06
+1533,1533,,100.0,95.0,Nelson Fire ,True,N,fc3411f0-f9e0-4d0c-86a3-71afbac23f4a,Wildfire,Butte,Butte-2020-06
+1534,1534,,100.0,89.0,Liberty Fire,True,N,7fc52805-21d4-4a56-b711-859d8c39e704,Wildfire,San Joaquin,San Joaquin-2020-06
+1535,1535,,100.0,68.0,Gyle Fire,True,N,5a06793f-5f95-411b-9cce-b340ddd72061,Wildfire,Tehama,Tehama-2020-06
+1536,1536,,100.0,83.0,Ridge Fire,False,N,0cb8b199-ab94-42a5-a441-db7f272b170c,Wildfire,Monterey,Monterey-2020-06
+1537,1537,,100.0,165.0,Baker Fire,False,N,c276a99a-8208-4402-b538-1e50aae50d63,Wildfire,Kern,Kern-2020-06
+1538,1538,,100.0,110.0,Nelson Fire,True,N,2a79a833-693d-4dff-a199-c93b5a3ebe39,Wildfire,Placer,Placer-2020-06
+1539,1539,,100.0,130.0,Fork Fire,True,N,0fc1bc5b-7ac5-4a2c-8048-9ed74623b838,Wildfire,Tulare,Tulare-2020-06
+1540,1540,,100.0,13.0,Teddy Fire,True,N,036cc8f1-ab4e-488c-8c46-86ebbb176d3e,Wildfire,Butte,Butte-2020-06
+1541,1541,,100.0,217.0,Springs Fire,True,N,0413caad-a48e-447b-8ed8-1c8933360f21,Wildfire,Tulare,Tulare-2020-06
+1542,1542,,100.0,89.0,Honcut Fire,True,N,a1959cb6-24e4-45e6-bcca-b792abe932ce,Wildfire,Butte,Butte-2020-06
+1543,1543,Forward spread stopped,100.0,11.0,East Fire,True,N,d7f02c71-a8b5-440a-b4a8-b8e011e214e3,Wildfire,Modoc,Modoc-2020-06
+1544,1544,,100.0,10.0,Quarter Fire,False,N,641c7a44-b74a-4dce-bd7d-44078847003b,Wildfire,Tuolumne,Tuolumne-2020-06
+1545,1545,,100.0,195.0,Hunter Fire,True,N,c50ced87-e83c-406c-b349-49cad87e680f,Wildfire,Monterey,Monterey-2020-06
+1546,1546,,100.0,52.0,Stage Fire,True,N,d0e31652-2b1e-4316-a1e0-c18ecb4ddbd7,Wildfire,Monterey,Monterey-2020-06
+1547,1547,,100.0,1050.0,Grade Fire ,True,N,e7d05a34-0fdc-4db2-b713-0e10119d105d,Wildfire,Tulare,Tulare-2020-06
+1548,1548,,100.0,338.0,Rico Fire ,True,N,cf392ebe-9c69-4a28-b52b-3772c06b493c,Wildfire,Monterey,Monterey-2020-06
+1549,1549,,100.0,15.0,River Fire,False,N,58e5665a-7aff-4f14-8ebe-490e73d3d37a,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1550,1550,,100.0,19.0,Sycamore Fire,True,N,c5071feb-80ec-4fbb-9d2f-eee1f1cea68a,Wildfire,Fresno,Fresno-2020-06
+1551,1551,,100.0,563.0,R-2 Fire,False,N,7d7f682a-0266-4758-93e6-795488af0687,Wildfire,Lassen,Lassen-2020-06
+1552,1552,,100.0,210.0,R-3 Fire,False,N,54364494-e201-476a-8dc7-fbf2e0f94f60,Wildfire,Lassen,Lassen-2020-06
+1553,1553,,100.0,12.0,58 Fire,True,N,5b8b9b63-9cc6-4d55-9502-87009d75732c,Wildfire,Imperial,Imperial-2020-06
+1554,1554,,100.0,202.0,Diablo Fire,True,N,64b9cf19-314a-4986-ae35-cf89f1f8bc2a,Wildfire,Stanislaus,Stanislaus-2020-06
+1555,1555,,100.0,263.0,Bend Fire,False,N,d10cd103-f627-497d-a338-6430438ed7fb,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1556,1556,,100.0,280.0,Aurora Fire,False,N,5b2b1489-ad5b-4104-b267-fdd61c0c48e9,Wildfire,Mono,Mono-2020-06
+1557,1557,,100.0,59.0,Indian Fire,True,N,b13b3fea-fd2f-4c14-925b-63737df97f2e,Wildfire,Riverside,Riverside-2020-06
+1558,1558,,100.0,2975.0,Poeville Fire,False,N,4db7101a-8097-4211-ab16-544f136dd35c,Wildfire,Nevada,Nevada-2020-06
+1559,1559,,100.0,2192.0,Pass Fire,True,N,a9397846-b830-4a42-a7e6-d2be9684a989,Wildfire,Santa Clara,Santa Clara-2020-06
+1560,1560,,100.0,33.0,Gage Fire,True,N,a6c54f7f-20f5-4c3b-a27b-745d7274def6,Wildfire,San Luis Obispo,San Luis Obispo-2020-06
+1561,1561,,100.0,12.0,Muck Fire ,True,N,58a3d354-a532-440e-bfa8-aca414cf4cd0,Wildfire,Lassen,Lassen-2020-06
+1562,1562,,100.0,136.0,Avacado Fire,True,N,fd24cc01-1057-4572-a83b-1775d49f42f7,Wildfire,Butte,Butte-2020-06
+1563,1563,,100.0,62.0,Flat Fire,False,N,49378c25-ecdb-406d-829b-755f2b248fcd,Wildfire,Trinity,Trinity-2020-06
+1564,1564,,100.0,2900.0,Bena Fire,True,N,14042a79-1fd0-4e82-b17d-1b201306de22,Wildfire,Kern,Kern-2020-07
+1565,1565,,100.0,648.0,Rowher Fire,False,N,ba60e1c4-d812-4b33-9a2e-b240a1b29408,Wildfire,Los Angeles,Los Angeles-2020-07
+1566,1566,,100.0,597.0,Bonadelle Fire,False,N,f969420f-82a1-4edd-b7d3-28672e9d74b3,Wildfire,Madera,Madera-2020-07
+1567,1567,,100.0,157.0,Soda Fire ,False,N,ac5dad8d-89f2-4f3f-b710-34661754ebb6,Wildfire,San Luis Obispo,San Luis Obispo-2020-07
+1568,1568,,100.0,62.0,Mount R Fire,False,N,b564196f-6499-4e1e-b896-7b6211d97f90,Wildfire,San Bernardino,San Bernardino-2020-07
+1569,1569,,100.0,108.0,Sheridan Fire,True,N,43289809-2636-4d90-8ed2-0012575d9e1d,Wildfire,Alameda,Alameda-2020-07
+1570,1570,,100.0,588.0,Lake Fire,True,N,90f61641-f44c-4180-bb82-9238b1effeb7,Wildfire,San Luis Obispo,San Luis Obispo-2020-07
+1571,1571,,100.0,343.0,Park Fire,True,N,7f3042f1-3e76-4c3e-82c9-a0761c1c8b90,Wildfire,Santa Clara,Santa Clara-2020-07
+1572,1572,,100.0,100.0,Cotton Fire,True,N,a7138f52-b933-4054-ae63-5f8e1e950be3,Wildfire,Merced,Merced-2020-07
+1573,1573,,100.0,67.0,Kings Fire,True,N,cd2e7a3b-7b00-4da4-8612-a19a22c88fca,Wildfire,Fresno,Fresno-2020-07
+1574,1574,,100.0,5513.0,Crews Fire,True,N,304a6ef7-53f6-4d2d-8d11-be431a7d75e8,Wildfire,Santa Clara,Santa Clara-2020-07
+1575,1575,,100.0,1525.0,Soledad Fire,False,N,2102ace4-f67b-4060-8795-f3cea12917e3,Wildfire,Los Angeles,Los Angeles-2020-07
+1576,1576,,100.0,298.0,California Fire,True,N,fc988bbb-4f93-478d-8a6c-b1be51d436c7,Wildfire,Contra Costa,Contra Costa-2020-07
+1577,1577,,100.0,150.0,Patterson Fire,True,N,ce7dddd1-7a79-4aa4-b6bc-f4181aa2ac05,Wildfire,San Joaquin,San Joaquin-2020-07
+1578,1578,,100.0,75.0,Mountain Meadow Fire ,False,N,deaaf3fb-e0b2-4430-97cc-10d6d626df27,Wildfire,Solano,Solano-2020-07
+1579,1579,,100.0,32.0,Brandon Fire,True,N,f398ee10-0c99-4096-be61-7c1611035ce1,Wildfire,El Dorado,El Dorado-2020-07
+1580,1580,,100.0,25.0,Nail Fire,False,N,a378ae17-9133-433f-8b63-23a1a7c6a4c6,Wildfire,Colusa,Colusa-2020-07
+1581,1581,,100.0,10.0,Tripp Fire ,True,N,b4413d75-dc78-4810-9db3-c644a1afc5f3,Wildfire,Riverside,Riverside-2020-07
+1582,1582,,100.0,31.0,Alum Fire,True,N,49be3366-f2b6-4ff5-8541-a25ad9bdc607,Wildfire,Santa Clara,Santa Clara-2020-07
+1583,1583,,100.0,108.0,Power Fire,True,N,1d6a3faf-2e35-4c7e-9efd-54339ad56ed6,Wildfire,Madera,Madera-2020-07
+1584,1584,,100.0,2.0,Elliot Fire,True,N,2865a54c-f7c1-4595-b4b9-1c8082df22ce,Wildfire,Riverside,Riverside-2020-07
+1585,1585,,100.0,33.0,Robinson Fire,True,N,dd705c7f-d18b-49a5-be60-c828d5c047fb,Wildfire,Butte,Butte-2020-07
+1586,1586,Forward spread stopped.,100.0,91.0,Casino Fire,True,N,777f38a7-7d43-4641-998f-8524c692980c,Wildfire,Riverside,Riverside-2020-07
+1587,1587,,100.0,29667.0,Mineral Fire,True,N,ef5e4d08-bf3f-4df1-90b7-92e4e2a2fc91,Wildfire,Fresno,Fresno-2020-07
+1588,1588,,100.0,1508.0,Coyote Fire,True,N,03459423-a538-4952-ba0c-c020face9151,Wildfire,San Benito,San Benito-2020-07
+1589,1589,,100.0,48.0,Ben Fire,True,N,79575aba-0ca4-446e-a28e-39bafbad368e,Wildfire,Mariposa,Mariposa-2020-07
+1590,1590,,100.0,500.0,Valley Fire ,False,N,d268fd6c-a177-47b2-b13c-2ac26a02289e,Wildfire,Yuba,Yuba-2020-07
+1591,1591,,100.0,253.0,Hollow Fire,True,N,a417d993-c3bf-4c5b-a01a-7d56a209a12d,Wildfire,Alameda,Alameda-2020-07
+1592,1592,,100.0,119.0,Pitzer Fire,True,N,4035078f-8136-447e-8daf-3a63462a73d9,Wildfire,Butte,Butte-2020-07
+1593,1593,,100.0,557.0,Badger Fire,True,N,9520d0cb-1a4f-4dc0-bd38-967f5ee353f0,Wildfire,Siskiyou,Siskiyou-2020-07
+1594,1594,,100.0,9564.0,Hog Fire,True,N,fc0b7761-54a3-4275-a550-313d2b604f5e,Wildfire,Lassen,Lassen-2020-07
+1595,1595,,100.0,340.0,Platina Fire,True,N,c4d60e70-ee95-41f1-9e6e-4df4bdae3748,Wildfire,Shasta,Shasta-2020-07
+1596,1596,,100.0,22634.0,Gold Fire,True,N,9d4f56ae-b319-49b0-9a77-10088a2defda,Wildfire,Lassen,Lassen-2020-07
+1597,1597,,100.0,100.0,Milepost 21 Fire,False,N,1c0e692a-8afc-41e9-8ac7-d27b977f0cdd,Wildfire,Humboldt,Humboldt-2020-07
+1598,1598,,100.0,30.0,Feather Fire,True,N,64390cd6-42d4-4e9e-8dd9-1077f5191243,Wildfire,Butte,Butte-2020-07
+1599,1599,,100.0,75.0,Holland Fire ,False,N,cac8f4bf-d269-4f13-b59c-07670b34f81f,Wildfire,Contra Costa,Contra Costa-2020-07
+1600,1600,,100.0,71.0,Easton Fire,False,N,f66fb4e4-cd4c-4410-9c00-43fed5882fb4,Wildfire,San Bernardino,San Bernardino-2020-07
+1601,1601,,100.0,135.0,Rabbit Fire ,True,N,8146a328-05df-4b38-b11e-1c6fcedb1df7,Wildfire,Madera,Madera-2020-07
+1602,1602,,100.0,120.0,Iris Fire,False,N,1505ac89-a71c-4c77-9ae4-fb3eb34dbc66,Wildfire,Mono,Mono-2020-07
+1603,1603,,100.0,83261.0,July Complex,False,N,c002a55a-95ef-4286-b358-daa8fd3ad086,Wildfire,Modoc,Modoc-2020-07
+1604,1604,,100.0,145.0,Jack Fire,True,N,22bb346a-660e-46cb-8c54-dbcda18fc4d6,Wildfire,Riverside,Riverside-2020-07
+1605,1605,,100.0,138.0,Hill Fire,True,N,0364a8dd-0971-4f24-a020-6f4e97ccbace,Wildfire,Colusa,Colusa-2020-07
+1606,1606,,100.0,250.0,Karen Fire,True,N,4d799b0d-240a-40fa-9ca7-f64aa1cd4002,Wildfire,Riverside,Riverside-2020-07
+1607,1607,,100.0,51.0,Ione Fire ,True,N,1cffff17-9678-4f17-837a-e4e11ae77c1b,Wildfire,Sacramento,Sacramento-2020-07
+1608,1608,,100.0,788.0,Cottonwood Fire,True,N,9810b7b8-b865-4413-a60c-5f47e8945eda,Wildfire,Merced,Merced-2020-07
+1609,1609,,,,Adams Fire,False,N,69aa5821-3027-464a-9c61-daa8b75e090f,Wildfire,Lassen,Lassen-2020-07
+1610,1610,,100.0,321.0,Ridge Fire,False,N,dfc476d5-b274-4bfb-bf55-4af5ef611f5e,Wildfire,Los Angeles,Los Angeles-2020-07
+1611,1611,,100.0,25.0,Lincoln Fire,False,N,4751b58f-771f-4d9c-b742-4aad10ef45eb,Wildfire,Humboldt,Humboldt-2020-07
+1612,1612,,100.0,100.0,Border 11 Fire,True,N,66f80cfd-55ff-4f8b-b971-708bef8c6d87,Wildfire,San Diego,San Diego-2020-07
+1613,1613,,100.0,3022.0,Branch Fire,True,N,b7cf91b3-e441-46c7-8214-a2ce84a21a3d,Wildfire,San Luis Obispo,San Luis Obispo-2020-07
+1614,1614,,100.0,185.0,Brook Fire,False,N,71cf5cd0-78c3-482c-b0d3-148bb24c4853,Wildfire,San Bernardino,San Bernardino-2020-07
+1615,1615,,100.0,730.0,Clay Fire,True,N,3481e6e5-c6e8-4891-9e65-fdc3147ae579,Wildfire,Sacramento,Sacramento-2020-07
+1616,1616,,100.0,104.0,Rabbit Fire,True,N,aa193e22-7d46-42fa-8638-8ee1e1cbaa2c,Wildfire,Riverside,Riverside-2020-07
+1617,1617,,95.0,220.0,Dam Fire,False,N,2806bdb9-c1d2-4ace-b602-734e24282852,Wildfire,Los Angeles,Los Angeles-2020-07
+1618,1618,,100.0,233.0,Sheep Fire,False,N,04013e6f-d207-4043-8d3d-00aa5d332d85,Wildfire,Kern,Kern-2020-07
+1619,1619,,,,Apple Fire,False,N,8b9ae457-96ea-4041-912c-6b33e8498d98,Wildfire,Riverside,Riverside-2020-07
+1620,1620,,,,Cowhead Fire,False,N,5b3fa4b0-d0e0-46d3-9ee8-0b4a9ff7c225,Wildfire,Modoc,Modoc-2020-07
+1621,1621,,100.0,684.0,Stump Fire,False,N,eeb8174a-f5a7-4fb1-b611-45e85c858326,Wildfire,Tehama,Tehama-2020-08
+1622,1622,,100.0,178.0,Castaic Fire,False,N,00f6ca27-183c-4c2d-99f4-0362ddb522ae,Wildfire,Lake,Lake-2020-08
+1623,1623,,99.0,1962.0,Pond Fire,True,N,5f88019a-39cf-43ff-921f-d5442e47f98d,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1624,1624,,100.0,36.0,Sophia Fire,True,N,dddf569c-7540-4822-8bf4-bd15d5c4473e,Wildfire,El Dorado,El Dorado-2020-08
+1625,1625,,100.0,52.0,Water Fire,True,N,f05306b4-6281-4140-9d63-ea077c080ce9,Wildfire,Riverside,Riverside-2020-08
+1626,1626,,100.0,6882.0,North Fire,False,N,91f3f77d-6b4a-47fb-bc79-a0250cded29a,Wildfire,Lassen,Lassen-2020-08
+1627,1627,,100.0,560.0,Sites Fire ,True,N,7482a8eb-a31c-4556-b8d5-e6f86c4f3904,Wildfire,Colusa,Colusa-2020-08
+1628,1628,,100.0,120.0,Post Fire,True,N,8d4fb3c6-8522-491b-a388-afad50660bfb,Wildfire,Los Angeles,Los Angeles-2020-08
+1629,1629,,100.0,600.0,Beale Fire,False,N,8b1c928f-99e8-4778-a988-445e154a00e3,Wildfire,Yuba,Yuba-2020-08
+1630,1630,,100.0,200.0,Elsmere Fire,False,N,e2d97d53-bcff-4f0d-8b94-0ccfeb100f15,Wildfire,Los Angeles,Los Angeles-2020-08
+1631,1631,,100.0,7760.0,Stagecoach Fire,True,N,e2334135-81c5-44a5-b20d-c3a9b1301531,Wildfire,Kern,Kern-2020-08
+1632,1632,,,,166 Fire,False,N,88172824-3f0b-4b05-a97a-bd2eb7576642,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1633,1633,,100.0,594.0,Trimmer Fire,False,N,2b313120-5794-40d5-aa39-c7e621856d14,Wildfire,Fresno,Fresno-2020-08
+1634,1634,,100.0,280.0,Pass Fire,True,N,7ece0a57-ab39-4d98-83bd-2a09f32b5242,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1635,1635,,100.0,277.0,Fort Fire,True,N,a79536eb-5ceb-4219-9b96-fa0632c4a289,Wildfire,Kern,Kern-2020-08
+1636,1636,,100.0,210.0,Texas Fire,False,N,338b5a8b-d5d6-4845-8a36-f92663339c2a,Wildfire,Los Angeles,Los Angeles-2020-08
+1637,1637,,100.0,177.0,Mina Fire,True,N,c4e48556-0c23-45e6-aebe-d1bcda4e52c5,Wildfire,Mendocino,Mendocino-2020-08
+1638,1638,,100.0,65.0,Duluth Fire,False,N,56e82924-7e7b-4cd0-9221-7f299718b493,Wildfire,Placer,Placer-2020-08
+1639,1639,,100.0,285.0,R-1 Fire,False,N,3d5e2cbc-f2f3-4cd3-b6cc-0b2483940f8d,Wildfire,Lassen,Lassen-2020-08
+1640,1640,,100.0,424.0,Soda Fire,False,N,14e1721e-3907-4b2f-b9f9-3842a7d7106e,Wildfire,Kern,Kern-2020-08
+1641,1641,,100.0,31089.0,Lake Fire,False,N,49ef4e59-6a57-4219-a29b-d75f1297e356,Wildfire,Lake,Lake-2020-08
+1642,1642,,100.0,183.0,Carrizo Fire,True,N,d6ac2ead-0f03-4c79-bda7-a7a2f11050b6,Wildfire,Lake,Lake-2020-08
+1643,1643,,100.0,512.0,Meiss Fire,True,N,5258de73-6c10-44ac-99e0-88602a8a83f5,Wildfire,Sacramento,Sacramento-2020-08
+1644,1644,,100.0,4237.0,Ranch 2 Fire,False,N,5671f6fd-7689-48e6-b792-03e3cfe95ff2,Wildfire,Los Angeles,Los Angeles-2020-08
+1645,1645,,,,Feather Fire,False,N,26e7a17a-2494-4e88-8029-e6bedc06c234,Wildfire,Sierra,Sierra-2020-08
+1646,1646,,100.0,110.0,Clark Fire,True,N,0707e044-ba48-42eb-9263-6e2aff583b33,Wildfire,Butte,Butte-2020-08
+1647,1647,,100.0,47029.0,Loyalton Fire,False,N,ab24840f-90e8-460c-bc88-d25091d7b61f,Wildfire,Sierra,Sierra-2020-08
+1648,1648,,100.0,312.0,Whale Fire,True,N,36aa4641-bb29-4b34-baad-e96406b4f702,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1649,1649,,100.0,2121.0,Hills Fire,True,N,3a48ec04-0297-4561-bb64-e6461acde361,Wildfire,Fresno,Fresno-2020-08
+1650,1650,,100.0,20.0,3-2 Fire,True,N,f6f24a2c-2072-4736-bca7-9a615af3156d,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1651,1651,,100.0,727.0,Elk Fire,True,N,119469ac-fe6b-4934-ac17-36a73cefe958,Wildfire,Glenn,Glenn-2020-08
+1652,1652,,100.0,48088.0,River Fire,True,N,ff4d7735-a5d6-452f-8775-3b208eb046b2,Wildfire,Monterey,Monterey-2020-08
+1653,1653,Lightning sparked multiple fires across the Mendocino National Forest early Sunday morning.,100.0,1032648.0,August Complex (includes Doe Fire),False,N,b8f267be-9911-44ee-8a73-7a0537fbd6fa,Wildfire,Glenn,Glenn-2020-08
+1654,1654,,100.0,705.0,Jones Fire,True,N,a7b2fc4a-18ce-4a89-b192-24c1389c014c,Wildfire,Nevada,Nevada-2020-08
+1655,1655,,,,Beach Fire ,False,N,dae6355c-6a97-4031-a0cb-b34448bc41dc,Wildfire,Mono,Mono-2020-08
+1656,1656,,100.0,275.0,4-8 Fire,True,N,625e0c82-b8a2-4acc-8ff5-19787ca65b69,Wildfire,Glenn,Glenn-2020-08
+1657,1657,,100.0,3000.0,Holser Fire,False,N,f5d17ece-121c-4426-8235-d898b6aa1fa6,Wildfire,Ventura,Ventura-2020-08
+1658,1658,,100.0,14.0,Murphy Fire,True,N,1b0a862b-8fd9-4aa9-8ac7-f6ca6b3cbd39,Wildfire,El Dorado,El Dorado-2020-08
+1659,1659,,100.0,86509.0,CZU Lightning Complex (Including Warnella Fire) ,True,N,d19ac7c7-c899-4600-82c9-fe24dc29f3c9,Wildfire,Santa Cruz,Santa Cruz-2020-08
+1660,1660,,100.0,396624.0,SCU Lightning Complex,True,N,22c6ea3c-304c-4b3b-bfba-7c9dfc63d9da,Wildfire,Stanislaus,Stanislaus-2020-08
+1661,1661,,,,Bell Fire,False,N,3fa74cb0-3c6d-49b1-bb20-3d7fba0c0249,Wildfire,Lake,Lake-2020-08
+1662,1662,,100.0,6905.0,Carmel Fire,True,N,06f4e066-b0d2-4af9-91a3-518aef4d0197,Wildfire,Monterey,Monterey-2020-08
+1663,1663,,100.0,62.0,3-19 Fire,True,N,c387f9ae-a783-4dab-b9b7-12866c8a6a34,Wildfire,Lake,Lake-2020-08
+1664,1664,,100.0,1789.0,Salt Fire,True,N,ef9d3424-5838-466e-bb92-ac5dc23be5c5,Wildfire,Calaveras,Calaveras-2020-08
+1665,1665,,100.0,820.0,Creek Fire,True,N,1eadad68-344e-4728-8390-b0d31b96333d,Wildfire,Mendocino,Mendocino-2020-08
+1666,1666,,100.0,363220.0,"LNU Lightning Complex (includes Hennessey, Gamble, 15-10, Spanish, Markley, 13-4, 11-16, Walbridge)",True,N,9645c55f-2b11-40ab-9ae7-df424d685a2d,Wildfire,Napa,Napa-2020-08
+1667,1667,Acreage decreased due to Elkhorn and Hopkins Fires are no longer being accounted for in this Complex. UPDATE 09/10/2020,100.0,19609.0,Butte/Tehama/Glenn Lightning Complex (Tehama/Glenn Zone) ,True,N,f6aba342-3b28-460b-a88a-96ccbdcb3c14,Wildfire,Tehama,Tehama-2020-08
+1668,1668,,100.0,55.0,Flint Fire,True,N,7486c76a-019a-496f-9d5c-f4b962906fe4,Wildfire,Calaveras,Calaveras-2020-08
+1669,1669,,100.0,2857.0,Moc Fire,True,N,c57a1d32-216b-443e-bb67-87be3232bf8b,Wildfire,Tuolumne,Tuolumne-2020-08
+1670,1670,,100.0,45.0,Volcano Fire,True,N,d09da426-ed85-4909-892b-2505c4813d93,Wildfire,San Diego,San Diego-2020-08
+1671,1671,,100.0,143.0,Coyote Fire,True,N,a453303f-cb87-430a-9a3c-d9b2f0b7ceb2,Wildfire,Santa Clara,Santa Clara-2020-08
+1672,1672,,100.0,29570.0,Sheep Fire ,True,N,6edfd658-def5-451c-86bd-83cb2280e34f,Wildfire,Plumas,Plumas-2020-08
+1673,1673,,,,W-5 Cold Springs,False,N,354f212b-e177-45dd-920c-9f427afdb740,Wildfire,Lassen,Lassen-2020-08
+1674,1674,,100.0,4929.0,Woodward Fire,False,N,60c2ba16-9296-4fb9-aba2-1331c25129c6,Wildfire,Marin,Marin-2020-08
+1675,1675,,100.0,53.0,Placer Fire,True,N,354cbed0-3717-411f-b95b-c26137b4a2a4,Wildfire,San Luis Obispo,San Luis Obispo-2020-08
+1676,1676,,100.0,567.0,R-8 Pinecone Fire ,False,N,a89673de-1c0d-43cc-9a96-bd83f632bf65,Wildfire,Lassen,Lassen-2020-08
+1677,1677,,100.0,9.0,Perry Fire,True,N,3826c0d8-e78d-4608-889c-b7c4f6c37a25,Wildfire,Placer,Placer-2020-08
+1678,1678,,100.0,290.0,Johnson Fire ,False,N,1a62a4b4-ad1a-4e12-b8ed-a3a50e3d1722,Wildfire,Los Angeles,Los Angeles-2020-08
+1679,1679,,100.0,688.0,Hensley Fire ,True,N,5937fad1-a332-4d92-ba83-c8022173b5ba,Wildfire,Madera,Madera-2020-08
+1680,1680,,,,Hobo Fire ,False,N,8856e738-79bf-4a21-8926-f1abbbac3a6f,Wildfire,Trinity,Trinity-2020-09
+1681,1681,,,,Slink Fire,False,N,4336b2f9-35c5-430a-8b5a-4fbaf1798cec,Wildfire,Mono,Mono-2020-09
+1682,1682,,100.0,13.0,Catholic Fire,True,N,44276cce-9fe4-472d-aac6-4d08e9d01365,Wildfire,Lake,Lake-2020-09
+1683,1683,,,,Creek Fire,False,N,7e359448-0344-4407-a289-e4fb7823ac3c,Wildfire,Fresno,Fresno-2020-09
+1684,1684,,100.0,22744.0,El Dorado Fire,False,N,5367d20e-b24c-40ef-acd1-93c05e4b73b9,Wildfire,San Bernardino,San Bernardino-2020-09
+1685,1685,,100.0,16390.0,Valley Fire,False,N,9277ab02-734d-4b01-ac35-c27ba62c2af3,Wildfire,San Diego,San Diego-2020-09
+1686,1686,,100.0,1100.0,Oak Fire,True,N,6fd76607-08af-4c44-9e40-edde0bc9d6cf,Wildfire,Mendocino,Mendocino-2020-09
+1687,1687,,,,Fork Fire,False,N,1e437685-8470-4dd5-bf6c-54e75143d36a,Wildfire,El Dorado,El Dorado-2020-09
+1688,1688,,100.0,1311.0,Willow Fire,True,N,7442faa1-3681-4b85-8ed7-229e34ee3011,Wildfire,Yuba,Yuba-2020-09
+1689,1689,,100.0,45.0,Sperry Fire,True,N,a7f3e6f3-3e15-4350-a0f7-2a5392e0708d,Wildfire,Stanislaus,Stanislaus-2020-09
+1690,1690,,100.0,45.0,Schoolhouse Fire,True,N,2cdf609e-de06-4e0b-a2bc-527ffde51064,Wildfire,Siskiyou,Siskiyou-2020-09
+1691,1691,,100.0,50.0,Shackleford Fire,True,N,8ffb7148-7668-452a-8fbc-3a2b49b753ea,Wildfire,Siskiyou,Siskiyou-2020-09
+1692,1692,,100.0,1185.0,Bullfrog Fire,False,N,aab65b54-103c-4101-a70b-5983533d49e9,Wildfire,Fresno,Fresno-2020-09
+1693,1693,,100.0,2188.0,Fox Fire,False,N,4f2c2a0b-d187-4e11-8841-3a014cadd739,Wildfire,Lake,Lake-2020-09
+1694,1694,,100.0,111.0,San Antonio Fire ,False,N,55684e7d-4312-408d-8538-51e2006581b0,Wildfire,Santa Barbara,Santa Barbara-2020-09
+1695,1695,,,,Snow Fire ,False,N,0e83ff21-5cb8-4f2f-b059-58a77d39b502,Wildfire,Riverside,Riverside-2020-09
+1696,1696,,100.0,67484.0,Glass Fire,True,N,d6b00a56-682d-4908-bf07-45eef54c9198,Wildfire,Napa,Napa-2020-09
+1697,1697,,100.0,56338.0,Zogg Fire,True,N,f0a3f022-0d5a-4d47-93c7-2a73cb081740,Wildfire,Shasta,Shasta-2020-09
+1698,1698,,100.0,230.0,Martindale Fire ,False,N,26f0d1c5-8df4-4201-810f-0b136677e4c6,Wildfire,Los Angeles,Los Angeles-2020-09
+1699,1699,,100.0,227.0,Candy Fire,True,N,eef565af-d64a-4c72-a4a2-6a9d13e6211c,Wildfire,Riverside,Riverside-2020-09
+1700,1700,,100.0,48.0,Copper Fire ,True,N,fdae8b5d-95f3-4eaa-bd71-35cd402a94f9,Wildfire,Amador,Amador-2020-09
+1701,1701,,100.0,20.0,Pony Fire,True,N,745a276b-488e-40e6-b62d-065111a98139,Wildfire,Sacramento,Sacramento-2020-10
+1702,1702,,100.0,21.0,Lambert Fire,True,N,8b25feb1-9eb7-433d-8abf-d6ab554c9fe3,Wildfire,Amador,Amador-2020-10
+1703,1703,,100.0,56.0,Fields Fire ,True,N,b341b09d-2024-4b2a-a439-f39409abb432,Wildfire,Yuba,Yuba-2020-10
+1704,1704,,100.0,30.0,Irvine Fire,True,N,65b0ce28-b5e6-4dfc-b569-96716e556c90,Wildfire,Contra Costa,Contra Costa-2020-10
+1705,1705,,100.0,21.0,Diamond Fire,True,N,4a85b108-3756-4b00-9767-56591a517c8d,Wildfire,Calaveras,Calaveras-2020-10
+1706,1706,,100.0,170.0,Bruder Fire,True,N,45c76674-7d01-4fff-bb00-a08013019a86,Wildfire,San Bernardino,San Bernardino-2020-10
+1707,1707,,100.0,15.0,Cameron Fire,True,N,cbd8fd0c-8d0f-4df3-aea3-1355a685bb96,Wildfire,El Dorado,El Dorado-2020-10
+1708,1708,,100.0,6.0,Ferry Fire,False,N,64ea3d93-de8b-41fc-b5eb-af37e8ac1f95,Wildfire,Butte,Butte-2020-10
+1709,1709,,100.0,102.0,Redwood Fire,True,N,673a098f-d4f2-43c6-96c7-7712dafd20ec,Wildfire,Humboldt,Humboldt-2020-10
+1710,1710,,100.0,61.0,Pope Fire,True,N,67cd9b6f-a40b-4f0d-8efc-2dbe4fd9d990,Wildfire,Napa,Napa-2020-10
+1711,1711,,100.0,275.0,Point Fire (Shasta and Tehama County),True,N,f6e28549-a711-429d-a4ed-9df6530a9a2a,Wildfire,Shasta,Shasta-2020-10
+1712,1712,,100.0,133.0,Dersch Fire,True,N,18a15a5f-ddde-48e9-92bc-1d40813a7794,Wildfire,Shasta,Shasta-2020-10
+1713,1713,,100.0,5.0,Olinda Fire,True,N,fb6cb221-c303-4573-bd63-0c8b1468d4a2,Wildfire,Shasta,Shasta-2020-10
+1714,1714,,100.0,12466.0,Silverado Fire ,True,N,a2b27cff-5d89-423a-853e-3a78e63f79ef,Wildfire,Orange,Orange-2020-10
+1715,1715,,,,Point Fire (Placer County),False,N,57d6e532-295c-4166-a6f3-1cc64acbf5de,Wildfire,Placer,Placer-2020-10
+1716,1716,,100.0,13964.0,Blue Ridge Fire ,True,N,21b0622c-8b4d-439b-8175-d4ba20507d02,Wildfire,San Bernardino,San Bernardino-2020-10
+1717,1717,,100.0,150.0,Cypress Fire,False,N,4be72b8c-5aeb-426d-9af5-2acebca88fb0,Wildfire,Riverside,Riverside-2020-11
+1718,1718,,100.0,131.0,San Dimas Fire,False,N,e9482561-8193-48a9-a152-2ff8d993ce06,Wildfire,Los Angeles,Los Angeles-2020-11
+1719,1719,,100.0,49.0,257 Fire,True,N,c5b45f76-3b72-4f3d-b651-7c7bb0f156b7,Wildfire,Modoc,Modoc-2020-11
+1720,1720,,100.0,1087.0,Airport Fire,True,N,2b6aedb5-87fe-447c-a772-bec58abb8820,Wildfire,Butte,Butte-2020-12
+1721,1721,"EVACUATION WARNING:  for the residents who live on Tres Cerritos Ave. and Los Rancherias Rd. in the West Hemet area. EVACUATION ORDER for residents that live on California Ave. North of Tres Cerritos Ave in the West Hemet Area. Temporary Evacuation Point has been established at Tahquitz High School 4425 Titan Trail Hemet Ca 92545. Large and small animal evacuations can be taken to San Jacinto Valley Animal Shelter 581 S. Grand Avenue, San Jacinto.",100.0,200.0,Cerritos Fire,True,N,14c21ef6-b5b7-44a3-858b-666b57b750f3,Wildfire,Riverside,Riverside-2020-12
+1722,1722,,100.0,6686.0,Bond Fire,True,N,a2665121-7dd7-4a4c-8c6e-0731ed9e1888,Wildfire,Orange,Orange-2020-12
+1723,1723,,,,Willow Fire,False,N,1b77c463-9e20-4b8f-8dc5-ab69c539a1de,,San Diego,San Diego-2020-12
+1724,1724,,100.0,24.0,Thomas Fire,True,N,ad807579-4f4f-4a5a-a17a-7ca299aca978,Wildfire,Modoc,Modoc-2020-12
+1725,1725,,100.0,174.0,Cornell Fire,False,N,e8721404-3d22-4b27-b152-8a7f4a97a8e5,,Ventura,Ventura-2020-12
+1726,1726,,100.0,1933.0,Sanderson Fire,True,N,0dad0a68-239b-41b5-bfe0-033e6a216fac,Wildfire,Riverside,Riverside-2020-12
+1727,1727,,100.0,250.0,Erbes Fire,False,N,2347b6fb-8468-46bb-9917-d5cea3f1efdd,Wildfire,Ventura,Ventura-2021-01
+1728,1728,,100.0,23.0,Manzanita Fire,True,N,68c11904-f38b-4aa0-ab90-b3c805c4e8cd,Wildfire,Madera,Madera-2021-01
+1729,1729,,100.0,20.0,Bonny Doone Complex (Previously Fanning Fire),True,N,929a21bc-65a0-49b4-bc90-bfa5457987e4,Wildfire,Santa Cruz,Santa Cruz-2021-01
+1730,1730,,100.0,15.0,North Butano Fire,True,N,2657090b-ec47-4fbe-bc4e-400cd50a8d55,Wildfire,Santa Cruz,Santa Cruz-2021-01
+1731,1731,,100.0,22.0,China Grade Fire,True,N,9b2b5a16-52cf-4f2e-bc8a-a3af75b28522,,Santa Cruz,Santa Cruz-2021-01
+1732,1732,,100.0,685.0,Wolf Fire,True,N,75711186-5792-4c41-9309-48dbac8e667d,,Kern,Kern-2021-01
+1733,1733,,100.0,43.0,72 Fire,True,N,b38fdc2c-3108-4273-8a67-8d69bdbfb6bb,Wildfire,Riverside,Riverside-2021-01
+1734,1734,,100.0,184.0,Towsley Fire,True,N,79aca6f4-ee40-44e8-9dff-069c36c36fc1,,Los Angeles,Los Angeles-2021-01
+1735,1735,,100.0,20.0,Panther Ridge Fire,True,N,7be84564-edf7-4724-99ba-5c1ee7f86e30,Wildfire,Riverside,Riverside-2021-01
+1736,1736,,100.0,37.0,Freedom Fire,True,N,1ebddf4e-0190-4363-a858-ac789206b5fd,Wildfire,Santa Cruz,Santa Cruz-2021-01
