@@ -9,10 +9,17 @@ h1
 
 h2
 {
-    color: #0c0d5f;
+    color: #25021d;
+    background-color: #1c2e1c;
+    background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px ;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
     
 }
 
@@ -38,7 +45,7 @@ h2
     background-color: #ddd;
     color: black;
   }
-  
+
   /* Add a color to the active/current link */
   .topnav a.home-page {
     background-color: #04AA6D;
@@ -48,6 +55,21 @@ h2
   #date_picker
   {
       color: #04AA6D ;
+      font-size: xx-small;
+  }
+  #pred
+  {
+    margin-top: 10px;
+  }
+ 
+  #calmap
+  {
+    margin-top: 10px;
+  }
+
+  #datepicker
+  {
+    color: #04AA6D ;  
   }
  
 
