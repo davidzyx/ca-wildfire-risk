@@ -1,5 +1,29 @@
 h1
 {
+
+    color: #85066a;
+    border: 0.2rem solid #fff;
+    border-radius: 0rem;
+    padding: 0.4em;
+    box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #85066a,
+                0 0 0.8rem #85066a,
+                0 0 2.8rem #85066a,
+                inset 0 0 1.3rem #85066a;
+    text-shadow:
+      0 0 7px #85066a,
+      0 0 10px #85066a,
+      0 0 21px #85066a,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    background-color: #333;
+    padding-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
     color: #04AA6D;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -7,14 +31,31 @@ h1
     
 }
 
+
+#trend
+{
+  margin-top: 0px;
+  background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+}
+
+
+#header
+{
+  background-image: #85066a;
+  margin-top: 0px;
+}
+
 h2
 {
+    border: 0.2rem solid #fff;
+    border-radius: 0rem;
     color: #25021d;
     background-color: #1c2e1c;
     background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 10px;
+    padding-left: 10px;
     padding-top: 10px ;
     margin-left: 0px;
     margin-top: 0px;
@@ -28,6 +69,7 @@ h2
 .topnav {
     background-color: #333;
     overflow: hidden;
+    margin-bottom: 0px;
   }
   
   /* Style the links inside the navigation bar */
@@ -38,6 +80,7 @@ h2
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    margin-bottom: 0px;
   }
   
   /* Change the color of links on hover */
@@ -54,22 +97,36 @@ h2
 
   #date_picker
   {
-      color: #04AA6D ;
+      color: #000000 ;
       font-size: xx-small;
   }
   #pred
   {
-    margin-top: 10px;
+    margin-top: 0px;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
  
   #calmap
   {
-    margin-top: 10px;
+    
+    margin-top: 0px;
+    border:2px, black, solid;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  }
+
+  #cali_map
+  {
+    border:2px, black, solid;
+  }
+  #calmap2
+  {
+    margin-top: 0px;
+    background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
   }
 
   #datepicker
   {
-    color: #04AA6D ;  
+    color: #000000 ;  
   }
  
 

@@ -37,10 +37,12 @@ navbar = html.Div(className='topnav' ,children=[
         html.A('Home', className="home-page", href='home'),
         html.A('California Incident Map', className="cali-map", href='app1'),
         html.A('County Incident Map', className="county-map", href='app2'), 
-        html.A('Prediction', className="pred", href='app3')
+        html.A('Analysis', className="pred", href='app3'),
+        html.A('Prediction', className="pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
+        style={'border':'2px black solid'},
         id='date_picker',
         min_date_allowed=min_date,
         max_date_allowed=max_date,
@@ -74,15 +76,16 @@ elif environ['mapbox_token']:
     px.set_mapbox_access_token(environ['mapbox_token'])
 
 
-cali_map = dcc.Graph(id='cali_map')
+
+cali_map = dcc.Graph(id='cali_map', style={'border':'2px black solid'})
 county_map = dcc.Graph(id='county_map')
 county_pie = dcc.Graph(id='county_pie')
-county_prediction = dcc.Graph(id='county_prediction')
+county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black solid'})
 
 
 # Building App Layout
 app = dash.Dash(__name__)
-header = html.Div(style={'backgroundColor':colors['background']} ,children=[
+header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard'),
     ])
 county_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
@@ -95,6 +98,7 @@ month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, chi
 table_columns = ['incident_name' ,'incident_administrative_unit', 'incident_location']
 cali_map_table = dash_table.DataTable(
     style_table={
+        'border':'2px black solid',
         'height': 500,
         'overflowY': 'scroll',
         'width': 540
@@ -112,8 +116,11 @@ cali_map_table = dash_table.DataTable(
 
 )
 
+
+
 pred_table = dash_table.DataTable(
     style_table={
+        'border':'2px black solid',
         'height': 700,
         'overflowY': 'scroll',
         'width': 300
@@ -130,7 +137,7 @@ pred_table = dash_table.DataTable(
     columns=[{"name": i, "id": i} for i in ['County', 'Predicted Number of Fires']],
 )
 
-fire_trend = dcc.Graph(id='fire-trend')
+fire_trend = dcc.Graph(id='fire-trend', style={'border':'2px black solid'})
 # year_picker_start = dcc.Input(
 #             id = 'year-picker-start',
 #             placeholder="From (Year)"
@@ -142,19 +149,23 @@ fire_trend = dcc.Graph(id='fire-trend')
 year_picker_start = dcc.Dropdown(id = 'year-picker-start', options=[{'label':x, 'value': x} for x in range(2010, 2022)], placeholder='From (Year)', style={'background-color': '#04AA6D'})
 year_picker_end = dcc.Dropdown(id = 'year-picker-end', options=[{'label':x, 'value': x} for x in range(2010, 2022)], placeholder='To (Year)', style={'background-color': '#04AA6D'})
 year_picker = html.Div(children = [year_picker_start, year_picker_end], style={'color':'#04AA6D'})
-label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':10})
-title_trend = html.Div(html.H2('How is the incident trend in past years? '),style={'margin-bottom':10})
+label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':0})
+title_trend = html.Div(html.H2('How is the incident trend in past years? '),style={'margin-bottom':0})
 trend_container = html.Div(children=[label_trend, year_picker, fire_trend], style={'padding': '10px'})
-fire_trend_div = html.Div(style={'border':'2px black solid', 'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
+fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
 title_pred = html.Div(html.H2('Prediction based on county & month'),style={'margin-bottom':10})
-title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location'),style={'margin-bottom':10})
+title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location'),style={'margin-bottom':0})
 label_cali_map = html.Div(html.Label('Please choose your preferred date range:'),style={'margin-bottom':5, 'margin-left':5})
-cali_map_div_container = html.Div(id = 'cal-map',style={'border':'2px black solid', 'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
+cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
 cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
 second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
-pred_graph_div_container = html.Div(id = 'pred-map',style={'border':'2px black solid', 'padding': '10px', 'columnCount': 2}, children=[county_prediction, html.Div(style={'padding':'150px'},children=[pred_table])])
+pred_graph_div_container = html.Div(id = 'pred-map',style={'padding': '10px', 'columnCount': 2}, children=[county_prediction, html.Div(style={'padding':'150px'},children=[pred_table])])
 pred_div_container = html.Div(children=[month_picker_row, county_dropdown, pred_graph_div_container])
-pred_div = html.Div(id = 'pred' ,style={'border':'2px black solid', 'padding': '0px', 'columnCount': 1}, children=[title_pred ,pred_div_container])
+pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, children=[title_pred ,pred_div_container])
+
+
+# Home Page
+
 
 app.title = 'Cal Wildfire Dashboard'
 
@@ -177,6 +188,7 @@ def display_data(selectedData):
     table_data = table_data[["incident_name", "incident_administrative_unit", "incident_location"]]
     table_data = table_data.to_dict('records')
     return table_data
+
 
 @app.callback(
     dash.dependencies.Output('pred_table', 'data'),
@@ -203,6 +215,9 @@ def update_cali_map(start_date, end_date):
     ) 
 
     return fig
+
+
+
 
 
 # county-map callbacks
@@ -288,6 +303,8 @@ def display_page(pathname):
         return html.Div(children=[date_picker_row, second_row])
     elif pathname == '/app3':
         return html.Div(children=[pred_div, fire_trend_div])
+    elif pathname == '/app4':
+        return html.Div(children=[])
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
