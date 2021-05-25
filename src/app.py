@@ -8,7 +8,8 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
-import utils
+from src import utils
+# import utils
 from datetime import datetime
 import calendar
 import json
@@ -33,12 +34,12 @@ data = data[data.date >  datetime.strptime('2010-01-01', '%Y-%m-%d')] # Dropping
 min_date = min(data.date)
 max_date = max(data.date)
 
-navbar = html.Div(className='topnav' ,children=[
-        html.A('Home', className="home-page", href='home'),
-        html.A('California Incident Map', className="cali-map", href='app1'),
-        html.A('County Incident Map', className="county-map", href='app2'), 
-        html.A('Analysis', className="pred", href='app3'),
-        html.A('Prediction', className="pred", href='app4')
+navbar = html.Div(id='navbar', className='topnav' ,children=[
+        html.A('Home', id='home-page-nav', className="home-page", href='home'),
+        html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
+        html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
+        html.A('Analysis', id='analysis-nav', className="analysis", href='app3'),
+        html.A('Prediction', id='pred-nav', className="pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -70,8 +71,8 @@ county_dropdown = dcc.Dropdown(
     )
 
 # Map Widget
-if path.exists('.mapbox_token'):
-    px.set_mapbox_access_token(open(".mapbox_token").read())
+if path.exists('src/.mapbox_token'):
+    px.set_mapbox_access_token(open("src/.mapbox_token").read())
 elif 'MAPBOX_TOKEN' in environ.keys():
     px.set_mapbox_access_token(environ['MAPBOX_TOKEN'])
 else:
@@ -298,15 +299,15 @@ def update_trend(month, year_start, year_end):
 def display_page(pathname):
     print(pathname)
     if pathname == '/home':
-        return html.Div(children="HOME PAGE")
+        return html.Div(id='home-div', children="HOME PAGE")
     elif pathname == '/app1':
-        return html.Div(children=[cali_map_div])
+        return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
-        return html.Div(children=[date_picker_row, second_row])
+        return html.Div(id='app2-div', children=[html.Div(html.H2('Incidents in California by County'),style={'margin-bottom':0}), date_picker_row, second_row])
     elif pathname == '/app3':
-        return html.Div(children=[pred_div, fire_trend_div])
+        return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
-        return html.Div(children=[])
+        return html.Div(id='app4-div', children=[])
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
@@ -314,6 +315,6 @@ if __name__ == '__main__':
         port = int(environ['PORT'])
     else:
         port = 8050
-    app.run_server(host='0.0.0.0', debug=True, use_reloader=False, port=port, dev_tools_ui=False)  # Turn off reloader if inside Jupyter
+    app.run_server(host='0.0.0.0', debug=False, use_reloader=False, port=port, dev_tools_ui=False)  # Turn off reloader if inside Jupyter
 
 ## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
