@@ -202,6 +202,6 @@ def test_county_pie_date_update(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#county_pie_div', timeout=10)
-    dash_duo.percy_snapshot('Test County Map Date Update')
+    dash_duo.percy_snapshot('Test County Pie Date Update')
     
     assert dash_duo.get_logs() == [], "browser console should contain no error"
