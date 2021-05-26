@@ -16,7 +16,6 @@ def test_no_errors(dash_duo):
     dash_duo.start_server(app)
 
     tmp = dash_duo.get_logs()
-    print(tmp)
     assert tmp == [], "browser console should contain no error"
 
 def test_header(dash_duo):

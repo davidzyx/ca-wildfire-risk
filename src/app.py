@@ -9,8 +9,8 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
-# from src import utils
-import utils
+from src import utils
+# import utils
 from datetime import datetime
 import calendar
 import json
@@ -35,12 +35,12 @@ data = data[data.date >  datetime.strptime('2010-01-01', '%Y-%m-%d')] # Dropping
 min_date = min(data.date)
 max_date = max(data.date)
 
-navbar = html.Div(className='topnav' ,children=[
-        html.A('Home', className="home-page", href='home'),
-        html.A('California Incident Map', className="cali-map", href='app1'),
-        html.A('County Incident Map', className="county-map", href='app2'), 
-        html.A('County Based Prediction', className="pred", href='app3'),
-        html.A('Geo Cooridnates Based Prediction', className="pred", href='app4')
+navbar = html.Div(id='navbar', className='topnav' ,children=[
+        html.A('Home', id='home-page-nav', className="home-page", href='home'),
+        html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
+        html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
+        html.A('County Based Prediction', id='county-based-pred-nav', className="county-based-pred", href='app3'),
+        html.A('Geo Coordinates Based Prediction', id='geo-based-pred', className="geo-based-pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -88,7 +88,7 @@ county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black
 
 
 # Building App Layout
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
@@ -98,8 +98,6 @@ county_pie_div = html.Div(style={'border':'2px black solid', 'padding': '10px'},
 date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
 month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
 
-
-table_columns = ['incident_name' ,'incident_administrative_unit', 'incident_location']
 cali_map_table = dash_table.DataTable(
     style_table={
         'border':'2px black solid',
@@ -107,7 +105,7 @@ cali_map_table = dash_table.DataTable(
         'overflowY': 'scroll',
         'width': 540
     },
-    id='table',
+    id='cali_map_table',
     style_header={'backgroundColor': '#04AA6D'},
     style_cell={
         'backgroundColor': 'rgb(50, 50, 50)',
@@ -116,10 +114,8 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in table_columns],
-
+    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
 )
-
 
 
 pred_table = dash_table.DataTable(
@@ -239,7 +235,7 @@ second_row_service = html.Div(className='row', children=[
         html.Div(className='card', children=[
             html.Img(src=app.get_asset_url('p1.png'), alt='Jane', className='service-images'),
             html.Div(className='containerr', children=[
-                html.H2('Geo Cooridnates Based Prediction', className='services-header'),
+                html.H2('Geo Coordinates Based Prediction', className='services-header'),
                 html.P(className='title', children='Analysis & Prediction'),
                 html.P('This model generates a probability for an incident, based on the user desired lon/lat and time'),
                 html.P(children=html.A(className='button', children='Learn More', href='#lmp2'))
@@ -290,7 +286,7 @@ app.layout = html.Div(style={'border':'2px black solid'},children=[dcc.Location(
 
 # county-map callbacks
 @app.callback(
-    dash.dependencies.Output('table', 'data'),
+    dash.dependencies.Output('cali_map_table', 'data'),
     [dash.dependencies.Input('cali_map', 'selectedData')])
 def display_data(selectedData):
     table_data =  pd.DataFrame()
