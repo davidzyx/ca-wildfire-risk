@@ -1,5 +1,6 @@
 ## Note: Use <lsof -ti tcp:8050 | xargs kill -9> after running the app to kill its process ##
 
+from typing import Container
 import plotly.graph_objects as go # or plotly.express as px
 import pandas as pd
 import dash
@@ -8,8 +9,8 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
-from src import utils
-# import utils
+# from src import utils
+import utils
 from datetime import datetime
 import calendar
 import json
@@ -34,12 +35,12 @@ data = data[data.date >  datetime.strptime('2010-01-01', '%Y-%m-%d')] # Dropping
 min_date = min(data.date)
 max_date = max(data.date)
 
-navbar = html.Div(id='navbar', className='topnav' ,children=[
-        html.A('Home', id='home-page-nav', className="home-page", href='home'),
-        html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
-        html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
-        html.A('Analysis', id='analysis-nav', className="analysis", href='app3'),
-        html.A('Prediction', id='pred-nav', className="pred", href='app4')
+navbar = html.Div(className='topnav' ,children=[
+        html.A('Home', className="home-page", href='home'),
+        html.A('California Incident Map', className="cali-map", href='app1'),
+        html.A('County Incident Map', className="county-map", href='app2'), 
+        html.A('County Based Prediction', className="pred", href='app3'),
+        html.A('Geo Cooridnates Based Prediction', className="pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -89,7 +90,7 @@ county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black
 # Building App Layout
 app = dash.Dash(__name__)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
-        html.H1(children='California Wildfire Interactive Dashboard'),
+        html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
 county_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
 county_pie_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_pie)
@@ -153,11 +154,11 @@ year_picker_start = dcc.Dropdown(id = 'year-picker-start', options=[{'label':x, 
 year_picker_end = dcc.Dropdown(id = 'year-picker-end', options=[{'label':x, 'value': x} for x in range(2010, 2022)], placeholder='To (Year)', style={'background-color': '#04AA6D'})
 year_picker = html.Div(children = [year_picker_start, year_picker_end], style={'color':'#04AA6D'})
 label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':0})
-title_trend = html.Div(html.H2('How is the incident trend in past years? '),style={'margin-bottom':0})
+title_trend = html.Div(html.H2('How is the incident trend in past years? ', className='hh'),style={'margin-bottom':0})
 trend_container = html.Div(children=[label_trend, year_picker, fire_trend], style={'padding': '10px'})
 fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
-title_pred = html.Div(html.H2('Prediction based on county & month'),style={'margin-bottom':10})
-title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location'),style={'margin-bottom':0})
+title_pred = html.Div(html.H2('Prediction based on county & month',className='hh'),style={'margin-bottom':10})
+title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location', className='hh'),style={'margin-bottom':0})
 label_cali_map = html.Div(html.Label('Please choose your preferred date range:'),style={'margin-bottom':5, 'margin-left':5})
 cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
 cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
@@ -168,6 +169,119 @@ pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, chi
 
 
 # Home Page
+# prompt_message_container = html.Div(className='container', children=[
+#     html.Div(className='message-text', children='Looking for something to help you with analysing California Wildfire Data? You are in the right place!')
+# ])
+
+prompt_message_container = html.Div(className='prompt', children=[
+    html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
+    html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
+        html.Span(className='heading-primary-main', children='Looking for a tool to analyze California Wildfires ?'),
+        html.Span(className='heading-primary-sub', children='You are in the right place!')
+    ]),
+    html.A(href='#services', className="btn btn-white btn-animated", children='Discover more')])
+])
+
+did_you_know_container = html.Div(className='container', children=[
+    html.Div(className='block-local', children=[html.H2(className='hdd', children='HRGG'), 'sdjfhsdsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflfl']),
+    html.Div(className='block-fixed', children=[html.H2(className='hdd', children='HEFD'), 'sdjfhsdsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflfl'])
+])
+
+
+learn_more_container_1 = html.Div(className='about-section', children=[
+    html.H1(className='about-us-header',children='Our Services'),
+    html.P(children='The tools we provide include data visualization, data inspection, incident analysis based on time and location, and incident prediction based on user data entries.'),
+    html.P(children=['All of these services are based on CAL FIRE dataset provided by']),
+    html.A(children=['California Department of Forestry and Fire Protection '], href='https://www.fire.ca.gov/', className='linkk')
+])
+
+learn_more_services = html.H2(className='services-header', style='text-align:center', children='Our Services')
+
+learn_more_container_2 = html.Div(className='row', children=[
+    html.Div(className='column', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p1.png'), className='service-images'),
+            html.Div(className='containerr', children=[
+                html.H2('California Incident Map', className='services-header'),
+                html.P(className='title', children='Data Visualization & Inspection'),
+                html.P('This service provides tools for the user to inspect the location of incidents on a California map.'),
+                html.P(children=html.A(className='button', children='Learn More', href='#lmcali'))
+            ])
+        ])
+    ]),
+    html.Div(className='column', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p2.png'), className='service-images'),
+            html.Div(className='containerr', children=[
+                html.H2('County Incident Map', className='services-header'),
+                html.P(className='title', children='Data Visualization & Inspection'),
+                html.P('This tool provide visuals for the user to inspect county incidents more closely'),
+                html.P(children=html.A(className='button', children='Learn More', href='#lmcounty'))
+            ])
+        ])
+    ]),
+    html.Div(className='column', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p3.png'), className='service-images'),
+            html.Div(className='containerr', children=[
+                html.H2('County Based Prediction', className='services-header'),
+                html.P(className='title', children='Analysis & Prediction'),
+                html.P('Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county'),
+                html.P(children=html.A(className='button', children='Learn More', href='#lmp1'))
+            ])
+        ])
+    ]),
+    
+])
+
+second_row_service = html.Div(className='row', children=[
+    html.Div(className='column', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p1.png'), alt='Jane', className='service-images'),
+            html.Div(className='containerr', children=[
+                html.H2('Geo Cooridnates Based Prediction', className='services-header'),
+                html.P(className='title', children='Analysis & Prediction'),
+                html.P('This model generates a probability for an incident, based on the user desired lon/lat and time'),
+                html.P(children=html.A(className='button', children='Learn More', href='#lmp2'))
+            ])
+        ])
+    ])
+])
+
+our_services = html.Div(id='services', children=[learn_more_container_1, learn_more_services, learn_more_container_2, second_row_service])
+
+more_on_cali_map = html.Div(id='lmcali', className='more-on-cali-map', children=[
+    html.H2(className='more-on-cali-head', children=['California Incident Map']),
+    html.H3(className='more-on-cali-subhead', children=['You can take a grasp of location, size and time of the previous incidents with just a glance!']),
+    html.P(className='more-on-cali-p', children=['For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportinal to the size of the incident']),
+    html.P(className='more-on-cali-p', children=['You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'])
+])
+
+more_on_county_map = html.Div(id='lmcounty', className='more-on-county-map', children=[
+    html.H2(className='more-on-county-head', children=['County Incident Map']),
+    html.H3(className='more-on-county-subhead', children=['If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.']),
+    html.P(className='more-on-county-p', children=['For using this tool, you just need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.']),
+    html.P(className='more-on-county-p', children=['A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'])
+])
+
+more_on_pred1 = html.Div(id='lmp1',className='more-on-pred1', children=[
+    html.H2(className='more-on-pred1-head', children=['County Based Prediction']),
+    html.H3(className='more-on-pred1-subhead', children=['If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help']),
+    html.P(className='more-on-pred1-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
+    html.P(className='more-on-pred1-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
+])
+
+more_on_pred2 = html.Div(id='lmp2',className='more-on-pred2', children=[
+    html.H2(className='more-on-pred2-head', children=['Geo Coordinates Based Prediction']),
+    html.H3(className='more-on-pred2-subhead', children=['After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool']),
+    html.P(className='more-on-pred2-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
+    html.P(className='more-on-pred2-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
+])
+
+
+
+
+
 
 
 app.title = 'Cal Wildfire Dashboard'
@@ -299,7 +413,7 @@ def update_trend(month, year_start, year_end):
 def display_page(pathname):
     print(pathname)
     if pathname == '/home':
-        return html.Div(id='home-div', children="HOME PAGE")
+        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
     elif pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
@@ -307,7 +421,7 @@ def display_page(pathname):
     elif pathname == '/app3':
         return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
-        return html.Div(id='app4-div', children=[])
+        return html.Div()
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)

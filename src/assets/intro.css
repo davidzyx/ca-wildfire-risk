@@ -1,4 +1,4 @@
-h1
+.main-title
 {
 
     color: #85066a;
@@ -45,7 +45,7 @@ h1
   margin-top: 0px;
 }
 
-h2
+.hh
 {
     border: 0.2rem solid #fff;
     border-radius: 0rem;
@@ -137,3 +137,338 @@ h2
 #middle {width: 0%; background: green;}
 #right {width: 25%;}
 #map_button {color: #7FDBFF; align-self: center; align-content: center;}
+
+.clip-text
+{
+  animation: fadeIn 2s ease;
+  background: url(https://media.giphy.com/media/KBimavlZz1gHe/giphy.gif);
+  background-size: cover;
+  background-position: center;
+  
+  -webkit-background-clip: text;
+  color: transparent;
+  
+  width: 300px;
+  height: 100px;
+  box-sizing: border-box;
+  font-size: 58px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+.container
+{
+  text-align: center;
+}
+
+.message-text
+{
+  animation: fadeIn 5s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgb(9, 119, 9);
+} */
+
+.prompt {
+  animation: fadeIn 2s ease;
+  height: 100vh;
+  background-image: 
+  linear-gradient(to right bottom, 
+   rgba(76, 216, 255, 0.8),
+   rgba(217, 114, 30, 0.8)),
+   url('https://images.pexels.com/photos/51951/forest-fire-fire-smoke-conservation-51951.jpeg?cs=srgb&dl=pexels-pixabay-51951.jpg&fm=jpg');
+  
+background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.brand-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.brand { font-size: 20px; }
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.heading-primary {
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 30px;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 7.4px;
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: rgb(255, 255, 255);
+  color: rgb(9, 119, 9);
+font-size: 14px;
+}
+
+
+.block-local {
+  max-height: 200px;
+  margin: 0 12px;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-y: scroll;
+  background-image: url(https://unsplash.it/g/300/300);
+  background-size: 100% auto;
+}
+
+.block-fixed {
+  max-height: 200px;
+  margin: 0 12px;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-y: scroll;
+  background-image: url(https://unsplash.it/g/300/300);
+  background-size: 100% auto;
+  background-attachment: fixed;
+}
+
+.hdd {
+  margin: 0;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: #ffdbf7;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+
+.containerr {
+  padding: 0 16px;
+}
+
+.linkk
+{
+  color: #04AA6D;
+  text-align: center;
+}
+
+.service-images
+{
+  width: 100%;
+  height:10cm;
+}
+
+.containerr::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+.more-on-cali-map
+{
+  background-color: gold;
+  padding: 1cm;
+}
+.more-on-cali-head
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(167, 86, 86);
+  font-weight: bolder;
+}
+.more-on-cali-subhead
+{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}
+.more-on-cali-p
+{
+  color: rgb(0, 0, 0);
+}
+
+
+.more-on-county-map
+{
+  background-color: rgb(217, 226, 96);
+  padding: 1cm;
+}
+.more-on-county-head
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(167, 86, 86);
+  font-weight: bolder;
+}
+.more-on-county-subhead
+{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}
+.more-on-county-p
+{
+  color: rgb(0, 0, 0);
+}
+
+.more-on-pred1
+{
+  background-color: rgb(96, 226, 226);
+  padding: 1cm;
+}
+.more-on-pred1-head
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(167, 86, 86);
+  font-weight: bolder;
+}
+.more-on-pred1-subhead
+{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}
+.more-on-pred1-p
+{
+  color: rgb(0, 0, 0);
+}
+
+
+.more-on-pred2
+{
+  background-color: rgb(225, 157, 241);
+  padding: 1cm;
+}
+.more-on-pred2-head
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(167, 86, 86);
+  font-weight: bolder;
+}
+.more-on-pred2-subhead
+{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}
+.more-on-pred2-p
+{
+  color: rgb(0, 0, 0);
+}
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
