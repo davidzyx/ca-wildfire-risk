@@ -21,8 +21,8 @@ jobs:
           docker images "${IMAGE_NAME}" --format "{{.Size}}"
       - name: Test and coverage
         run:  >
-          docker run --rm "${IMAGE_NAME}"
-          python -m pytest --cov=src tests/
+          docker run --rm -e MAPBOX_TOKEN="${{secrets.MAPBOX_TOKEN}}" "${IMAGE_NAME}"
+          python -m pytest --cov=src --headless -vv tests/
       - name: Login to Dockerhub
         run: >
           echo '${{secrets.DOCKERHUB_PASSWORD}}' | docker login
