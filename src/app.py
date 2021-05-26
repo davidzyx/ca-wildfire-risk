@@ -16,7 +16,6 @@ import calendar
 import json
 from os import path, environ
 
-
 colors = {
     'background': '##333',
     'text': '#7FDBFF'
@@ -48,7 +47,7 @@ date_picker_widget = dcc.DatePickerRange(
         id='date_picker',
         min_date_allowed=min_date,
         max_date_allowed=max_date,
-        start_date=min_date,
+        start_date=datetime.strptime('2021-01-01', '%Y-%m-%d'),
         end_date=max_date,
         number_of_months_shown=6, 
     )
@@ -92,8 +91,8 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
-county_map_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
-county_pie_div = html.Div(style={'border':'2px black solid', 'padding': '10px'}, children=county_pie)
+county_map_div = html.Div(id='county_map_div', style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
+county_pie_div = html.Div(id='county_pie_div', style={'border':'2px black solid', 'padding': '10px'}, children=county_pie)
 
 date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
 month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
