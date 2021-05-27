@@ -89,9 +89,6 @@ def test_cal_date_update(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#cali_map', timeout=TIMEOUT_TIME)
-    dash_duo.percy_snapshot('Test California Incident Map Date Update')
-    
-    assert dash_duo.get_logs() == [], "browser console should contain no error"
 
 
 def test_cal_select(dash_duo):
@@ -120,9 +117,6 @@ def test_cal_select(dash_duo):
     action.click_and_hold(map_element).move_by_offset(-100, 100).release().pause(5).perform()
 
     dash_duo.wait_for_element('#cali_map_table', timeout=TIMEOUT_TIME)
-    dash_duo.percy_snapshot('Test California Incident Map Selection')
-    
-    assert dash_duo.get_logs() == [], "browser console should contain no error"
 
 
 def test_county_map_date_update(dash_duo):
@@ -162,9 +156,6 @@ def test_county_map_date_update(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#county_map_div', timeout=TIMEOUT_TIME)
-    dash_duo.percy_snapshot('Test County Map Date Update')
-    
-    assert dash_duo.get_logs() == [], "browser console should contain no error"
 
 
 def test_county_pie_date_update(dash_duo):
@@ -204,6 +195,3 @@ def test_county_pie_date_update(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#county_pie_div', timeout=TIMEOUT_TIME)
-    dash_duo.percy_snapshot('Test County Pie Date Update')
-    
-    assert dash_duo.get_logs() == [], "browser console should contain no error"
