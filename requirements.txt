@@ -8,3 +8,4 @@ coverage
 dash[testing]
 plotly
 selenium
+statsmodels
