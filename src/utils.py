@@ -46,23 +46,86 @@ def getCountyNumbersDF(data, start_date, end_date):
 
     return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
+def get_single_CountyPrediction(queried_county):
+    '''
+    Returns a new pandas dataframe with predicted county incident numbers for a specific month
+    :param queried_counties: the counties that are being queried
+    :type queried_counties: str
+    :type month: str
+    '''
+    Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
+    assert isinstance(queried_county, str)
+    assert queried_county in Counties
+​
+    df = pd.read_csv('fire_occurrances_data.csv')
+    res = df.groupby(by=['County', 'year', 'month']).mean()['size']
+    selected_county_data = res[queried_county]
+​
+    # change 'year and month' to appropriate index and fill the missing year and month with zero
+    timeLine = []
+    starting_time = selected_county_data.index[0]
+    max_time = (selected_county_data.index[-1][0] - selected_county_data.index[0][0])*12 + (selected_county_data.index[-1][1] - selected_county_data.index[0][1])
+    fire_occurs = np.zeros(max_time+1)
+    for i in range(len(selected_county_data.index)):
+        diff = (selected_county_data.index[i][0] - starting_time[0])*12 + (selected_county_data.index[i][1] - starting_time[1])
+        fire_occurs[diff] = selected_county_data.iloc[i]
+    
+    # construct Seasonal Arima Model
+    sarima_model = sm.tsa.statespace.SARIMAX(fire_occurs)
+    res_sarima = sarima_model.fit()
+    forecast1 = res_sarima.get_prediction(end=sarima_model.nobs).predicted_mean
+    last_month = selected_county_data.index[-1][1]
+    predicted_month = np.zeros(12)
+    for i in range(12):
+        predicted_month[(last_month-i)%12] = forecast1[-i]
+​
+    # construct UnobservedComponents model
+    uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 144, 'harmonics': 3}])
+    res_uobc = uobc_model.fit()
+    month = 12
+    year = 2021
+    diff = (year - starting_time[0])*12 + month - starting_time[1]
+    forecast2 = res_uobc.get_prediction(end=diff).predicted_mean
+    pred_uobc = forecast2[-12:]
+    pred_uobc = np.array(list(map(lambda x: max(x,0), pred_uobc)))
+    # when model failed to converge
+#     if np.mean(pred_uobc) > np.mean(fire_occurs):
+#         return [round(res) for res in predicted_month]
+    
+    
+    # ensemble the prediction
+    alpha1 = 0.8
+    alpha2 = 0.2
+    final_res = alpha1*predicted_month + alpha2*pred_uobc
+    return [round(res) for res in final_res]
+
+
+
 def getCountyPredictions(queried_counties, month):
     '''
     Returns a new pandas dataframe with predicted county incident numbers for a specific month
-
     :param queried_counties: the counties that are being queried
     :type queried_counties: str
     :param month: the month that is being queried
-    :type month: str
+    :type month: int
     '''
-
+​
     #TODO: insert logic to predict using saved model
     # return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': [model.predict(county, month) for county in queried_counties]})
-
+    Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
+    assert isinstance(queried_counties, list)
+    assert all(bool(qc in Counties) for qc in queried_counties)
+    assert isinstance(month, int)
+​
+    predicted_num = []
+    for ct in queried_counties:
+        fire_occ = get_single_CountyPrediction(ct)[month-1]
+        predicted_num.append(fire_occ)
     # below is a placeholder
-    return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': list(range(100))[:len(queried_counties)]})
+    return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': predicted_num})
 
-def getTrend(data, month, start_year, end_year):
+
+def getTrend(county, month, start_year, end_year):
     '''
     Returns a DataFrame fo number of incidents in 'month' for different years between start and end
     data -- DataFrame
@@ -70,20 +133,27 @@ def getTrend(data, month, start_year, end_year):
     start_year -- the start year of inspection 
     end_year -- the end year of inspection 
     '''
+    Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
+    assert isinstance(county, str)
+    assert county in Counties
+    assert 1 <= month <= 12
+    assert start_year >= 1969
+    assert end_year <= 2021
+​
+    df = pd.read_csv('fire_occurrances_data.csv')
+    res = df.groupby(by=['County', 'year', 'month']).mean()['size']
+    selected_county_data = res[county]
+​
+    years = list(range(start_year, end_year+1))
+    trend = np.zeros(len(years))
+    for yr in years:
+        if (yr, month) not in selected_county_data.index:
+            trend[yr-start_year] = 0
+        else:
+            trend[yr-start_year] = selected_county_data[yr][month]
+    
+    return pd.DataFrame({'Year': years, 'Occurences': trend})
 
-    data = data[data.date_start  >=  datetime.strptime(str(start_year)+'-01-01', '%Y-%m-%d')]
-    data = data[data.date_start  <=  datetime.strptime(str(end_year)+'-01-01', '%Y-%m-%d')]
-    data['month'] = [x.month for x in list(data.date_start)]
-    data['year'] = [x.year for x in list(data.date_start)]
-    data = data[data.month  ==  month]
-
-    res =  (data['year'].value_counts())
- 
-    res = res.sort_index()
-    res = res.to_frame(name='count')
-    res.reset_index(inplace=True)
-    res = res.rename(columns={'index': 'year'})
-    return res
 
 
 
