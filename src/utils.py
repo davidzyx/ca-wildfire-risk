@@ -7,6 +7,7 @@ from collections import defaultdict
 from urllib.request import urlopen
 import json
 from datetime import datetime
+import sys
 
 with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
     counties = json.load(response)
@@ -56,11 +57,11 @@ def get_single_CountyPrediction(queried_county):
     Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
     assert isinstance(queried_county, str)
     assert queried_county in Counties
-​
-    df = pd.read_csv('fire_occurrances_data.csv')
+    
+    file_name = os.path.join(os.getcwd(), '..', 'data/fire_occurrances_data.csv')
+    df = pd.read_csv(file_name)
     res = df.groupby(by=['County', 'year', 'month']).mean()['size']
     selected_county_data = res[queried_county]
-​
     # change 'year and month' to appropriate index and fill the missing year and month with zero
     timeLine = []
     starting_time = selected_county_data.index[0]
@@ -139,11 +140,11 @@ def getTrend(county, month, start_year, end_year):
     assert 1 <= month <= 12
     assert start_year >= 1969
     assert end_year <= 2021
-​
-    df = pd.read_csv('fire_occurrances_data.csv')
+    
+    file_name = os.path.join(os.getcwd(), '..', 'data/fire_occurrances_data.csv')
+    df = pd.read_csv(file_name)
     res = df.groupby(by=['County', 'year', 'month']).mean()['size']
     selected_county_data = res[county]
-​
     years = list(range(start_year, end_year+1))
     trend = np.zeros(len(years))
     for yr in years:
