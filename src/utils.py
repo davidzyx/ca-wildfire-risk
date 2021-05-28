@@ -8,6 +8,8 @@ from urllib.request import urlopen
 import json
 from datetime import datetime
 import sys
+import os
+import statsmodels.api as sm
 
 with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
     counties = json.load(response)
@@ -79,7 +81,6 @@ def get_single_CountyPrediction(queried_county):
     predicted_month = np.zeros(12)
     for i in range(12):
         predicted_month[(last_month-i)%12] = forecast1[-i]
-​
     # construct UnobservedComponents model
     uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 144, 'harmonics': 3}])
     res_uobc = uobc_model.fit()
@@ -110,14 +111,13 @@ def getCountyPredictions(queried_counties, month):
     :param month: the month that is being queried
     :type month: int
     '''
-​
-    #TODO: insert logic to predict using saved model
-    # return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': [model.predict(county, month) for county in queried_counties]})
+    print(month)
+    #month_map = {'January': 1, 'Febrary': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6, 'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+    #month = month_map[month]
+
     Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
     assert isinstance(queried_counties, list)
     assert all(bool(qc in Counties) for qc in queried_counties)
-    assert isinstance(month, int)
-​
     predicted_num = []
     for ct in queried_counties:
         fire_occ = get_single_CountyPrediction(ct)[month-1]
@@ -134,6 +134,10 @@ def getTrend(county, month, start_year, end_year):
     start_year -- the start year of inspection 
     end_year -- the end year of inspection 
     '''
+
+    #month_map = {'January': 1, 'Febrary': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6, 'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+    #month = month_map[month]
+
     Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
     assert isinstance(county, str)
     assert county in Counties
