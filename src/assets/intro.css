@@ -60,7 +60,7 @@
     margin-left: 0px;
     margin-top: 0px;
     margin-right: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     
 }
 
@@ -105,7 +105,20 @@
     margin-top: 0px;
     background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
+
+  #month_slider2
+  {
+    padding-top: 0;
+    margin-top: 0px;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  }
  
+  #prow
+  {
+    padding-top: 0;
+    margin-top: 0px;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  }
   #calmap
   {
     

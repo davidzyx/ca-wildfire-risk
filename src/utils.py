@@ -151,6 +151,9 @@ def getTrend(county, month, start_year, end_year):
     print(pd.DataFrame({'year': years, 'count': trend}))
     return pd.DataFrame({'year': years, 'count': trend})
 
+def dummy_pred_func(lon, lat, month):
+    return('to do')
+
 
 
 
