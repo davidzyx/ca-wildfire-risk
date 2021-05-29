@@ -162,7 +162,7 @@ def test_county_pie_date_update(dash_duo):
     app = import_app('src.app')
     dash_duo.start_server(app)
     
-    # navigate to cali map page
+    # navigate to county map page
     dash_duo.wait_for_page(url=None, timeout=TIMEOUT_TIME)
     dash_duo.multiple_click('#county-map-nav', 1)
 
@@ -195,3 +195,32 @@ def test_county_pie_date_update(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#county_pie_div', timeout=TIMEOUT_TIME)
+
+
+def test_county_prediction(dash_duo):
+    app = import_app('src.app')
+    dash_duo.start_server(app)
+    dash_duo.driver.maximize_window()
+
+    # load page and navigate to page
+    dash_duo.wait_for_page(url=None, timeout=TIMEOUT_TIME)
+    dash_duo.multiple_click('#county-based-pred-nav', 1)
+
+    dash_duo.wait_for_element('#pred', timeout=TIMEOUT_TIME)
+
+    # find the elements to interact with 
+    month_picker_element = dash_duo.find_element('#month_slider')
+    county_picker_element = dash_duo.find_element('#county_dropdown')
+
+    # click month 
+    dash_duo.click_at_coord_fractions(month_picker_element, fx=0.3, fy=0.1)
+
+    # click multiple counties
+    action = ActionChains(dash_duo.driver)
+    action.move_to_element(county_picker_element).click().move_by_offset(0, 50).click().pause(1).perform()
+    action.move_to_element(county_picker_element).click().move_by_offset(0, 50).click().pause(1).perform()
+
+    dash_duo.multiple_click('#header', 1)
+
+    # see the graphic update
+    dash_duo.wait_for_element('#pred_table', timeout=TIMEOUT_TIME)
