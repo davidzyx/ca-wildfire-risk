@@ -135,9 +135,6 @@ def getTrend(county, month, start_year, end_year):
     end_year -- the end year of inspection 
     '''
 
-    #month_map = {'January': 1, 'Febrary': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6, 'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
-    #month = month_map[month]
-
     Counties = ['Alameda','Alpine','Amador','Butte','Calaveras','Colusa','Contra Costa','Del Norte','El Dorado','Fresno','Glenn','Humboldt','Imperial','Inyo','Kern','Kings','Lake','Lassen','Los Angeles','Madera','Marin','Mariposa','Mendocino','Merced','Modoc','Mono','Monterey','Napa','Nevada','Orange','Placer','Plumas','Riverside','Sacramento','San Benito','San Bernardino','San Diego','San Francisco','San Joaquin','San Luis Obispo','San Mateo','Santa Barbara','Santa Clara','Santa Cruz','Shasta','Sierra','Siskiyou','Solano','Sonoma','Stanislaus','Sutter','Tehama','Trinity','Tulare','Tuolumne','Ventura','Yolo','Yuba']
     assert isinstance(county, str)
     assert county in Counties
@@ -156,8 +153,8 @@ def getTrend(county, month, start_year, end_year):
             trend[yr-start_year] = 0
         else:
             trend[yr-start_year] = selected_county_data[yr][month]
-    
-    return pd.DataFrame({'Year': years, 'Occurences': trend})
+    print(pd.DataFrame({'year': years, 'count': trend}))
+    return pd.DataFrame({'year': years, 'count': trend})
 
 
 

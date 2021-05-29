@@ -9,7 +9,7 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
-from src import utils
+import utils
 # import utils
 from datetime import datetime
 import calendar
@@ -385,11 +385,11 @@ def update_county_prediction(queried_counties, month):
 
 @app.callback(
     dash.dependencies.Output('fire-trend', 'figure'),
-    [dash.dependencies.Input('month_slider', 'value'), dash.dependencies.Input('year-picker-start', 'value'),
+    [dash.dependencies.Input('county_dropdown', 'value'),dash.dependencies.Input('month_slider', 'value'), dash.dependencies.Input('year-picker-start', 'value'),
     dash.dependencies.Input('year-picker-end', 'value')]
 )
-def update_trend(month, year_start, year_end):
-    filtered_data = utils.getTrend(data, month, year_start, year_end)
+def update_trend(county, month, year_start, year_end):
+    filtered_data = utils.getTrend(county[0], month, year_start, year_end)
     filtered_data['year'] = [str(x) for x in filtered_data.year]
     print(type(filtered_data['year'][0]))
     fig = px.bar(filtered_data, x="year", y="count", title="Incidents per Year, in "  + str(calendar.month_name[month]))
