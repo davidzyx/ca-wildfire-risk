@@ -10,6 +10,7 @@ from datetime import datetime
 import sys
 import os
 import statsmodels.api as sm
+from pathlib import Path
 
 with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
     counties = json.load(response)
@@ -49,7 +50,7 @@ def getCountyNumbersDF(data, start_date, end_date):
 
     return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
-def get_single_CountyPrediction(queried_county):
+def get_single_CountyPrediction(queried_county, mode='running'):
     '''
     Returns a new pandas dataframe with predicted county incident numbers for a specific month
     :param queried_counties: the counties that are being queried
@@ -59,9 +60,17 @@ def get_single_CountyPrediction(queried_county):
 
     assert isinstance(queried_county, str)
     assert queried_county in unique_ca_counties
+    assert mode in ['running', 'eval']
     
-    file_name = os.path.join(os.getcwd(), 'data/fire_occurrances_data.csv')
-    df = pd.read_csv(file_name)
+    path = Path(os.getcwd()).parent.absolute()
+    file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
+    # select different mode
+    if mode == 'running':
+        df = pd.read_csv(file_name)
+    elif mode == 'eval':
+        all_df = pd.read_csv(file_name)
+        df = all_df[all_df['year'] < 2020]
+    
     res = df.groupby(by=['County', 'year', 'month']).mean()['size']
     selected_county_data = res[queried_county]
 
@@ -73,6 +82,16 @@ def get_single_CountyPrediction(queried_county):
     for i in range(len(selected_county_data.index)):
         diff = (selected_county_data.index[i][0] - starting_time[0])*12 + (selected_county_data.index[i][1] - starting_time[1])
         fire_occurs[diff] = selected_county_data.iloc[i]
+
+    # naive approach
+    past_res = df.groupby(by=['County', 'month']).mean()['size']
+    county_past_res = past_res[queried_county]
+    past_res = np.zeros(12)
+    for i in range(12):
+        if (i+1) in county_past_res.index:
+            past_res[i] = county_past_res[i+1]
+        else:
+            past_res[i] = 0
     
     # construct Seasonal Arima Model
     sarima_model = sm.tsa.statespace.SARIMAX(fire_occurs)
@@ -94,9 +113,9 @@ def get_single_CountyPrediction(queried_county):
     pred_uobc = np.array(list(map(lambda x: max(x,0), pred_uobc)))
     
     # ensemble the prediction
-    alpha1 = 0.8
-    alpha2 = 0.2
-    final_res = alpha1*predicted_month + alpha2*pred_uobc
+    alpha1 = 0.5
+    alpha2 = 0.5
+    final_res = alpha1*predicted_month + alpha2*past_res
     return [round(res) for res in final_res]
 
 
@@ -136,8 +155,9 @@ def getTrend(county, month, start_year, end_year):
     assert 1 <= month <= 12
     assert start_year >= 1969
     assert end_year <= 2021
-    
-    file_name = os.path.join(os.getcwd(), 'data/fire_occurrances_data.csv')
+   
+    path = Path(os.getcwd()).parent.absolute()
+    file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
     df = pd.read_csv(file_name)
     res = df.groupby(by=['County', 'year', 'month']).mean()['size']
     selected_county_data = res[county]
