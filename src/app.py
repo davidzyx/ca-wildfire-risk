@@ -358,7 +358,7 @@ def click_coord(e, month):
         return table_dataa
 
     coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.dummy_pred_func(coordinates[0], coordinates[1], month))
+    coordinates.append(utils.pred_func_geo(coordinates[1], coordinates[0], month))
     
     if not coordinates:
         return table_data.to_dict('records')
