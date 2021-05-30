@@ -50,4 +50,4 @@ def test_county_prediction():
         conf_mat += sum_res.reshape(2,2)
     conf_mat = (conf_mat.T / np.sum(conf_mat, axis=1)).T
     # print(f'mean absolute deviation: {MAD}, conf_mat: {conf_mat}')
-    return MAD, conf_mat
+    assert 0 < MAD < max(pred)
