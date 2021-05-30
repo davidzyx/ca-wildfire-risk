@@ -43,7 +43,7 @@ def test_county_prediction():
     conf_mat = np.zeros((2,2))
     for county in Counties:
         truth = _df_to_list_county(test_df, county)
-        pred = get_single_CountyPrediction(county, mode='eval')
+        pred = utils.get_single_CountyPrediction(county, mode='eval')
         temp = np.bincount(np.array(truth > 0).astype(int) * 2 + (np.array(pred)  > 0).astype(int))
         sum_res = np.zeros(4)
         sum_res[:len(temp)] = temp
