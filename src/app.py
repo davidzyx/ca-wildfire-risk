@@ -21,6 +21,8 @@ import json
 from os import path, environ
 import dash_leaflet as dl
 from dash.exceptions import PreventUpdate
+from pathlib import Path
+import os
 
 colors = {
     'background': '##333',
@@ -28,14 +30,16 @@ colors = {
 }
     
 # Data loading fire occurance
-df_fire_occurrances = pd.read_csv('./data/fire_occurrances_data.csv') 
+ppath = Path(os.getcwd()).parent.absolute()
+file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
+df_fire_occurrances = pd.read_csv(file_name) 
 
 # Data loading for geo-model
-geo_all_data = pd.read_csv('./data/final_data.csv')
-geo_county_coordinates = np.load('./data/county_positions.npy',  allow_pickle=True)
-geo_model = np.load('./data/geo_model.npy',  allow_pickle=True)
-geo_encodings = np.load('./data/encodings.npy',  allow_pickle=True)
-geo_extreames = np.load('./data/extreames.npy',  allow_pickle=True)
+geo_all_data = pd.read_csv(os.path.join(ppath, 'data/final_data.csv'))
+geo_county_coordinates = np.load(os.path.join(ppath, 'data/county_positions.npy'),  allow_pickle=True)
+geo_model = np.load(os.path.join(ppath, 'data/geo_model.npy'),  allow_pickle=True)
+geo_encodings = np.load(os.path.join(ppath, 'data/encodings.npy'),  allow_pickle=True)
+geo_extreames = np.load(os.path.join(ppath, 'data/extreames.npy'),  allow_pickle=True)
 
 # Preprocessing Data
 STATE = 'START'
