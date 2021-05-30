@@ -57,7 +57,7 @@ def getCountyNumbersDF(data, start_date, end_date):
 
     return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
-def get_single_CountyPrediction(all_df, queried_county, mode='running'):
+def get_single_CountyPrediction(queried_county, mode='running'):
     '''
     Returns a new pandas dataframe with predicted county incident numbers for a specific month
     :param queried_counties: the counties that are being queried
@@ -71,8 +71,10 @@ def get_single_CountyPrediction(all_df, queried_county, mode='running'):
     
 
     # select different mode
+    path = Path(os.getcwd()).parent.absolute()
+    file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
     if mode == 'running':
-        df = all_df
+        df = pd.read_csv(file_name)
     if mode == 'eval':
         all_df = pd.read_csv(file_name)
         df = all_df[all_df['year'] < 2020]

@@ -12,8 +12,8 @@ import plotly.express as px
 import numpy as np
 import dash_table
 
-from src import utils
-# import utils
+#from src import utils
+import utils
 
 from datetime import datetime
 import calendar
@@ -30,7 +30,7 @@ colors = {
 }
     
 # Data loading fire occurance
-ppath = Path(os.getcwd()).absolute()
+ppath = Path(os.getcwd()).parent.absolute()
 file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
 df_fire_occurrances = pd.read_csv(file_name) 
 
