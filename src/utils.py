@@ -17,6 +17,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.cluster import KMeans
+import warnings
 
 
 with urlopen('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson') as response:
@@ -102,23 +103,33 @@ def get_single_CountyPrediction(queried_county, mode='running'):
             past_res[i] = 0
     
     # construct Seasonal Arima Model
-    sarima_model = sm.tsa.statespace.SARIMAX(fire_occurs)
-    res_sarima = sarima_model.fit()
-    forecast1 = res_sarima.get_prediction(end=sarima_model.nobs).predicted_mean
-    last_month = selected_county_data.index[-1][1]
-    predicted_month = np.zeros(12)
-    for i in range(12):
-        predicted_month[(last_month-i)%12] = forecast1[-i]
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore")
+        try:
+            sarima_model = sm.tsa.statespace.SARIMAX(fire_occurs)
+            res_sarima = sarima_model.fit(maxiter=200)
+            forecast1 = res_sarima.get_prediction(end=sarima_model.nobs).predicted_mean
+            last_month = selected_county_data.index[-1][1]
+            predicted_month = np.zeros(12)
+            for i in range(12):
+                predicted_month[(last_month-i)%12] = forecast1[-i]
+        except:
+            predicted_month = np.zeros(12)
 
     # construct UnobservedComponents model
-    uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 144, 'harmonics': 3}])
-    res_uobc = uobc_model.fit()
-    month = 12
-    year = 2021
-    diff = (year - starting_time[0])*12 + month - starting_time[1]
-    forecast2 = res_uobc.get_prediction(end=diff).predicted_mean
-    pred_uobc = forecast2[-12:]
-    pred_uobc = np.array(list(map(lambda x: max(x,0), pred_uobc)))
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore")
+        try:
+            uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 144, 'harmonics': 2}])
+            res_uobc = uobc_model.fit(maxiter=200)
+            month = 12
+            year = 2021
+            diff = (year - starting_time[0])*12 + month - starting_time[1]
+            forecast2 = res_uobc.get_prediction(end=diff).predicted_mean
+            pred_uobc = forecast2[-12:]
+            pred_uobc = np.array(list(map(lambda x: max(x,0), pred_uobc)))
+        except:
+            pred_uobc = np.zeros(12)
     
     # ensemble the prediction
     alpha1 = 0.5
