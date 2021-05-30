@@ -11,13 +11,10 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
-<<<<<<< HEAD
+
 # from src import utils
 import utils
-=======
-from src import utils
-# import utils
->>>>>>> d5b45a8f181f38974ba1964014523b4f8b1db75b
+
 from datetime import datetime
 import calendar
 import json
@@ -30,6 +27,15 @@ colors = {
     'text': '#7FDBFF'
 }
     
+# Data loading fire occurance
+df_fire_occurrances = pd.read_csv('./data/fire_occurrances_data.csv') 
+
+# Data loading for geo-model
+geo_all_data = pd.read_csv('./data/final_data.csv')
+geo_county_coordinates = np.load('./data/county_positions.npy',  allow_pickle=True)
+geo_model = np.load('./data/geo_model.npy',  allow_pickle=True)
+geo_encodings = np.load('./data/encodings.npy',  allow_pickle=True)
+geo_extreames = np.load('./data/extreames.npy',  allow_pickle=True)
 
 # Preprocessing Data
 STATE = 'START'
@@ -358,7 +364,7 @@ def click_coord(e, month):
         return table_dataa
 
     coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.pred_func_geo(coordinates[1], coordinates[0], month))
+    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[1], coordinates[0], month))
     
     if not coordinates:
         return table_data.to_dict('records')

@@ -57,7 +57,7 @@ def getCountyNumbersDF(data, start_date, end_date):
 
     return pd.DataFrame({'county': county_numbers.keys(), 'Number of County Incidents': county_numbers.values()})
 
-def get_single_CountyPrediction(queried_county, mode='running'):
+def get_single_CountyPrediction(all_df, queried_county, mode='running'):
     '''
     Returns a new pandas dataframe with predicted county incident numbers for a specific month
     :param queried_counties: the counties that are being queried
@@ -69,12 +69,11 @@ def get_single_CountyPrediction(queried_county, mode='running'):
     assert queried_county in unique_ca_counties
     assert mode in ['running', 'eval']
     
-    path = Path(os.getcwd()).parent.absolute()
-    file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
+
     # select different mode
     if mode == 'running':
-        df = pd.read_csv(file_name)
-    elif mode == 'eval':
+        df = all_df
+    if mode == 'eval':
         all_df = pd.read_csv(file_name)
         df = all_df[all_df['year'] < 2020]
     
@@ -325,12 +324,12 @@ def geo_model(model, model_features):
     :type model_features: float (ranging from 0 to 1)
     
     '''
-    assert all((fi>=0 and fi<=1) for fi in model_features)
+    # assert all((fi>=0 and fi<=1) for fi in model_features)
     
     feature = np.array(model_features).reshape(1, -1)
     return model.predict_proba(feature)[0][0]
 
-def pred_func_geo(lat, lon, month):
+def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat, lon, month):
     '''
     Wrapper function that,
     Returns probability of safety from wildfire incidents given latitude, longitude and month of the year
@@ -345,15 +344,6 @@ def pred_func_geo(lat, lon, month):
     assert isinstance(month, int) and (int(month)>0 and int(month)<=12), 'Sanity Check for month!'
     assert isinstance(lon, float) or isinstance(lon, int), 'Sanity Check for longitude!'
     assert isinstance(lat, float) or isinstance(lata, int), 'Sanity Check for latitude!'
-
-    path = Path(os.getcwd()).parent.absolute()
-    file_name = os.path.join(path, 'data/final_data.csv')
-    all_data = pd.read_csv(file_name)
-
-    county_coordinates = np.load(os.path.join(path, 'data/county_positions.npy'),  allow_pickle=True)
-    model = np.load(os.path.join(path, 'data/geo_model.npy'),  allow_pickle=True)
-    encodings = np.load(os.path.join(path, 'data/encodings.npy'),  allow_pickle=True)
-    extreames = np.load(os.path.join(path, 'data/extreames.npy'),  allow_pickle=True)
 
     sample_weather_data = get_weatherInfo(all_data, county_coordinates[0], lat, lon, int(month))
     all_features = make_sample_features(all_data, encodings[0], extreames[0], sample_weather_data, lat, lon, "{:0>2d}".format(month))

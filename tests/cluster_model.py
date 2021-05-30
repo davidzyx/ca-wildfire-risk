@@ -280,7 +280,7 @@ def geo_model(model, model_features):
 
     return model.predict_proba(feature)[0][0]
 
-def pred_func_geo(lat, lon, month):
+def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat, lon, month):
     '''
     Wrapper function that,
     Returns probability of safety from wildfire incidents given latitude, longitude and month of the year
@@ -295,15 +295,6 @@ def pred_func_geo(lat, lon, month):
     assert isinstance(month, int) and (int(month)>0 and int(month)<=12), 'Sanity Check for month!'
     assert isinstance(lon, float) or isinstance(lon, int), 'Sanity Check for longitude!'
     assert isinstance(lat, float) or isinstance(lata, int), 'Sanity Check for latitude!'
-
-    path = Path(os.getcwd()).parent.absolute()
-    file_name = os.path.join(path, 'data/final_data.csv')
-    all_data = pd.read_csv(file_name)
-
-    county_coordinates = np.load(os.path.join(path, 'data/county_positions.npy'),  allow_pickle=True)
-    model = np.load(os.path.join(path, 'data/geo_model.npy'),  allow_pickle=True)
-    encodings = np.load(os.path.join(path, 'data/encodings.npy'),  allow_pickle=True)
-    extreames = np.load(os.path.join(path, 'data/extreames.npy'),  allow_pickle=True)
 
     sample_weather_data = get_weatherInfo(all_data, county_coordinates[0], lat, lon, int(month))
     all_features = make_sample_features(all_data, encodings[0], extreames[0], sample_weather_data, lat, lon, "{:0>2d}".format(month))
@@ -336,7 +327,7 @@ def model_init():
     sample_weather_data = get_weatherInfo(all_data, county_coordinates, lat, lon, int(month))
     all_features = make_sample_features(all_data, encodings, extreames, sample_weather_data, lat, lon, month)
 
-    geo_model(model, all_features)
+    geo_model(all_data, county_coordinates, model, encodings, extreames, model, all_features)
 
 
 if __name__ == '__main__':
