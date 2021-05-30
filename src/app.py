@@ -13,7 +13,7 @@ import numpy as np
 import dash_table
 
 from src import utils
-#import utils
+# import utils
 
 from datetime import datetime
 import calendar
@@ -176,7 +176,7 @@ trend_container = html.Div(children=[label_trend, year_picker, fire_trend], styl
 fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
 title_pred = html.Div(html.H2('Prediction based on county & month',className='hh'),style={'margin-bottom':10})
 title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location', className='hh'),style={'margin-bottom':0})
-label_cali_map = html.Div(html.Label('Please choose your preferred date range:'),style={'margin-bottom':5, 'margin-left':5})
+label_cali_map = html.Div(html.Label('Please choose your preferred date range (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
 cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
 cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
 second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
@@ -270,7 +270,7 @@ our_services = html.Div(id='services', children=[learn_more_container_1, learn_m
 more_on_cali_map = html.Div(id='lmcali', className='more-on-cali-map', children=[
     html.H2(className='more-on-cali-head', children=['California Incident Map']),
     html.H3(className='more-on-cali-subhead', children=['You can take a grasp of location, size and time of the previous incidents with just a glance!']),
-    html.P(className='more-on-cali-p', children=['For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportinal to the size of the incident']),
+    html.P(className='more-on-cali-p', children=['For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident']),
     html.P(className='more-on-cali-p', children=['You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'])
 ])
 
@@ -388,11 +388,9 @@ def display_data(selectedData):
     if not selectedData:
         return table_data.to_dict('records')
 
-    returnStr = ''
     for pt in selectedData['points']:
         row = data.loc[(data['incident_longitude'] == pt['lon']) & (data['incident_latitude'] == pt['lat'])]
         table_data = table_data.append(row)
-        returnStr += f"{pt['hovertext']} - Size: TODO, Location: ({pt['lon']:.2f}, {pt['lat']:.2f})\n"
 
     table_data = table_data[["incident_name", "incident_administrative_unit", "incident_location"]]
     table_data = table_data.to_dict('records')
