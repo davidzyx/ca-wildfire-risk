@@ -149,7 +149,7 @@ def getCountyPredictions(queried_counties, month):
     return pd.DataFrame({'County': queried_counties, 'Predicted Number of Fires': predicted_num})
 
 
-def getTrend(county, month, start_year, end_year):
+def getTrend(county, month=6, start_year=1969, end_year=2021):
     '''
     Returns a DataFrame fo number of incidents in 'month' for different years between start and end
     data -- DataFrame
@@ -163,7 +163,7 @@ def getTrend(county, month, start_year, end_year):
 
     assert 1 <= month <= 12
     assert start_year >= 1969
-    assert end_year <= 2021
+    assert start_year <= end_year <= 2021
    
     path = Path(os.getcwd()).parent.absolute()
     file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
