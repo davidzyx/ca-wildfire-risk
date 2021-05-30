@@ -9,3 +9,4 @@ dash[testing]
 plotly
 selenium
 statsmodels
+dash-leaflet
