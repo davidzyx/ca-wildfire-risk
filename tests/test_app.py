@@ -15,12 +15,6 @@ from os import path, environ
 
 TIMEOUT_TIME = 30
 
-def test_no_errors(dash_duo):
-    app = import_app('src.app')
-    dash_duo.start_server(app)
-
-    assert dash_duo.get_logs() == [], "browser console should contain no error"
-
 def test_header(dash_duo):
     app = import_app('src.app')
     dash_duo.start_server(app)
