@@ -12,8 +12,8 @@ import plotly.express as px
 import numpy as np
 import dash_table
 
-# from src import utils
-import utils
+from src import utils
+# import utils
 
 from datetime import datetime
 import calendar
@@ -30,7 +30,7 @@ colors = {
 }
     
 # Data loading fire occurance
-ppath = Path(os.getcwd()).parent.absolute()
+ppath = Path(os.getcwd()).absolute()
 file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
 df_fire_occurrances = pd.read_csv(file_name) 
 
@@ -368,7 +368,7 @@ def click_coord(e, month):
         return table_dataa
 
     coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[1], coordinates[0], month))
+    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
     
     if not coordinates:
         return table_data.to_dict('records')
