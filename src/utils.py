@@ -71,7 +71,7 @@ def get_single_CountyPrediction(queried_county, mode='running'):
     
 
     # select different mode
-    path = Path(os.getcwd()).parent.absolute()
+    path = Path(os.getcwd()).absolute()
     file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
     if mode == 'running':
         df = pd.read_csv(file_name)
@@ -165,7 +165,7 @@ def getTrend(county, month=6, start_year=1969, end_year=2021):
     assert start_year >= 1969
     assert start_year <= end_year <= 2021
    
-    path = Path(os.getcwd()).parent.absolute()
+    path = Path(os.getcwd()).absolute()
     file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
     df = pd.read_csv(file_name)
     res = df.groupby(by=['County', 'year', 'month']).mean()['size']

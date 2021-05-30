@@ -30,7 +30,7 @@ colors = {
 }
     
 # Data loading fire occurance
-ppath = Path(os.getcwd()).parent.absolute()
+ppath = Path(os.getcwd()).absolute()
 file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
 df_fire_occurrances = pd.read_csv(file_name) 
 
