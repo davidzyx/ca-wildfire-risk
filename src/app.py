@@ -364,7 +364,7 @@ def click_coord(e, month):
         return table_dataa
 
     coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[1], coordinates[0], month))
+    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
     
     if not coordinates:
         return table_data.to_dict('records')

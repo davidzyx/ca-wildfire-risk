@@ -237,7 +237,7 @@ def get_hotspots(all_data):
     '''
 
     X = all_data[['incident_longitude', 'incident_latitude']]
-    kmeans = KMeans(n_clusters=6, random_state=0).fit(X[X['incident_longitude']!=0])
+    kmeans = KMeans(n_clusters=20, random_state=0).fit(X[X['incident_longitude']!=0])
     return kmeans.cluster_centers_
 
 def dateEncoder(month_enc, month):
@@ -311,7 +311,7 @@ def make_sample_features(all_data, encodings, extreames, weather_data, lat, lon,
     tmp.extend(dateEncoder(encodings,month))
     # add bias term
     tmp.insert(0,1)
-
+    print
     return tmp
 
 def geo_model(model, model_features):
@@ -326,8 +326,9 @@ def geo_model(model, model_features):
     '''
     # assert all((fi>=0 and fi<=1) for fi in model_features)
     
-    feature = np.array(model_features).reshape(1, -1)
-    return model.predict_proba(feature)[0][0]
+    model_features = np.array(model_features).reshape(1, -1)
+    print(model_features.shape)
+    return model.predict_proba(model_features)[0][0]
 
 def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat, lon, month):
     '''

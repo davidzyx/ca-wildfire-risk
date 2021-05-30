@@ -86,7 +86,7 @@ def get_hotspots(all_data):
     '''
 
     X = all_data[['incident_longitude', 'incident_latitude']]
-    kmeans = KMeans(n_clusters=6, random_state=0).fit(X[X['incident_longitude']!=0])
+    kmeans = KMeans(n_clusters=20, random_state=0).fit(X[X['incident_longitude']!=0])
     return kmeans.cluster_centers_
 
 def dateEncoder(month_enc, month):
@@ -250,6 +250,8 @@ def train(all_data):
 
     model_X, encodings, extreames = make_features(all_data)
     model_y = all_data['y'].values
+
+    print(len(model_X[0]))
     
     # split test and train
     X_train, X_test, y_train, y_test = train_test_split(model_X, model_y, test_size=0.2, shuffle=True)
@@ -327,7 +329,9 @@ def model_init():
     sample_weather_data = get_weatherInfo(all_data, county_coordinates, lat, lon, int(month))
     all_features = make_sample_features(all_data, encodings, extreames, sample_weather_data, lat, lon, month)
 
-    geo_model(all_data, county_coordinates, model, encodings, extreames, model, all_features)
+    print(all_features)
+
+    geo_model(model, all_features)
 
 
 if __name__ == '__main__':
