@@ -138,6 +138,7 @@ def getCountyPredictions(queried_counties, month):
     assert all(bool(qc in unique_ca_counties) for qc in queried_counties)
 
     predicted_num = []
+    print(queried_counties)
     for ct in queried_counties:
         fire_occ = get_single_CountyPrediction(ct)[month-1]
         predicted_num.append(fire_occ)
