@@ -28,7 +28,7 @@ def test_county_prediction():
     take all the data before 2020 for training and take the data from 2020 for testing
     the result is shown in mean absolute deviation and confusion matrix (happen or not)
     '''
-    path = Path(os.getcwd()).parent.absolute()
+    path = Path(os.getcwd()).absolute()
     file_name = os.path.join(path, 'data/fire_occurrances_data.csv')
     df = pd.read_csv(file_name)
     test_df = df[df['year']==2020]
