@@ -358,7 +358,7 @@ def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat
     '''
     assert isinstance(month, int) and (int(month)>0 and int(month)<=12), 'Sanity Check for month!'
     assert isinstance(lon, float) or isinstance(lon, int), 'Sanity Check for longitude!'
-    assert isinstance(lat, float) or isinstance(lata, int), 'Sanity Check for latitude!'
+    assert isinstance(lat, float) or isinstance(lat, int), 'Sanity Check for latitude!'
 
     sample_weather_data = get_weatherInfo(all_data, county_coordinates[0], lat, lon, int(month))
     all_features = make_sample_features(all_data, encodings[0], extreames[0], sample_weather_data, lat, lon, "{:0>2d}".format(month))
