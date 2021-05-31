@@ -218,3 +218,28 @@ def test_county_prediction(dash_duo):
 
     # see the graphic update
     dash_duo.wait_for_element('#pred_table', timeout=TIMEOUT_TIME)
+
+
+def test_location_prediction(dash_duo):
+    app = import_app('src.app')
+    dash_duo.start_server(app)
+    dash_duo.driver.maximize_window()
+
+    # load page and navigate to page
+    dash_duo.wait_for_page(url=None, timeout=TIMEOUT_TIME)
+    dash_duo.multiple_click('#geo-based-pred-nav', 1)
+
+    dash_duo.wait_for_element('#map-id', timeout=TIMEOUT_TIME)
+
+    # find the elements to interact with 
+    month_picker_element = dash_duo.find_element('#month_slider2')
+
+    # click month 
+    dash_duo.click_at_coord_fractions(month_picker_element, fx=0.3, fy=0.1)
+
+    # click multiple counties
+    dash_duo.multiple_click('#map-id', 1)
+    dash_duo.multiple_click('#header', 1)
+
+    # see the graphic update
+    dash_duo.wait_for_element('#coordinate-click-id', timeout=TIMEOUT_TIME)

@@ -61,7 +61,7 @@ navbar = html.Div(id='navbar', className='topnav' ,children=[
         html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
         html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
         html.A('County Based Prediction', id='county-based-pred-nav', className="county-based-pred", href='app3'),
-        html.A('Geo Coordinates Based Prediction', id='geo-based-pred', className="geo-based-pred", href='app4')
+        html.A('Geo Coordinates Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -331,8 +331,8 @@ label_cali_map2 = html.Div(html.Label('Please pick a point from the map below:')
 cali_map2 = dl.Map(id=MAP_ID, style={'width': '800px', 'height': '400px', 'border':'2px black solid'}, center=[37.219306366090116, -119.66673872628975], zoom=5, children=[
         dl.TileLayer()
         ])
-cali_map_div2_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map2, html.Div(style={'padding':'150px'},children=[cali_map_table2])])
-cali_map_div2 = html.Div(id = 'calmap', children=[label_cali_map2, cali_map_div2_container])
+cali_map_div2_container = html.Div(id = 'cal-map2',style={'padding': '10px', 'columnCount': 2}, children=[cali_map2, html.Div(style={'padding':'150px'},children=[cali_map_table2])])
+cali_map_div2 = html.Div(id = 'calmap2', children=[label_cali_map2, cali_map_div2_container])
 pred2_container = html.Div(style={'padding':'0px'}, children=[
     title_cali_map2, month_picker_row2, cali_map_div2
 ])
