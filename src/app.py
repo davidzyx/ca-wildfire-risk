@@ -288,8 +288,8 @@ more_on_county_map = html.Div(id='lmcounty', className='more-on-county-map', chi
 more_on_pred1 = html.Div(id='lmp1',className='more-on-pred1', children=[
     html.H2(className='more-on-pred1-head', children=['County Based Prediction']),
     html.H3(className='more-on-pred1-subhead', children=['If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help']),
-    html.P(className='more-on-pred1-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
-    html.P(className='more-on-pred1-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
+    html.P(className='more-on-pred1-p', children=['For using this tool, you just need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.']),
+    html.P(className='more-on-pred1-p', children=['The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'])
 ])
 
 more_on_pred2 = html.Div(id='lmp2',className='more-on-pred2', children=[
