@@ -120,7 +120,7 @@ def get_single_CountyPrediction(queried_county, mode='running'):
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
         try:
-            uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 144, 'harmonics': 2}])
+            uobc_model = sm.tsa.UnobservedComponents(fire_occurs, level='fixed intercept', seasonal=12, freq_seasonal=[{'period': 12, 'harmonics': 2}])
             res_uobc = uobc_model.fit(maxiter=200)
             month = 12
             year = 2021
@@ -132,9 +132,10 @@ def get_single_CountyPrediction(queried_county, mode='running'):
             pred_uobc = np.zeros(12)
     
     # ensemble the prediction
-    alpha1 = 0.5
-    alpha2 = 0.5
-    final_res = alpha1*predicted_month + alpha2*past_res
+    alpha1 = 0.4
+    alpha2 = 0.4
+    alpha3 = 0.2
+    final_res = alpha1*past_res + alpha2*predicted_month + alpha3*pred_uobc
     return [round(res) for res in final_res]
 
 
