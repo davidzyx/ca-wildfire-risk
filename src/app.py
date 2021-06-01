@@ -119,7 +119,7 @@ else:
 
 
 
-cali_map = dcc.Graph(id='cali_map', style={'border':'2px black solid'})
+cali_map = dcc.Graph(id='cali_map')
 county_map = dcc.Graph(id='county_map')
 county_pie = dcc.Graph(id='county_pie')
 county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black solid'})
@@ -130,8 +130,8 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
-county_map_div = html.Div(id='county_map_div', style={'border':'2px black solid'}, children=county_map)
-county_pie_div = html.Div(id='county_pie_div', style={'border':'2px black solid'}, children=county_pie)
+county_map_div = html.Div(id='county_map_div', style={'textAlign': 'center'}, children=county_map)
+county_pie_div = html.Div(id='county_pie_div', style={'textAlign': 'center'}, children=county_pie)
 
 date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
 month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
@@ -418,7 +418,7 @@ def update_cali_map(start_date, end_date):
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
-    fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
+    fig.update_layout(margin={"r":0,"t":30,"l":0,"b":0})
     fig.update_layout(
         autosize=True,
         hovermode='closest',
