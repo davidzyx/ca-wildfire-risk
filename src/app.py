@@ -199,6 +199,7 @@ pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, chi
 
 
 # Home Page
+# https://www.w3schools.com/
 prompt_message_container = html.Div(className='prompt', children=[
     html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
     html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
