@@ -31,7 +31,7 @@ def test_tab_cal(dash_duo):
     dash_duo.multiple_click('#cali-map-nav', 1)
 
     dash_duo.wait_for_element('#calmap', timeout=TIMEOUT_TIME)
-    assert "Incidents on California map, based on size, date and location" in dash_duo.find_element('#calmap').text
+    assert "Incidents on California map with Size, Date and Location" in dash_duo.find_element('#calmap').text
 
 
 def test_tab_county(dash_duo):
@@ -124,7 +124,7 @@ def test_county_map_date_update(dash_duo):
     dash_duo.wait_for_element('#county_map_div', timeout=TIMEOUT_TIME)
     
     #start date is updated to 11/01/2020 
-    start_date_element = dash_duo.find_element('html > body > div > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > input')
+    start_date_element = dash_duo.find_element('html > body > div > div > div:nth-of-type(3) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > input')
     start_date_element.click()
     start_date_element.send_keys(Keys.ARROW_RIGHT)
     start_date_element.send_keys(Keys.ARROW_RIGHT)
@@ -163,7 +163,7 @@ def test_county_pie_date_update(dash_duo):
     dash_duo.wait_for_element('#county_pie_div', timeout=TIMEOUT_TIME)
     
     #start date is updated to 11/01/2020 
-    start_date_element = dash_duo.find_element('html > body > div > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > input')
+    start_date_element = dash_duo.find_element('html > body > div > div > div:nth-of-type(3) > div > div > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > input')
     start_date_element.click()
     start_date_element.send_keys(Keys.ARROW_RIGHT)
     start_date_element.send_keys(Keys.ARROW_RIGHT)

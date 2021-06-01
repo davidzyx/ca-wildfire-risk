@@ -127,14 +127,25 @@
     background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
 
+  #calmap2
+  {
+    
+    margin-top: 0px;
+    border:2px, black, solid;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  }
+
+  #countymap
+  {
+    
+    margin-top: 0px;
+    border:2px, black, solid;
+    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  }
+
   #cali_map
   {
     border:2px, black, solid;
-  }
-  #calmap2
-  {
-    margin-top: 0px;
-    background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
   }
 
   #datepicker

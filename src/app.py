@@ -92,6 +92,23 @@ county_dropdown = dcc.Dropdown(
         placeholder='Select one or more California Counties...'
     )
 
+county_dropdown2 = dcc.Dropdown(
+        id='county_dropdown2',
+        options=[{'label': county, 'value': county} for county in utils.ca_counties_list],
+        value='Alameda'
+    )
+
+range_slider = dcc.RangeSlider(
+        id='range_slider', 
+        min=2010, 
+        max=2021, 
+        marks = {
+            2010: '2010', 2011: '2011', 2012: '2012', 2013: '2013', 2014: '2014', 2015: '2015', 2016: '2016', 2017: '2017', 2018: '2018', 2019: '2019', 2020: '2020', 2021: '2021'
+        },
+        value=[2010, 2021],
+        allowCross=False
+    )
+
 # Map Widget
 if path.exists('src/.mapbox_token'):
     px.set_mapbox_access_token(open("src/.mapbox_token").read())
@@ -113,8 +130,8 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
-county_map_div = html.Div(id='county_map_div', style={'border':'2px black solid', 'padding': '10px'}, children=county_map)
-county_pie_div = html.Div(id='county_pie_div', style={'border':'2px black solid', 'padding': '10px'}, children=county_pie)
+county_map_div = html.Div(id='county_map_div', style={'border':'2px black solid'}, children=county_map)
+county_pie_div = html.Div(id='county_pie_div', style={'border':'2px black solid'}, children=county_pie)
 
 date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
 month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
@@ -159,37 +176,29 @@ pred_table = dash_table.DataTable(
 )
 
 fire_trend = dcc.Graph(id='fire-trend', style={'border':'2px black solid'})
-# year_picker_start = dcc.Input(
-#             id = 'year-picker-start',
-#             placeholder="From (Year)"
-#         )
-# year_picker_end = dcc.Input(
-#             id = 'year-picker-end',
-#             placeholder="To (Year)"
-#         )
-year_picker_start = dcc.Dropdown(id = 'year-picker-start', options=[{'label':x, 'value': x} for x in range(2010, 2022)], placeholder='From (Year)', style={'background-color': '#04AA6D'})
-year_picker_end = dcc.Dropdown(id = 'year-picker-end', options=[{'label':x, 'value': x} for x in range(2010, 2022)], placeholder='To (Year)', style={'background-color': '#04AA6D'})
-year_picker = html.Div(children = [year_picker_start, year_picker_end], style={'color':'#04AA6D'})
+trend_picker = html.Div(children = [range_slider, county_dropdown2], style={'color':'#04AA6D'})
 label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':0})
 title_trend = html.Div(html.H2('How is the incident trend in past years? ', className='hh'),style={'margin-bottom':0})
-trend_container = html.Div(children=[label_trend, year_picker, fire_trend], style={'padding': '10px'})
+trend_container = html.Div(children=[label_trend, trend_picker, fire_trend], style={'padding': '10px'})
 fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
-title_pred = html.Div(html.H2('Prediction based on county & month',className='hh'),style={'margin-bottom':10})
-title_cali_map = html.Div(html.H2('Incidents on California map, based on size, date and location', className='hh'),style={'margin-bottom':0})
-label_cali_map = html.Div(html.Label('Please choose your preferred date range (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
+title_pred = html.Div(html.H2('Prediction Based on County & Month',className='hh'),style={'margin-bottom':10})
+
+title_cali_map = html.Div(html.H2('Incidents on California map with Size, Date and Location', className='hh'),style={'margin-bottom':0})
+label_cali_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021 (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
 cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
 cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
+
+title_county_map = html.Div(html.H2('Incidents in California by County', className='hh'),style={'margin-bottom':0})
+label_county_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021:'),style={'margin-bottom':5, 'margin-left':5})
 second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
+county_map_div = html.Div(id = 'countymap', children=[title_county_map, label_county_map, date_picker_row, second_row])
+
 pred_graph_div_container = html.Div(id = 'pred-map',style={'padding': '10px', 'columnCount': 2}, children=[county_prediction, html.Div(style={'padding':'150px'},children=[pred_table])])
 pred_div_container = html.Div(children=[month_picker_row, county_dropdown, pred_graph_div_container])
 pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, children=[title_pred ,pred_div_container])
 
 
 # Home Page
-# prompt_message_container = html.Div(className='container', children=[
-#     html.Div(className='message-text', children='Looking for something to help you with analysing California Wildfire Data? You are in the right place!')
-# ])
-
 prompt_message_container = html.Div(className='prompt', children=[
     html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
     html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
@@ -197,11 +206,6 @@ prompt_message_container = html.Div(className='prompt', children=[
         html.Span(className='heading-primary-sub', children='You are in the right place!')
     ]),
     html.A(href='#services', className="btn btn-white btn-animated", children='Discover more')])
-])
-
-did_you_know_container = html.Div(className='container', children=[
-    html.Div(className='block-local', children=[html.H2(className='hdd', children='HRGG'), 'sdjfhsdsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflfl']),
-    html.Div(className='block-fixed', children=[html.H2(className='hdd', children='HEFD'), 'sdjfhsdsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflsdjfhsdflfl'])
 ])
 
 
@@ -326,7 +330,7 @@ month_picker_slider2 = dcc.Slider(
         value=1,
     )
 month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding': '4px', 'margin-top': '0px'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-title_cali_map2 = html.Div(html.H2('Prediction based on chosen longitude and latitude', className='hh'),style={'margin-bottom':0})
+title_cali_map2 = html.Div(html.H2('Prediction Based on Chosen Longitude and Latitude', className='hh'),style={'margin-bottom':0})
 label_cali_map2 = html.Div(html.Label('Please pick a point from the map below:'),style={'margin-bottom':5, 'margin-left':5})
 cali_map2 = dl.Map(id=MAP_ID, style={'width': '800px', 'height': '400px', 'border':'2px black solid'}, center=[37.219306366090116, -119.66673872628975], zoom=5, children=[
         dl.TileLayer()
@@ -345,7 +349,6 @@ app.layout = html.Div(style={'border':'2px black solid'},children=[dcc.Location(
 
 @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
-
 def click_coord(e, month):
     global table_data
     bad_input = False
@@ -441,7 +444,7 @@ def update_county_map(start_date, end_date):
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
-    county_map_fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
+    county_map_fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 
     return county_map_fig
 
@@ -454,7 +457,7 @@ def update_county_pie(start_date, end_date):
         width=700, height=700, title='County Incident Distribution'
     )
 
-    county_pie_fig.update_layout(margin={"r":0,"t":25,"l":0,"b":0})
+    county_pie_fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 
     return county_pie_fig
 
@@ -481,11 +484,11 @@ def update_county_prediction(queried_counties, month):
 
 @app.callback(
     dash.dependencies.Output('fire-trend', 'figure'),
-    [dash.dependencies.Input('county_dropdown', 'value'),dash.dependencies.Input('month_slider', 'value'), dash.dependencies.Input('year-picker-start', 'value'),
-    dash.dependencies.Input('year-picker-end', 'value')]
+    [dash.dependencies.Input('county_dropdown2', 'value'),dash.dependencies.Input('month_slider', 'value'), dash.dependencies.Input('range_slider', 'value')]
 )
-def update_trend(county, month, year_start, year_end):
-    filtered_data = utils.getTrend(county[0], month, year_start, year_end)
+def update_trend(county, month, year_range):
+    year_start, year_end= year_range
+    filtered_data = utils.getTrend(county, month, year_start, year_end)
     filtered_data['year'] = [str(x) for x in filtered_data.year]
     print(type(filtered_data['year'][0]))
     fig = px.bar(filtered_data, x="year", y="count", title="Incidents per Year, in "  + str(calendar.month_name[month]))
@@ -519,7 +522,7 @@ def display_page(pathname):
     elif pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
-        return html.Div(id='app2-div', children=[html.Div(html.H2('Incidents in California by County'),style={'margin-bottom':0}), date_picker_row, second_row])
+        return html.Div(id='app2-div', children=[county_map_div])
     elif pathname == '/app3':
         return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
