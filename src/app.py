@@ -413,7 +413,7 @@ def display_pred_data(queried_counties, month):
 def update_cali_map(start_date, end_date):
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
-        zoom=4, height=400, width=800, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
+        zoom=4, height=400, width=800, size_max=22,  hover_name="incident_name", 
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
