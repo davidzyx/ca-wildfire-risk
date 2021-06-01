@@ -122,7 +122,7 @@ else:
 cali_map = dcc.Graph(id='cali_map')
 county_map = dcc.Graph(id='county_map')
 county_pie = dcc.Graph(id='county_pie')
-county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black solid'})
+county_prediction = dcc.Graph(id='county_prediction')
 
 
 # Building App Layout
