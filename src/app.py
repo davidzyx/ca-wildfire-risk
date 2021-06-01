@@ -12,8 +12,8 @@ import plotly.express as px
 import numpy as np
 import dash_table
 
-from src import utils
-# import utils
+# from src import utils
+import utils
 
 from datetime import datetime
 import calendar
@@ -200,7 +200,7 @@ pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, chi
 
 # Home Page
 prompt_message_container = html.Div(className='prompt', children=[
-    html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
+    # html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
     html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
         html.Span(className='heading-primary-main', children='Looking for a tool to analyze California Wildfires ?'),
         html.Span(className='heading-primary-sub', children='You are in the right place!')
@@ -218,86 +218,67 @@ learn_more_container_1 = html.Div(className='about-section', children=[
 
 learn_more_services = html.H2(className='services-header', style='text-align:center', children='Our Services')
 
-learn_more_container_2 = html.Div(className='row', children=[
-    html.Div(className='column', children=[
+learn_more_container_2 = html.Div(className='row', style={'padding':'2rem'}, children=[
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
         html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p1.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('California Incident Map', className='services-header'),
+            html.Img(src=app.get_asset_url('p1.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('California Incident Map', className='card-title'),
                 html.P(className='title', children='Data Visualization & Inspection'),
-                html.P('This service provides tools for the user to inspect the location of incidents on a California map.'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmcali'))
+                html.P(className='card-text',children='This service provides tools for the user to inspect the location of incidents on a California map.'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', id='incident_map', children='Learn More', href='#desc_text2')),
             ])
+    ]),
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p2.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('County Incident Map', className='card-title'),
+                html.P(className='title', children='Data Visualization & Inspection'),
+                html.P(className='card-text',children='This tool provide visuals for the user to inspect county incidents more closely'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmcounty', href='#desc_text2'))
         ])
     ]),
-    html.Div(className='column', children=[
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
         html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p2.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('County Incident Map', className='services-header'),
-                html.P(className='title', children='Data Visualization & Inspection'),
-                html.P('This tool provide visuals for the user to inspect county incidents more closely'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmcounty'))
-            ])
-        ])
-    ]),
-    html.Div(className='column', children=[
-        html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p3.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('County Based Prediction', className='services-header'),
+            html.Img(src=app.get_asset_url('p3.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('Prediction - County wise', className='card-title'),
                 html.P(className='title', children='Analysis & Prediction'),
-                html.P('Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmp1'))
-            ])
+                html.P(className='card-text',children='Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmp1', href='#desc_text2'))
         ])
     ]),
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p4.png'), alt='Jane', className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('Predictions - Geo Location', className='card-title'),
+                html.P(className='title', children='Analysis & Prediction'),
+                html.P(className='card-text',children='This model generates a probability for an incident, based on the user desired lon/lat and time'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmp2', href='#desc_text2'))
+        ])
+    ])
     
 ])
 
 second_row_service = html.Div(className='row', children=[
-    html.Div(className='column', children=[
-        html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p4.png'), alt='Jane', className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('Geo Coordinates Based Prediction', className='services-header'),
-                html.P(className='title', children='Analysis & Prediction'),
-                html.P('This model generates a probability for an incident, based on the user desired lon/lat and time'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmp2'))
-            ])
-        ])
+    html.Div(style={'padding': '1rem 3rem', 'background-color': '#333', 'color':'white'},children=[
+        html.H2(id='desc_heading', className='desc_heading', children=["Learn More"]),
+        html.P(id='desc_subhead', className='desc_subhead'),
+    ]),
+    html.Div(style={'padding': '1rem 3rem', 'background-color': '#d8f3d8'},children=[
+        html.Br(),
+        html.P(id='desc_text1', children=["Click \"Learn more\" to find out how the different services work"]),
+        html.P(id='desc_text2', children=[''])
     ])
 ])
 
 our_services = html.Div(id='services', children=[learn_more_container_1, learn_more_services, learn_more_container_2, second_row_service])
-
-more_on_cali_map = html.Div(id='lmcali', className='more-on-cali-map', children=[
-    html.H2(className='more-on-cali-head', children=['California Incident Map']),
-    html.H3(className='more-on-cali-subhead', children=['You can take a grasp of location, size and time of the previous incidents with just a glance!']),
-    html.P(className='more-on-cali-p', children=['For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident']),
-    html.P(className='more-on-cali-p', children=['You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'])
-])
-
-more_on_county_map = html.Div(id='lmcounty', className='more-on-county-map', children=[
-    html.H2(className='more-on-county-head', children=['County Incident Map']),
-    html.H3(className='more-on-county-subhead', children=['If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.']),
-    html.P(className='more-on-county-p', children=['For using this tool, you just need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.']),
-    html.P(className='more-on-county-p', children=['A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'])
-])
-
-more_on_pred1 = html.Div(id='lmp1',className='more-on-pred1', children=[
-    html.H2(className='more-on-pred1-head', children=['County Based Prediction']),
-    html.H3(className='more-on-pred1-subhead', children=['If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help']),
-    html.P(className='more-on-pred1-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
-    html.P(className='more-on-pred1-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
-])
-
-more_on_pred2 = html.Div(id='lmp2',className='more-on-pred2', children=[
-    html.H2(className='more-on-pred2-head', children=['Geo Coordinates Based Prediction']),
-    html.H3(className='more-on-pred2-subhead', children=['After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool']),
-    html.P(className='more-on-pred2-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
-    html.P(className='more-on-pred2-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
-])
 
 MAP_ID = "map-id"
 COORDINATE_CLICK_ID = "coordinate-click-id"
@@ -345,7 +326,87 @@ pred2_container = html.Div(style={'padding':'0px'}, children=[
 app.title = 'Cal Fire Dashboard'
 
 
-app.layout = html.Div(style={'border':'2px black solid'},children=[dcc.Location(id='url', refresh=False), header, navbar, html.Div(id='page-content', children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])])
+app.layout = html.Div(children=[dcc.Location(id='url', refresh=False), header, navbar, html.Div(id='page-content', children=[prompt_message_container, our_services])])
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_heading', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_heading(incident_map, lmcounty, lmp1, lmp2):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+        return ''
+    elif div_id=='incident_map':
+        return 'California Incident Map'
+    elif div_id=='lmcounty':
+        return 'County Incident Map'
+    elif div_id=='lmp1':
+        return 'County Based Prediction'
+    elif div_id=='lmp2':
+        return 'Geo Coordinates Based Prediction'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_subhead', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_subheading(incident_map, lmcounty, lmp1, lmp2):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+        return ''
+    elif div_id=='incident_map':
+        return 'You can take a grasp of location, size and time of the previous incidents with just a glance'
+    elif div_id=='lmcounty':
+        return 'If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.'
+    elif div_id=='lmp1':
+        return 'If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help'
+    elif div_id=='lmp2':
+        return 'After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_text1', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_text1(incident_map, lmcounty, lmp1, lmp2):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+        return ''
+    elif div_id=='incident_map':
+        return 'For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident'
+    elif div_id=='lmcounty':
+        return 'For using this tool, you just need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.'
+    elif div_id=='lmp1':
+        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+    elif div_id=='lmp2':
+        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_text2', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_text2(incident_map, lmcounty, lmp1, lmp2):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+        return ''
+    elif div_id=='incident_map':
+        return 'You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'
+    elif div_id=='lmcounty':
+        return 'A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'
+    elif div_id=='lmp1':
+        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
+    elif div_id=='lmp2':
+        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
 
 @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
@@ -510,15 +571,16 @@ def display_page(pathname):
     if STATE == 'START':
 
         STATE = 'END'
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
+        return html.Div(children=[prompt_message_container, our_services])
 
     if STATE == 'END':
 
         STATE = 'DONE'
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
-
+        return html.Div(children=[prompt_message_container, our_services])
+    if pathname == '/' or pathname == None:
+        return html.Div(children=[prompt_message_container, our_services])
     if pathname == '/home' or pathname == None:
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
+        return html.Div(children=[prompt_message_container, our_services])
     elif pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
