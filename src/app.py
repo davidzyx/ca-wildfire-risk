@@ -154,7 +154,7 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in ['Incident name' ,'Incident administrative unit', 'Incident location']],
+    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
 )
 
 
