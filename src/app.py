@@ -61,10 +61,10 @@ max_date = max(data.date)
 
 navbar = html.Div(id='navbar', className='topnav' ,children=[
         html.A('Home', id='home-page-nav', className="home-page", href='home'),
-        html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
-        html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
-        html.A('County Based Prediction', id='county-based-pred-nav', className="county-based-pred", href='app3'),
-        html.A('Geo Location Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
+        html.A('California Incident Map', id='cali-map-nav', className="non-home", href='app1'),
+        html.A('County Incident Map', id='county-map-nav', className="non-home", href='app2'), 
+        html.A('County Based Prediction', id='county-based-pred-nav', className="non-home", href='app3'),
+        html.A('Geo Location Based Prediction', id='geo-based-pred-nav', className="non-home", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -580,20 +580,19 @@ def update_trend(county, month, year_range):
     
 
 # Navbar callback
-@app.callback(dash.dependencies.Output('page-content', 'children'),
+@app.callback([dash.dependencies.Output('page-content', 'children'), dash.dependencies.Output('home-page-nav', 'className'), dash.dependencies.Output('cali-map-nav', 'className'), dash.dependencies.Output('county-map-nav', 'className'), dash.dependencies.Output('county-based-pred-nav', 'className'), dash.dependencies.Output('geo-based-pred-nav','className')],
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
-    
     if pathname == '/app1':
-        return html.Div(id='app1-div', children=[cali_map_div])
+        return [html.Div(id='app1-div', children=[cali_map_div]), "non-home","home-page","non-home","non-home","non-home"]
     elif pathname == '/app2':
-        return html.Div(id='app2-div', children=[county_map_div])
+        return [html.Div(id='app2-div', children=[county_map_div]), "non-home","non-home","home-page","non-home","non-home"]
     elif pathname == '/app3':
-        return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
+        return [html.Div(id='app3-div', children=[pred_div, fire_trend_div]), "non-home","non-home","non-home","home-page","non-home"]
     elif pathname == '/app4':
-        return html.Div(id='app4-div', children=[pred_div2])
+        return [html.Div(id='app4-div', children=[pred_div2]), "non-home","non-home","non-home","non-home","home-page"]
     else:
-        return html.Div(children=[prompt_message_container, our_services])
+        return [html.Div(children=[prompt_message_container, our_services]), "home-page","non-home","non-home","non-home","non-home"]
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
