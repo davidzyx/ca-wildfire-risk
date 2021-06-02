@@ -11,6 +11,7 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
+import dash_daq as daq
 
 # from src import utils
 import utils
@@ -65,7 +66,7 @@ navbar = html.Div(id='navbar', className='topnav' ,children=[
 ])
 
 date_picker_widget = dcc.DatePickerRange(
-        style={'border':'2px black solid'},
+        style={'margin-bottom': '2rem'},
         id='date_picker',
         min_date_allowed=min_date,
         max_date_allowed=max_date,
@@ -119,10 +120,10 @@ else:
 
 
 
-cali_map = dcc.Graph(id='cali_map', style={'border':'2px black solid'})
+cali_map = dcc.Graph(id='cali_map')
 county_map = dcc.Graph(id='county_map')
 county_pie = dcc.Graph(id='county_pie')
-county_prediction = dcc.Graph(id='county_prediction', style={'border':'2px black solid'})
+county_prediction = dcc.Graph(id='county_prediction')
 
 
 # Building App Layout
@@ -130,18 +131,18 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
-county_map_div = html.Div(id='county_map_div', style={'border':'2px black solid'}, children=county_map)
-county_pie_div = html.Div(id='county_pie_div', style={'border':'2px black solid'}, children=county_pie)
+county_map_div = html.Div(id='county_map_div', style={'border':'2px #f2f2f2 solid'}, children=[html.H4('County Incident Frequency'),county_map])
+county_pie_div = html.Div(id='county_pie_div', style={'border':'2px #f2f2f2 solid'}, children=[html.H4('County Incident Distribution'),county_pie])
 
-date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
-month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
+date_picker_row = html.Div(id='datepicker', style={'padding': '1 rem'}, children=[html.Div(children=[html.P(html.Strong('Filter by Date'))]), date_picker_widget])
+month_picker_row = html.Div(style={'textAlign': 'center', 'padding-bottom':'2rem'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
 
 cali_map_table = dash_table.DataTable(
     style_table={
         'border':'2px black solid',
-        'height': 500,
+        'height': 550,
         'overflowY': 'scroll',
-        'width': 540
+        'width': 850
     },
     id='cali_map_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -158,10 +159,9 @@ cali_map_table = dash_table.DataTable(
 
 pred_table = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
-        'height': 700,
+        'height': 550,
         'overflowY': 'scroll',
-        'width': 300
+        'width': 850
     },
     id='pred_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -175,27 +175,33 @@ pred_table = dash_table.DataTable(
     columns=[{"name": i, "id": i} for i in ['County', 'Predicted Number of Fires']],
 )
 
-fire_trend = dcc.Graph(id='fire-trend', style={'border':'2px black solid'})
-trend_picker = html.Div(children = [range_slider, county_dropdown2], style={'color':'#04AA6D'})
-label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':0})
+fire_trend = dcc.Graph(id='fire-trend')
+trend_picker = html.Div(children = [range_slider, county_dropdown2], style={'color':'#04AA6D', 'padding-top':'1rem','padding-bottom':'2rem'})
+label_trend = html.Div(html.H3('Please choose your preferred time range'))
 title_trend = html.Div(html.H2('How is the incident trend in past years? ', className='hh'),style={'margin-bottom':0})
 trend_container = html.Div(children=[label_trend, trend_picker, fire_trend], style={'padding': '10px'})
 fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
 title_pred = html.Div(html.H2('Prediction Based on County & Month',className='hh'),style={'margin-bottom':10})
 
-title_cali_map = html.Div(html.H2('Incidents on California map with Size, Date and Location', className='hh'),style={'margin-bottom':0})
-label_cali_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021 (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
-cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
-cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
+# title_cali_map = html.Div(html.H2('Incidents on California map with Size, Date and Location', className='hh'),style={'margin-bottom':0})
+# label_cali_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021 (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
+# cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, 
+# html.Div(children=[cali_map_table])])
+# cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_map_div_container])
 
-title_county_map = html.Div(html.H2('Incidents in California by County', className='hh'),style={'margin-bottom':0})
-label_county_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021:'),style={'margin-bottom':5, 'margin-left':5})
+
+label_cali_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021 (Note that a small date range is required for full functionality with the select and hovering tools)'))
+cali_second_row = html.Div(style={'columnCount': 2}, children=[cali_map, cali_map_table])
+cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_second_row])
+
+
+label_county_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021'))
 second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
-county_map_div = html.Div(id = 'countymap', children=[title_county_map, label_county_map, date_picker_row, second_row])
+county_map_div = html.Div(id = 'countymap', children=[label_county_map, date_picker_row, second_row])
 
-pred_graph_div_container = html.Div(id = 'pred-map',style={'padding': '10px', 'columnCount': 2}, children=[county_prediction, html.Div(style={'padding':'150px'},children=[pred_table])])
-pred_div_container = html.Div(children=[month_picker_row, county_dropdown, pred_graph_div_container])
-pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, children=[title_pred ,pred_div_container])
+pred_graph_div_container = html.Div(id = 'pred-map', children=[county_prediction])
+pred_div_container = html.Div(style={'columnCount': 2}, children=[pred_graph_div_container, pred_table])
+pred_div = html.Div(id = 'pred', children=[month_picker_row, county_dropdown, html.H3(className='county_graph_title',children=[f'Number of Predicted Incidents']), pred_div_container])
 
 
 # Home Page
@@ -310,16 +316,16 @@ month_picker_slider2 = dcc.Slider(
         step=1,
         value=1,
     )
-month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding': '4px', 'margin-top': '0px'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-title_cali_map2 = html.Div(html.H2('Prediction Based on Chosen Longitude and Latitude', className='hh'),style={'margin-bottom':0})
-label_cali_map2 = html.Div(html.Label('Please pick a point from the map below:'),style={'margin-bottom':5, 'margin-left':5})
-cali_map2 = dl.Map(id=MAP_ID, style={'width': '800px', 'height': '400px', 'border':'2px black solid'}, center=[37.219306366090116, -119.66673872628975], zoom=5, children=[
-        dl.TileLayer()
-        ])
-cali_map_div2_container = html.Div(id = 'cal-map2',style={'padding': '10px', 'columnCount': 2}, children=[cali_map2, html.Div(style={'padding':'150px'},children=[cali_map_table2])])
+# Al was here
+month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
+th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=400, label='Probability of Incident')
+
+label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
+cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width': '1050px', 'height': '550px'}, center=[37.219306366090116, -119.66673872628975], zoom=5)
+cali_map_div2_container = html.Div(id = 'cal-map2',style={'columnCount': 2}, children=[cali_map2, th])
 cali_map_div2 = html.Div(id = 'calmap2', children=[label_cali_map2, cali_map_div2_container])
 pred2_container = html.Div(style={'padding':'0px'}, children=[
-    title_cali_map2, month_picker_row2, cali_map_div2
+    month_picker_row2, cali_map_div2
 ])
 
 
@@ -408,40 +414,49 @@ def show_text2(incident_map, lmcounty, lmp1, lmp2):
     elif div_id=='lmp2':
         return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
 
-@app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
-              [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
-def click_coord(e, month):
-    global table_data
-    bad_input = False
-    if e is not None:
-        coordinates = e
-    else:
-        return "-"
+# @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
+#               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
+# def click_coord(e, month):
+#     global table_data
+#     bad_input = False
+#     if e is not None:
+#         coordinates = e
+#     else:
+#         return "-"
 
-    if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
-        bad_input = True
-    if bad_input:
-        coordinates[0] = 'Out of Region'
-        coordinates[1] = 'Out of Region'
-        coordinates.append(calendar.month_name[month])
-        coordinates.append('N/A')
-        df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
-        table_data = table_data.append(df_row, ignore_index=True)
-        table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
-        table_dataa = table_dataa.to_dict('records')
-        return table_dataa
+#     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
+#         bad_input = True
+#     if bad_input:
+#         coordinates[0] = 'Out of Region'
+#         coordinates[1] = 'Out of Region'
+#         coordinates.append(calendar.month_name[month])
+#         coordinates.append('N/A')
+#         df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
+#         table_data = table_data.append(df_row, ignore_index=True)
+#         table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
+#         table_dataa = table_dataa.to_dict('records')
+#         return table_dataa
 
-    coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
+#     coordinates.append(calendar.month_name[month])
+#     coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
     
-    if not coordinates:
-        return table_data.to_dict('records')
+#     if not coordinates:
+#         return table_data.to_dict('records')
 
-    df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
-    table_data = table_data.append(df_row, ignore_index=True)
-    table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
-    table_dataa = table_dataa.to_dict('records')
-    return table_dataa
+#     df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
+#     table_data = table_data.append(df_row, ignore_index=True)
+#     table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
+#     table_dataa = table_dataa.to_dict('records')
+#     return table_dataa
+
+@app.callback([dash.dependencies.Output("layer", "children"), dash.dependencies.Output("th", "value"), dash.dependencies.Output("th", "color")],
+              [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
+def map_click(coordinates, month):
+    # print(coordinates)
+    if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
+        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 1, '#666']
+    val = utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month)
+    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), val, '#ff3300']
 
 # county-map callbacks
 @app.callback(
@@ -474,7 +489,7 @@ def display_pred_data(queried_counties, month):
 def update_cali_map(start_date, end_date):
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
-        zoom=4, height=400, width=800, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
+        zoom=4, height=550, width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
@@ -500,8 +515,8 @@ def update_county_map(start_date, end_date):
     county_map_fig = px.choropleth(
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
-        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='County Incident Frequency', 
-        width=700, height=700
+        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116},
+        width=850, height=550
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
@@ -515,7 +530,7 @@ def update_county_map(start_date, end_date):
 def update_county_pie(start_date, end_date):
     county_pie_fig = px.pie(
         utils.getCountyNumbersDF(data, start_date, end_date), values='Number of County Incidents', names='county',
-        width=700, height=700, title='County Incident Distribution'
+        width=850, height=550
     )
 
     county_pie_fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
@@ -535,7 +550,7 @@ def update_county_prediction(queried_counties, month):
         df, geojson=utils.counties, locations='County', 
         color='Predicted Number of Fires', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, 
-        width=650, height=650, title=f'Number of Predicted Incidents in {calendar.month_name[month]}'
+        width=850, height=550, title=f'{calendar.month_name[month]}'
     )
     # print(month)
     county_pred_fig.update_geos(fitbounds='geojson', visible=False)

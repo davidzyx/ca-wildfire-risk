@@ -22,7 +22,11 @@
 #trend
 {
   margin-top: 0px;
-  background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  background-color: #f2f2f2;
+}
+
+#county_dropdown2{
+  padding-top: 1rem;
 }
 
 .card-img-top{
@@ -41,11 +45,11 @@
 
 .hh
 {
-    border: 0.2rem solid #fff;
+    border-top: 0.2rem solid #fff;
     border-radius: 0rem;
-    color: #25021d;
+    color: white;
     background-color: #1c2e1c;
-    background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
+    /background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);/
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 10px;
@@ -97,49 +101,50 @@
   #pred
   {
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
 
   #month_slider2
   {
     padding-top: 0;
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
  
   #prow
   {
     padding-top: 0;
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
   #calmap
   {
     
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
   #calmap2
   {
-    
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
   #countymap
   {
-    
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
+  #pred
+  {
+    padding: 2rem;
+    background-color: #f2f2f2;
+  }
+
+  #county_dropdown{
+    padding-bottom: 2rem;
+  }
   #cali_map
   {
-    border:2px, black, solid;
+    
   }
 
   #datepicker
