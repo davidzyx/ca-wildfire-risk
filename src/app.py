@@ -319,7 +319,7 @@ month_picker_slider2 = dcc.Slider(
     )
 # Al was here
 month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=450, label='Probability of Incident')
+th = daq.Thermometer(id = 'th', value=0.00, min=0.00, max=100, showCurrentValue=True, width=20, height=450, label='Risk Percentage')
 
 label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
 cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width':'100%', 'height':550}, center=[37.219306366090116, -119.66673872628975], zoom=5)
@@ -462,9 +462,9 @@ def map_click(coordinates, month):
         last_valid = coordinates
 
     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
-        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 1, '#666']
+        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 100, '#666']
     val = utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month)
-    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), val, '#ff3300']
+    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 100*val, '#FF3300']
 
 # county-map callbacks
 @app.callback(
