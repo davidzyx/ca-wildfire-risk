@@ -583,31 +583,17 @@ def update_trend(county, month, year_range):
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
-    global STATE
-    global table_data
-    table_data = pd.DataFrame()
 
-    if STATE == 'START':
-
-        STATE = 'END'
-        return html.Div(children=[prompt_message_container, our_services])
-
-    if STATE == 'END':
-
-        STATE = 'DONE'
-        return html.Div(children=[prompt_message_container, our_services])
-    if pathname == '/' or pathname == None:
-        return html.Div(children=[prompt_message_container, our_services])
-    if pathname == '/home' or pathname == None:
-        return html.Div(children=[prompt_message_container, our_services])
-    elif pathname == '/app1':
+    if pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
         return html.Div(id='app2-div', children=[county_map_div])
     elif pathname == '/app3':
         return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
-        return html.Div(id='app4-div', children=[pred_div2])
+        return html.Div(id='app4-div', children=[pred2_container])
+    else:
+        return html.Div(children=[prompt_message_container, our_services])
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
