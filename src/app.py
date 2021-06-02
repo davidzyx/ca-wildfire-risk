@@ -25,6 +25,8 @@ from dash.exceptions import PreventUpdate
 from pathlib import Path
 import os
 
+last_valid = (32.715736, -117.161087)
+
 colors = {
     'background': '##333',
     'text': '#7FDBFF'
@@ -62,7 +64,7 @@ navbar = html.Div(id='navbar', className='topnav' ,children=[
         html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
         html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
         html.A('County Based Prediction', id='county-based-pred-nav', className="county-based-pred", href='app3'),
-        html.A('Geo Coordinates Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
+        html.A('Geo Location Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
@@ -120,10 +122,10 @@ else:
 
 
 
-cali_map = dcc.Graph(id='cali_map')
-county_map = dcc.Graph(id='county_map')
-county_pie = dcc.Graph(id='county_pie')
-county_prediction = dcc.Graph(id='county_prediction')
+cali_map = dcc.Graph(id='cali_map', style={'width':'100%'})
+county_map = dcc.Graph(id='county_map', style={'width':'100%'})
+county_pie = dcc.Graph(id='county_pie', style={'width':'100%'})
+county_prediction = dcc.Graph(id='county_prediction', style={'width':'100%'})
 
 
 # Building App Layout
@@ -139,10 +141,9 @@ month_picker_row = html.Div(style={'textAlign': 'center', 'padding-bottom':'2rem
 
 cali_map_table = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
         'height': 550,
         'overflowY': 'scroll',
-        'width': 850
+        'width': '100%'
     },
     id='cali_map_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -153,7 +154,7 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
+    columns=[{"name": i, "id": i} for i in ['Incident name' ,'Incident administrative unit', 'Incident location']],
 )
 
 
@@ -161,7 +162,7 @@ pred_table = dash_table.DataTable(
     style_table={
         'height': 550,
         'overflowY': 'scroll',
-        'width': 850
+        'width': '100%'
     },
     id='pred_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -190,7 +191,7 @@ title_pred = html.Div(html.H2('Prediction Based on County & Month',className='hh
 # cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_map_div_container])
 
 
-label_cali_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021 (Note that a small date range is required for full functionality with the select and hovering tools)'))
+label_cali_map = html.Div([html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021'), html.P('(Note that a small date range is required for full functionality with the select and hovering tools)')])
 cali_second_row = html.Div(style={'columnCount': 2}, children=[cali_map, cali_map_table])
 cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_second_row])
 
@@ -290,7 +291,6 @@ MAP_ID = "map-id"
 COORDINATE_CLICK_ID = "coordinate-click-id"
 cali_map_table2 = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
         'height': 500,
         'overflowY': 'scroll',
         'width': 540
@@ -318,10 +318,10 @@ month_picker_slider2 = dcc.Slider(
     )
 # Al was here
 month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=400, label='Probability of Incident')
+th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=450, label='Probability of Incident')
 
 label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
-cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width': '1050px', 'height': '550px'}, center=[37.219306366090116, -119.66673872628975], zoom=5)
+cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width':'100%', 'height':550}, center=[37.219306366090116, -119.66673872628975], zoom=5)
 cali_map_div2_container = html.Div(id = 'cal-map2',style={'columnCount': 2}, children=[cali_map2, th])
 cali_map_div2 = html.Div(id = 'calmap2', children=[label_cali_map2, cali_map_div2_container])
 pred2_container = html.Div(style={'padding':'0px'}, children=[
@@ -343,8 +343,8 @@ app.layout = html.Div(children=[dcc.Location(id='url', refresh=False), header, n
 def show_heading(incident_map, lmcounty, lmp1, lmp2):
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
-    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
-        return ''
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return 'Learn More'
     elif div_id=='incident_map':
         return 'California Incident Map'
     elif div_id=='lmcounty':
@@ -352,7 +352,7 @@ def show_heading(incident_map, lmcounty, lmp1, lmp2):
     elif div_id=='lmp1':
         return 'County Based Prediction'
     elif div_id=='lmp2':
-        return 'Geo Coordinates Based Prediction'
+        return 'Geo Location Based Prediction'
 
 @app.callback(
    dash.dependencies.Output(component_id='desc_subhead', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
@@ -360,10 +360,11 @@ def show_heading(incident_map, lmcounty, lmp1, lmp2):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 
-def show_subheading(incident_map, lmcounty, lmp1, lmp2):
+def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
-    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
         return ''
     elif div_id=='incident_map':
         return 'You can take a grasp of location, size and time of the previous incidents with just a glance'
@@ -380,17 +381,17 @@ def show_subheading(incident_map, lmcounty, lmp1, lmp2):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 
-def show_text1(incident_map, lmcounty, lmp1, lmp2):
+def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
-    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
-        return ''
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return 'Click \"Learn more\" to find out how the different services work'
     elif div_id=='incident_map':
-        return 'For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident'
+        return 'For using this tool, you need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident'
     elif div_id=='lmcounty':
-        return 'For using this tool, you just need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.'
+        return 'For using this tool, you need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.'
     elif div_id=='lmp1':
-        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+        return 'For using this tool, you need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.'
     elif div_id=='lmp2':
         return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
 
@@ -400,17 +401,17 @@ def show_text1(incident_map, lmcounty, lmp1, lmp2):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 
-def show_text2(incident_map, lmcounty, lmp1, lmp2):
+def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
-    if incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0:
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
         return ''
     elif div_id=='incident_map':
         return 'You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'
     elif div_id=='lmcounty':
         return 'A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'
     elif div_id=='lmp1':
-        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
+        return 'The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'
     elif div_id=='lmp2':
         return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
 
@@ -452,7 +453,13 @@ def show_text2(incident_map, lmcounty, lmp1, lmp2):
 @app.callback([dash.dependencies.Output("layer", "children"), dash.dependencies.Output("th", "value"), dash.dependencies.Output("th", "color")],
               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
 def map_click(coordinates, month):
+    global last_valid
     # print(coordinates)
+    if coordinates == None:
+        coordinates = last_valid
+    else:
+        last_valid = coordinates
+
     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
         return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 1, '#666']
     val = utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month)
@@ -489,7 +496,7 @@ def display_pred_data(queried_counties, month):
 def update_cali_map(start_date, end_date):
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
-        zoom=4, height=550, width=850, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
+        zoom=4, height=550, size_max=22,  hover_name="incident_name", hover_data=["incident_county"], 
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
@@ -503,10 +510,6 @@ def update_cali_map(start_date, end_date):
     return fig
 
 
-
-
-
-
 # county-map callbacks
 @app.callback(
     dash.dependencies.Output('county_map', 'figure'),
@@ -516,7 +519,7 @@ def update_county_map(start_date, end_date):
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116},
-        width=850, height=550
+        height=550
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
@@ -530,7 +533,7 @@ def update_county_map(start_date, end_date):
 def update_county_pie(start_date, end_date):
     county_pie_fig = px.pie(
         utils.getCountyNumbersDF(data, start_date, end_date), values='Number of County Incidents', names='county',
-        width=850, height=550
+        height=550
     )
 
     county_pie_fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
@@ -550,7 +553,7 @@ def update_county_prediction(queried_counties, month):
         df, geojson=utils.counties, locations='County', 
         color='Predicted Number of Fires', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, 
-        width=850, height=550, title=f'{calendar.month_name[month]}'
+        height=550, title=f'{calendar.month_name[month]}'
     )
     # print(month)
     county_pred_fig.update_geos(fitbounds='geojson', visible=False)
