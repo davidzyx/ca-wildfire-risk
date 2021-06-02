@@ -154,7 +154,7 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in ["Incident name", "Incident administrative unit", "Incident location"]],
+    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
 )
 
 
@@ -388,13 +388,13 @@ def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
         return 'Click \"Learn more\" to find out how the different services work'
     elif div_id=='incident_map':
-        return 'For using this tool, you need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident'
+        return 'For using this tool, you need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident.'
     elif div_id=='lmcounty':
-        return 'For using this tool, you need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.'
+        return 'For using this tool, you need to set a time range, and the county heat map will be updated. The heat map indicates number of incidents per county.'
     elif div_id=='lmp1':
         return 'For using this tool, you need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.'
     elif div_id=='lmp2':
-        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+        return 'For using this tool, you need to set a month and pick the geo coordinates of the location you are interested in, and the probability of incident and the risk will be shown.'
 
 @app.callback(
    dash.dependencies.Output(component_id='desc_text2', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
@@ -410,11 +410,11 @@ def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     elif div_id=='incident_map':
         return 'You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'
     elif div_id=='lmcounty':
-        return 'A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'
+        return 'A pie chart is provided beside the map, to give the user a general insight of rate of incidents in all counties together.'
     elif div_id=='lmp1':
         return 'The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'
     elif div_id=='lmp2':
-        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
+        return 'A widget with probability of incident will be shown based on the geo coordinates with location pinned in the map.'
 
 # @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
 #               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
@@ -479,7 +479,7 @@ def display_data(selectedData):
         row = data.loc[(data['incident_longitude'] == pt['lon']) & (data['incident_latitude'] == pt['lat'])]
         table_data = table_data.append(row)
 
-    table_data = table_data[["Incident name", "Incident administrative unit", "Incident location"]]
+    table_data = table_data[['incident_name' ,'incident_administrative_unit', 'incident_location']]
     table_data = table_data.to_dict('records')
     return table_data
 
