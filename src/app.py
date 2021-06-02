@@ -583,7 +583,7 @@ def update_trend(county, month, year_range):
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
-
+    
     if pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':
@@ -591,7 +591,7 @@ def display_page(pathname):
     elif pathname == '/app3':
         return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
-        return html.Div(id='app4-div', children=[pred2_container])
+        return html.Div(id='app4-div', children=[pred_div2])
     else:
         return html.Div(children=[prompt_message_container, our_services])
 
