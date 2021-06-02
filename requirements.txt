@@ -11,3 +11,4 @@ selenium
 statsmodels
 sklearn
 dash-leaflet
+dash-daq

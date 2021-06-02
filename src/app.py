@@ -318,7 +318,7 @@ month_picker_slider2 = dcc.Slider(
     )
 # Al was here
 month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=450, label='Probability of Incident')
+th = daq.Thermometer(id = 'th', value=0.00, min=0.00, max=100, showCurrentValue=True, width=20, height=450, label='Risk Percentage')
 
 label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
 cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width':'100%', 'height':550}, center=[37.219306366090116, -119.66673872628975], zoom=5)
@@ -393,7 +393,7 @@ def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     elif div_id=='lmp1':
         return 'For using this tool, you need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.'
     elif div_id=='lmp2':
-        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+        return 'For using this tool, you need to set a month and geo coordinates of the location you are interested in, and the probability of incident and the risk will be shown.'
 
 @app.callback(
    dash.dependencies.Output(component_id='desc_text2', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
@@ -413,7 +413,7 @@ def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     elif div_id=='lmp1':
         return 'The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'
     elif div_id=='lmp2':
-        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
+        return 'A widget with probability of incident will be shown based on the geo coordinates with location pinned in the map'
 
 # @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
 #               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
@@ -461,9 +461,9 @@ def map_click(coordinates, month):
         last_valid = coordinates
 
     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
-        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 1, '#666']
+        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 100, '#666']
     val = utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month)
-    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), val, '#ff3300']
+    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 100*val, '#ff3300']
 
 # county-map callbacks
 @app.callback(
