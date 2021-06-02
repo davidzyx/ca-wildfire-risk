@@ -154,7 +154,7 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
+    columns=[{"name": i, "id": i} for i in ["Incident name", "Incident administrative unit", "Incident location"]],
 )
 
 
@@ -478,7 +478,7 @@ def display_data(selectedData):
         row = data.loc[(data['incident_longitude'] == pt['lon']) & (data['incident_latitude'] == pt['lat'])]
         table_data = table_data.append(row)
 
-    table_data = table_data[["incident_name", "incident_administrative_unit", "incident_location"]]
+    table_data = table_data[["Incident name", "Incident administrative unit", "Incident location"]]
     table_data = table_data.to_dict('records')
     return table_data
 
