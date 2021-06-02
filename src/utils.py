@@ -367,4 +367,4 @@ def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat
     prob = geo_model(model[0], all_features)
     print(f'probability of wildfire: {1-prob}')
 
-    return prob
+    return 1-prob
