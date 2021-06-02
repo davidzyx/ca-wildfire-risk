@@ -11,6 +11,7 @@ import dash_html_components as html
 import plotly.express as px
 import numpy as np
 import dash_table
+import dash_daq as daq
 
 from src import utils
 # import utils
@@ -23,6 +24,8 @@ import dash_leaflet as dl
 from dash.exceptions import PreventUpdate
 from pathlib import Path
 import os
+
+last_valid = (32.715736, -117.161087)
 
 colors = {
     'background': '##333',
@@ -61,11 +64,11 @@ navbar = html.Div(id='navbar', className='topnav' ,children=[
         html.A('California Incident Map', id='cali-map-nav', className="cali-map", href='app1'),
         html.A('County Incident Map', id='county-map-nav', className="county-map", href='app2'), 
         html.A('County Based Prediction', id='county-based-pred-nav', className="county-based-pred", href='app3'),
-        html.A('Geo Coordinates Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
+        html.A('Geo Location Based Prediction', id='geo-based-pred-nav', className="geo-based-pred", href='app4')
 ])
 
 date_picker_widget = dcc.DatePickerRange(
-        style={'border':'2px black solid'},
+        style={'margin-bottom': '2rem'},
         id='date_picker',
         min_date_allowed=min_date,
         max_date_allowed=max_date,
@@ -119,10 +122,10 @@ else:
 
 
 
-cali_map = dcc.Graph(id='cali_map')
-county_map = dcc.Graph(id='county_map')
-county_pie = dcc.Graph(id='county_pie')
-county_prediction = dcc.Graph(id='county_prediction')
+cali_map = dcc.Graph(id='cali_map', style={'width':'100%'})
+county_map = dcc.Graph(id='county_map', style={'width':'100%'})
+county_pie = dcc.Graph(id='county_pie', style={'width':'100%'})
+county_prediction = dcc.Graph(id='county_prediction', style={'width':'100%'})
 
 
 # Building App Layout
@@ -130,18 +133,17 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 header = html.Div(id='header', style={'backgroundColor':colors['background']} ,children=[
         html.H1(children='California Wildfire Interactive Dashboard', className='main-title'),
     ])
-county_map_div = html.Div(id='county_map_div', style={'textAlign': 'center'}, children=county_map)
-county_pie_div = html.Div(id='county_pie_div', style={'textAlign': 'center'}, children=county_pie)
+county_map_div = html.Div(id='county_map_div', style={'border':'2px #f2f2f2 solid'}, children=[html.H4('County Incident Frequency'),county_map])
+county_pie_div = html.Div(id='county_pie_div', style={'border':'2px #f2f2f2 solid'}, children=[html.H4('County Incident Distribution'),county_pie])
 
-date_picker_row = html.Div(id='datepicker', style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Filter by Date:'), date_picker_widget])
-month_picker_row = html.Div(style={'textAlign': 'center', 'padding': '4px'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
+date_picker_row = html.Div(id='datepicker', style={'padding': '1 rem'}, children=[html.Div(children=[html.P(html.Strong('Filter by Date'))]), date_picker_widget])
+month_picker_row = html.Div(style={'textAlign': 'center', 'padding-bottom':'2rem'}, children=[html.Div(children='Query a Month:'), month_picker_slider])
 
 cali_map_table = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
-        'height': 500,
+        'height': 550,
         'overflowY': 'scroll',
-        'width': 540
+        'width': '100%'
     },
     id='cali_map_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -152,16 +154,15 @@ cali_map_table = dash_table.DataTable(
         'height': 'auto',
         'textAlign': 'left'
     },
-    columns=[{"name": i, "id": i} for i in ['incident_name' ,'incident_administrative_unit', 'incident_location']],
+    columns=[{"name": i, "id": i} for i in ["Incident name", "Incident administrative unit", "Incident location"]],
 )
 
 
 pred_table = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
-        'height': 700,
+        'height': 550,
         'overflowY': 'scroll',
-        'width': 300
+        'width': '100%'
     },
     id='pred_table',
     style_header={'backgroundColor': '#04AA6D'},
@@ -175,33 +176,39 @@ pred_table = dash_table.DataTable(
     columns=[{"name": i, "id": i} for i in ['County', 'Predicted Number of Fires']],
 )
 
-fire_trend = dcc.Graph(id='fire-trend', style={'border':'2px black solid'})
-trend_picker = html.Div(children = [range_slider, county_dropdown2], style={'color':'#04AA6D'})
-label_trend = html.Div(html.Label('Please choose your preferred time range:'),style={'margin-bottom':0})
+fire_trend = dcc.Graph(id='fire-trend')
+trend_picker = html.Div(children = [range_slider, county_dropdown2], style={'color':'#04AA6D', 'padding-top':'1rem','padding-bottom':'2rem'})
+label_trend = html.Div(html.H3('Please choose your preferred time range'))
 title_trend = html.Div(html.H2('How is the incident trend in past years? ', className='hh'),style={'margin-bottom':0})
 trend_container = html.Div(children=[label_trend, trend_picker, fire_trend], style={'padding': '10px'})
 fire_trend_div = html.Div(id='trend', style={'padding': '0px', 'columnCount': 1}, children=[title_trend ,trend_container])
 title_pred = html.Div(html.H2('Prediction Based on County & Month',className='hh'),style={'margin-bottom':10})
 
-title_cali_map = html.Div(html.H2('Incidents on California map with Size, Date and Location', className='hh'),style={'margin-bottom':0})
-label_cali_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021 (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
-cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, html.Div(style={'padding':'150px'},children=[cali_map_table])])
-cali_map_div = html.Div(id = 'calmap', children=[title_cali_map, label_cali_map, date_picker_row, cali_map_div_container])
+# title_cali_map = html.Div(html.H2('Incidents on California map with Size, Date and Location', className='hh'),style={'margin-bottom':0})
+# label_cali_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021 (Note that a small date range is required for full functionality with the select and hovering tools):'),style={'margin-bottom':5, 'margin-left':5})
+# cali_map_div_container = html.Div(id = 'cal-map',style={'padding': '10px', 'columnCount': 2}, children=[cali_map, 
+# html.Div(children=[cali_map_table])])
+# cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_map_div_container])
 
-title_county_map = html.Div(html.H2('Incidents in California by County', className='hh'),style={'margin-bottom':0})
-label_county_map = html.Div(html.Label('Please choose your preferred date range between 02/28/2013 and 01/22/2021:'),style={'margin-bottom':5, 'margin-left':5})
+
+label_cali_map = html.Div([html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021'), html.P('(Note that a small date range is required for full functionality with the select and hovering tools)')])
+cali_second_row = html.Div(style={'columnCount': 2}, children=[cali_map, cali_map_table])
+cali_map_div = html.Div(id = 'calmap', children=[label_cali_map, date_picker_row, cali_second_row])
+
+
+label_county_map = html.Div(html.H3('Please choose your preferred date range between 02-28-2013 and 01-22-2021'))
 second_row = html.Div(style={'columnCount': 2}, children=[county_map_div, county_pie_div])
-county_map_div = html.Div(id = 'countymap', children=[title_county_map, label_county_map, date_picker_row, second_row])
+county_map_div = html.Div(id = 'countymap', children=[label_county_map, date_picker_row, second_row])
 
-pred_graph_div_container = html.Div(id = 'pred-map',style={'padding': '10px', 'columnCount': 2}, children=[county_prediction, html.Div(style={'padding':'150px'},children=[pred_table])])
-pred_div_container = html.Div(children=[month_picker_row, county_dropdown, pred_graph_div_container])
-pred_div = html.Div(id = 'pred' ,style={'padding': '0px', 'columnCount': 1}, children=[title_pred ,pred_div_container])
+pred_graph_div_container = html.Div(id = 'pred-map', children=[county_prediction])
+pred_div_container = html.Div(style={'columnCount': 2}, children=[pred_graph_div_container, pred_table])
+pred_div = html.Div(id = 'pred', children=[month_picker_row, county_dropdown, html.H3(className='county_graph_title',children=[f'Number of Predicted Incidents']), pred_div_container])
 
 
 # Home Page
 # https://www.w3schools.com/
 prompt_message_container = html.Div(className='prompt', children=[
-    html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
+    # html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
     html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
         html.Span(className='heading-primary-main', children='Looking for a tool to analyze California Wildfires ?'),
         html.Span(className='heading-primary-sub', children='You are in the right place!')
@@ -219,92 +226,72 @@ learn_more_container_1 = html.Div(className='about-section', children=[
 
 learn_more_services = html.H2(className='services-header', style='text-align:center', children='Our Services')
 
-learn_more_container_2 = html.Div(className='row', children=[
-    html.Div(className='column', children=[
+learn_more_container_2 = html.Div(className='row', style={'padding':'2rem'}, children=[
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
         html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p1.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('California Incident Map', className='services-header'),
+            html.Img(src=app.get_asset_url('p1.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('California Incident Map', className='card-title'),
                 html.P(className='title', children='Data Visualization & Inspection'),
-                html.P('This service provides tools for the user to inspect the location of incidents on a California map.'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmcali'))
+                html.P(className='card-text',children='This service provides tools for the user to inspect the location of incidents on a California map.'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', id='incident_map', children='Learn More', href='#desc_text2')),
             ])
+    ]),
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p2.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('County Incident Map', className='card-title'),
+                html.P(className='title', children='Data Visualization & Inspection'),
+                html.P(className='card-text',children='This tool provide visuals for the user to inspect county incidents more closely'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmcounty', href='#desc_text2'))
         ])
     ]),
-    html.Div(className='column', children=[
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
         html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p2.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('County Incident Map', className='services-header'),
-                html.P(className='title', children='Data Visualization & Inspection'),
-                html.P('This tool provide visuals for the user to inspect county incidents more closely'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmcounty'))
-            ])
-        ])
-    ]),
-    html.Div(className='column', children=[
-        html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p3.png'), className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('County Based Prediction', className='services-header'),
+            html.Img(src=app.get_asset_url('p3.png'), className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('Prediction - County wise', className='card-title'),
                 html.P(className='title', children='Analysis & Prediction'),
-                html.P('Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmp1'))
-            ])
+                html.P(className='card-text',children='Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmp1', href='#desc_text2'))
         ])
     ]),
+    html.Div(className='col-md-3 d-flex align-items-stretch', children=[
+        html.Div(className='card', children=[
+            html.Img(src=app.get_asset_url('p4.png'), alt='Jane', className='card-img-top'),
+            html.Div(className='card-body', children=[
+                html.H3('Predictions - Geo Location', className='card-title'),
+                html.P(className='title', children='Analysis & Prediction'),
+                html.P(className='card-text',children='This model generates a probability for an incident, based on the user desired lon/lat and time'),
+            ]),
+            html.P(className='card-footer',children=html.A(className='button', children='Learn More', id='lmp2', href='#desc_text2'))
+        ])
+    ])
     
 ])
 
 second_row_service = html.Div(className='row', children=[
-    html.Div(className='column', children=[
-        html.Div(className='card', children=[
-            html.Img(src=app.get_asset_url('p4.png'), alt='Jane', className='service-images'),
-            html.Div(className='containerr', children=[
-                html.H2('Geo Coordinates Based Prediction', className='services-header'),
-                html.P(className='title', children='Analysis & Prediction'),
-                html.P('This model generates a probability for an incident, based on the user desired lon/lat and time'),
-                html.P(children=html.A(className='button', children='Learn More', href='#lmp2'))
-            ])
-        ])
+    html.Div(style={'padding': '1rem 3rem', 'background-color': '#333', 'color':'white'},children=[
+        html.H2(id='desc_heading', className='desc_heading', children=["Learn More"]),
+        html.P(id='desc_subhead', className='desc_subhead'),
+    ]),
+    html.Div(style={'padding': '1rem 3rem', 'background-color': '#d8f3d8'},children=[
+        html.Br(),
+        html.P(id='desc_text1', children=["Click \"Learn more\" to find out how the different services work"]),
+        html.P(id='desc_text2', children=[''])
     ])
 ])
 
 our_services = html.Div(id='services', children=[learn_more_container_1, learn_more_services, learn_more_container_2, second_row_service])
 
-more_on_cali_map = html.Div(id='lmcali', className='more-on-cali-map', children=[
-    html.H2(className='more-on-cali-head', children=['California Incident Map']),
-    html.H3(className='more-on-cali-subhead', children=['You can take a grasp of location, size and time of the previous incidents with just a glance!']),
-    html.P(className='more-on-cali-p', children=['For using this tool, you just need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident']),
-    html.P(className='more-on-cali-p', children=['You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'])
-])
-
-more_on_county_map = html.Div(id='lmcounty', className='more-on-county-map', children=[
-    html.H2(className='more-on-county-head', children=['County Incident Map']),
-    html.H3(className='more-on-county-subhead', children=['If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.']),
-    html.P(className='more-on-county-p', children=['For using this tool, you just need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.']),
-    html.P(className='more-on-county-p', children=['A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'])
-])
-
-more_on_pred1 = html.Div(id='lmp1',className='more-on-pred1', children=[
-    html.H2(className='more-on-pred1-head', children=['County Based Prediction']),
-    html.H3(className='more-on-pred1-subhead', children=['If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help']),
-    html.P(className='more-on-pred1-p', children=['For using this tool, you just need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.']),
-    html.P(className='more-on-pred1-p', children=['The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'])
-])
-
-more_on_pred2 = html.Div(id='lmp2',className='more-on-pred2', children=[
-    html.H2(className='more-on-pred2-head', children=['Geo Coordinates Based Prediction']),
-    html.H3(className='more-on-pred2-subhead', children=['After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool']),
-    html.P(className='more-on-pred2-p', children=['HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)']),
-    html.P(className='more-on-pred2-p', children=['HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'])
-])
-
 MAP_ID = "map-id"
 COORDINATE_CLICK_ID = "coordinate-click-id"
 cali_map_table2 = dash_table.DataTable(
     style_table={
-        'border':'2px black solid',
         'height': 500,
         'overflowY': 'scroll',
         'width': 540
@@ -330,58 +317,154 @@ month_picker_slider2 = dcc.Slider(
         step=1,
         value=1,
     )
-month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding': '4px', 'margin-top': '0px'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
-title_cali_map2 = html.Div(html.H2('Prediction Based on Chosen Longitude and Latitude', className='hh'),style={'margin-bottom':0})
-label_cali_map2 = html.Div(html.Label('Please pick a point from the map below:'),style={'margin-bottom':5, 'margin-left':5})
-cali_map2 = dl.Map(id=MAP_ID, style={'width': '800px', 'height': '400px', 'border':'2px black solid'}, center=[37.219306366090116, -119.66673872628975], zoom=5, children=[
-        dl.TileLayer()
-        ])
-cali_map_div2_container = html.Div(id = 'cal-map2',style={'padding': '10px', 'columnCount': 2}, children=[cali_map2, html.Div(style={'padding':'150px'},children=[cali_map_table2])])
+# Al was here
+month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
+th = daq.Thermometer(id = 'th', value=0, min=0, max=1, showCurrentValue=True, width=20, height=450, label='Probability of Incident')
+
+label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
+cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width':'100%', 'height':550}, center=[37.219306366090116, -119.66673872628975], zoom=5)
+cali_map_div2_container = html.Div(id = 'cal-map2',style={'columnCount': 2}, children=[cali_map2, th])
 cali_map_div2 = html.Div(id = 'calmap2', children=[label_cali_map2, cali_map_div2_container])
 pred2_container = html.Div(style={'padding':'0px'}, children=[
-    title_cali_map2, month_picker_row2, cali_map_div2
+    month_picker_row2, cali_map_div2
 ])
 
 
 app.title = 'Cal Fire Dashboard'
 
 
-app.layout = html.Div(style={'border':'2px black solid'},children=[dcc.Location(id='url', refresh=False), header, navbar, html.Div(id='page-content', children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])])
+app.layout = html.Div(children=[dcc.Location(id='url', refresh=False), header, navbar, html.Div(id='page-content', children=[prompt_message_container, our_services])])
 
-@app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
+@app.callback(
+   dash.dependencies.Output(component_id='desc_heading', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_heading(incident_map, lmcounty, lmp1, lmp2):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return 'Learn More'
+    elif div_id=='incident_map':
+        return 'California Incident Map'
+    elif div_id=='lmcounty':
+        return 'County Incident Map'
+    elif div_id=='lmp1':
+        return 'County Based Prediction'
+    elif div_id=='lmp2':
+        return 'Geo Location Based Prediction'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_subhead', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return ''
+    elif div_id=='incident_map':
+        return 'You can take a grasp of location, size and time of the previous incidents with just a glance'
+    elif div_id=='lmcounty':
+        return 'If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.'
+    elif div_id=='lmp1':
+        return 'If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help'
+    elif div_id=='lmp2':
+        return 'After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_text1', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return 'Click \"Learn more\" to find out how the different services work'
+    elif div_id=='incident_map':
+        return 'For using this tool, you need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident'
+    elif div_id=='lmcounty':
+        return 'For using this tool, you need to set a time range, and the county heat map will be updated. the heat map indicates number of incidents per county.'
+    elif div_id=='lmp1':
+        return 'For using this tool, you need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.'
+    elif div_id=='lmp2':
+        return 'HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)  HOW THE PREDICTIVE MODEL WORKS (TO BE COMPLETED)'
+
+@app.callback(
+   dash.dependencies.Output(component_id='desc_text2', component_property='children'), [dash.dependencies.Input('incident_map', 'n_clicks'),
+   dash.dependencies.Input('lmcounty', 'n_clicks'),
+   dash.dependencies.Input('lmp1', 'n_clicks'),
+   dash.dependencies.Input('lmp2', 'n_clicks')])
+
+def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    ctx = dash.callback_context
+    div_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
+        return ''
+    elif div_id=='incident_map':
+        return 'You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.'
+    elif div_id=='lmcounty':
+        return 'A pie chart is provided beside the map, to give  the user a general insight of rate of incidents in all counties together.'
+    elif div_id=='lmp1':
+        return 'The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.'
+    elif div_id=='lmp2':
+        return 'HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY) HOW IT IS GONNA HELP USER  (BASED ON USER STORY)  HOW IT IS GONNA HELP USER  (BASED ON USER STORY)'
+
+# @app.callback(dash.dependencies.Output(COORDINATE_CLICK_ID, 'data'),
+#               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
+# def click_coord(e, month):
+#     global table_data
+#     bad_input = False
+#     if e is not None:
+#         coordinates = e
+#     else:
+#         return "-"
+
+#     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
+#         bad_input = True
+#     if bad_input:
+#         coordinates[0] = 'Out of Region'
+#         coordinates[1] = 'Out of Region'
+#         coordinates.append(calendar.month_name[month])
+#         coordinates.append('N/A')
+#         df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
+#         table_data = table_data.append(df_row, ignore_index=True)
+#         table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
+#         table_dataa = table_dataa.to_dict('records')
+#         return table_dataa
+
+#     coordinates.append(calendar.month_name[month])
+#     coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
+    
+#     if not coordinates:
+#         return table_data.to_dict('records')
+
+#     df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
+#     table_data = table_data.append(df_row, ignore_index=True)
+#     table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
+#     table_dataa = table_dataa.to_dict('records')
+#     return table_dataa
+
+@app.callback([dash.dependencies.Output("layer", "children"), dash.dependencies.Output("th", "value"), dash.dependencies.Output("th", "color")],
               [dash.dependencies.Input(MAP_ID, 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
-def click_coord(e, month):
-    global table_data
-    bad_input = False
-    if e is not None:
-        coordinates = e
+def map_click(coordinates, month):
+    global last_valid
+    # print(coordinates)
+    if coordinates == None:
+        coordinates = last_valid
     else:
-        return "-"
+        last_valid = coordinates
 
     if coordinates[0] < 32.534156 or coordinates[0] > 42.009518 or coordinates[1] <-124.409591 or coordinates[1] > -114.131211:
-        bad_input = True
-    if bad_input:
-        coordinates[0] = 'Out of Region'
-        coordinates[1] = 'Out of Region'
-        coordinates.append(calendar.month_name[month])
-        coordinates.append('N/A')
-        df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
-        table_data = table_data.append(df_row, ignore_index=True)
-        table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
-        table_dataa = table_dataa.to_dict('records')
-        return table_dataa
-
-    coordinates.append(calendar.month_name[month])
-    coordinates.append(utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month))
-    
-    if not coordinates:
-        return table_data.to_dict('records')
-
-    df_row = pd.DataFrame([coordinates], columns = ['Longitude' ,'Latitude', 'Month', 'Probability of Incident'])
-    table_data = table_data.append(df_row, ignore_index=True)
-    table_dataa = table_data[['Longitude' ,'Latitude', 'Month', 'Probability of Incident']]
-    table_dataa = table_dataa.to_dict('records')
-    return table_dataa
+        return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), 1, '#666']
+    val = utils.pred_func_geo(geo_all_data, geo_county_coordinates, geo_model, geo_encodings, geo_extreames, coordinates[0], coordinates[1], month)
+    return [dl.Marker(position=coordinates, children=dl.Tooltip("({:.3f}, {:.3f})".format(*coordinates))), val, '#ff3300']
 
 # county-map callbacks
 @app.callback(
@@ -396,7 +479,7 @@ def display_data(selectedData):
         row = data.loc[(data['incident_longitude'] == pt['lon']) & (data['incident_latitude'] == pt['lat'])]
         table_data = table_data.append(row)
 
-    table_data = table_data[["incident_name", "incident_administrative_unit", "incident_location"]]
+    table_data = table_data[["Incident name", "Incident administrative unit", "Incident location"]]
     table_data = table_data.to_dict('records')
     return table_data
 
@@ -414,7 +497,7 @@ def display_pred_data(queried_counties, month):
 def update_cali_map(start_date, end_date):
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
-        zoom=4, height=400, width=800, size_max=22,  hover_name="incident_name", 
+        zoom=4, height=550, size_max=22,  hover_name="incident_name", 
         color_discrete_sequence=['red'], center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='Wildfires Incident Map',
     )
 
@@ -428,10 +511,6 @@ def update_cali_map(start_date, end_date):
     return fig
 
 
-
-
-
-
 # county-map callbacks
 @app.callback(
     dash.dependencies.Output('county_map', 'figure'),
@@ -440,8 +519,8 @@ def update_county_map(start_date, end_date):
     county_map_fig = px.choropleth(
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
-        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116}, title='County Incident Frequency', 
-        width=700, height=700
+        color_continuous_scale=px.colors.sequential.Reds, center={'lon':-119.66673872628975, 'lat':37.219306366090116},
+        height=550
     )
 
     county_map_fig.update_geos(fitbounds='geojson', visible=False)
@@ -455,7 +534,7 @@ def update_county_map(start_date, end_date):
 def update_county_pie(start_date, end_date):
     county_pie_fig = px.pie(
         utils.getCountyNumbersDF(data, start_date, end_date), values='Number of County Incidents', names='county',
-        width=700, height=700, title='County Incident Distribution'
+        height=550
     )
 
     county_pie_fig.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
@@ -475,7 +554,7 @@ def update_county_prediction(queried_counties, month):
         df, geojson=utils.counties, locations='County', 
         color='Predicted Number of Fires', featureidkey='properties.name', projection="mercator", 
         color_continuous_scale=px.colors.sequential.Reds, 
-        width=650, height=650, title=f'Number of Predicted Incidents in {calendar.month_name[month]}'
+        height=550, title=f'{calendar.month_name[month]}'
     )
     # print(month)
     county_pred_fig.update_geos(fitbounds='geojson', visible=False)
@@ -513,15 +592,16 @@ def display_page(pathname):
     if STATE == 'START':
 
         STATE = 'END'
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
+        return html.Div(children=[prompt_message_container, our_services])
 
     if STATE == 'END':
 
         STATE = 'DONE'
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
-
+        return html.Div(children=[prompt_message_container, our_services])
+    if pathname == '/' or pathname == None:
+        return html.Div(children=[prompt_message_container, our_services])
     if pathname == '/home' or pathname == None:
-        return html.Div(children=[prompt_message_container, our_services, more_on_cali_map, more_on_county_map,  more_on_pred1, more_on_pred2])
+        return html.Div(children=[prompt_message_container, our_services])
     elif pathname == '/app1':
         return html.Div(id='app1-div', children=[cali_map_div])
     elif pathname == '/app2':

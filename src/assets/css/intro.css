@@ -1,44 +1,42 @@
 /* https://css-tricks.com/ */
 .main-title
 {
-
-    color: #85066a;
-    border: 0.2rem solid #fff;
-    border-radius: 0rem;
-    padding: 0.4em;
-    box-shadow: 0 0 .2rem #fff,
-                0 0 .2rem #fff,
-                0 0 2rem #85066a,
-                0 0 0.8rem #85066a,
-                0 0 2.8rem #85066a,
-                inset 0 0 1.3rem #85066a;
-    text-shadow:
-      0 0 7px #85066a,
-      0 0 10px #85066a,
-      0 0 21px #85066a,
-      0 0 42px #0fa,
-      0 0 82px #0fa,
-      0 0 92px #0fa,
-      0 0 102px #0fa,
-      0 0 151px #0fa;
-    background-color: #333;
-    padding-bottom: 30px;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #04AA6D;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-    
+  color: #04AA6D;
+  border-bottom: 0.2rem solid #fff;
+  padding: 1rem;
+  background-color: #333;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;   
 }
 
+.desc_heading
+{
+  font-weight: bold;
+  color: white;
+}
+
+.desc_subhead{
+  font-size: 18px;
+}
 
 #trend
 {
   margin-top: 0px;
-  background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+  background-color: #f2f2f2;
 }
 
+#county_dropdown2{
+  padding-top: 1rem;
+}
+
+.card-img-top{
+  max-height: 257px;
+}
+
+.col-md-3{
+  padding:2rem;
+}
 
 #header
 {
@@ -48,11 +46,11 @@
 
 .hh
 {
-    border: 0.2rem solid #fff;
+    border-top: 0.2rem solid #fff;
     border-radius: 0rem;
-    color: #25021d;
+    color: white;
     background-color: #1c2e1c;
-    background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);
+    /background-image: linear-gradient(to right, #449b44 , #449b97, #85066a);/
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 10px;
@@ -104,49 +102,50 @@
   #pred
   {
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
 
   #month_slider2
   {
     padding-top: 0;
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
  
   #prow
   {
     padding-top: 0;
     margin-top: 0px;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
   }
   #calmap
   {
     
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
   #calmap2
   {
-    
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
   #countymap
   {
-    
-    margin-top: 0px;
-    border:2px, black, solid;
-    background-image: linear-gradient(to right, #ada996 , #f2f2f2, #dbdbdb, #eaeaea);
+    padding: 2rem;
+    background-color: #f2f2f2;
   }
 
+  #pred
+  {
+    padding: 2rem;
+    background-color: #f2f2f2;
+  }
+
+  #county_dropdown{
+    padding-bottom: 2rem;
+  }
   #cali_map
   {
-    border:2px, black, solid;
+    
   }
 
   #datepicker
@@ -222,19 +221,11 @@
 } */
 
 .prompt {
-  animation: fadeIn 2s ease;
   height: 100vh;
-  background-image: 
-  linear-gradient(to right bottom, 
-   rgba(76, 216, 255, 0.8),
-   rgba(217, 114, 30, 0.8)),
-   url('https://images.pexels.com/photos/51951/forest-fire-fire-smoke-conservation-51951.jpeg?cs=srgb&dl=pexels-pixabay-51951.jpg&fm=jpg');
-  
-background-size: cover;
+  background-image: url('../images/background.jpg');
+  background-size: cover;
   background-position: top;
   position: relative;
-
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
 .brand-box {
@@ -345,22 +336,20 @@ html {
 
 .column {
   float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+  width: 25%;
+  padding: 2rem;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-  background-color: #ffdbf7;
+  background-color: #d8f3d8;
+  border: 3px solid #257425;
+  padding: 1rem;
 }
 
 .about-section {
-  padding: 50px;
+  padding: 1rem;
   text-align: center;
-  background-color: #474e5d;
-  color: white;
+  color: black;
 }
 
 
@@ -377,7 +366,7 @@ html {
 .service-images
 {
   width: 100%;
-  height:10cm;
+  height: 250px
 }
 
 .containerr::after, .row::after {
@@ -387,19 +376,22 @@ html {
 }
 
 .title {
-  color: grey;
+  color: black;
+  font-weight: bold;
 }
 
 .button {
   border: none;
   outline: 0;
   display: inline-block;
-  padding: 8px;
+  padding: 0.8rem;
   color: white;
-  background-color: #000;
+  background-color: #1e621e;
   text-align: center;
   cursor: pointer;
   width: 100%;
+  text-decoration: None;
+  font-weight: bold;
 }
 
 .button:hover {
