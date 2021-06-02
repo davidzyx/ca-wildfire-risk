@@ -318,17 +318,15 @@ month_picker_slider2 = dcc.Slider(
         value=1,
     )
 # Al was here
-month_picker_row2 = html.Div(id = 'prow', style={'textAlign': 'center', 'padding-top': '2rem', 'padding-bottom':'3rem'}, children=[html.Div(id='prow', children='Query a Month:'), month_picker_slider2])
+month_picker_row2 = html.Div(style={'textAlign': 'center', 'padding-bottom':'2rem'}, children=[html.Div(children='Query a Month:'), month_picker_slider2])
 th = daq.Thermometer(id = 'th', value=0.00, min=0.00, max=100, showCurrentValue=True, width=20, height=450, label='Risk Percentage')
 
-label_cali_map2 = html.Div(html.H3('Please pick a point from the map below'),style={'margin-bottom':5, 'margin-left':5})
+label_cali_map2 = html.Div(html.H3(''),style={'margin-bottom':5, 'margin-left':5})
 cali_map2 = dl.Map([dl.TileLayer(), dl.LayerGroup(id="layer")], id=MAP_ID, style={'width':'100%', 'height':550}, center=[37.219306366090116, -119.66673872628975], zoom=5)
 cali_map_div2_container = html.Div(id = 'cal-map2',style={'columnCount': 2}, children=[cali_map2, th])
 cali_map_div2 = html.Div(id = 'calmap2', children=[label_cali_map2, cali_map_div2_container])
-pred2_container = html.Div(style={'padding':'0px'}, children=[
-    month_picker_row2, cali_map_div2
-])
 
+pred_div2 = html.Div(id = 'pred', children=[month_picker_row2, html.H3(className='county_graph_title',children=[f'Please pick a point from the map below']), cali_map_div2])
 
 app.title = 'Cal Fire Dashboard'
 
@@ -609,7 +607,7 @@ def display_page(pathname):
     elif pathname == '/app3':
         return html.Div(id='app3-div', children=[pred_div, fire_trend_div])
     elif pathname == '/app4':
-        return html.Div(id='app4-div', children=[pred2_container])
+        return html.Div(id='app4-div', children=[pred_div2])
 
 if __name__ == '__main__':
     #Running App (Port 8050 by default)
