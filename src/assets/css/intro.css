@@ -138,10 +138,6 @@
   #county_dropdown{
     padding-bottom: 2rem;
   }
-  #cali_map
-  {
-    
-  }
 
   #datepicker
   {
@@ -206,14 +202,6 @@
     opacity: 1;
   }
 }
-
-/* body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgb(9, 119, 9);
-} */
 
 .prompt {
   height: 100vh;

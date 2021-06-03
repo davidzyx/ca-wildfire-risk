@@ -89,7 +89,6 @@ header = html.Div(id='header', style={'backgroundColor':colors['background']}, c
 
 # Home Page - referenced https://www.w3schools.com/
 prompt_message_container = html.Div(className='prompt', children=[
-    # html.Div(className='brand-box', children=[html.Span(className='brand', children='ECE 229 - Spring 2021')]),
     html.Div(className='text-box', children=[html.H1(className='heading-primary', children=[
         html.Span(className='heading-primary-main', children='Looking for a tool to analyze California Wildfires ?'),
         html.Span(className='heading-primary-sub', children='You are in the right place!')
