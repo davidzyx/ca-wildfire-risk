@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>utils &mdash; CA_Wildfire 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../County_based_prediction.html">County Based Predictions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">name</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">dash_html_components.Tr</span> <span class="kn">import</span> <span class="n">Tr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/california-counties.geojson&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">counties</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">unique_ca_counties</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">counties</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]:</span>
+    <span class="n">unique_ca_counties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+<span class="n">ca_counties_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unique_ca_counties</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getCountyNumbersDF</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a new pandas dataframe with county incident numbers from a specific date range.</span>
+
+<span class="sd">    :param data: the original dataframe from the Calfire csv</span>
+<span class="sd">    :type data: pandas DF</span>
+<span class="sd">    :param start_date: the start date which we are filtering by</span>
+<span class="sd">    :type start_date: datetime object</span>
+<span class="sd">    :param end_date: the end date which we are filtering by</span>
+<span class="sd">    :type end_date: datetime object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">tmp_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)]</span>
+
+    <span class="n">county_numbers</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">counties_in_range</span> <span class="o">=</span> <span class="n">tmp_df</span><span class="p">[</span><span class="s1">&#39;incident_county&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">affected_counties</span> <span class="ow">in</span> <span class="n">counties_in_range</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">affected_counties</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span> <span class="c1"># check if nan</span>
+            <span class="k">continue</span>
+
+        <span class="n">split_counties</span> <span class="o">=</span> <span class="n">affected_counties</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">split_county</span> <span class="ow">in</span> <span class="n">split_counties</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">split_county</span> <span class="ow">in</span> <span class="n">unique_ca_counties</span><span class="p">:</span>
+                <span class="n">county_numbers</span><span class="p">[</span><span class="n">split_county</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;county&#39;</span><span class="p">:</span> <span class="n">county_numbers</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="s1">&#39;Number of County Incidents&#39;</span><span class="p">:</span> <span class="n">county_numbers</span><span class="o">.</span><span class="n">values</span><span class="p">()})</span>
+
+<div class="viewcode-block" id="get_single_CountyPrediction"><a class="viewcode-back" href="../County_based_prediction.html#utils.get_single_CountyPrediction">[docs]</a><span class="k">def</span> <span class="nf">get_single_CountyPrediction</span><span class="p">(</span><span class="n">queried_county</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;running&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a new pandas dataframe with predicted county incident numbers for a specific month</span>
+
+<span class="sd">    :param queried_counties: the counties that are being queried</span>
+<span class="sd">    :type queried_counties: str</span>
+<span class="sd">    :type month: str</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">queried_county</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">queried_county</span> <span class="ow">in</span> <span class="n">unique_ca_counties</span>
+    <span class="k">assert</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;running&#39;</span><span class="p">,</span> <span class="s1">&#39;eval&#39;</span><span class="p">]</span>
+    
+
+    <span class="c1"># select different mode</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/fire_occurrances_data.csv&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;running&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;eval&#39;</span><span class="p">:</span>
+        <span class="n">all_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">all_df</span><span class="p">[</span><span class="n">all_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2020</span><span class="p">]</span>
+    
+    <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;County&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="n">selected_county_data</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">queried_county</span><span class="p">]</span>
+
+    <span class="c1"># change &#39;year and month&#39; to appropriate index and fill the missing year and month with zero</span>
+    <span class="n">timeLine</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">starting_time</span> <span class="o">=</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">max_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> <span class="p">(</span><span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">fire_occurs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">max_time</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">)):</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">starting_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> <span class="p">(</span><span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">starting_time</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">fire_occurs</span><span class="p">[</span><span class="n">diff</span><span class="p">]</span> <span class="o">=</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="c1"># naive approach</span>
+    <span class="n">past_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;County&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="n">county_past_res</span> <span class="o">=</span> <span class="n">past_res</span><span class="p">[</span><span class="n">queried_county</span><span class="p">]</span>
+    <span class="n">past_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">county_past_res</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">past_res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">county_past_res</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">past_res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># construct Seasonal Arima Model</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sarima_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">fire_occurs</span><span class="p">)</span>
+            <span class="n">res_sarima</span> <span class="o">=</span> <span class="n">sarima_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="n">forecast1</span> <span class="o">=</span> <span class="n">res_sarima</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">sarima_model</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span><span class="o">.</span><span class="n">predicted_mean</span>
+            <span class="n">last_month</span> <span class="o">=</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">predicted_month</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+                <span class="n">predicted_month</span><span class="p">[(</span><span class="n">last_month</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">%</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="n">forecast1</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">predicted_month</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1"># construct UnobservedComponents model</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">uobc_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">UnobservedComponents</span><span class="p">(</span><span class="n">fire_occurs</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;fixed intercept&#39;</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">freq_seasonal</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="mi">144</span><span class="p">,</span> <span class="s1">&#39;harmonics&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span>
+            <span class="n">res_uobc</span> <span class="o">=</span> <span class="n">uobc_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="n">month</span> <span class="o">=</span> <span class="mi">12</span>
+            <span class="n">year</span> <span class="o">=</span> <span class="mi">2021</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">-</span> <span class="n">starting_time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> <span class="n">month</span> <span class="o">-</span> <span class="n">starting_time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">forecast2</span> <span class="o">=</span> <span class="n">res_uobc</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">diff</span><span class="p">)</span><span class="o">.</span><span class="n">predicted_mean</span>
+            <span class="n">pred_uobc</span> <span class="o">=</span> <span class="n">forecast2</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:]</span>
+            <span class="n">pred_uobc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">pred_uobc</span><span class="p">)))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">pred_uobc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+    
+    <span class="c1"># ensemble the prediction</span>
+    <span class="n">alpha1</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">alpha2</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">final_res</span> <span class="o">=</span> <span class="n">alpha1</span><span class="o">*</span><span class="n">predicted_month</span> <span class="o">+</span> <span class="n">alpha2</span><span class="o">*</span><span class="n">past_res</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">final_res</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="getCountyPredictions"><a class="viewcode-back" href="../County_based_prediction.html#utils.getCountyPredictions">[docs]</a><span class="k">def</span> <span class="nf">getCountyPredictions</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a new pandas dataframe with predicted county incident numbers for a specific month. This function calls</span>
+<span class="sd">    **get_single_CountyPrediction()**.</span>
+
+<span class="sd">    Input :</span>
+<span class="sd">        :param queried_counties: the counties that are being queried</span>
+<span class="sd">        :type queried_counties: str</span>
+<span class="sd">        :param month: the month that is being queried</span>
+<span class="sd">        :type month: int</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Predicted number of fires for each county</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">qc</span> <span class="ow">in</span> <span class="n">unique_ca_counties</span><span class="p">)</span> <span class="k">for</span> <span class="n">qc</span> <span class="ow">in</span> <span class="n">queried_counties</span><span class="p">)</span>
+
+    <span class="n">predicted_num</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ct</span> <span class="ow">in</span> <span class="n">queried_counties</span><span class="p">:</span>
+        <span class="n">fire_occ</span> <span class="o">=</span> <span class="n">get_single_CountyPrediction</span><span class="p">(</span><span class="n">ct</span><span class="p">)[</span><span class="n">month</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">predicted_num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fire_occ</span><span class="p">)</span>
+
+    <span class="c1"># below is a placeholder</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;County&#39;</span><span class="p">:</span> <span class="n">queried_counties</span><span class="p">,</span> <span class="s1">&#39;Predicted Number of Fires&#39;</span><span class="p">:</span> <span class="n">predicted_num</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="getTrend"><a class="viewcode-back" href="../County_based_prediction.html#utils.getTrend">[docs]</a><span class="k">def</span> <span class="nf">getTrend</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">start_year</span><span class="o">=</span><span class="mi">1969</span><span class="p">,</span> <span class="n">end_year</span><span class="o">=</span><span class="mi">2021</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a DataFrame for number of incidents in &#39;month&#39; for different years between start and end</span>
+<span class="sd">    data -- DataFrame</span>
+<span class="sd">    month -- intended month</span>
+<span class="sd">    start_year -- the start year of inspection </span>
+<span class="sd">    end_year -- the end year of inspection </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">county</span> <span class="ow">in</span> <span class="n">unique_ca_counties</span>
+
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span>
+    <span class="k">assert</span> <span class="n">start_year</span> <span class="o">&gt;=</span> <span class="mi">1969</span>
+    <span class="k">assert</span> <span class="n">start_year</span> <span class="o">&lt;=</span> <span class="n">end_year</span> <span class="o">&lt;=</span> <span class="mi">2021</span>
+   
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/fire_occurrances_data.csv&#39;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;County&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="n">selected_county_data</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">county</span><span class="p">]</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">yr</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">yr</span><span class="p">,</span> <span class="n">month</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">selected_county_data</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">trend</span><span class="p">[</span><span class="n">yr</span><span class="o">-</span><span class="n">start_year</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">trend</span><span class="p">[</span><span class="n">yr</span><span class="o">-</span><span class="n">start_year</span><span class="p">]</span> <span class="o">=</span> <span class="n">selected_county_data</span><span class="p">[</span><span class="n">yr</span><span class="p">][</span><span class="n">month</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">years</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">trend</span><span class="p">}))</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">years</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">trend</span><span class="p">})</span></div>
+
+<span class="c1">######## Prediction Model ##########</span>
+
+<span class="k">def</span> <span class="nf">get_countyInfo</span><span class="p">(</span><span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns best match county name for given latitude &amp; longitude</span>
+<span class="sd">    </span>
+<span class="sd">    :param county_coordinates: the county wise co-ordinates </span>
+<span class="sd">    :type county_coordinates: dictionary of county as keys and co-ordinates as values</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="s1">&#39;Alameda&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">lat</span><span class="p">)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="s1">&#39;Alameda&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">lon</span><span class="p">)</span>
+    <span class="n">minDist</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+    <span class="n">retCounty</span> <span class="o">=</span> <span class="s1">&#39;Alameda&#39;</span>
+    
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">county_coordinates</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">lat</span><span class="p">)</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">lon</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">minDist</span> <span class="o">&gt;</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span><span class="p">):</span>
+            <span class="n">minDist</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+            <span class="n">retCounty</span> <span class="o">=</span> <span class="n">k</span>
+
+    <span class="k">return</span> <span class="n">retCounty</span>
+
+<span class="k">def</span> <span class="nf">get_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns weather information for the sample</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    :param county_coordinates: the county wise co-ordinates </span>
+<span class="sd">    :type county_coordinates: dictionary of county as keys and co-ordinates as values</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">county</span> <span class="o">=</span> <span class="n">get_countyInfo</span><span class="p">(</span><span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+    <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">all_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;County&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[[</span><span class="s1">&#39;temperature (degC)&#39;</span><span class="p">,</span><span class="s1">&#39;wind_speed (m/s)&#39;</span><span class="p">,</span><span class="s1">&#39;total_precipitation (mm of water equivalent)&#39;</span><span class="p">,</span><span class="s1">&#39;relative_humidity (0-1)&#39;</span><span class="p">,</span><span class="s1">&#39;surface_pressure (Pa)&#39;</span><span class="p">,</span><span class="s1">&#39;humidex (degC)&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">grouped_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">county</span><span class="p">,</span><span class="n">month</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">get_hotspots</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns hotspots centers which have high probability of wildfire occurunce</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[[</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_latitude&#39;</span><span class="p">]]</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+
+<span class="k">def</span> <span class="nf">dateEncoder</span><span class="p">(</span><span class="n">month_enc</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns encoded features based on month </span>
+<span class="sd">    </span>
+<span class="sd">    :param month_enc: the encodings for month</span>
+<span class="sd">    :type month_enc: sklearn encoder</span>
+<span class="sd">    :param month: the month of the year</span>
+<span class="sd">    :type month: float/int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">month_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([[</span><span class="n">month</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns feature vector based on latitude &amp; longitude </span>
+<span class="sd">    By calculating distance btw the location and hotspots predicated from the original dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    :param cluster_centers: the hotspots predicated from the original dataset.</span>
+<span class="sd">    :type cluster_centers: list of floats</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Taking care of special cases</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lat1</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">lat2</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">lon2</span>    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">lat1</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">lon1</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">cluster_centers</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">make_sample_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span><span class="p">,</span> <span class="n">weather_data</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns feature required for wildfire predication</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    :param encodings: the month encodings</span>
+<span class="sd">    :type encodings: sklearn encodigs</span>
+<span class="sd">    :param extreames: the minimum and maximum values needed for data normalization</span>
+<span class="sd">    :type extreames: list of float</span>
+<span class="sd">    :param weather_data: the weather data like temp, humidity, wind speed needed for predication</span>
+<span class="sd">    :type weather_data: list of floats</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: string</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># find all the hotspots</span>
+    <span class="n">cluster_centers</span> <span class="o">=</span> <span class="n">get_hotspots</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>      
+
+    <span class="c1"># get extreme points for data normalization</span>
+    <span class="n">weather_extreames</span> <span class="o">=</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">distace_extreames</span> <span class="o">=</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># normlaize weather data</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weather_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">weather_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">weather_data</span><span class="p">)]</span>
+    <span class="n">tmp_pos</span> <span class="o">=</span> <span class="n">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+    <span class="c1"># normlaize distance data</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">distace_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">distace_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp_pos</span><span class="p">)])</span>
+    <span class="c1"># add time data</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dateEncoder</span><span class="p">(</span><span class="n">encodings</span><span class="p">,</span><span class="n">month</span><span class="p">))</span>
+    <span class="c1"># add bias term</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span>
+    <span class="k">return</span> <span class="n">tmp</span>
+
+<span class="k">def</span> <span class="nf">geo_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_features</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns probability of wildfire, given a model and its features</span>
+<span class="sd">    </span>
+<span class="sd">    :param model: the model used for the prediction</span>
+<span class="sd">    :type model: sklearn model</span>
+<span class="sd">    :param model_features: the contex rich features generated for predication</span>
+<span class="sd">    :type model_features: float (ranging from 0 to 1)</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># assert all((fi&gt;=0 and fi&lt;=1) for fi in model_features)</span>
+    
+    <span class="n">model_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">model_features</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">model_features</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">pred_func_geo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Wrapper function that,</span>
+<span class="sd">    Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</span>
+
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for month!&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for longitude!&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for latitude!&#39;</span>
+
+    <span class="n">sample_weather_data</span> <span class="o">=</span> <span class="n">get_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="n">make_sample_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">encodings</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sample_weather_data</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:0&gt;2d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
+
+    <span class="n">prob</span> <span class="o">=</span> <span class="n">geo_model</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">all_features</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;probability of wildfire: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">prob</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="n">prob</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

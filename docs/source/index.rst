@@ -1,15 +1,19 @@
-.. CA_Wildfire documentation master file, created by
-   sphinx-quickstart on Fri May 21 16:18:45 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to California Wildfire Interactive Dashboard documentation!
+*******************************************************************
 
-Welcome to CA_Wildfire's documentation!
-=======================================
+This is a static documentation website encompassing all the aspects of the project **Caliornia Wildfire Interactive Dashboard.**
+It is the one place to get deeper insights and look at what is happening behind the scenes after using the dashboard. All the data
+that we use for visualization, prediction, analysis is provided by `California Department of Forestry and Fire Protection <https://www.fire.ca.gov/>`_
+
+
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
+   Overview
+   County_based_prediction
+   code_files
 
 
 Indices and tables

@@ -31,14 +31,17 @@ ca_counties_list = sorted(unique_ca_counties)
 
 def getCountyNumbersDF(data, start_date, end_date):
     '''
-    Returns a new pandas dataframe with county incident numbers from a specific date range
+    Looks at data between the start and end data specified by user and checks if any incident happened in that time period.
 
-    :param data: the original dataframe from the Calfire csv
-    :type data: pandas DF
-    :param start_date: the start date which we are filtering by
-    :type start_date: datetime object
-    :param end_date: the end date which we are filtering by
-    :type end_date: datetime object
+    Input :
+        :param data: the original dataframe from the Calfire csv
+        :type data: pandas DF
+        :param start_date: the start date which we are filtering by
+        :type start_date: datetime object
+        :param end_date: the end date which we are filtering by
+        :type end_date: datetime object
+    Return :
+        Pandas dataframe with county incident numbers from a specific date range
     '''
 
     tmp_df = data[(data.date >= start_date) & (data.date <= end_date)]
@@ -60,10 +63,13 @@ def getCountyNumbersDF(data, start_date, end_date):
 
 def get_single_CountyPrediction(queried_county, mode='running'):
     '''
-    Returns a new pandas dataframe with predicted county incident numbers for a specific month
-    :param queried_counties: the counties that are being queried
-    :type queried_counties: str
-    :type month: str
+    Input :
+        :param queried_counties: the county that is being queried
+        :type queried_counties: str
+        :type month: str
+
+    Return :
+        A new pandas dataframe with predicted county incident numbers for a specific month
     '''
 
     assert isinstance(queried_county, str)
@@ -142,11 +148,16 @@ def get_single_CountyPrediction(queried_county, mode='running'):
 
 def getCountyPredictions(queried_counties, month):
     '''
-    Returns a new pandas dataframe with predicted county incident numbers for a specific month
-    :param queried_counties: the counties that are being queried
-    :type queried_counties: str
-    :param month: the month that is being queried
-    :type month: int
+    Returns a new pandas dataframe with predicted county incident numbers for a specific month. This function calls
+    **get_single_CountyPrediction()**.
+
+    Input :
+        :param queried_counties: the counties that are being queried
+        :type queried_counties: str
+        :param month: the month that is being queried
+        :type month: int
+    Return :
+        Predicted number of fires for each county
     '''
     assert isinstance(queried_counties, list)
     assert all(bool(qc in unique_ca_counties) for qc in queried_counties)
@@ -163,11 +174,15 @@ def getCountyPredictions(queried_counties, month):
 
 def getTrend(county, month=6, start_year=1969, end_year=2021):
     '''
-    Returns a DataFrame fo number of incidents in 'month' for different years between start and end
-    data -- DataFrame
-    month -- intended month
-    start_year -- the start year of inspection 
-    end_year -- the end year of inspection 
+    Returns a DataFrame for number of incidents in 'month' for different years between start and end as selected by users
+
+    Input :
+        data -- DataFrame
+        month -- intended month
+        start_year -- the start year of inspection
+        end_year -- the end year of inspection
+    Return :
+        A dataframe for number of incidents
     '''
 
     assert isinstance(county, str)
@@ -196,16 +211,20 @@ def getTrend(county, month=6, start_year=1969, end_year=2021):
 
 def get_countyInfo(county_coordinates, lat, lon):
     '''
-    Returns best match county name for given latitude & longitude
-    
-    :param county_coordinates: the county wise co-ordinates 
-    :type county_coordinates: dictionary of county as keys and co-ordinates as values
-    :param lon: the longitude of the location of interest within California
-    :type lon: float/int
-    :param lat: the latitude of the location of interest within California
-    :type lat: float/int
-    :param month: the month of the year for which use want to check the danger of fire incident within California
-    :type month: int
+    If latitude,longitude and county co-ordinates then we want to find a county which is most likely match. Basically try to
+    minimize the distance between the given point and county.
+
+    Input :
+        :param county_coordinates: the county wise co-ordinates
+        :type county_coordinates: dictionary of county as keys and co-ordinates as values
+        :param lon: the longitude of the location of interest within California
+        :type lon: float/int
+        :param lat: the latitude of the location of interest within California
+        :type lat: float/int
+        :param month: the month of the year for which use want to check the danger of fire incident within California
+        :type month: int
+    Return :
+        Best match county name for given latitude & longitude
     '''
 
     dx = (county_coordinates['Alameda'][0]-lat)
@@ -225,18 +244,22 @@ def get_countyInfo(county_coordinates, lat, lon):
 
 def get_weatherInfo(all_data, county_coordinates, lat, lon, month):
     '''
-    Returns weather information for the sample
-    
-    :param all_data: cleaned and processed data set used for the whole application
-    :type all_data: pandas DF
-    :param county_coordinates: the county wise co-ordinates 
-    :type county_coordinates: dictionary of county as keys and co-ordinates as values
-    :param lon: the longitude of the location of interest within California
-    :type lon: float/int
-    :param lat: the latitude of the location of interest within California
-    :type lat: float/int
-    :param month: the month of the year for which use want to check the danger of fire incident within California
-    :type month: int
+    Uses **get_countyInfo** to get the county based on latitude, longitude and coordinates. Other required information is the
+    processed data and returns weather info
+
+    Input :
+        :param all_data: cleaned and processed data set used for the whole application
+        :type all_data: pandas DF
+        :param county_coordinates: the county wise co-ordinates
+        :type county_coordinates: dictionary of county as keys and co-ordinates as values
+        :param lon: the longitude of the location of interest within California
+        :type lon: float/int
+        :param lat: the latitude of the location of interest within California
+        :type lat: float/int
+        :param month: the month of the year for which use want to check the danger of fire incident within California
+        :type month: int
+    Return :
+        Weather information for the sample
     '''
 
     county = get_countyInfo(county_coordinates, lat, lon)
@@ -245,10 +268,13 @@ def get_weatherInfo(all_data, county_coordinates, lat, lon, month):
 
 def get_hotspots(all_data):
     '''
-    Returns hotspots centers which have high probability of wildfire occurunce
-    
-    :param all_data: cleaned and processed data set used for the whole application
-    :type all_data: pandas DF
+    Using K-means clustering, return likely hotspots based on data
+
+    Input :
+        :param all_data: cleaned and processed data set used for the whole application
+        :type all_data: pandas DF
+    Return :
+        Hotspots centers which have high probability of wildfire occurunce
     '''
 
     X = all_data[['incident_longitude', 'incident_latitude']]
@@ -257,27 +283,32 @@ def get_hotspots(all_data):
 
 def dateEncoder(month_enc, month):
     '''
-    Returns encoded features based on month 
-    
-    :param month_enc: the encodings for month
-    :type month_enc: sklearn encoder
-    :param month: the month of the year
-    :type month: float/int
+    This function is used for processing data. When month is given, its gives the encoded features in an array format.
+
+    Input :
+        :param month_enc: the encodings for month
+        :type month_enc: sklearn encoder
+        :param month: the month of the year
+        :type month: float/int
+    Return :
+        Encoded features based on month
     '''
 
     return month_enc.transform([[month]]).toarray().reshape(-1)
 
 def PosEncoder(cluster_centers, lat1, lon1, lat2, lon2):
     '''
-    Returns feature vector based on latitude & longitude 
-    By calculating distance btw the location and hotspots predicated from the original dataset.
+    Calculating distance between the location and hotspots predicated from the original dataset.
     
-    :param cluster_centers: the hotspots predicated from the original dataset.
-    :type cluster_centers: list of floats
-    :param lon: the longitude of the location of interest within California
-    :type lon: float/int
-    :param lat: the latitude of the location of interest within California
-    :type lat: float/int
+    Input :
+        :param cluster_centers: the hotspots predicated from the original dataset.
+        :type cluster_centers: list of floats
+        :param lon: the longitude of the location of interest within California
+        :type lon: float/int
+        :param lat: the latitude of the location of interest within California
+        :type lat: float/int
+    Return :
+        Feature vector based on latitude & longitude
     '''
 
     # Taking care of special cases
@@ -292,22 +323,25 @@ def PosEncoder(cluster_centers, lat1, lon1, lat2, lon2):
 
 def make_sample_features(all_data, encodings, extreames, weather_data, lat, lon, month):
     '''
-    Returns feature required for wildfire predication
-    
-    :param all_data: cleaned and processed data set used for the whole application
-    :type all_data: pandas DF
-    :param encodings: the month encodings
-    :type encodings: sklearn encodigs
-    :param extreames: the minimum and maximum values needed for data normalization
-    :type extreames: list of float
-    :param weather_data: the weather data like temp, humidity, wind speed needed for predication
-    :type weather_data: list of floats
-    :param lon: the longitude of the location of interest within California
-    :type lon: float/int
-    :param lat: the latitude of the location of interest within California
-    :type lat: float/int
-    :param month: the month of the year for which use want to check the danger of fire incident within California
-    :type month: string
+    Calls function get_hotspots() and returns features like weather,distance,time which is used in prediction.
+
+    Input :
+        :param all_data: cleaned and processed data set used for the whole application
+        :type all_data: pandas DF
+        :param encodings: the month encodings
+        :type encodings: sklearn encodigs
+        :param extreames: the minimum and maximum values needed for data normalization
+        :type extreames: list of float
+        :param weather_data: the weather data like temp, humidity, wind speed needed for predication
+        :type weather_data: list of floats
+        :param lon: the longitude of the location of interest within California
+        :type lon: float/int
+        :param lat: the latitude of the location of interest within California
+        :type lat: float/int
+        :param month: the month of the year for which use want to check the danger of fire incident within California
+        :type month: string
+    Return :
+        Features required for wildfire predication
     '''
 
     # find all the hotspots
@@ -331,12 +365,15 @@ def make_sample_features(all_data, encodings, extreames, weather_data, lat, lon,
 
 def geo_model(model, model_features):
     '''
-    Returns probability of wildfire, given a model and its features
-    
-    :param model: the model used for the prediction
-    :type model: sklearn model
-    :param model_features: the contex rich features generated for predication
-    :type model_features: float (ranging from 0 to 1)
+    If model and feature are fed, uses **predict_proba()** method of model.
+
+    Input :
+        :param model: the model used for the prediction
+        :type model: sklearn model
+        :param model_features: the contex rich features generated for predication
+        :type model_features: float (ranging from 0 to 1)
+    Return :
+        Probability of wildfire
     
     '''
     # assert all((fi>=0 and fi<=1) for fi in model_features)
@@ -347,15 +384,18 @@ def geo_model(model, model_features):
 
 def pred_func_geo(all_data, county_coordinates, model, encodings, extreames, lat, lon, month):
     '''
-    Wrapper function that,
-    Returns probability of safety from wildfire incidents given latitude, longitude and month of the year
+    This is a wrapper function that uses functions like **get_weatherInfo** and **make_sample_features**. Requires inputs
+    like latitude, longitude, month.
 
-    :param lon: the longitude of the location of interest within California
-    :type lon: float/int
-    :param lat: the latitude of the location of interest within California
-    :type lat: float/int
-    :param month: the month of the year for which use want to check the danger of fire incident within California
-    :type month: int
+    Input :
+        :param lon: the longitude of the location of interest within California
+        :type lon: float/int
+        :param lat: the latitude of the location of interest within California
+        :type lat: float/int
+        :param month: the month of the year for which use want to check the danger of fire incident within California
+        :type month: int
+    Return :
+        Probability of safety from wildfire incidents.
     '''
     assert isinstance(month, int) and (int(month)>0 and int(month)<=12), 'Sanity Check for month!'
     assert isinstance(lon, float) or isinstance(lon, int), 'Sanity Check for longitude!'

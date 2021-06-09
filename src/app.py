@@ -32,15 +32,15 @@ colors = {
     
 # Data loading fire occurance
 ppath = Path(os.getcwd()).absolute()
-file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
+file_name = os.path.join(ppath, 'data', 'fire_occurrances_data.csv')
 df_fire_occurrances = pd.read_csv(file_name) 
 
 # Data loading for geo-model
-geo_all_data = pd.read_csv(os.path.join(ppath, 'data/final_data.csv'))
-geo_county_coordinates = np.load(os.path.join(ppath, 'data/county_positions.npy'),  allow_pickle=True)
-geo_model = np.load(os.path.join(ppath, 'data/geo_model.npy'),  allow_pickle=True)
-geo_encodings = np.load(os.path.join(ppath, 'data/encodings.npy'),  allow_pickle=True)
-geo_extreames = np.load(os.path.join(ppath, 'data/extreames.npy'),  allow_pickle=True)
+geo_all_data = pd.read_csv(os.path.join(ppath, 'data', 'final_data.csv'))
+geo_county_coordinates = np.load(os.path.join(ppath, 'data', 'county_positions.npy'),  allow_pickle=True)
+geo_model = np.load(os.path.join(ppath, 'data', 'geo_model.npy'),  allow_pickle=True)
+geo_encodings = np.load(os.path.join(ppath, 'data', 'encodings.npy'),  allow_pickle=True)
+geo_extreames = np.load(os.path.join(ppath, 'data', 'extreames.npy'),  allow_pickle=True)
 
 # Preprocessing Data
 STATE = 'START'
@@ -338,6 +338,18 @@ app.layout = html.Div(children=[dcc.Location(id='url', refresh=False), header, n
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 def show_heading(incident_map, lmcounty, lmp1, lmp2):
+    '''
+    Based on what is the user input by clicking, this function decides which tab is selected - 'California Incident Map' ,
+    'County Incident Map' , 'County Based Prediction' , 'Geo location based prediction'
+
+    Input :
+        incident_map
+        lmcounty
+        lmp1
+        lmp2
+    Return :
+        Corresponding service
+    '''
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
     if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
@@ -358,6 +370,15 @@ def show_heading(incident_map, lmcounty, lmp1, lmp2):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    '''
+    Input :
+        incident_map
+        lmcounty
+        lmp1
+        lmp2
+    Return :
+        Main text in **Learn More** for the selected heading on **Home** page
+    '''
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
 
@@ -379,6 +400,15 @@ def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    '''
+    Input :
+        incident_map
+        lmcounty
+        lmp1
+        lmp2
+    Return :
+        Sub-text for selected heading on **Home** page
+    '''
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
     if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
@@ -399,6 +429,15 @@ def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
    dash.dependencies.Input('lmp1', 'n_clicks'),
    dash.dependencies.Input('lmp2', 'n_clicks')])
 def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
+    '''
+    Input :
+        incident_map
+        lmcount
+        lmp1
+        lmp2
+    Return :
+        Redirecting prompt to the specific toolkit on home page heading
+    '''
     ctx = dash.callback_context
     div_id = ctx.triggered[0]['prop_id'].split('.')[0]
     if (incident_map==None and lmcounty==None and lmp1==None and lmp2==None) or (incident_map%2==0 and lmcounty%2==0 and lmp1%2==0 and lmp2%2==0):
@@ -416,6 +455,15 @@ def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
 @app.callback([dash.dependencies.Output("layer", "children"), dash.dependencies.Output("th", "value"), dash.dependencies.Output("th", "color")],
               [dash.dependencies.Input('map-id', 'click_lat_lng'), dash.dependencies.Input('month_slider2', 'value')])
 def map_click(coordinates, month):
+    '''
+    Interacts with **pred_func_geo** in utils.py and passes the information that the function needs.
+
+    Input :
+        coordinates - Coordinates for location clicked on the map
+        month
+    Return :
+        Marker on the map
+    '''
     global last_valid
 
     if coordinates == None:
@@ -433,6 +481,13 @@ def map_click(coordinates, month):
     dash.dependencies.Output('cali_map_table', 'data'),
     [dash.dependencies.Input('cali_map', 'selectedData')])
 def display_data(selectedData):
+    '''
+    Delete this line. This function is called for California Incident Map, to indicate the table on the right
+    Input   :
+        selectedData- Region selected on the map
+    Return :
+        Table indicating information about the incidents in selected region.
+    '''
     table_data =  pd.DataFrame()
     if not selectedData:
         return table_data.to_dict('records')
@@ -450,6 +505,13 @@ def display_data(selectedData):
     dash.dependencies.Output('pred_table', 'data'),
     [dash.dependencies.Input('county_dropdown', 'value'), dash.dependencies.Input('month_slider', 'value')])
 def display_pred_data(queried_counties, month):
+    '''
+    Input:
+        queried_counties - The list of county(s) selected by the user for prediction
+        month
+    Return:
+        A table with predicted number of fires for each county
+    '''
     return utils.getCountyPredictions(queried_counties, month).to_dict('records')
     
 
@@ -457,6 +519,15 @@ def display_pred_data(queried_counties, month):
     dash.dependencies.Output('cali_map', 'figure'),
     [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
 def update_cali_map(start_date, end_date):
+    '''
+    This function is used in California Incident map.
+
+    Input :
+        start_date
+        end_date
+    Return :
+        Fig - California map with a scatter plot
+    '''
     fig = px.scatter_mapbox(
         data[(data.date >= start_date) & (data.date <= end_date)], lat="incident_latitude", lon="incident_longitude", size='incident_acres_burned', 
         zoom=4, height=550, size_max=22,  hover_name="incident_name", 
@@ -508,6 +579,13 @@ def update_county_pie(start_date, end_date):
     dash.dependencies.Output('county_prediction', 'figure'),
     [dash.dependencies.Input('county_dropdown', 'value'), dash.dependencies.Input('month_slider', 'value')])
 def update_county_prediction(queried_counties, month):
+    '''
+        Input :
+            County(s)- Selected from dropdown
+            Month - Selected using slider
+        Returns :
+            A figure mapping the selected county(s) and number of incidents predicted
+        '''
     if not queried_counties:
         df = pd.DataFrame({'County': [], 'Predicted Number of Fires': []})
     else: 
@@ -570,4 +648,4 @@ if __name__ == '__main__':
         port = int(environ['PORT'])
     else:
         port = 8050
-    app.run_server(host='0.0.0.0', debug=False, use_reloader=False, port=port, dev_tools_ui=False)  
+    app.run_server(host='0.0.0.0', debug=False, use_reloader=False, port=port, dev_tools_ui=False)
