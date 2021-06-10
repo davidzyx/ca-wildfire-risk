@@ -201,6 +201,19 @@ Barbara area, we see on the map the fire incidents. <a class="reference internal
 <h4>1.1 Update_cali_map<a class="headerlink" href="#update-cali-map" title="Permalink to this headline">¶</a></h4>
 <p>When you hover over a particular fire, you can also visually see some statistics about the fire such as <strong>acres burned</strong> ,
 <strong>latitude</strong> and <strong>longitude</strong>. This is done with the help of this function. Below is the function signature.</p>
+<span class="target" id="module-src.app"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_cali_map">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_cali_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_cali_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_cali_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in <em>California Incident map</em> service.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>start_date
+end_date</p>
+</dd>
+<dt>Return :</dt><dd><p>Fig - California map scatter plot showing information about fires.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="dataframe-with-additional-information">
@@ -211,6 +224,20 @@ Barbara area, we see on the map the fire incidents. <a class="reference internal
 <h4>2.1 Display_data<a class="headerlink" href="#display-data" title="Permalink to this headline">¶</a></h4>
 <p>If we use the <strong>Box Select</strong> or the <strong>Lasso</strong> tool to select a particular area on the california map, then we get more
 information such as <em>Incident Name</em> , <em>Incident administrative unit</em> , <em>Incident location</em> for all the fires in the selected area.</p>
+<span class="target" id="module-0"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.app.display_data">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">display_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selectedData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#display_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called for <em>California Incident Map</em> service.
+Input   :</p>
+<blockquote>
+<div><p>selectedData- Region selected on the map</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>Table indicating information about the incidents in selected region.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 </div>

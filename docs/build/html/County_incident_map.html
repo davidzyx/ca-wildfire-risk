@@ -95,12 +95,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#county-incident-distribution">1. County Incident Distribution</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#update-county-pie">1.1 Update County Pie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.app">1.1 Update County Pie</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#get-county-numbers-dataframe">1.2 Get County Numbers DataFrame</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#county-incident-frequency">2. County Incident Frequency</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#update-county-map">2.1 Update County Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-0">2.1 Update County Map</a></li>
 </ul>
 </li>
 </ul>
@@ -198,8 +198,22 @@ incident distribution is as given below.</p>
 <div class="section" id="county-incident-distribution">
 <h3>1. County Incident Distribution<a class="headerlink" href="#county-incident-distribution" title="Permalink to this headline">¶</a></h3>
 <p>A pie chart which shows the county incident distribution. The front end and back end functions to implement this are as follows.</p>
-<div class="section" id="update-county-pie">
-<h4>1.1 Update County Pie<a class="headerlink" href="#update-county-pie" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="module-src.app">
+<span id="update-county-pie"></span><h4>1.1 Update County Pie<a class="headerlink" href="#module-src.app" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_pie">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_pie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_pie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_pie" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in County Incident Map. It interacts with <strong>getCountyNumbersDF</strong> module in utils.py to get the
+data to be presented in a pie-chart.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>start_date
+end_date</p>
+</dd>
+<dt>Return :</dt><dd><p>Pie-chart of county-wise incidents</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p>Since, <strong>update_county_pie()</strong> uses <strong>getCountyNumbersDF()</strong> on the backend to get all the data needed to plot a pie-chart. Let
 us look at that function next.</p>
 </div>
@@ -247,8 +261,23 @@ Continuing our example- for the dates chosen by us, the output was as follows,</
 <p>As you can see, some of the county’s are dark red in colour implying that the number of incidents are as high as <strong>3</strong>, while
 some county’s are white indicating the number of incidents being as low as <strong>1</strong>.
 The function used to implement this is <strong>update_county_map()</strong></p>
-<div class="section" id="update-county-map">
-<h4>2.1 Update County Map<a class="headerlink" href="#update-county-map" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="module-0">
+<span id="update-county-map"></span><h4>2.1 Update County Map<a class="headerlink" href="#module-0" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_map">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function interacts with <strong>getCountyNumbersDF()</strong> function in utils.py to
+Input :</p>
+<blockquote>
+<div><p>start_date
+end_date</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>Updated county based map</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p>Similar to <strong>update_county_pie</strong> this function also interacts with <strong>getCountyNumbersDF</strong> on the backend to get the required
 dataframe. The function signature for the same can be found <a class="reference internal" href="#getcountynumbersdf-marker"><span class="std std-ref">here</span></a></p>
 </div>

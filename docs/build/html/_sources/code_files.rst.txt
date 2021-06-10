@@ -12,5 +12,11 @@ utils.py
 
 app.py
 ======
+
 .. automodule:: src.app
+    :members:
+
+cluster_model
+=============
+.. automodule:: tests.cluster_model
     :members:

@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>tests.cluster_model &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_files.html">Code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>tests.cluster_model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for tests.cluster_model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span>
+<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<div class="viewcode-block" id="get_countyLocations"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_countyLocations">[docs]</a><span class="k">def</span> <span class="nf">get_countyLocations</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns latitudes &amp; longitudes for each county</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;user_agent&quot;</span><span class="p">)</span>
+
+    <span class="n">mp</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">Counties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alameda&#39;</span><span class="p">,</span><span class="s1">&#39;Alpine&#39;</span><span class="p">,</span><span class="s1">&#39;Amador&#39;</span><span class="p">,</span><span class="s1">&#39;Butte&#39;</span><span class="p">,</span><span class="s1">&#39;Calaveras&#39;</span><span class="p">,</span><span class="s1">&#39;Colusa&#39;</span><span class="p">,</span><span class="s1">&#39;Contra Costa&#39;</span><span class="p">,</span><span class="s1">&#39;Del Norte&#39;</span><span class="p">,</span><span class="s1">&#39;El Dorado&#39;</span><span class="p">,</span><span class="s1">&#39;Fresno&#39;</span><span class="p">,</span><span class="s1">&#39;Glenn&#39;</span><span class="p">,</span><span class="s1">&#39;Humboldt&#39;</span><span class="p">,</span><span class="s1">&#39;Imperial&#39;</span><span class="p">,</span><span class="s1">&#39;Inyo&#39;</span><span class="p">,</span><span class="s1">&#39;Kern&#39;</span><span class="p">,</span><span class="s1">&#39;Kings&#39;</span><span class="p">,</span><span class="s1">&#39;Lake&#39;</span><span class="p">,</span><span class="s1">&#39;Lassen&#39;</span><span class="p">,</span><span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span><span class="s1">&#39;Madera&#39;</span><span class="p">,</span><span class="s1">&#39;Marin&#39;</span><span class="p">,</span><span class="s1">&#39;Mariposa&#39;</span><span class="p">,</span><span class="s1">&#39;Mendocino&#39;</span><span class="p">,</span><span class="s1">&#39;Merced&#39;</span><span class="p">,</span><span class="s1">&#39;Modoc&#39;</span><span class="p">,</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span><span class="s1">&#39;Monterey&#39;</span><span class="p">,</span><span class="s1">&#39;Napa&#39;</span><span class="p">,</span><span class="s1">&#39;Nevada&#39;</span><span class="p">,</span><span class="s1">&#39;Orange&#39;</span><span class="p">,</span><span class="s1">&#39;Placer&#39;</span><span class="p">,</span><span class="s1">&#39;Plumas&#39;</span><span class="p">,</span><span class="s1">&#39;Riverside&#39;</span><span class="p">,</span><span class="s1">&#39;Sacramento&#39;</span><span class="p">,</span><span class="s1">&#39;San Benito&#39;</span><span class="p">,</span><span class="s1">&#39;San Bernardino&#39;</span><span class="p">,</span><span class="s1">&#39;San Diego&#39;</span><span class="p">,</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span><span class="s1">&#39;San Joaquin&#39;</span><span class="p">,</span><span class="s1">&#39;San Luis Obispo&#39;</span><span class="p">,</span><span class="s1">&#39;San Mateo&#39;</span><span class="p">,</span><span class="s1">&#39;Santa Barbara&#39;</span><span class="p">,</span><span class="s1">&#39;Santa Clara&#39;</span><span class="p">,</span><span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span><span class="s1">&#39;Shasta&#39;</span><span class="p">,</span><span class="s1">&#39;Sierra&#39;</span><span class="p">,</span><span class="s1">&#39;Siskiyou&#39;</span><span class="p">,</span><span class="s1">&#39;Solano&#39;</span><span class="p">,</span><span class="s1">&#39;Sonoma&#39;</span><span class="p">,</span><span class="s1">&#39;Stanislaus&#39;</span><span class="p">,</span><span class="s1">&#39;Sutter&#39;</span><span class="p">,</span><span class="s1">&#39;Tehama&#39;</span><span class="p">,</span><span class="s1">&#39;Trinity&#39;</span><span class="p">,</span><span class="s1">&#39;Tulare&#39;</span><span class="p">,</span><span class="s1">&#39;Tuolumne&#39;</span><span class="p">,</span><span class="s1">&#39;Ventura&#39;</span><span class="p">,</span><span class="s1">&#39;Yolo&#39;</span><span class="p">,</span><span class="s1">&#39;Yuba&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">cnty</span> <span class="ow">in</span> <span class="n">Counties</span><span class="p">:</span>
+        <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">cnty</span><span class="p">)</span>
+        <span class="n">mp</span><span class="p">[</span><span class="n">cnty</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span><span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mp</span></div>
+
+<div class="viewcode-block" id="get_countyInfo"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_countyInfo">[docs]</a><span class="k">def</span> <span class="nf">get_countyInfo</span><span class="p">(</span><span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns best match county name for given latitude &amp; longitude</span>
+<span class="sd">    </span>
+<span class="sd">    :param county_coordinates: the county wise co-ordinates </span>
+<span class="sd">    :type county_coordinates: dictionary of county as keys and co-ordinates as values</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="s1">&#39;Alameda&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">lat</span><span class="p">)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="s1">&#39;Alameda&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">lon</span><span class="p">)</span>
+    <span class="n">minDist</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+    <span class="n">retCounty</span> <span class="o">=</span> <span class="s1">&#39;Alameda&#39;</span>
+    
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">county_coordinates</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">lat</span><span class="p">)</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">county_coordinates</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">lon</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">minDist</span> <span class="o">&gt;</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span><span class="p">):</span>
+            <span class="n">minDist</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+            <span class="n">retCounty</span> <span class="o">=</span> <span class="n">k</span>
+
+    <span class="k">return</span> <span class="n">retCounty</span></div>
+
+<div class="viewcode-block" id="get_weatherInfo"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_weatherInfo">[docs]</a><span class="k">def</span> <span class="nf">get_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns weather information for the sample</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    :param county_coordinates: the county wise co-ordinates </span>
+<span class="sd">    :type county_coordinates: dictionary of county as keys and co-ordinates as values</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">county</span> <span class="o">=</span> <span class="n">get_countyInfo</span><span class="p">(</span><span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+    <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">all_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;County&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()[[</span><span class="s1">&#39;temperature (degC)&#39;</span><span class="p">,</span><span class="s1">&#39;wind_speed (m/s)&#39;</span><span class="p">,</span><span class="s1">&#39;total_precipitation (mm of water equivalent)&#39;</span><span class="p">,</span><span class="s1">&#39;relative_humidity (0-1)&#39;</span><span class="p">,</span><span class="s1">&#39;surface_pressure (Pa)&#39;</span><span class="p">,</span><span class="s1">&#39;humidex (degC)&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">grouped_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">county</span><span class="p">,</span><span class="n">month</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="get_hotspots"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_hotspots">[docs]</a><span class="k">def</span> <span class="nf">get_hotspots</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns hotspots centers which have high probability of wildfire occurunce</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[[</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_latitude&#39;</span><span class="p">]]</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span></div>
+
+<div class="viewcode-block" id="dateEncoder"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.dateEncoder">[docs]</a><span class="k">def</span> <span class="nf">dateEncoder</span><span class="p">(</span><span class="n">month_enc</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns encoded features based on month </span>
+<span class="sd">    </span>
+<span class="sd">    :param month_enc: the encodings for month</span>
+<span class="sd">    :type month_enc: sklearn encoder</span>
+<span class="sd">    :param month: the month of the year</span>
+<span class="sd">    :type month: float/int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">month_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([[</span><span class="n">month</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PosEncoder"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.PosEncoder">[docs]</a><span class="k">def</span> <span class="nf">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns feature vector based on latitude &amp; longitude </span>
+<span class="sd">    By calculating distance btw the location and hotspots predicated from the original dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    :param cluster_centers: the hotspots predicated from the original dataset.</span>
+<span class="sd">    :type cluster_centers: list of floats</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Taking care of special cases</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">lat1</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">lat2</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">lon2</span>    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">lat1</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">lon1</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">cluster_centers</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_extreames_weatherInfo"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_extreames_weatherInfo">[docs]</a><span class="k">def</span> <span class="nf">get_extreames_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns Returns min &amp; max values for data normalization of weather data</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[[</span><span class="s1">&#39;temperature (degC)&#39;</span><span class="p">,</span><span class="s1">&#39;wind_speed (m/s)&#39;</span><span class="p">,</span><span class="s1">&#39;total_precipitation (mm of water equivalent)&#39;</span><span class="p">,</span><span class="s1">&#39;relative_humidity (0-1)&#39;</span><span class="p">,</span><span class="s1">&#39;surface_pressure (Pa)&#39;</span><span class="p">,</span><span class="s1">&#39;humidex (degC)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">Max</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">Min</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span></div>
+
+<div class="viewcode-block" id="get_extreames_positionalInfo"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_extreames_positionalInfo">[docs]</a><span class="k">def</span> <span class="nf">get_extreames_positionalInfo</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns Returns min &amp; max values for data normalization of positional data</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">tmp1</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[[</span><span class="s1">&#39;incident_latitude&#39;</span><span class="p">,</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;longitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">tmp2</span> <span class="o">=</span> <span class="p">[</span><span class="n">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">tmp1</span><span class="p">]</span>
+
+    <span class="n">Max</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tmp2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">Min</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tmp2</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span></div>
+
+<div class="viewcode-block" id="get_encodings"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.get_encodings">[docs]</a><span class="k">def</span> <span class="nf">get_encodings</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns encodings for non-numerical data</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># one Hot Encodings for Non-numerical data</span>
+    <span class="n">month_enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+    <span class="n">month_enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">month_enc</span></div>
+
+<div class="viewcode-block" id="make_features"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.make_features">[docs]</a><span class="k">def</span> <span class="nf">make_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns processed feature and information required from the cleaned data for model training</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># find all the hotspots</span>
+    <span class="n">cluster_centers</span> <span class="o">=</span> <span class="n">get_hotspots</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+
+    <span class="c1"># one Hot Encodings for Non-numerical data</span>
+    <span class="n">encodings</span> <span class="o">=</span> <span class="n">get_encodings</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+
+    <span class="c1"># feature selection</span>
+    <span class="n">X_data</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;incident_latitude&#39;</span><span class="p">,</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span><span class="s1">&#39;temperature (degC)&#39;</span><span class="p">,</span><span class="s1">&#39;wind_speed (m/s)&#39;</span><span class="p">,</span><span class="s1">&#39;total_precipitation (mm of water equivalent)&#39;</span><span class="p">,</span><span class="s1">&#39;relative_humidity (0-1)&#39;</span><span class="p">,</span><span class="s1">&#39;surface_pressure (Pa)&#39;</span><span class="p">,</span><span class="s1">&#39;humidex (degC)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="c1"># get extreme points for data normalization</span>
+    <span class="n">weather_extreames</span> <span class="o">=</span> <span class="n">get_extreames_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+    <span class="n">distace_extreames</span> <span class="o">=</span> <span class="n">get_extreames_positionalInfo</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">all_data</span><span class="p">)</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">X_data</span><span class="p">:</span>
+        <span class="c1"># normlaize weather data</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weather_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">weather_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">5</span><span class="p">:]))]</span>
+        <span class="n">tmp_pos</span> <span class="o">=</span> <span class="n">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="c1"># normlaize distance data</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">distace_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">distace_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tmp_pos</span><span class="p">)])</span>
+        <span class="c1"># add time data</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dateEncoder</span><span class="p">(</span><span class="n">encodings</span><span class="p">,</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="c1"># add bias term</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="p">(</span><span class="n">weather_extreames</span><span class="p">,</span> <span class="n">distace_extreames</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="make_sample_features"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.make_sample_features">[docs]</a><span class="k">def</span> <span class="nf">make_sample_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span><span class="p">,</span> <span class="n">weather_data</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns feature required for wildfire predication</span>
+<span class="sd">    </span>
+<span class="sd">    :param all_data: cleaned and processed data set used for the whole application</span>
+<span class="sd">    :type all_data: pandas DF</span>
+<span class="sd">    :param encodings: the month encodings</span>
+<span class="sd">    :type encodings: sklearn encodigs</span>
+<span class="sd">    :param extreames: the minimum and maximum values needed for data normalization</span>
+<span class="sd">    :type extreames: list of float</span>
+<span class="sd">    :param weather_data: the weather data like temp, humidity, wind speed needed for predication</span>
+<span class="sd">    :type weather_data: list of floats</span>
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: string</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># find all the hotspots</span>
+    <span class="n">cluster_centers</span> <span class="o">=</span> <span class="n">get_hotspots</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>      
+
+    <span class="c1"># get extreme points for data normalization</span>
+    <span class="n">weather_extreames</span> <span class="o">=</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">distace_extreames</span> <span class="o">=</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># normlaize weather data</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weather_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">weather_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">weather_data</span><span class="p">)]</span>
+    <span class="n">tmp_pos</span> <span class="o">=</span> <span class="n">PosEncoder</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+    <span class="c1"># normlaize distance data</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">distace_extreames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">distace_extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tmp_pos</span><span class="p">)])</span>
+    <span class="c1"># add time data</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dateEncoder</span><span class="p">(</span><span class="n">encodings</span><span class="p">,</span><span class="n">month</span><span class="p">))</span>
+    <span class="c1"># add bias term</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tmp</span></div>
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
+    <span class="n">model_data</span> <span class="o">=</span> <span class="n">all_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="n">model_X</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span> <span class="o">=</span> <span class="n">make_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+    <span class="n">model_y</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">model_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    
+    <span class="c1"># split test and train</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">model_X</span><span class="p">,</span> <span class="n">model_y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># build model</span>
+    <span class="n">LR</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># test</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;model: Logistic Regression</span><span class="se">\t</span><span class="s1">acc: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">LR</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span>
+
+<div class="viewcode-block" id="geo_model"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.geo_model">[docs]</a><span class="k">def</span> <span class="nf">geo_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_features</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns probability of wildfire, given a model and its features</span>
+<span class="sd">    </span>
+<span class="sd">    :param model: the model used for the prediction</span>
+<span class="sd">    :type model: sklearn model</span>
+<span class="sd">    :param model_features: the contex rich features generated for predication</span>
+<span class="sd">    :type model_features: float (ranging from 0 to 1)</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="n">fi</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">fi</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">model_features</span><span class="p">)</span>
+    
+    <span class="n">feature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">model_features</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="pred_func_geo"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.pred_func_geo">[docs]</a><span class="k">def</span> <span class="nf">pred_func_geo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Wrapper function that,</span>
+<span class="sd">    Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</span>
+
+<span class="sd">    :param lon: the longitude of the location of interest within California</span>
+<span class="sd">    :type lon: float/int</span>
+<span class="sd">    :param lat: the latitude of the location of interest within California</span>
+<span class="sd">    :type lat: float/int</span>
+<span class="sd">    :param month: the month of the year for which use want to check the danger of fire incident within California</span>
+<span class="sd">    :type month: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for month!&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for longitude!&#39;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lata</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s1">&#39;Sanity Check for latitude!&#39;</span>
+
+    <span class="n">sample_weather_data</span> <span class="o">=</span> <span class="n">get_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="n">make_sample_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">encodings</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extreames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sample_weather_data</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:0&gt;2d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
+
+    <span class="n">prob</span> <span class="o">=</span> <span class="n">geo_model</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">all_features</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;probability of wildfire: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">prob</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="o">-</span><span class="n">prob</span></div>
+
+<div class="viewcode-block" id="model_init"><a class="viewcode-back" href="../../code_files.html#tests.cluster_model.model_init">[docs]</a><span class="k">def</span> <span class="nf">model_init</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Initailizes model training and saves processed information for model evalutaion</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/final_data.csv&#39;</span><span class="p">)</span>
+    <span class="n">all_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+    <span class="n">model</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+    <span class="n">county_coordinates</span> <span class="o">=</span> <span class="n">get_countyLocations</span><span class="p">()</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/county_positions.npy&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">county_coordinates</span><span class="p">])</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/geo_model.npy&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">model</span><span class="p">])</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/encodings.npy&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">encodings</span><span class="p">])</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data/extreames.npy&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">extreames</span><span class="p">])</span>
+
+    <span class="c1"># testing</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="s1">&#39;03&#39;</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mf">37.706700</span><span class="p">,</span> <span class="o">-</span><span class="mf">121.834125</span>
+
+    <span class="n">sample_weather_data</span> <span class="o">=</span> <span class="n">get_weatherInfo</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">county_coordinates</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="n">make_sample_features</span><span class="p">(</span><span class="n">all_data</span><span class="p">,</span> <span class="n">encodings</span><span class="p">,</span> <span class="n">extreames</span><span class="p">,</span> <span class="n">sample_weather_data</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">month</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
+
+    <span class="n">geo_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">all_features</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">model_init</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
