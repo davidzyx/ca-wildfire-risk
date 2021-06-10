@@ -31,7 +31,10 @@ colors = {
 }
     
 # Data loading fire occurance
-ppath = Path(os.getcwd()).absolute()
+if 'PYTHONPATH' in environ.keys():
+    ppath = Path(environ['PYTHONPATH']).absolute()
+else:
+    ppath = Path(os.getcwd()).absolute()
 file_name = os.path.join(ppath, 'data/fire_occurrances_data.csv')
 df_fire_occurrances = pd.read_csv(file_name) 
 

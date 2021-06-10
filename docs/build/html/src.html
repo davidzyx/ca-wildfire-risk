@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>src package &mdash; CA_Wildfire 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tests package" href="tests.html" />
+    <link rel="prev" title="Source" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.utils">src.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">Source</a> &raquo;</li>
+        
+      <li>src package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/src.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="src-package">
+<h1>src package<a class="headerlink" href="#src-package" title="Permalink to this headline">¶</a></h1>
+<p>Source package that powers the interative web application</p>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-src.utils">
+<span id="src-utils-module"></span><h2>src.utils module<a class="headerlink" href="#module-src.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="src.utils.PosEncoder">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">PosEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">lat1</span></em>, <em class="sig-param"><span class="n">lon1</span></em>, <em class="sig-param"><span class="n">lat2</span></em>, <em class="sig-param"><span class="n">lon2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns feature vector based on latitude &amp; longitude 
+By calculating distance btw the location and hotspots predicated from the original dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster_centers</strong> (<em>list of floats</em>) – the hotspots predicated from the original dataset.</p></li>
+<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
+<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.dateEncoder">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">dateEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">month_enc</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns encoded features based on month</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>month_enc</strong> (<em>sklearn encoder</em>) – the encodings for month</p></li>
+<li><p><strong>month</strong> (<em>float/int</em>) – the month of the year</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.geo_model">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">geo_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">model_features</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns probability of wildfire, given a model and its features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – the model used for the prediction</p></li>
+<li><p><strong>model_features</strong> (<em>float</em><em> (</em><em>ranging from 0 to 1</em><em>)</em>) – the contex rich features generated for predication</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.getCountyNumbersDF">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyNumbersDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with county incident numbers from a specific date range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas DF</em>) – the original dataframe from the Calfire csv</p></li>
+<li><p><strong>start_date</strong> (<em>datetime object</em>) – the start date which we are filtering by</p></li>
+<li><p><strong>end_date</strong> (<em>datetime object</em>) – the end date which we are filtering by</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.getCountyPredictions">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyPredictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_counties</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
+:param queried_counties: the counties that are being queried
+:type queried_counties: str
+:param month: the month that is being queried
+:type month: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.getTrend">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getTrend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">start_year</span><span class="o">=</span><span class="default_value">1969</span></em>, <em class="sig-param"><span class="n">end_year</span><span class="o">=</span><span class="default_value">2021</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame fo number of incidents in ‘month’ for different years between start and end
+data – DataFrame
+month – intended month
+start_year – the start year of inspection 
+end_year – the end year of inspection</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.get_countyInfo">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_countyInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns best match county name for given latitude &amp; longitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>county_coordinates</strong> (<em>dictionary of county as keys and co-ordinates as values</em>) – the county wise co-ordinates</p></li>
+<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
+<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.get_hotspots">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_hotspots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns hotspots centers which have high probability of wildfire occurunce</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.get_single_CountyPrediction">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_single_CountyPrediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_county</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'running'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
+:param queried_counties: the counties that are being queried
+:type queried_counties: str
+:type month: str</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.get_weatherInfo">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns weather information for the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p></li>
+<li><p><strong>county_coordinates</strong> (<em>dictionary of county as keys and co-ordinates as values</em>) – the county wise co-ordinates</p></li>
+<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
+<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.make_sample_features">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">make_sample_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">weather_data</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns feature required for wildfire predication</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p></li>
+<li><p><strong>encodings</strong> (<em>sklearn encodigs</em>) – the month encodings</p></li>
+<li><p><strong>extreames</strong> (<em>list of float</em>) – the minimum and maximum values needed for data normalization</p></li>
+<li><p><strong>weather_data</strong> (<em>list of floats</em>) – the weather data like temp, humidity, wind speed needed for predication</p></li>
+<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
+<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
+<li><p><strong>month</strong> (<em>string</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.pred_func_geo">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">pred_func_geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function that,
+Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
+<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tests.html" class="btn btn-neutral float-right" title="tests package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
