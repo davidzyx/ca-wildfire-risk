@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>County Based Predictions &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Source</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>County Based Predictions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/County_based_prediction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="county-based-predictions">
+<span id="county-based-prediction-marker"></span><h1>County Based Predictions<a class="headerlink" href="#county-based-predictions" title="Permalink to this headline">¶</a></h1>
+<p>To better understand the underlying function calls for the prediction of fires based on user input county’s and date, let us look
+at an example first.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you want to predict the chances of fire for 4 different county’s - <em>Napa</em> , <em>Fresno</em> , <em>Mariposa</em> , <em>Tulare</em>
+for the month of June then this is the <strong>result.</strong> <a class="reference internal" href="_images/county_based_pred_1.PNG"><img alt="pred_1" src="_images/county_based_pred_1.PNG" style="width: 86.60000000000001px; height: 35.4px;" /></a></p>
+<p>Similarly, we can also have a look at the past trends for a particular county for the month of choosing. <strong>Here</strong> <a class="reference internal" href="_images/county_based_pred_2.PNG"><img alt="pred_2" src="_images/county_based_pred_2.PNG" style="width: 94.80000000000001px; height: 35.0px;" /></a>, we look at the number
+of fires for the county of Napa in the month of June between 2010 and 2017</p>
+</div>
+<div class="section" id="dashboard-elements-and-the-functions-used">
+<h2>Dashboard elements and the functions used<a class="headerlink" href="#dashboard-elements-and-the-functions-used" title="Permalink to this headline">¶</a></h2>
+<p>Now, a lot of things are happening over here. Let us look at them one by one.</p>
+<div class="section" id="data-frame-with-county-and-number-of-predicted-fires-data">
+<h3>1. Data frame with County and number of predicted fires data<a class="headerlink" href="#data-frame-with-county-and-number-of-predicted-fires-data" title="Permalink to this headline">¶</a></h3>
+<p>Upon selecting the county’s the first thing we see is a table on the page right, which lists the individual county’s selected
+and the output of the model prediction which is nothing but the number of predicted fires. Obviously, the actual model for prediction
+is important to understand. But, lets look at all the supporting functions first.</p>
+<div class="section" id="display-pred-data">
+<h4>Display_pred_data<a class="headerlink" href="#display-pred-data" title="Permalink to this headline">¶</a></h4>
+<p>This function calls the <strong>getCountyPredictions()</strong> on the backend to get to the predictions.</p>
+<span class="target" id="module-src.app"></span></div>
+<div class="section" id="module-src.utils">
+<span id="getcountypredictions"></span><h4>GetCountyPredictions<a class="headerlink" href="#module-src.utils" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt id="src.utils.getCountyPredictions">
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyPredictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_counties</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyPredictions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
+:param queried_counties: the counties that are being queried
+:type queried_counties: str
+:param month: the month that is being queried
+:type month: int</p>
+</dd></dl>
+
+</div>
+<div class="section" id="get-single-countyprediction">
+<h4>Get_Single_CountyPrediction<a class="headerlink" href="#get-single-countyprediction" title="Permalink to this headline">¶</a></h4>
+<p>This is the function that performs the main predictive task. It combines the analytical output of three different models to predict. They
+are <strong>Naive approach</strong> , <strong>Seasonal Arima Model</strong> , <strong>Unobserved components model</strong>.</p>
+<p><em>Naive approach</em>: Learn from the fire occurrences in the same month each year (basically average out previous data)</p>
+<p><em>Seasonal Arima</em>: Stands for autoregressive and moving average- predict the value by placing a moving window in analyzing the trend with the
+nearby months and the shifted history.</p>
+<p><em>Unobserved components (UCM)</em>: decompose the time series data by three components: seasonal, trend and irregularity and assume a Gaussian noise
+in each of the components, what it adds up is that it also consider the trend for the irregular pattern, which is left out by the previous two</p>
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_single_CountyPrediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_county</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'running'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_single_CountyPrediction"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
+:param queried_counties: the counties that are being queried
+:type queried_counties: str
+:type month: str</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-0">
+<span id="a-visual-location-of-the-county-s-and-a-bar-chart-indicating-relative-severity"></span><h3>2. A visual location of the county’s and a bar chart indicating relative severity<a class="headerlink" href="#module-0" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="module-1">
+<span id="a-bar-chart-indicating-past-trends-within-specified-year-range-for-the-chosen-month"></span><h3>3. A bar chart indicating past trends within specified year range for the chosen month<a class="headerlink" href="#module-1" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getTrend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">start_year</span><span class="o">=</span><span class="default_value">1969</span></em>, <em class="sig-param"><span class="n">end_year</span><span class="o">=</span><span class="default_value">2021</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getTrend"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns a DataFrame fo number of incidents in ‘month’ for different years between start and end
+data – DataFrame
+month – intended month
+start_year – the start year of inspection
+end_year – the end year of inspection</p>
+</dd></dl>
+
+<p>Expected</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>src package &mdash; CA_Wildfire 0.1 documentation</title>
+  <title>src package &mdash; CA_Wildfire 2.1 documentation</title>
   
 
   
@@ -87,6 +87,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -175,8 +177,8 @@
 <span id="src-utils-module"></span><h2>src.utils module<a class="headerlink" href="#module-src.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="src.utils.PosEncoder">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">PosEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">lat1</span></em>, <em class="sig-param"><span class="n">lon1</span></em>, <em class="sig-param"><span class="n">lat2</span></em>, <em class="sig-param"><span class="n">lon2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns feature vector based on latitude &amp; longitude 
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">PosEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">lat1</span></em>, <em class="sig-param"><span class="n">lon1</span></em>, <em class="sig-param"><span class="n">lat2</span></em>, <em class="sig-param"><span class="n">lon2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#PosEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns feature vector based on latitude &amp; longitude
 By calculating distance btw the location and hotspots predicated from the original dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -191,7 +193,7 @@ By calculating distance btw the location and hotspots predicated from the origin
 
 <dl class="py function">
 <dt id="src.utils.dateEncoder">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">dateEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">month_enc</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">dateEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">month_enc</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#dateEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns encoded features based on month</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -205,7 +207,7 @@ By calculating distance btw the location and hotspots predicated from the origin
 
 <dl class="py function">
 <dt id="src.utils.geo_model">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">geo_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">model_features</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">geo_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">model_features</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#geo_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns probability of wildfire, given a model and its features</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -219,7 +221,7 @@ By calculating distance btw the location and hotspots predicated from the origin
 
 <dl class="py function">
 <dt id="src.utils.getCountyNumbersDF">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyNumbersDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyNumbersDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyNumbersDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new pandas dataframe with county incident numbers from a specific date range</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -234,7 +236,7 @@ By calculating distance btw the location and hotspots predicated from the origin
 
 <dl class="py function">
 <dt id="src.utils.getCountyPredictions">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyPredictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_counties</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyPredictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_counties</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyPredictions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
 :param queried_counties: the counties that are being queried
 :type queried_counties: str
@@ -244,17 +246,17 @@ By calculating distance btw the location and hotspots predicated from the origin
 
 <dl class="py function">
 <dt id="src.utils.getTrend">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getTrend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">start_year</span><span class="o">=</span><span class="default_value">1969</span></em>, <em class="sig-param"><span class="n">end_year</span><span class="o">=</span><span class="default_value">2021</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getTrend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">start_year</span><span class="o">=</span><span class="default_value">1969</span></em>, <em class="sig-param"><span class="n">end_year</span><span class="o">=</span><span class="default_value">2021</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getTrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DataFrame fo number of incidents in ‘month’ for different years between start and end
 data – DataFrame
 month – intended month
-start_year – the start year of inspection 
+start_year – the start year of inspection
 end_year – the end year of inspection</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="src.utils.get_countyInfo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_countyInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_countyInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_countyInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns best match county name for given latitude &amp; longitude</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,7 +272,7 @@ end_year – the end year of inspection</p>
 
 <dl class="py function">
 <dt id="src.utils.get_hotspots">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_hotspots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_hotspots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_hotspots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns hotspots centers which have high probability of wildfire occurunce</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -281,7 +283,7 @@ end_year – the end year of inspection</p>
 
 <dl class="py function">
 <dt id="src.utils.get_single_CountyPrediction">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_single_CountyPrediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_county</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'running'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_single_CountyPrediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_county</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'running'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_single_CountyPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
 :param queried_counties: the counties that are being queried
 :type queried_counties: str
@@ -290,7 +292,7 @@ end_year – the end year of inspection</p>
 
 <dl class="py function">
 <dt id="src.utils.get_weatherInfo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_weatherInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns weather information for the sample</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -307,7 +309,7 @@ end_year – the end year of inspection</p>
 
 <dl class="py function">
 <dt id="src.utils.make_sample_features">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">make_sample_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">weather_data</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">make_sample_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">weather_data</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#make_sample_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns feature required for wildfire predication</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -326,7 +328,7 @@ end_year – the end year of inspection</p>
 
 <dl class="py function">
 <dt id="src.utils.pred_func_geo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">pred_func_geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">pred_func_geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#pred_func_geo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper function that,
 Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</p>
 <dl class="field-list simple">

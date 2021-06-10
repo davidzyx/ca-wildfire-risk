@@ -10,6 +10,8 @@ Welcome to CA_Wildfire's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Overview
+   County_based_prediction
    modules
 
 
