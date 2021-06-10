@@ -372,10 +372,10 @@ def show_heading(incident_map, lmcounty, lmp1, lmp2):
 def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     '''
     Input :
-        incident_map
-        lmcounty
-        lmp1
-        lmp2
+        incident_map - California Incident map
+        lmcounty - County Incident map
+        lmp1 - County Based Prediction
+        lmp2 -  Geo location based Prediction
     Return :
         Main text in **Learn More** for the selected heading on **Home** page
     '''
@@ -402,10 +402,10 @@ def show_subheading(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
 def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     '''
     Input :
-        incident_map
-        lmcounty
-        lmp1
-        lmp2
+        incident_map - California Incident Map
+        lmcounty - County Incident Map
+        lmp1 -  County based prediction
+        lmp2 - Geo location based prediction
     Return :
         Sub-text for selected heading on **Home** page
     '''
@@ -431,10 +431,10 @@ def show_text1(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
 def show_text2(incident_map=0, lmcounty=0, lmp1=0, lmp2=0):
     '''
     Input :
-        incident_map
-        lmcount
-        lmp1
-        lmp2
+        incident_map - California Incident Map
+        lmcounty - County Incident Map
+        lmp1 -  County based prediction
+        lmp2 - Geo location based prediction
     Return :
         Redirecting prompt to the specific toolkit on home page heading
     '''
@@ -548,6 +548,14 @@ def update_cali_map(start_date, end_date):
     dash.dependencies.Output('county_map', 'figure'),
     [dash.dependencies.Input('date_picker', 'start_date'), dash.dependencies.Input('date_picker', 'end_date')])
 def update_county_map(start_date, end_date):
+    '''
+    This function interacts with **getCountyNumbersDF()** function in utils.py to
+    Input :
+        start_date
+        end_date
+    Return :
+        Updated county based map
+    '''
     county_map_fig = px.choropleth(
         utils.getCountyNumbersDF(data, start_date, end_date), geojson=utils.counties, locations='county', 
         color='Number of County Incidents', featureidkey='properties.name', projection="mercator", 
