@@ -12,7 +12,10 @@ that we use for visualization, prediction, analysis is provided by `California D
    :caption: Contents:
 
    Overview
+   california_incident_map
+   County_incident_map
    County_based_prediction
+   Geo_location
    code_files
 
 

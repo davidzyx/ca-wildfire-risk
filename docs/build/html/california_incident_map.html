@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>California Incident Map &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="County Incident Map" href="County_incident_map.html" />
+    <link rel="prev" title="Overview" href="Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">California Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wildfires-incident-map">1. Wildfires Incident Map</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-cali-map">1.1 Update_cali_map</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dataframe-with-additional-information">2. Dataframe with additional information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display-data">2.1 Display_data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_files.html">Code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>California Incident Map</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/california_incident_map.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="california-incident-map">
+<span id="california-incident-map-marker"></span><h1>California Incident Map<a class="headerlink" href="#california-incident-map" title="Permalink to this headline">¶</a></h1>
+<p>This service provides tools for the user to inspect location of incidents on a California Map. It is recommended to use a
+small date range for full functionality. This is a data visualization tool and hence depends only on the data set and not rely
+on any backend functionality.</p>
+<div class="section" id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>The first is the filter, where you selection the time of interest to see california wide fire incidents. You can zoom in on the
+map, and use provided tools like <strong>lasso</strong> to select a certain are and then see the incidents in a dataframe.</p>
+<p>For example, if one selects the range of inspection as the whole month of January 2021 and decides to inspect the LA and Santa
+Barbara area, we see on the map the fire incidents. <a class="reference internal" href="_images/california_incident_map_1.PNG"><img alt="cal_incident_map_1" src="_images/california_incident_map_1.PNG" style="width: 287.1px; height: 206.1px;" /></a></p>
+</div>
+<div class="section" id="dashboard-elements-and-the-functions-used">
+<h2>Dashboard elements and the functions used<a class="headerlink" href="#dashboard-elements-and-the-functions-used" title="Permalink to this headline">¶</a></h2>
+<p>There are two dashboard elements in this tool-
+1. <strong>Wildfires Incident Map</strong>
+2. <strong>Dataframe with additional information.</strong></p>
+<div class="section" id="wildfires-incident-map">
+<h3>1. Wildfires Incident Map<a class="headerlink" href="#wildfires-incident-map" title="Permalink to this headline">¶</a></h3>
+<p>The first thing you see on this page is the map of california indicating the fires that are happening.
+<strong>Note</strong>- The scatter plot seen on the map is representative of relative intensity of the fires.</p>
+<div class="section" id="update-cali-map">
+<h4>1.1 Update_cali_map<a class="headerlink" href="#update-cali-map" title="Permalink to this headline">¶</a></h4>
+<p>When you hover over a particular fire, you can also visually see some statistics about the fire such as <strong>acres burned</strong> ,
+<strong>latitude</strong> and <strong>longitude</strong>. This is done with the help of this function. Below is the function signature.</p>
+</div>
+</div>
+<div class="section" id="dataframe-with-additional-information">
+<h3>2. Dataframe with additional information<a class="headerlink" href="#dataframe-with-additional-information" title="Permalink to this headline">¶</a></h3>
+<p>Continuing our example, when we select LA - Santa Barbara area for the month of January,2021 the dataframe observed is-
+<a class="reference internal" href="_images/california_incident_map_2.PNG"><img alt="cal_incident_map_2" src="_images/california_incident_map_2.PNG" style="width: 453.0px; height: 91.5px;" /></a></p>
+<div class="section" id="display-data">
+<h4>2.1 Display_data<a class="headerlink" href="#display-data" title="Permalink to this headline">¶</a></h4>
+<p>If we use the <strong>Box Select</strong> or the <strong>Lasso</strong> tool to select a particular area on the california map, then we get more
+information such as <em>Incident Name</em> , <em>Incident administrative unit</em> , <em>Incident location</em> for all the fires in the selected area.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="County_incident_map.html" class="btn btn-neutral float-right" title="County Incident Map" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

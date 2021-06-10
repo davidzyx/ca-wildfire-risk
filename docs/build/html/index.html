@@ -89,7 +89,10 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_files.html">Code</a></li>
 </ul>
 
@@ -178,17 +181,68 @@ that we use for visualization, prediction, analysis is provided by <a class="ref
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#example">Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#data-frame-with-county-and-number-of-predicted-fires-data">1. Data frame with County and number of predicted fires data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#display-pred-data">Display_pred_data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#module-src.utils">GetCountyPredictions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#get-single-countyprediction">Get_Single_CountyPrediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="california_incident_map.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="california_incident_map.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="california_incident_map.html#wildfires-incident-map">1. Wildfires Incident Map</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="california_incident_map.html#update-cali-map">1.1 Update_cali_map</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#a-visual-location-of-the-county-s-and-a-bar-chart-indicating-relative-severity">2. A visual location of the county’s and a bar chart indicating relative severity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#a-bar-chart-indicating-past-trends-within-specified-year-range-for-the-chosen-month">3. A bar chart indicating past trends within specified year range for the chosen month</a></li>
+<li class="toctree-l3"><a class="reference internal" href="california_incident_map.html#dataframe-with-additional-information">2. Dataframe with additional information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="california_incident_map.html#display-data">2.1 Display_data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="County_incident_map.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="County_incident_map.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="County_incident_map.html#county-incident-distribution">1. County Incident Distribution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="County_incident_map.html#update-county-pie">1.1 Update County Pie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="County_incident_map.html#get-county-numbers-dataframe">1.2 Get County Numbers DataFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="County_incident_map.html#county-incident-frequency">2. County Incident Frequency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="County_incident_map.html#update-county-map">2.1 Update County Map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#data-frame-with-county-and-number-of-predicted-fires-data">1. Data frame with County and number of predicted fires data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#display-pred-data">1.1 Display_pred_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#module-src.utils">1.2 GetCountyPredictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#get-single-countyprediction">1.3 Get_Single_CountyPrediction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#a-visual-location-of-the-county-s-and-a-bar-chart-indicating-relative-severity">2. A visual location of the county’s and a bar chart indicating relative severity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#update-county-prediction">2.1 Update County prediction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="County_based_prediction.html#a-bar-chart-indicating-past-trends-within-specified-year-range-for-the-chosen-month">3. A bar chart indicating past trends within specified year range for the chosen month</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#update-trend">3.1 Update Trend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="County_based_prediction.html#get-trend">3.2 Get Trend</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Geo_location.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Geo_location.html#dashboard-elements-and-the-functions-involved">Dashboard elements and the functions involved</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Geo_location.html#california-state-map-and-risk-percentage">1. California state map and Risk percentage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Geo_location.html#map-click">1.1 Map Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Geo_location.html#predict-function-geo-location">1.2 Predict function Geo location</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Geo_location.html#risk-percentage">1.3. Risk Percentage</a></li>
 </ul>
 </li>
 </ul>

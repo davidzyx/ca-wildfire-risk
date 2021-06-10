@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Geo Location Based Prediction &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code" href="code_files.html" />
+    <link rel="prev" title="County Based Predictions" href="County_based_prediction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Geo Location Based Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard-elements-and-the-functions-involved">Dashboard elements and the functions involved</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#california-state-map-and-risk-percentage">1. California state map and Risk percentage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#map-click">1.1 Map Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#predict-function-geo-location">1.2 Predict function Geo location</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#risk-percentage">1.3. Risk Percentage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_files.html">Code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Geo Location Based Prediction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Geo_location.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geo-location-based-prediction">
+<span id="geo-location-marker"></span><h1>Geo Location Based Prediction<a class="headerlink" href="#geo-location-based-prediction" title="Permalink to this headline">¶</a></h1>
+<p>If you are a user and you want to build a warehouse <a class="reference internal" href="County_based_prediction.html#county-based-prediction-marker"><span class="std std-ref">County based prediction</span></a> is good
+place to get some insight into how risky/safe it is to build the warehouse in a particular county. Now, suppose we have a
+narrowed list of county’s and want to look at specific locations in the county then this tool is ideal. This model generates a
+probability for an incident, based on the user desired lon/lat and time, so you can look at a very specific location and access
+the risk.</p>
+<div class="section" id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>The interaction with user aided with prompts is very self-explanatory and intuitive. User selects a month for query, the on
+the map clicks on the specific location coordinates to see the risk percentage for that place.
+For example, suppose we choose the <em>Query Month = June</em> and pick a point near <em>Los Angeles</em> we see <strong>Risk Percentage = 63.1%</strong></p>
+<a class="reference internal image-reference" href="_images/geo_location_1.PNG"><img alt="_images/geo_location_1.PNG" src="_images/geo_location_1.PNG" style="width: 310.5px; height: 650.7px;" /></a>
+</div>
+<div class="section" id="dashboard-elements-and-the-functions-involved">
+<h2>Dashboard elements and the functions involved<a class="headerlink" href="#dashboard-elements-and-the-functions-involved" title="Permalink to this headline">¶</a></h2>
+<p>There is only 1 dashboard element involved -
+1. <strong>California state map and Risk percentage</strong></p>
+<div class="section" id="california-state-map-and-risk-percentage">
+<h3>1. California state map and Risk percentage<a class="headerlink" href="#california-state-map-and-risk-percentage" title="Permalink to this headline">¶</a></h3>
+<p>Before, we look at how we predict risk percentage let us look at the interactive california state map through which we get the
+input. We can zoom in, zoom out, drag to different locations in California on this dashboard element. Once we click on a
+particular location we see a <strong>blue head</strong> to get visual confirmation of the selected location.
+<strong>Note</strong> - When we hover over the head, we can actually see the exact location coordinates.</p>
+<p>For our example, we choose a location near Los Angeles like this -</p>
+<a class="reference internal image-reference" href="_images/geo_location_2.PNG"><img alt="_images/geo_location_2.PNG" src="_images/geo_location_2.PNG" style="width: 909.0px; height: 750.6px;" /></a>
+<div class="section" id="map-click">
+<h4>1.1 Map Click<a class="headerlink" href="#map-click" title="Permalink to this headline">¶</a></h4>
+<p>This acts as an input to capture the coordinates which is then fed to the backend function <strong>pred_func_geo()</strong> to get predicted
+risk percentage.</p>
+</div>
+<div class="section" id="predict-function-geo-location">
+<h4>1.2 Predict function Geo location<a class="headerlink" href="#predict-function-geo-location" title="Permalink to this headline">¶</a></h4>
+<p>This function essentially uses <strong>geo_model()</strong> to make the actual prediction. We talk more about this later.</p>
+</div>
+</div>
+<div class="section" id="risk-percentage">
+<h3>1.3. Risk Percentage<a class="headerlink" href="#risk-percentage" title="Permalink to this headline">¶</a></h3>
+<p>This <strong>geo_model</strong> is uses training , extra weather data , interacts with other modules. More about this can be found here.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="code_files.html" class="btn btn-neutral float-right" title="Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="County_based_prediction.html" class="btn btn-neutral float-left" title="County Based Predictions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
