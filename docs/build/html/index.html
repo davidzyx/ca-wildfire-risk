@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,10 +31,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -87,8 +89,11 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Source and Test files</a></li>
 </ul>
 
             
@@ -158,6 +163,15 @@
             
   <div class="section" id="welcome-to-ca-wildfire-s-documentation">
 <h1>Welcome to CA_Wildfire’s documentation!<a class="headerlink" href="#welcome-to-ca-wildfire-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="organization-of-the-documentation">
+<h2>Organization of the documentation<a class="headerlink" href="#organization-of-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>1. The first section that is there is a simple <a class="reference internal" href="Overview.html#overview-marker"><span class="std std-ref">overview</span></a> . It talks about who the target user is, why is
+this helpful and the tools provided for visualization and analysis.</p>
+<p>2. The next 4 sections give a top-down approach understanding of the 4 services- what are the front end functions, which backend
+functions they rely on etc. The basic structure of these 4 sections is similar - A <em>“How to use”</em> section which explains a sample
+example followed by <em>“Dashboard elements and the functions used”</em> which takes a deep dive into each of the services.</p>
+<p>3. The last section is <a class="reference internal" href="modules.html#modules-marker"><span class="std std-ref">Source and Test Files module</span></a>. It has two sub-modules - <em>Source code files</em> and
+<em>Tests package</em>.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -167,17 +181,33 @@
 <li class="toctree-l2"><a class="reference internal" href="Overview.html#what-information-can-i-get">What information can I get?</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="california_incident_map.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="california_incident_map.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="County_incident_map.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="County_incident_map.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#how-to-use">How to use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="County_based_prediction.html#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Source</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="src.html">src package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Geo_location.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Geo_location.html#dashboard-elements-and-the-functions-involved">Dashboard elements and the functions involved</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Source and Test files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="code_files.html">Source Code Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests package</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">

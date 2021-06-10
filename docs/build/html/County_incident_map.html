@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>County Incident Map &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="County Based Predictions" href="County_based_prediction.html" />
+    <link rel="prev" title="California Incident Map" href="california_incident_map.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">County Incident Map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard-elements-and-the-functions-used">Dashboard elements and the functions used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#county-incident-distribution">1. County Incident Distribution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-src.app">1.1 Update County Pie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-county-numbers-dataframe">1.2 Get County Numbers DataFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#county-incident-frequency">2. County Incident Frequency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-0">2.1 Update County Map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Source</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>County Incident Map</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/County_incident_map.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="county-incident-map">
+<span id="county-incident-map-marker"></span><h1>County Incident Map<a class="headerlink" href="#county-incident-map" title="Permalink to this headline">¶</a></h1>
+<p>While the California Incident Map gives a very intuitive, high-level, visual idea about how the fire incidents are in
+the entire state of California, it is coarse in nature. If you want a finer look at the incidents and see how it is spread
+across county’s then this is the right place. This tool provide visuals for the user to inspect county incidents more closely.</p>
+<div class="section" id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>Even for a new user the use of County Incident Map is very intuitive and very similar to <em>California Incident Map</em>.
+As the prompt suggests user simply need to select the filter the date range of interest.
+For example, if one selects: <strong>Start Date == 10/1/2020</strong> and <strong>End Date == 01/22/2021</strong> , the pie-chart indicating the county
+incident distribution is as given below.</p>
+<a class="reference internal image-reference" href="_images/county_incident_1.PNG"><img alt="_images/county_incident_1.PNG" src="_images/county_incident_1.PNG" style="width: 466.0px; height: 382.5px;" /></a>
+</div>
+<div class="section" id="dashboard-elements-and-the-functions-used">
+<h2>Dashboard elements and the functions used<a class="headerlink" href="#dashboard-elements-and-the-functions-used" title="Permalink to this headline">¶</a></h2>
+<p>There are two dashboard elements in this tool.
+1. <strong>County Incident Distribution.</strong>
+2. <strong>County Incident Frequency.</strong></p>
+<div class="section" id="county-incident-distribution">
+<h3>1. County Incident Distribution<a class="headerlink" href="#county-incident-distribution" title="Permalink to this headline">¶</a></h3>
+<p>A pie chart which shows the county incident distribution. The front end and back end functions to implement this are as follows.</p>
+<div class="section" id="module-src.app">
+<span id="update-county-pie"></span><h4>1.1 Update County Pie<a class="headerlink" href="#module-src.app" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_pie">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_pie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_pie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_pie" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in County Incident Map. It interacts with <strong>getCountyNumbersDF</strong> module in utils.py to get the
+data to be presented in a pie-chart.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>start_date
+end_date</p>
+</dd>
+<dt>Return :</dt><dd><p>Pie-chart of county-wise incidents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Since, <strong>update_county_pie()</strong> uses <strong>getCountyNumbersDF()</strong> on the backend to get all the data needed to plot a pie-chart. Let
+us look at that function next.</p>
+</div>
+<div class="section" id="get-county-numbers-dataframe">
+<h4>1.2 Get County Numbers DataFrame<a class="headerlink" href="#get-county-numbers-dataframe" title="Permalink to this headline">¶</a></h4>
+<span class="target" id="module-src.utils"><span id="getcountynumbersdf-marker"></span></span><dl class="py function">
+<dt class="sig sig-object py" id="src.utils.getCountyNumbersDF">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getCountyNumbersDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyNumbersDF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks at the data between the start and end date specified by user and checks if any incident happened in that time period.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param data</dt>
+<dd class="field-odd"><p>the original dataframe from the Calfire csv</p>
+</dd>
+<dt class="field-even">type data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param start_date</dt>
+<dd class="field-odd"><p>the start date which we are filtering by</p>
+</dd>
+<dt class="field-even">type start_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+<dt class="field-odd">param end_date</dt>
+<dd class="field-odd"><p>the end date which we are filtering by</p>
+</dd>
+<dt class="field-even">type end_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Pandas dataframe with county incident numbers from a specific date range</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="county-incident-frequency">
+<h3>2. County Incident Frequency<a class="headerlink" href="#county-incident-frequency" title="Permalink to this headline">¶</a></h3>
+<p>To get a visual sense of how prone county’s are to fire in the specified range we also see the county incident frequency.
+It is basically a california county wise map of all county’s which had at least 1 fire incident in the specified date range.
+Continuing our example- for the dates chosen by us, the output was as follows,</p>
+<a class="reference internal image-reference" href="_images/county_incident_2.PNG"><img alt="_images/county_incident_2.PNG" src="_images/county_incident_2.PNG" style="width: 451.0px; height: 387.0px;" /></a>
+<p>As you can see, some of the county’s are dark red in colour implying that the number of incidents are as high as <strong>3</strong>, while
+some county’s are white indicating the number of incidents being as low as <strong>1</strong>.
+The function used to implement this is <strong>update_county_map()</strong></p>
+<div class="section" id="module-0">
+<span id="update-county-map"></span><h4>2.1 Update County Map<a class="headerlink" href="#module-0" title="Permalink to this headline">¶</a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_map">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function interacts with <strong>getCountyNumbersDF()</strong> function in utils.py to
+Input :</p>
+<blockquote>
+<div><p>start_date
+end_date</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>Updated county based map</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Similar to <strong>update_county_pie</strong> this function also interacts with <strong>getCountyNumbersDF</strong> on the backend to get the required
+dataframe. The function signature for the same can be found <a class="reference internal" href="#getcountynumbersdf-marker"><span class="std std-ref">here</span></a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="County_based_prediction.html" class="btn btn-neutral float-right" title="County Based Predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="california_incident_map.html" class="btn btn-neutral float-left" title="California Incident Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

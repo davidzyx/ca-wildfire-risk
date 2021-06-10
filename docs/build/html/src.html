@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,18 +31,16 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="tests package" href="tests.html" />
-    <link rel="prev" title="Source" href="modules.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,18 +86,13 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-src.utils">src.utils module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Source</a></li>
 </ul>
 
             
@@ -146,8 +141,6 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="modules.html">Source</a> &raquo;</li>
-        
       <li>src package</li>
     
     
@@ -169,175 +162,370 @@
             
   <div class="section" id="src-package">
 <h1>src package<a class="headerlink" href="#src-package" title="Permalink to this headline">¶</a></h1>
-<p>Source package that powers the interative web application</p>
+<p>Source package that powers the interactive web application</p>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-src.utils">
 <span id="src-utils-module"></span><h2>src.utils module<a class="headerlink" href="#module-src.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="src.utils.PosEncoder">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">PosEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">lat1</span></em>, <em class="sig-param"><span class="n">lon1</span></em>, <em class="sig-param"><span class="n">lat2</span></em>, <em class="sig-param"><span class="n">lon2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#PosEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns feature vector based on latitude &amp; longitude
-By calculating distance btw the location and hotspots predicated from the original dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster_centers</strong> (<em>list of floats</em>) – the hotspots predicated from the original dataset.</p></li>
-<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
-<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.PosEncoder">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">PosEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#PosEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculating distance between the location and hotspots predicated from the original dataset.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param cluster_centers</dt>
+<dd class="field-odd"><p>the hotspots predicated from the original dataset.</p>
+</dd>
+<dt class="field-even">type cluster_centers</dt>
+<dd class="field-even"><p>list of floats</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Feature vector based on latitude &amp; longitude</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.dateEncoder">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">dateEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">month_enc</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#dateEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns encoded features based on month</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>month_enc</strong> (<em>sklearn encoder</em>) – the encodings for month</p></li>
-<li><p><strong>month</strong> (<em>float/int</em>) – the month of the year</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.dateEncoder">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">dateEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#dateEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used for processing data. When month is given, its gives the encoded features in an array format.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param month_enc</dt>
+<dd class="field-odd"><p>the encodings for month</p>
+</dd>
+<dt class="field-even">type month_enc</dt>
+<dd class="field-even"><p>sklearn encoder</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Encoded features based on month</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.geo_model">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">geo_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">model_features</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#geo_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns probability of wildfire, given a model and its features</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>sklearn model</em>) – the model used for the prediction</p></li>
-<li><p><strong>model_features</strong> (<em>float</em><em> (</em><em>ranging from 0 to 1</em><em>)</em>) – the contex rich features generated for predication</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.geo_model">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">geo_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#geo_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>If model and feature are fed, uses <strong>predict_proba()</strong> method of model.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param model</dt>
+<dd class="field-odd"><p>the model used for the prediction</p>
+</dd>
+<dt class="field-even">type model</dt>
+<dd class="field-even"><p>sklearn model</p>
+</dd>
+<dt class="field-odd">param model_features</dt>
+<dd class="field-odd"><p>the contex rich features generated for predication</p>
+</dd>
+<dt class="field-even">type model_features</dt>
+<dd class="field-even"><p>float (ranging from 0 to 1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Probability of wildfire</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.getCountyNumbersDF">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyNumbersDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyNumbersDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new pandas dataframe with county incident numbers from a specific date range</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>pandas DF</em>) – the original dataframe from the Calfire csv</p></li>
-<li><p><strong>start_date</strong> (<em>datetime object</em>) – the start date which we are filtering by</p></li>
-<li><p><strong>end_date</strong> (<em>datetime object</em>) – the end date which we are filtering by</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.getCountyNumbersDF">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getCountyNumbersDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyNumbersDF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks at the data between the start and end date specified by user and checks if any incident happened in that time period.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param data</dt>
+<dd class="field-odd"><p>the original dataframe from the Calfire csv</p>
+</dd>
+<dt class="field-even">type data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param start_date</dt>
+<dd class="field-odd"><p>the start date which we are filtering by</p>
+</dd>
+<dt class="field-even">type start_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+<dt class="field-odd">param end_date</dt>
+<dd class="field-odd"><p>the end date which we are filtering by</p>
+</dd>
+<dt class="field-even">type end_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Pandas dataframe with county incident numbers from a specific date range</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.getCountyPredictions">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getCountyPredictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_counties</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyPredictions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
-:param queried_counties: the counties that are being queried
-:type queried_counties: str
-:param month: the month that is being queried
-:type month: int</p>
+<dt class="sig sig-object py" id="src.utils.getCountyPredictions">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getCountyPredictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_counties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyPredictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month. This function calls
+<strong>get_single_CountyPrediction()</strong>.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param queried_counties</dt>
+<dd class="field-odd"><p>the counties that are being queried</p>
+</dd>
+<dt class="field-even">type queried_counties</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month that is being queried</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Predicted number of fires for each county</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.getTrend">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">getTrend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">start_year</span><span class="o">=</span><span class="default_value">1969</span></em>, <em class="sig-param"><span class="n">end_year</span><span class="o">=</span><span class="default_value">2021</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getTrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a DataFrame fo number of incidents in ‘month’ for different years between start and end
-data – DataFrame
+<dt class="sig sig-object py" id="src.utils.getTrend">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getTrend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1969</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2021</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getTrend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame for number of incidents in ‘month’ for different years between start and end as selected by users</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>data – DataFrame
 month – intended month
 start_year – the start year of inspection
 end_year – the end year of inspection</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="src.utils.get_countyInfo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_countyInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_countyInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns best match county name for given latitude &amp; longitude</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>county_coordinates</strong> (<em>dictionary of county as keys and co-ordinates as values</em>) – the county wise co-ordinates</p></li>
-<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
-<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
-<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
-</ul>
+</dd>
+<dt>Return :</dt><dd><p>A dataframe for number of incidents</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.get_hotspots">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_hotspots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_hotspots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns hotspots centers which have high probability of wildfire occurunce</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p>
+<dt class="sig sig-object py" id="src.utils.get_countyInfo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_countyInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_countyInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>If latitude,longitude and county co-ordinates then we want to find a county which is most likely match. Basically try to
+minimize the distance between the given point and county.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param county_coordinates</dt>
+<dd class="field-odd"><p>the county wise co-ordinates</p>
+</dd>
+<dt class="field-even">type county_coordinates</dt>
+<dd class="field-even"><p>dictionary of county as keys and co-ordinates as values</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Best match county name for given latitude &amp; longitude</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.get_single_CountyPrediction">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_single_CountyPrediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">queried_county</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'running'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_single_CountyPrediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month
-:param queried_counties: the counties that are being queried
-:type queried_counties: str
-:type month: str</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="src.utils.get_weatherInfo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">get_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_weatherInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns weather information for the sample</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p></li>
-<li><p><strong>county_coordinates</strong> (<em>dictionary of county as keys and co-ordinates as values</em>) – the county wise co-ordinates</p></li>
-<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
-<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
-<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.get_hotspots">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_hotspots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_hotspots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using K-means clustering, return likely hotspots based on data</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Hotspots centers which have high probability of wildfire occurunce</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.make_sample_features">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">make_sample_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">weather_data</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#make_sample_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns feature required for wildfire predication</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>all_data</strong> (<em>pandas DF</em>) – cleaned and processed data set used for the whole application</p></li>
-<li><p><strong>encodings</strong> (<em>sklearn encodigs</em>) – the month encodings</p></li>
-<li><p><strong>extreames</strong> (<em>list of float</em>) – the minimum and maximum values needed for data normalization</p></li>
-<li><p><strong>weather_data</strong> (<em>list of floats</em>) – the weather data like temp, humidity, wind speed needed for predication</p></li>
-<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
-<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
-<li><p><strong>month</strong> (<em>string</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.get_single_CountyPrediction">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_single_CountyPrediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'running'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_single_CountyPrediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param queried_counties</dt>
+<dd class="field-odd"><p>the county that is being queried</p>
+</dd>
+<dt class="field-even">type queried_counties</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">type month</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>A new pandas dataframe with predicted county incident numbers for a specific month</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="src.utils.pred_func_geo">
-<code class="sig-prename descclassname">src.utils.</code><code class="sig-name descname">pred_func_geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#pred_func_geo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrapper function that,
-Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lon</strong> (<em>float/int</em>) – the longitude of the location of interest within California</p></li>
-<li><p><strong>lat</strong> (<em>float/int</em>) – the latitude of the location of interest within California</p></li>
-<li><p><strong>month</strong> (<em>int</em>) – the month of the year for which use want to check the danger of fire incident within California</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.utils.get_weatherInfo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_weatherInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_weatherInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses <strong>get_countyInfo</strong> to get the county based on latitude, longitude and coordinates. Other required information is the
+processed data and returns weather info</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param county_coordinates</dt>
+<dd class="field-odd"><p>the county wise co-ordinates</p>
+</dd>
+<dt class="field-even">type county_coordinates</dt>
+<dd class="field-even"><p>dictionary of county as keys and co-ordinates as values</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Weather information for the sample</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.make_sample_features">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">make_sample_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#make_sample_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls function get_hotspots() and returns features like weather,distance,time which is used in prediction.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param encodings</dt>
+<dd class="field-odd"><p>the month encodings</p>
+</dd>
+<dt class="field-even">type encodings</dt>
+<dd class="field-even"><p>sklearn encodigs</p>
+</dd>
+<dt class="field-odd">param extreames</dt>
+<dd class="field-odd"><p>the minimum and maximum values needed for data normalization</p>
+</dd>
+<dt class="field-even">type extreames</dt>
+<dd class="field-even"><p>list of float</p>
+</dd>
+<dt class="field-odd">param weather_data</dt>
+<dd class="field-odd"><p>the weather data like temp, humidity, wind speed needed for predication</p>
+</dd>
+<dt class="field-even">type weather_data</dt>
+<dd class="field-even"><p>list of floats</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Features required for wildfire predication</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.pred_func_geo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">pred_func_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#pred_func_geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a wrapper function that uses functions like <strong>get_weatherInfo</strong> and <strong>make_sample_features</strong>. Requires inputs
+like latitude, longitude, month.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Probability of safety from wildfire incidents.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -350,10 +538,6 @@ Returns probability of safety from wildfire incidents given latitude, longitude 
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="tests.html" class="btn btn-neutral float-right" title="tests package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="modules.html" class="btn btn-neutral float-left" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

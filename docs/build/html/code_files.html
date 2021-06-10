@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Source Code Files &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tests package" href="tests.html" />
+    <link rel="prev" title="Source" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Source Code Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.utils">utils.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.app">app.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">Source</a> &raquo;</li>
+        
+      <li>Source Code Files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/code_files.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="source-code-files">
+<span id="code-files-marker"></span><h1>Source Code Files<a class="headerlink" href="#source-code-files" title="Permalink to this headline">¶</a></h1>
+<p>A brief look at the source files, which functions are used, how they are linked.</p>
+<div class="section" id="module-src.utils">
+<span id="utils-py"></span><h2>utils.py<a class="headerlink" href="#module-src.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.PosEncoder">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">PosEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#PosEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.PosEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculating distance between the location and hotspots predicated from the original dataset.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param cluster_centers</dt>
+<dd class="field-odd"><p>the hotspots predicated from the original dataset.</p>
+</dd>
+<dt class="field-even">type cluster_centers</dt>
+<dd class="field-even"><p>list of floats</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Feature vector based on latitude &amp; longitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.dateEncoder">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">dateEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#dateEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.dateEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used for processing data. When month is given, its gives the encoded features in an array format.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param month_enc</dt>
+<dd class="field-odd"><p>the encodings for month</p>
+</dd>
+<dt class="field-even">type month_enc</dt>
+<dd class="field-even"><p>sklearn encoder</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Encoded features based on month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.geo_model">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">geo_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#geo_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.geo_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>If model and feature are fed, uses <strong>predict_proba()</strong> method of model.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param model</dt>
+<dd class="field-odd"><p>the model used for the prediction</p>
+</dd>
+<dt class="field-even">type model</dt>
+<dd class="field-even"><p>sklearn model</p>
+</dd>
+<dt class="field-odd">param model_features</dt>
+<dd class="field-odd"><p>the contex rich features generated for predication</p>
+</dd>
+<dt class="field-even">type model_features</dt>
+<dd class="field-even"><p>float (ranging from 0 to 1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Probability of wildfire</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.getCountyNumbersDF">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getCountyNumbersDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyNumbersDF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getCountyNumbersDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks at the data between the start and end date specified by user and checks if any incident happened in that time period.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param data</dt>
+<dd class="field-odd"><p>the original dataframe from the Calfire csv</p>
+</dd>
+<dt class="field-even">type data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param start_date</dt>
+<dd class="field-odd"><p>the start date which we are filtering by</p>
+</dd>
+<dt class="field-even">type start_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+<dt class="field-odd">param end_date</dt>
+<dd class="field-odd"><p>the end date which we are filtering by</p>
+</dd>
+<dt class="field-even">type end_date</dt>
+<dd class="field-even"><p>datetime object</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Pandas dataframe with county incident numbers from a specific date range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.getCountyPredictions">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getCountyPredictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_counties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getCountyPredictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getCountyPredictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pandas dataframe with predicted county incident numbers for a specific month. This function calls
+<strong>get_single_CountyPrediction()</strong>.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param queried_counties</dt>
+<dd class="field-odd"><p>the counties that are being queried</p>
+</dd>
+<dt class="field-even">type queried_counties</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month that is being queried</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Predicted number of fires for each county</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.getTrend">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">getTrend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1969</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2021</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#getTrend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.getTrend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame for number of incidents in ‘month’ for different years between start and end as selected by users</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>data – DataFrame
+month – intended month
+start_year – the start year of inspection
+end_year – the end year of inspection</p>
+</dd>
+<dt>Return :</dt><dd><p>A dataframe for number of incidents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_countyInfo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_countyInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_countyInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_countyInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>If latitude,longitude and county co-ordinates then we want to find a county which is most likely match. Basically try to
+minimize the distance between the given point and county.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param county_coordinates</dt>
+<dd class="field-odd"><p>the county wise co-ordinates</p>
+</dd>
+<dt class="field-even">type county_coordinates</dt>
+<dd class="field-even"><p>dictionary of county as keys and co-ordinates as values</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Best match county name for given latitude &amp; longitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_hotspots">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_hotspots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_hotspots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_hotspots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using K-means clustering, return likely hotspots based on data</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Hotspots centers which have high probability of wildfire occurunce</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_single_CountyPrediction">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_single_CountyPrediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'running'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_single_CountyPrediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_single_CountyPrediction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param queried_counties</dt>
+<dd class="field-odd"><p>the county that is being queried</p>
+</dd>
+<dt class="field-even">type queried_counties</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">type month</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>A new pandas dataframe with predicted county incident numbers for a specific month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_weatherInfo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">get_weatherInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#get_weatherInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses <strong>get_countyInfo</strong> to get the county based on latitude, longitude and coordinates. Other required information is the
+processed data and returns weather info</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param county_coordinates</dt>
+<dd class="field-odd"><p>the county wise co-ordinates</p>
+</dd>
+<dt class="field-even">type county_coordinates</dt>
+<dd class="field-even"><p>dictionary of county as keys and co-ordinates as values</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Weather information for the sample</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.make_sample_features">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">make_sample_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#make_sample_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.make_sample_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls function get_hotspots() and returns features like weather,distance,time which is used in prediction.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param all_data</dt>
+<dd class="field-odd"><p>cleaned and processed data set used for the whole application</p>
+</dd>
+<dt class="field-even">type all_data</dt>
+<dd class="field-even"><p>pandas DF</p>
+</dd>
+<dt class="field-odd">param encodings</dt>
+<dd class="field-odd"><p>the month encodings</p>
+</dd>
+<dt class="field-even">type encodings</dt>
+<dd class="field-even"><p>sklearn encodigs</p>
+</dd>
+<dt class="field-odd">param extreames</dt>
+<dd class="field-odd"><p>the minimum and maximum values needed for data normalization</p>
+</dd>
+<dt class="field-even">type extreames</dt>
+<dd class="field-even"><p>list of float</p>
+</dd>
+<dt class="field-odd">param weather_data</dt>
+<dd class="field-odd"><p>the weather data like temp, humidity, wind speed needed for predication</p>
+</dd>
+<dt class="field-even">type weather_data</dt>
+<dd class="field-even"><p>list of floats</p>
+</dd>
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Features required for wildfire predication</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.pred_func_geo">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">pred_func_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#pred_func_geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.pred_func_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a wrapper function that uses functions like <strong>get_weatherInfo</strong> and <strong>make_sample_features</strong>. Requires inputs
+like latitude, longitude, month.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param lon</dt>
+<dd class="field-odd"><p>the longitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lon</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param lat</dt>
+<dd class="field-odd"><p>the latitude of the location of interest within California</p>
+</dd>
+<dt class="field-even">type lat</dt>
+<dd class="field-even"><p>float/int</p>
+</dd>
+<dt class="field-odd">param month</dt>
+<dd class="field-odd"><p>the month of the year for which use want to check the danger of fire incident within California</p>
+</dd>
+<dt class="field-even">type month</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd>
+<dt>Return :</dt><dd><p>Probability of safety from wildfire incidents.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.app">
+<span id="app-py"></span><h2>app.py<a class="headerlink" href="#module-src.app" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.display_data">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">display_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selectedData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#display_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.display_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called for <em>California Incident Map</em> service.
+Input   :</p>
+<blockquote>
+<div><p>selectedData- Region selected on the map</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>Table indicating information about the incidents in selected region.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.display_page">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">display_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#display_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.display_page" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><p>pathname - Input from the navigation bar</p>
+</dd>
+<dt>Return :</dt><dd><p>Display selected page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.display_pred_data">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">display_pred_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_counties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#display_pred_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.display_pred_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input:</dt><dd><p>queried_counties - The list of county(s) selected by the user for prediction
+month</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A table with predicted number of fires for each county</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.map_click">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">map_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#map_click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.map_click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interacts with <strong>pred_func_geo</strong> in utils.py and passes the information that the function needs.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>coordinates - Coordinates for location clicked on the map
+month</p>
+</dd>
+<dt>Return :</dt><dd><p>Marker on the map</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.show_heading">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">show_heading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">incident_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmcounty</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#show_heading"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.show_heading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on what is the user input by clicking, this function decides which tab is selected - ‘California Incident Map’ ,
+‘County Incident Map’ , ‘County Based Prediction’ , ‘Geo location based prediction’</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>incident_map
+lmcounty
+lmp1
+lmp2</p>
+</dd>
+<dt>Return :</dt><dd><p>Corresponding service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.show_subheading">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">show_subheading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">incident_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmcounty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#show_subheading"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.show_subheading" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><p>incident_map - California Incident map
+lmcounty - County Incident map
+lmp1 - County Based Prediction
+lmp2 -  Geo location based Prediction</p>
+</dd>
+<dt>Return :</dt><dd><p>Main text in <strong>Learn More</strong> for the selected heading on <strong>Home</strong> page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.show_text1">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">show_text1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">incident_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmcounty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#show_text1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.show_text1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><p>incident_map - California Incident Map
+lmcounty - County Incident Map
+lmp1 -  County based prediction
+lmp2 - Geo location based prediction</p>
+</dd>
+<dt>Return :</dt><dd><p>Sub-text for selected heading on <strong>Home</strong> page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.show_text2">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">show_text2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">incident_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmcounty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmp2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#show_text2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.show_text2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><p>incident_map - California Incident Map
+lmcounty - County Incident Map
+lmp1 -  County based prediction
+lmp2 - Geo location based prediction</p>
+</dd>
+<dt>Return :</dt><dd><p>Redirecting prompt to the specific toolkit on home page heading</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_cali_map">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_cali_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_cali_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_cali_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in <em>California Incident map</em> service.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>start_date
+end_date</p>
+</dd>
+<dt>Return :</dt><dd><p>Fig - California map scatter plot showing information about fires.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_map">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function interacts with <strong>getCountyNumbersDF()</strong> function in utils.py to
+Input :</p>
+<blockquote>
+<div><p>start_date
+end_date</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>Updated county based map</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_pie">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_pie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_pie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_pie" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in County Incident Map. It interacts with <strong>getCountyNumbersDF</strong> module in utils.py to get the
+data to be presented in a pie-chart.</p>
+<dl class="simple">
+<dt>Input :</dt><dd><p>start_date
+end_date</p>
+</dd>
+<dt>Return :</dt><dd><p>Pie-chart of county-wise incidents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_county_prediction">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_county_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queried_counties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_county_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_county_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Input :</dt><dd><p>County(s)- Selected from dropdown
+Month - Selected using slider</p>
+</dd>
+<dt>Returns :</dt><dd><p>A figure mapping the selected county(s) and number of incidents predicted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.app.update_trend">
+<span class="sig-prename descclassname"><span class="pre">src.app.</span></span><span class="sig-name descname"><span class="pre">update_trend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/app.html#update_trend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.app.update_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used in <strong>County Based Prediction</strong>. It interacts with <strong>getTrend()</strong> module in utils.py based on the
+inputs for this module.
+Input:</p>
+<blockquote>
+<div><p>county
+month
+year_range = start_year, end_year</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Return :</dt><dd><p>A bar chart indicating number of incidents per year for the specified inputs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tests.html" class="btn btn-neutral float-right" title="Tests package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

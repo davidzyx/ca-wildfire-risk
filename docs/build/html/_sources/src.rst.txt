@@ -1,6 +1,6 @@
 src package
 ===========
-Source package that powers the interative web application
+Source package that powers the interactive web application
 
 Submodules
 ----------

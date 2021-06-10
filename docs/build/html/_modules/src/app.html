@@ -1,0 +1,943 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>src.app &mdash; CA_Wildfire 2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CA_Wildfire
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code_files.html">Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Source</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CA_Wildfire</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.app</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.app</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Container</span>
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">dash_html_components.Tr</span> <span class="kn">import</span> <span class="n">Tr</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">dash</span>
+<span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">dash_table</span>
+<span class="kn">import</span> <span class="nn">dash_daq</span> <span class="k">as</span> <span class="nn">daq</span>
+
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="c1"># import utils</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">calendar</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">environ</span>
+<span class="kn">import</span> <span class="nn">dash_leaflet</span> <span class="k">as</span> <span class="nn">dl</span>
+<span class="kn">from</span> <span class="nn">dash.exceptions</span> <span class="kn">import</span> <span class="n">PreventUpdate</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">last_valid</span> <span class="o">=</span> <span class="p">(</span><span class="mf">32.715736</span><span class="p">,</span> <span class="o">-</span><span class="mf">117.161087</span><span class="p">)</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;background&#39;</span><span class="p">:</span> <span class="s1">&#39;##333&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;#7FDBFF&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Data loading fire occurance</span>
+<span class="k">if</span> <span class="s1">&#39;PYTHONPATH&#39;</span> <span class="ow">in</span> <span class="n">environ</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">ppath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHONPATH&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ppath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data/fire_occurrances_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df_fire_occurrances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># Data loading for geo-model</span>
+<span class="n">geo_all_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;final_data.csv&#39;</span><span class="p">))</span>
+<span class="n">geo_county_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;county_positions.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">geo_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;geo_model.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">geo_encodings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;encodings.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">geo_extreames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ppath</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;extreames.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Preprocessing Data</span>
+<span class="n">STATE</span> <span class="o">=</span> <span class="s1">&#39;START&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www.fire.ca.gov/imapdata/mapdataall.csv&quot;</span><span class="p">)</span>
+<span class="n">table_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_acres_burned&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>  <span class="c1"># Dropping Nulls</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_dateonly_extinguished&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>  <span class="c1"># Dropping Nulls</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_dateonly_extinguished&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;date_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_dateonly_created&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2010-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)]</span>  <span class="c1"># Dropping wrong/invalid dates</span>
+
+<span class="n">min_date</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+<span class="n">max_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+
+<span class="c1"># Set Mapbox Access Token</span>
+<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;src/.mapbox_token&#39;</span><span class="p">):</span>
+    <span class="n">px</span><span class="o">.</span><span class="n">set_mapbox_access_token</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;src/.mapbox_token&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">elif</span> <span class="s1">&#39;MAPBOX_TOKEN&#39;</span> <span class="ow">in</span> <span class="n">environ</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">px</span><span class="o">.</span><span class="n">set_mapbox_access_token</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MAPBOX_TOKEN&#39;</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TOKEN not found in env or local dir&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create App</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">suppress_callback_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Navbar</span>
+<span class="n">navbar</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;navbar&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;topnav&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;home-page-nav&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;home-page&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;California Incident Map&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;cali-map-nav&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;app1&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;County Incident Map&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county-map-nav&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;app2&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;County Based Prediction&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county-based-pred-nav&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;app3&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Geo Location Based Prediction&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;geo-based-pred-nav&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;app4&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="c1"># End of Navbar</span>
+
+
+<span class="c1"># Header</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s1">&#39;California Wildfire Interactive Dashboard&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;main-title&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="c1"># End of Header</span>
+
+
+<span class="c1"># Home Page - referenced https://www.w3schools.com/</span>
+<span class="n">prompt_message_container</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;prompt&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;text-box&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;heading-primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;heading-primary-main&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Looking for a tool to analyze California Wildfires ?&#39;</span><span class="p">),</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;heading-primary-sub&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;You are in the right place!&#39;</span><span class="p">)</span>
+    <span class="p">]),</span>
+                                             <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s1">&#39;#services&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;btn btn-white btn-animated&quot;</span><span class="p">,</span>
+                                                    <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Discover more&#39;</span><span class="p">)])</span>
+<span class="p">])</span>
+
+<span class="n">learn_more_container_1</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;about-section&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;about-us-header&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Our Services&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
+        <span class="n">children</span><span class="o">=</span><span class="s1">&#39;The tools we provide include data visualization, data inspection, incident analysis based on time and location, and incident prediction based on user data entries.&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;All of these services are based on CAL FIRE dataset provided by&#39;</span><span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;California Department of Forestry and Fire Protection &#39;</span><span class="p">],</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;https://www.fire.ca.gov/&#39;</span><span class="p">,</span>
+           <span class="n">className</span><span class="o">=</span><span class="s1">&#39;linkk&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">learn_more_services</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">H2</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;services-header&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;text-align:center&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Our Services&#39;</span><span class="p">)</span>
+
+<span class="n">learn_more_container_2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;2rem&#39;</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;col-md-3 d-flex align-items-stretch&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Img</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">get_asset_url</span><span class="p">(</span><span class="s1">&#39;p1.png&#39;</span><span class="p">),</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-img-top&#39;</span><span class="p">),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-body&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;California Incident Map&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-title&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Data Visualization &amp; Inspection&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-text&#39;</span><span class="p">,</span>
+                       <span class="n">children</span><span class="o">=</span><span class="s1">&#39;This service provides tools for the user to inspect the location of incidents on a California map.&#39;</span><span class="p">),</span>
+            <span class="p">]),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-footer&#39;</span><span class="p">,</span>
+                   <span class="n">children</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;incident_map&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Learn More&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;#desc_text2&#39;</span><span class="p">)),</span>
+        <span class="p">])</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;col-md-3 d-flex align-items-stretch&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Img</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">get_asset_url</span><span class="p">(</span><span class="s1">&#39;p2.png&#39;</span><span class="p">),</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-img-top&#39;</span><span class="p">),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-body&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;County Incident Map&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-title&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Data Visualization &amp; Inspection&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-text&#39;</span><span class="p">,</span>
+                       <span class="n">children</span><span class="o">=</span><span class="s1">&#39;This tool provide visuals for the user to inspect county incidents more closely&#39;</span><span class="p">),</span>
+            <span class="p">]),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-footer&#39;</span><span class="p">,</span>
+                   <span class="n">children</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Learn More&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;lmcounty&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;#desc_text2&#39;</span><span class="p">))</span>
+        <span class="p">])</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;col-md-3 d-flex align-items-stretch&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Img</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">get_asset_url</span><span class="p">(</span><span class="s1">&#39;p3.png&#39;</span><span class="p">),</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-img-top&#39;</span><span class="p">),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-body&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Prediction - County wise&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-title&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Analysis &amp; Prediction&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-text&#39;</span><span class="p">,</span>
+                       <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Based on an extensive predictive model on the backend, the user can know the expected number of incidents in a desired month and county&#39;</span><span class="p">),</span>
+            <span class="p">]),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-footer&#39;</span><span class="p">,</span>
+                   <span class="n">children</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Learn More&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;lmp1&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;#desc_text2&#39;</span><span class="p">))</span>
+        <span class="p">])</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;col-md-3 d-flex align-items-stretch&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Img</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">get_asset_url</span><span class="p">(</span><span class="s1">&#39;p4.png&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">=</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-img-top&#39;</span><span class="p">),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-body&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Predictions - Geo Location&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-title&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Analysis &amp; Prediction&#39;</span><span class="p">),</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-text&#39;</span><span class="p">,</span>
+                       <span class="n">children</span><span class="o">=</span><span class="s1">&#39;This model generates a probability for an incident, based on the user desired lon/lat and time&#39;</span><span class="p">),</span>
+            <span class="p">]),</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;card-footer&#39;</span><span class="p">,</span>
+                   <span class="n">children</span><span class="o">=</span><span class="n">html</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="s1">&#39;Learn More&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;lmp2&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;#desc_text2&#39;</span><span class="p">))</span>
+        <span class="p">])</span>
+    <span class="p">])</span>
+
+<span class="p">])</span>
+
+<span class="n">second_row_service</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;1rem 3rem&#39;</span><span class="p">,</span> <span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">H2</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;desc_heading&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;desc_heading&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Learn More&quot;</span><span class="p">]),</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;desc_subhead&#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;desc_subhead&#39;</span><span class="p">),</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;1rem 3rem&#39;</span><span class="p">,</span> <span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;#d8f3d8&#39;</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Br</span><span class="p">(),</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;desc_text1&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Click </span><span class="se">\&quot;</span><span class="s2">Learn more</span><span class="se">\&quot;</span><span class="s2"> to find out how the different services work&quot;</span><span class="p">]),</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;desc_text2&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+    <span class="p">])</span>
+<span class="p">])</span>
+
+<span class="n">our_services</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;services&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">learn_more_container_1</span><span class="p">,</span> <span class="n">learn_more_services</span><span class="p">,</span> <span class="n">learn_more_container_2</span><span class="p">,</span>
+                                                 <span class="n">second_row_service</span><span class="p">])</span>
+<span class="c1"># End of Home Page</span>
+
+
+<span class="c1"># Incident Page</span>
+<span class="n">date_picker_widget</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">DatePickerRange</span><span class="p">(</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;2rem&#39;</span><span class="p">},</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span>
+    <span class="n">min_date_allowed</span><span class="o">=</span><span class="n">min_date</span><span class="p">,</span>
+    <span class="n">max_date_allowed</span><span class="o">=</span><span class="n">max_date</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+    <span class="n">end_date</span><span class="o">=</span><span class="n">max_date</span><span class="p">,</span>
+    <span class="n">number_of_months_shown</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">date_picker_row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;datepicker&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;1 rem&#39;</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">Strong</span><span class="p">(</span><span class="s1">&#39;Filter by Date&#39;</span><span class="p">))</span>
+    <span class="p">]),</span>
+    <span class="n">date_picker_widget</span>
+<span class="p">])</span>
+
+<span class="n">cali_map</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;cali_map&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">})</span>
+
+<span class="n">cali_map_table</span> <span class="o">=</span> <span class="n">dash_table</span><span class="o">.</span><span class="n">DataTable</span><span class="p">(</span>
+    <span class="n">style_table</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span>
+        <span class="s1">&#39;overflowY&#39;</span><span class="p">:</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span>
+    <span class="p">},</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;cali_map_table&#39;</span><span class="p">,</span>
+    <span class="n">style_header</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;#04AA6D&#39;</span><span class="p">},</span>
+    <span class="n">style_cell</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;rgb(50, 50, 50)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;whiteSpace&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span>
+    <span class="p">},</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;incident_name&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_administrative_unit&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_location&#39;</span><span class="p">]],</span>
+<span class="p">)</span>
+
+<span class="n">label_cali_map</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Please choose your preferred date range between 02-28-2013 and 01-22-2021&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s1">&#39;(Note that a small date range is required for full functionality with the select and hovering tools)&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">cali_second_row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columnCount&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">cali_map</span><span class="p">,</span> <span class="n">cali_map_table</span><span class="p">])</span>
+<span class="n">cali_map_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;calmap&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">label_cali_map</span><span class="p">,</span> <span class="n">date_picker_row</span><span class="p">,</span> <span class="n">cali_second_row</span><span class="p">])</span>
+<span class="c1"># End of Incident Page</span>
+
+
+<span class="c1"># County Incident Page</span>
+<span class="n">county_map</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_map&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">})</span>
+<span class="n">county_pie</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_pie&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">})</span>
+
+<span class="n">county_map_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_map_div&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="s1">&#39;2px #f2f2f2 solid&#39;</span><span class="p">},</span>
+                          <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s1">&#39;County Incident Frequency&#39;</span><span class="p">),</span> <span class="n">county_map</span><span class="p">])</span>
+<span class="n">county_pie_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_pie_div&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="s1">&#39;2px #f2f2f2 solid&#39;</span><span class="p">},</span>
+                          <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s1">&#39;County Incident Distribution&#39;</span><span class="p">),</span> <span class="n">county_pie</span><span class="p">])</span>
+
+<span class="n">label_county_map</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Please choose your preferred date range between 02-28-2013 and 01-22-2021&#39;</span><span class="p">))</span>
+<span class="n">second_row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columnCount&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">county_map_div</span><span class="p">,</span> <span class="n">county_pie_div</span><span class="p">])</span>
+<span class="n">county_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;countymap&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">label_county_map</span><span class="p">,</span> <span class="n">date_picker_row</span><span class="p">,</span> <span class="n">second_row</span><span class="p">])</span>
+<span class="c1"># End of County Incident Page</span>
+
+
+<span class="c1"># County-based Prediction Page</span>
+<span class="n">county_prediction</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_prediction&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">})</span>
+
+<span class="n">month_picker_slider</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;month_slider&#39;</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nb">max</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">marks</span><span class="o">=</span><span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;November&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span>
+    <span class="p">},</span>
+    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">month_picker_row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;padding-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;2rem&#39;</span><span class="p">},</span>
+                            <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s1">&#39;Query a Month:&#39;</span><span class="p">),</span> <span class="n">month_picker_slider</span><span class="p">])</span>
+
+<span class="n">county_dropdown</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_dropdown&#39;</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">county</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">county</span><span class="p">}</span> <span class="k">for</span> <span class="n">county</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">ca_counties_list</span><span class="p">],</span>
+    <span class="n">multi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">placeholder</span><span class="o">=</span><span class="s1">&#39;Select one or more California Counties...&#39;</span>
+<span class="p">)</span>
+
+<span class="n">county_dropdown2</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;county_dropdown2&#39;</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">county</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">county</span><span class="p">}</span> <span class="k">for</span> <span class="n">county</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">ca_counties_list</span><span class="p">],</span>
+    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Alameda&#39;</span>
+<span class="p">)</span>
+
+<span class="n">range_slider</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">RangeSlider</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;range_slider&#39;</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="nb">max</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span>
+    <span class="n">marks</span><span class="o">=</span><span class="p">{</span>
+        <span class="mi">2010</span><span class="p">:</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="mi">2011</span><span class="p">:</span> <span class="s1">&#39;2011&#39;</span><span class="p">,</span> <span class="mi">2012</span><span class="p">:</span> <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="mi">2013</span><span class="p">:</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="mi">2014</span><span class="p">:</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="mi">2015</span><span class="p">:</span> <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">:</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="mi">2017</span><span class="p">:</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span>
+        <span class="mi">2018</span><span class="p">:</span> <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">:</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">:</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="mi">2021</span><span class="p">:</span> <span class="s1">&#39;2021&#39;</span>
+    <span class="p">},</span>
+    <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2021</span><span class="p">],</span>
+    <span class="n">allowCross</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">pred_table</span> <span class="o">=</span> <span class="n">dash_table</span><span class="o">.</span><span class="n">DataTable</span><span class="p">(</span>
+    <span class="n">style_table</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span>
+        <span class="s1">&#39;overflowY&#39;</span><span class="p">:</span> <span class="s1">&#39;scroll&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span>
+    <span class="p">},</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;pred_table&#39;</span><span class="p">,</span>
+    <span class="n">style_header</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;#04AA6D&#39;</span><span class="p">},</span>
+    <span class="n">style_cell</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;rgb(50, 50, 50)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;whiteSpace&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span>
+    <span class="p">},</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;County&#39;</span><span class="p">,</span> <span class="s1">&#39;Predicted Number of Fires&#39;</span><span class="p">]],</span>
+<span class="p">)</span>
+
+<span class="c1">## Number of Predicted Incidents</span>
+<span class="n">county_prediction_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;pred-map&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">county_prediction</span><span class="p">])</span>
+<span class="n">pred_subdiv</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columnCount&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">county_prediction_div</span><span class="p">,</span> <span class="n">pred_table</span><span class="p">])</span>
+<span class="n">pred_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;pred&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">month_picker_row</span><span class="p">,</span> <span class="n">county_dropdown</span><span class="p">,</span> <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;county_graph_title&#39;</span><span class="p">,</span>
+                                                                                    <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                                                                                        <span class="sa">f</span><span class="s1">&#39;Number of Predicted Incidents&#39;</span><span class="p">]),</span>
+                                         <span class="n">pred_subdiv</span><span class="p">])</span>
+
+<span class="c1">## Past Incident Trend</span>
+<span class="n">fire_trend</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;fire-trend&#39;</span><span class="p">)</span>
+<span class="n">title_trend</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H2</span><span class="p">(</span><span class="s1">&#39;How is the incident trend in past years? &#39;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;hh&#39;</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-bottom&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="n">label_trend</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;Please choose your preferred time range&#39;</span><span class="p">))</span>
+<span class="n">trend_picker</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">range_slider</span><span class="p">,</span> <span class="n">county_dropdown2</span><span class="p">],</span>
+                        <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#04AA6D&#39;</span><span class="p">,</span> <span class="s1">&#39;padding-top&#39;</span><span class="p">:</span> <span class="s1">&#39;1rem&#39;</span><span class="p">,</span> <span class="s1">&#39;padding-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;2rem&#39;</span><span class="p">})</span>
+<span class="n">trend_container</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">label_trend</span><span class="p">,</span> <span class="n">trend_picker</span><span class="p">,</span> <span class="n">fire_trend</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;10px&#39;</span><span class="p">})</span>
+<span class="n">fire_trend_div</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;trend&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;0px&#39;</span><span class="p">,</span> <span class="s1">&#39;columnCount&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                          <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">title_trend</span><span class="p">,</span> <span class="n">trend_container</span><span class="p">])</span>
+<span class="c1"># End of County-based Prediction Page</span>
+
+
+<span class="c1"># Geo Location Based Prediction</span>
+<span class="n">month_picker_slider2</span> <span class="o">=</span> <span class="n">dcc</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;month_slider2&#39;</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nb">max</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">marks</span><span class="o">=</span><span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;November&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span>
+    <span class="p">},</span>
+    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">month_picker_row2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;padding-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;2rem&#39;</span><span class="p">},</span>
+                             <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s1">&#39;Query a Month:&#39;</span><span class="p">),</span> <span class="n">month_picker_slider2</span><span class="p">])</span>
+<span class="n">th</span> <span class="o">=</span> <span class="n">daq</span><span class="o">.</span><span class="n">Thermometer</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;th&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">showCurrentValue</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Risk Percentage&#39;</span><span class="p">)</span>
+
+<span class="n">label_cali_map2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-bottom&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;margin-left&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="n">cali_map2</span> <span class="o">=</span> <span class="n">dl</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="n">dl</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(),</span> <span class="n">dl</span><span class="o">.</span><span class="n">LayerGroup</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;layer&quot;</span><span class="p">)],</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;map-id&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">550</span><span class="p">},</span>
+                   <span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">37.219306366090116</span><span class="p">,</span> <span class="o">-</span><span class="mf">119.66673872628975</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cali_map_subdiv2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;cal-map2&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columnCount&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">cali_map2</span><span class="p">,</span> <span class="n">th</span><span class="p">])</span>
+<span class="n">cali_map_div2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;calmap2&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">label_cali_map2</span><span class="p">,</span> <span class="n">cali_map_subdiv2</span><span class="p">])</span>
+<span class="n">pred_div2</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;pred&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">month_picker_row2</span><span class="p">,</span> <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s1">&#39;county_graph_title&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="sa">f</span><span class="s1">&#39;Please pick a point from the map below&#39;</span><span class="p">]),</span> <span class="n">cali_map_div2</span><span class="p">])</span>
+<span class="c1"># End of Geo Located Based Prediction</span>
+
+
+<span class="c1"># Building App</span>
+<span class="n">app</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Cal Fire Dashboard&#39;</span>
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">dcc</span><span class="o">.</span><span class="n">Location</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">header</span><span class="p">,</span> <span class="n">navbar</span><span class="p">,</span>
+                                <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;page-content&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">prompt_message_container</span><span class="p">,</span> <span class="n">our_services</span><span class="p">])])</span>
+
+
+<span class="c1"># Observer Functions</span>
+
+<div class="viewcode-block" id="show_heading"><a class="viewcode-back" href="../../code_files.html#src.app.show_heading">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;desc_heading&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;incident_map&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmcounty&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp1&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp2&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">show_heading</span><span class="p">(</span><span class="n">incident_map</span><span class="p">,</span> <span class="n">lmcounty</span><span class="p">,</span> <span class="n">lmp1</span><span class="p">,</span> <span class="n">lmp2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Based on what is the user input by clicking, this function decides which tab is selected - &#39;California Incident Map&#39; ,</span>
+<span class="sd">    &#39;County Incident Map&#39; , &#39;County Based Prediction&#39; , &#39;Geo location based prediction&#39;</span>
+
+<span class="sd">    Input :</span>
+<span class="sd">        incident_map</span>
+<span class="sd">        lmcounty</span>
+<span class="sd">        lmp1</span>
+<span class="sd">        lmp2</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Corresponding service</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span>
+    <span class="n">div_id</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prop_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">incident_map</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">incident_map</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Learn More&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;incident_map&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;California Incident Map&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmcounty&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;County Incident Map&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;County Based Prediction&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp2&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Geo Location Based Prediction&#39;</span></div>
+
+
+<div class="viewcode-block" id="show_subheading"><a class="viewcode-back" href="../../code_files.html#src.app.show_subheading">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;desc_subhead&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;incident_map&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmcounty&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp1&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp2&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">show_subheading</span><span class="p">(</span><span class="n">incident_map</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmcounty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Input :</span>
+<span class="sd">        incident_map - California Incident map</span>
+<span class="sd">        lmcounty - County Incident map</span>
+<span class="sd">        lmp1 - County Based Prediction</span>
+<span class="sd">        lmp2 -  Geo location based Prediction</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Main text in **Learn More** for the selected heading on **Home** page</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span>
+    <span class="n">div_id</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prop_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">incident_map</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">incident_map</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;incident_map&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;You can take a grasp of location, size and time of the previous incidents with just a glance&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmcounty&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;If you are looking for a tool to interact with the dataset from county point of view, this is the right tool for you.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;If you want to do prediction on the expected number of fires, based on the county and the month, this tool can help&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp2&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;After using other tools in the dashboard, you may come up with some spots of interest, you can do an specific prediction on these spots by this tool&#39;</span></div>
+
+
+<div class="viewcode-block" id="show_text1"><a class="viewcode-back" href="../../code_files.html#src.app.show_text1">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;desc_text1&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;incident_map&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmcounty&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp1&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp2&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">show_text1</span><span class="p">(</span><span class="n">incident_map</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmcounty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Input :</span>
+<span class="sd">        incident_map - California Incident Map</span>
+<span class="sd">        lmcounty - County Incident Map</span>
+<span class="sd">        lmp1 -  County based prediction</span>
+<span class="sd">        lmp2 - Geo location based prediction</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Sub-text for selected heading on **Home** page</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span>
+    <span class="n">div_id</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prop_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">incident_map</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">incident_map</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Click </span><span class="se">\&quot;</span><span class="s1">Learn more</span><span class="se">\&quot;</span><span class="s1"> to find out how the different services work&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;incident_map&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;For using this tool, you need to set a time range, and the map will update based on what you chose. Radius of scattered points change proportional to the size of the incident.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmcounty&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;For using this tool, you need to set a time range, and the county heat map will be updated. The heat map indicates number of incidents per county.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;For using this tool, you need to set a month and the county you are interested in, and the predicted number of fire occurences would be calculated based on a combined model of averaging past, Seasonal Arima, and Unobserved components.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp2&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;For using this tool, you need to set a month and pick the geo coordinates of the location you are interested in, and the probability of incident and the risk will be shown.&#39;</span></div>
+
+
+<div class="viewcode-block" id="show_text2"><a class="viewcode-back" href="../../code_files.html#src.app.show_text2">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;desc_text2&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;incident_map&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmcounty&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp1&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;lmp2&#39;</span><span class="p">,</span> <span class="s1">&#39;n_clicks&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">show_text2</span><span class="p">(</span><span class="n">incident_map</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmcounty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lmp2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Input :</span>
+<span class="sd">        incident_map - California Incident Map</span>
+<span class="sd">        lmcounty - County Incident Map</span>
+<span class="sd">        lmp1 -  County based prediction</span>
+<span class="sd">        lmp2 - Geo location based prediction</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Redirecting prompt to the specific toolkit on home page heading</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span>
+    <span class="n">div_id</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prop_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">incident_map</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">incident_map</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmcounty</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lmp2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;incident_map&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;You can use the toolkit above the map to select the incidents you are interested to investigate more. Further information about the chosen incidents will pop up in a table.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmcounty&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;A pie chart is provided beside the map, to give the user a general insight of rate of incidents in all counties together.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;The location of the county will be shown on the map and the expected number of fire occurences would be shown in the table on the right.&#39;</span>
+    <span class="k">elif</span> <span class="n">div_id</span> <span class="o">==</span> <span class="s1">&#39;lmp2&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;A widget with probability of incident will be shown based on the geo coordinates with location pinned in the map.&#39;</span></div>
+
+
+<div class="viewcode-block" id="map_click"><a class="viewcode-back" href="../../code_files.html#src.app.map_click">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">([</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s2">&quot;layer&quot;</span><span class="p">,</span> <span class="s2">&quot;children&quot;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">),</span>
+               <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">)],</span>
+              <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;map-id&#39;</span><span class="p">,</span> <span class="s1">&#39;click_lat_lng&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;month_slider2&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">map_click</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Interacts with **pred_func_geo** in utils.py and passes the information that the function needs.</span>
+
+<span class="sd">    Input :</span>
+<span class="sd">        coordinates - Coordinates for location clicked on the map</span>
+<span class="sd">        month</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Marker on the map</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">global</span> <span class="n">last_valid</span>
+
+    <span class="k">if</span> <span class="n">coordinates</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">coordinates</span> <span class="o">=</span> <span class="n">last_valid</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">last_valid</span> <span class="o">=</span> <span class="n">coordinates</span>
+
+    <span class="k">if</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">32.534156</span> <span class="ow">or</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">42.009518</span> <span class="ow">or</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">124.409591</span> <span class="ow">or</span> <span class="n">coordinates</span><span class="p">[</span>
+        <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">114.131211</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dl</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="n">dl</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">{:.3f}</span><span class="s2">, </span><span class="si">{:.3f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">coordinates</span><span class="p">))),</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s1">&#39;#666&#39;</span><span class="p">]</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">pred_func_geo</span><span class="p">(</span><span class="n">geo_all_data</span><span class="p">,</span> <span class="n">geo_county_coordinates</span><span class="p">,</span> <span class="n">geo_model</span><span class="p">,</span> <span class="n">geo_encodings</span><span class="p">,</span> <span class="n">geo_extreames</span><span class="p">,</span>
+                              <span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">month</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dl</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="n">dl</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">{:.3f}</span><span class="s2">, </span><span class="si">{:.3f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">coordinates</span><span class="p">))),</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">val</span><span class="p">,</span>
+            <span class="s1">&#39;#FF3300&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="display_data"><a class="viewcode-back" href="../../code_files.html#src.app.display_data">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;cali_map_table&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;cali_map&#39;</span><span class="p">,</span> <span class="s1">&#39;selectedData&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">display_data</span><span class="p">(</span><span class="n">selectedData</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function is called for *California Incident Map* service.</span>
+<span class="sd">    Input   :</span>
+<span class="sd">        selectedData- Region selected on the map</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Table indicating information about the incidents in selected region.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">table_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">selectedData</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">table_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">selectedData</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_longitude&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pt</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;incident_latitude&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pt</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">])]</span>
+        <span class="n">table_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="n">table_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="p">[[</span><span class="s1">&#39;incident_name&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_administrative_unit&#39;</span><span class="p">,</span> <span class="s1">&#39;incident_location&#39;</span><span class="p">]]</span>
+    <span class="n">table_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">table_data</span></div>
+
+
+<div class="viewcode-block" id="display_pred_data"><a class="viewcode-back" href="../../code_files.html#src.app.display_pred_data">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;pred_table&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;county_dropdown&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;month_slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">display_pred_data</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Input:</span>
+<span class="sd">        queried_counties - The list of county(s) selected by the user for prediction</span>
+<span class="sd">        month</span>
+<span class="sd">    Return:</span>
+<span class="sd">        A table with predicted number of fires for each county</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">getCountyPredictions</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="update_cali_map"><a class="viewcode-back" href="../../code_files.html#src.app.update_cali_map">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;cali_map&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;start_date&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">update_cali_map</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function is used in *California Incident map* service.</span>
+
+<span class="sd">    Input :</span>
+<span class="sd">        start_date</span>
+<span class="sd">        end_date</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Fig - California map scatter plot showing information about fires.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_mapbox</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)],</span> <span class="n">lat</span><span class="o">=</span><span class="s2">&quot;incident_latitude&quot;</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="s2">&quot;incident_longitude&quot;</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="s1">&#39;incident_acres_burned&#39;</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">size_max</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;incident_name&quot;</span><span class="p">,</span>
+        <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">119.66673872628975</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="mf">37.219306366090116</span><span class="p">},</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Wildfires Incident Map&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">autosize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">,</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<div class="viewcode-block" id="update_county_map"><a class="viewcode-back" href="../../code_files.html#src.app.update_county_map">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;county_map&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;start_date&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">update_county_map</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function interacts with **getCountyNumbersDF()** function in utils.py to</span>
+<span class="sd">    Input :</span>
+<span class="sd">        start_date</span>
+<span class="sd">        end_date</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Updated county based map</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">county_map_fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">getCountyNumbersDF</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">),</span> <span class="n">geojson</span><span class="o">=</span><span class="n">utils</span><span class="o">.</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Number of County Incidents&#39;</span><span class="p">,</span> <span class="n">featureidkey</span><span class="o">=</span><span class="s1">&#39;properties.name&#39;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;mercator&quot;</span><span class="p">,</span>
+        <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span>
+        <span class="n">center</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">119.66673872628975</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="mf">37.219306366090116</span><span class="p">},</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">550</span>
+    <span class="p">)</span>
+
+    <span class="n">county_map_fig</span><span class="o">.</span><span class="n">update_geos</span><span class="p">(</span><span class="n">fitbounds</span><span class="o">=</span><span class="s1">&#39;geojson&#39;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">county_map_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">county_map_fig</span></div>
+
+
+<div class="viewcode-block" id="update_county_pie"><a class="viewcode-back" href="../../code_files.html#src.app.update_county_pie">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;county_pie&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;start_date&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;date_picker&#39;</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">update_county_pie</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function is used in County Incident Map. It interacts with **getCountyNumbersDF** module in utils.py to get the</span>
+<span class="sd">    data to be presented in a pie-chart.</span>
+
+<span class="sd">    Input :</span>
+<span class="sd">        start_date</span>
+<span class="sd">        end_date</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Pie-chart of county-wise incidents</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">county_pie_fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">getCountyNumbersDF</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Number of County Incidents&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;county&#39;</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">550</span>
+    <span class="p">)</span>
+
+    <span class="n">county_pie_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">county_pie_fig</span></div>
+
+
+<div class="viewcode-block" id="update_county_prediction"><a class="viewcode-back" href="../../code_files.html#src.app.update_county_prediction">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;county_prediction&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;county_dropdown&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;month_slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">update_county_prediction</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Input :</span>
+<span class="sd">            County(s)- Selected from dropdown</span>
+<span class="sd">            Month - Selected using slider</span>
+<span class="sd">        Returns :</span>
+<span class="sd">            A figure mapping the selected county(s) and number of incidents predicted</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">queried_counties</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;County&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;Predicted Number of Fires&#39;</span><span class="p">:</span> <span class="p">[]})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">getCountyPredictions</span><span class="p">(</span><span class="n">queried_counties</span><span class="p">,</span> <span class="n">month</span><span class="p">)</span>
+
+    <span class="n">county_pred_fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">geojson</span><span class="o">=</span><span class="n">utils</span><span class="o">.</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;County&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Predicted Number of Fires&#39;</span><span class="p">,</span> <span class="n">featureidkey</span><span class="o">=</span><span class="s1">&#39;properties.name&#39;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;mercator&quot;</span><span class="p">,</span>
+        <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">county_pred_fig</span><span class="o">.</span><span class="n">update_geos</span><span class="p">(</span><span class="n">fitbounds</span><span class="o">=</span><span class="s1">&#39;geojson&#39;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">county_pred_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">county_pred_fig</span></div>
+
+
+<div class="viewcode-block" id="update_trend"><a class="viewcode-back" href="../../code_files.html#src.app.update_trend">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;fire-trend&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;county_dropdown2&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;month_slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;range_slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)]</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_trend</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year_range</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function is used in **County Based Prediction**. It interacts with **getTrend()** module in utils.py based on the</span>
+<span class="sd">    inputs for this module.</span>
+<span class="sd">    Input:</span>
+<span class="sd">        county</span>
+<span class="sd">        month</span>
+<span class="sd">        year_range = start_year, end_year</span>
+<span class="sd">    Return :</span>
+<span class="sd">        A bar chart indicating number of incidents per year for the specified inputs.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span> <span class="o">=</span> <span class="n">year_range</span>
+    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">getTrend</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">)</span>
+    <span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">year</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Incidents per Year, in &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#04AA6D&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">XAxis</span><span class="p">(</span>
+            <span class="n">tickangle</span><span class="o">=-</span><span class="mi">45</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="c1"># Navbar callback</span>
+<div class="viewcode-block" id="display_page"><a class="viewcode-back" href="../../code_files.html#src.app.display_page">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;page-content&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;home-page-nav&#39;</span><span class="p">,</span> <span class="s1">&#39;className&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;cali-map-nav&#39;</span><span class="p">,</span> <span class="s1">&#39;className&#39;</span><span class="p">),</span> <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;county-map-nav&#39;</span><span class="p">,</span> <span class="s1">&#39;className&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;county-based-pred-nav&#39;</span><span class="p">,</span> <span class="s1">&#39;className&#39;</span><span class="p">),</span>
+     <span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;geo-based-pred-nav&#39;</span><span class="p">,</span> <span class="s1">&#39;className&#39;</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">dash</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">display_page</span><span class="p">(</span><span class="n">pathname</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Input :</span>
+<span class="sd">        pathname - Input from the navigation bar</span>
+<span class="sd">    Return :</span>
+<span class="sd">        Display selected page.    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/app1&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;app1-div&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">cali_map_div</span><span class="p">]),</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;home-page&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;non-home&quot;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/app2&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;app2-div&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">county_div</span><span class="p">]),</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;home-page&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;non-home&quot;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/app3&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;app3-div&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">pred_div</span><span class="p">,</span> <span class="n">fire_trend_div</span><span class="p">]),</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;home-page&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/app4&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;app4-div&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">pred_div2</span><span class="p">]),</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;home-page&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">prompt_message_container</span><span class="p">,</span> <span class="n">our_services</span><span class="p">]),</span> <span class="s2">&quot;home-page&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;non-home&quot;</span><span class="p">,</span> <span class="s2">&quot;non-home&quot;</span><span class="p">]</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Running App (Port 8050 by default)</span>
+    <span class="k">if</span> <span class="s1">&#39;PORT&#39;</span> <span class="ow">in</span> <span class="n">environ</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PORT&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="mi">8050</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_reloader</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">dev_tools_ui</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

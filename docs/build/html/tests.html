@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>tests package &mdash; CA_Wildfire 2.1 documentation</title>
+  <title>Tests package &mdash; CA_Wildfire 2.1 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,17 +31,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="src package" href="src.html" /> 
+    <link rel="prev" title="Source Code Files" href="code_files.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,14 +88,18 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="src.html">src package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">tests package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-tests.cluster_model">tests.cluster_model module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-tests.conftest">tests.conftest module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_app">tests.test_app module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_model">tests.test_model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="california_incident_map.html">California Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_incident_map.html">County Incident Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="County_based_prediction.html">County Based Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Geo_location.html">Geo Location Based Prediction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Source and Test files</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code_files.html">Source Code Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tests package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.cluster_model">1.tests.cluster_model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.conftest">2. tests.conftest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_app">3. tests.test_app module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_model">4. tests.test_model module</a></li>
 </ul>
 </li>
 </ul>
@@ -146,9 +152,9 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="modules.html">Source</a> &raquo;</li>
+          <li><a href="modules.html">Source and Test files</a> &raquo;</li>
         
-      <li>tests package</li>
+      <li>Tests package</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,16 +174,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="tests-package">
-<h1>tests package<a class="headerlink" href="#tests-package" title="Permalink to this headline">¶</a></h1>
+<h1>Tests package<a class="headerlink" href="#tests-package" title="Permalink to this headline">¶</a></h1>
 <p>Tests folder that provides code coverage</p>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="module-tests.cluster_model">
-<span id="tests-cluster-model-module"></span><h2>tests.cluster_model module<a class="headerlink" href="#module-tests.cluster_model" title="Permalink to this headline">¶</a></h2>
+<span id="tests-cluster-model-module"></span><h2>1.tests.cluster_model module<a class="headerlink" href="#module-tests.cluster_model" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="tests.cluster_model.PosEncoder">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">PosEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">lat1</span></em>, <em class="sig-param"><span class="n">lon1</span></em>, <em class="sig-param"><span class="n">lat2</span></em>, <em class="sig-param"><span class="n">lon2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#PosEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.PosEncoder" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.PosEncoder">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">PosEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#PosEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.PosEncoder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns feature vector based on latitude &amp; longitude
 By calculating distance btw the location and hotspots predicated from the original dataset.</p>
 <dl class="field-list simple">
@@ -192,8 +195,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.dateEncoder">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">dateEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">month_enc</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#dateEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.dateEncoder" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.dateEncoder">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">dateEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#dateEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.dateEncoder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns encoded features based on month</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -206,8 +209,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.geo_model">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">geo_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">model_features</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#geo_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.geo_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.geo_model">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">geo_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#geo_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.geo_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns probability of wildfire, given a model and its features</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -220,8 +223,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_countyInfo">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_countyInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_countyInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_countyInfo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_countyInfo">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_countyInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_countyInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_countyInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns best match county name for given latitude &amp; longitude</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,14 +239,14 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_countyLocations">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_countyLocations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_countyLocations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_countyLocations" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_countyLocations">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_countyLocations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_countyLocations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_countyLocations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns latitudes &amp; longitudes for each county</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_encodings">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_encodings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_encodings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_encodings" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_encodings">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_encodings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_encodings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_encodings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns encodings for non-numerical data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -253,8 +256,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_extreames_positionalInfo">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_extreames_positionalInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_centers</span></em>, <em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_extreames_positionalInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_extreames_positionalInfo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_extreames_positionalInfo">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_extreames_positionalInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_extreames_positionalInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_extreames_positionalInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns Returns min &amp; max values for data normalization of positional data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -264,8 +267,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_extreames_weatherInfo">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_extreames_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_extreames_weatherInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_extreames_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_extreames_weatherInfo">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_extreames_weatherInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_extreames_weatherInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_extreames_weatherInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns Returns min &amp; max values for data normalization of weather data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -275,8 +278,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_hotspots">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_hotspots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_hotspots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_hotspots" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_hotspots">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_hotspots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_hotspots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_hotspots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns hotspots centers which have high probability of wildfire occurunce</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -286,8 +289,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.get_weatherInfo">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">get_weatherInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_weatherInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.get_weatherInfo">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">get_weatherInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#get_weatherInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.get_weatherInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns weather information for the sample</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -303,8 +306,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.make_features">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">make_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#make_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.make_features" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.make_features">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">make_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#make_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.make_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns processed feature and information required from the cleaned data for model training</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -314,8 +317,8 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.make_sample_features">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">make_sample_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">weather_data</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#make_sample_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.make_sample_features" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.make_sample_features">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">make_sample_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#make_sample_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.make_sample_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns feature required for wildfire predication</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -333,14 +336,14 @@ By calculating distance btw the location and hotspots predicated from the origin
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.model_init">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">model_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#model_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.model_init" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.model_init">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">model_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#model_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.model_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initailizes model training and saves processed information for model evalutaion</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.pred_func_geo">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">pred_func_geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em>, <em class="sig-param"><span class="n">county_coordinates</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">encodings</span></em>, <em class="sig-param"><span class="n">extreames</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">month</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#pred_func_geo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.pred_func_geo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.pred_func_geo">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">pred_func_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encodings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extreames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#pred_func_geo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.pred_func_geo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper function that,
 Returns probability of safety from wildfire incidents given latitude, longitude and month of the year</p>
 <dl class="field-list simple">
@@ -355,72 +358,72 @@ Returns probability of safety from wildfire incidents given latitude, longitude 
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.cluster_model.train">
-<code class="sig-prename descclassname">tests.cluster_model.</code><code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">all_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.cluster_model.train" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.cluster_model.train">
+<span class="sig-prename descclassname"><span class="pre">tests.cluster_model.</span></span><span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/cluster_model.html#train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.cluster_model.train" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-tests.conftest">
-<span id="tests-conftest-module"></span><h2>tests.conftest module<a class="headerlink" href="#module-tests.conftest" title="Permalink to this headline">¶</a></h2>
+<span id="tests-conftest-module"></span><h2>2. tests.conftest module<a class="headerlink" href="#module-tests.conftest" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="tests.conftest.pytest_setup_options">
-<code class="sig-prename descclassname">tests.conftest.</code><code class="sig-name descname">pytest_setup_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/conftest.html#pytest_setup_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.conftest.pytest_setup_options" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.conftest.pytest_setup_options">
+<span class="sig-prename descclassname"><span class="pre">tests.conftest.</span></span><span class="sig-name descname"><span class="pre">pytest_setup_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/conftest.html#pytest_setup_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.conftest.pytest_setup_options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-tests.test_app">
-<span id="tests-test-app-module"></span><h2>tests.test_app module<a class="headerlink" href="#module-tests.test_app" title="Permalink to this headline">¶</a></h2>
+<span id="tests-test-app-module"></span><h2>3. tests.test_app module<a class="headerlink" href="#module-tests.test_app" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="tests.test_app.test_cal_date_update">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_cal_date_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_cal_date_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_cal_date_update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_cal_date_update">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_cal_date_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_cal_date_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_cal_date_update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_cal_select">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_cal_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_cal_select"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_cal_select" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_cal_select">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_cal_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_cal_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_cal_select" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_county_map_date_update">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_county_map_date_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_map_date_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_county_map_date_update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_county_map_date_update">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_county_map_date_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_map_date_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_county_map_date_update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_county_pie_date_update">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_county_pie_date_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_pie_date_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_county_pie_date_update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_county_pie_date_update">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_county_pie_date_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_pie_date_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_county_pie_date_update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_county_prediction">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_county_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_county_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_county_prediction">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_county_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_county_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_county_prediction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_header">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_header" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_header">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_header" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_location_prediction">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_location_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_location_prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_location_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_location_prediction">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_location_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_location_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_location_prediction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_tab_cal">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_tab_cal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_tab_cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_tab_cal" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_tab_cal">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_tab_cal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_tab_cal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_tab_cal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="tests.test_app.test_tab_county">
-<code class="sig-prename descclassname">tests.test_app.</code><code class="sig-name descname">test_tab_county</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dash_duo</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_tab_county"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_app.test_tab_county" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_app.test_tab_county">
+<span class="sig-prename descclassname"><span class="pre">tests.test_app.</span></span><span class="sig-name descname"><span class="pre">test_tab_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dash_duo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_app.html#test_tab_county"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_app.test_tab_county" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-tests.test_model">
-<span id="tests-test-model-module"></span><h2>tests.test_model module<a class="headerlink" href="#module-tests.test_model" title="Permalink to this headline">¶</a></h2>
+<span id="tests-test-model-module"></span><h2>4. tests.test_model module<a class="headerlink" href="#module-tests.test_model" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="tests.test_model.test_county_prediction">
-<code class="sig-prename descclassname">tests.test_model.</code><code class="sig-name descname">test_county_prediction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_model.html#test_county_prediction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.test_model.test_county_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.test_model.test_county_prediction">
+<span class="sig-prename descclassname"><span class="pre">tests.test_model.</span></span><span class="sig-name descname"><span class="pre">test_county_prediction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/test_model.html#test_county_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.test_model.test_county_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>test the prediction result from the county
 take all the data before 2020 for training and take the data from 2020 for testing
 the result is shown in mean absolute deviation and confusion matrix (happen or not)</p>
@@ -435,7 +438,7 @@ the result is shown in mean absolute deviation and confusion matrix (happen or n
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="src.html" class="btn btn-neutral float-left" title="src package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="code_files.html" class="btn btn-neutral float-left" title="Source Code Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
