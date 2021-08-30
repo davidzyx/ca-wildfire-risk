@@ -3,7 +3,7 @@ FROM jupyter/base-notebook:python-3.8.8
 # selenium stuff
 USER root
 RUN apt-get update && apt-get install curl unzip xvfb libxi6 libgconf-2-4 gnupg -y && apt-get clean
-RUN wget https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -O /tmp/chrome.zip && \
+RUN wget https://chromedriver.storage.googleapis.com/92.0.4515.107/chromedriver_linux64.zip -O /tmp/chrome.zip && \
     unzip /tmp/chrome.zip -d /usr/bin && \
     chmod a+x /usr/bin/chromedriver && \
     rm /tmp/chrome.zip
