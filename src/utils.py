@@ -60,8 +60,9 @@ def getCountyNumbersDF(data, start_date, end_date):
 
 def get_single_CountyPrediction(queried_county, mode='running'):
     '''
-    Returns a new pandas dataframe with predicted county incident numbers for a specific month
+    Predict the fire incident for a county over 12 months in a year by ensembling the result from naive approach (averaging same months in the past years), Seasonal Arima Model, and Unobserved Component Model
     :param queried_counties: the counties that are being queried
+    :param mode: 'running' for normal prediction, 'eval' for testing purpose, which would trim out a subset for testing 
     :type queried_counties: str
     :type month: str
     '''
@@ -103,6 +104,10 @@ def get_single_CountyPrediction(queried_county, mode='running'):
             past_res[i] = 0
     
     # construct Seasonal Arima Model
+    # extend naive predict to fire occurs for baseline of future prediction
+    last_month = selected_county_data.index[-1][1]
+    for i in range(12):
+        np.append(fire_occurs,past_res[(last_month+i)%12])
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
         try:
